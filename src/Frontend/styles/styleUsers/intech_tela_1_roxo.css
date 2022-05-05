@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital@0;1&family=Roboto+Slab:wght@800&family=Ubuntu:wght@300&display=swap');
+
+/* :root{} */
+
+body{
+    background-color: #530084;
+
+}
+
+.titulo-da-pagina{
+    font-family: 'Roboto Slab', serif;
+    text-align: center; 
+    font-size: 35px;
+    color: white;
+}
+
+
+
+nav{
+    background-color: white;
+    height: 75px;
+}
+
+
+.log{
+    margin-left: 20px;
+    margin-top: 3px;
+}
+
+.caixa{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 10px;
+}
+
+.caixa2{
+    width: 430px;
+    height: 70px;
+    border-radius: 11px;
+    margin-bottom: 10px;
+    text-align: center;  
+}
+
+.caixa3{
+    width: 314px;
+    height: 70px;
+    border-radius: 11px;
+    border-bottom: 10px;  
+}
+
+.caixa4{
+    width: 113px;
+    height: 70px;
+    border-radius: 11px; 
+    border-bottom: 10px; 
+}
