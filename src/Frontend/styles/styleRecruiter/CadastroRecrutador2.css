@@ -1,0 +1,81 @@
+body {
+    background-color: #530084;
+    background-image: url("./imagens/530084 (5).png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    
+}
+
+nav {
+    height: auto;
+    background-color: white;
+}
+
+.cadastroBox2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.areaInputs {
+    width: 60%;
+    height: 69px;
+    border-radius: 11px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.teste {
+    display: flex;
+    justify-content: start;
+
+    
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+}
+
+.proximaEtapa {
+
+    display: flex;
+    justify-content: end;
+    margin-right: 5em;
+    text-decoration: underline;
+    font-family: 'Roboto Slab', serif;
+}
+
+.elipse2 {
+    width: 40px;
+    height: 38px;
+    border-radius: 50%;
+    background-color: #F3C42E;
+    color: white;
+
+}
+
+.linha {
+    box-sizing: border-box;
+    position: absolute;
+    width: 46.58px;
+    height: 511.81px;
+    left: -33.69px;
+    top: 184.22px;
+    background: #FFFDFD;
+    border-radius: 30px;
+    transform: rotate(127.31deg);
+}
+
+.bolinha {
+    box-sizing: border-box;
+    position: absolute;
+    width: 46.58px;
+    height: 45.52px;
+    left: 201.44px;
+    top: 585.59px;
+    background: #FFFDFD;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+    border-radius: 30px;
+    transform: rotate(127.31deg);
+}
