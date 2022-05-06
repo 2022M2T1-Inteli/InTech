@@ -1,0 +1,16 @@
+:root {
+    --cor--principal: #530084;
+    --cor--secundaria: #1A1A1A;
+    --cor--tercia:#F3C42E;
+    --cor--quarta:#69B748;
+}
+
+
+
+.inputBit{
+    width: 60%;
+    height: 69px;
+    border-radius: 11px;
+    margin-bottom: 20px;
+    text-align: center;
+}
