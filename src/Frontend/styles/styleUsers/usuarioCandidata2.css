@@ -1,0 +1,16 @@
+.subtitulo{
+    color: #8C8C8C;
+    text-align: center;
+}
+
+body{
+    text-align: center;
+}
+
+img{
+    text-align: left ;
+}
+
+nav{
+    display: flex;
+}
