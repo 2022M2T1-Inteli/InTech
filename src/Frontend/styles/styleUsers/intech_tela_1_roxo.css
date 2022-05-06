@@ -16,6 +16,8 @@ body{
 
 
 
+
+
 nav{
     background-color: white;
     height: 75px;
@@ -23,8 +25,10 @@ nav{
 
 
 .log{
-    margin-left: 20px;
-    margin-top: 3px;
+
+    margin-left: 110px;
+    margin-top: 13px;
+
 }
 
 .caixa{
