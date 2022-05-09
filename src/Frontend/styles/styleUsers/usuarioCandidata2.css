@@ -1,0 +1,47 @@
+.subtitulo{
+    color: #8C8C8C;
+    text-align: center;
+}
+
+body{
+    text-align: center;
+    background-color: #E5E5E5;
+}
+
+img{
+    text-align: left ;
+}
+
+nav{
+    display: flex;
+}
+
+.caixinha{
+    border: 1px solid black;
+    border-radius: 20px;
+    width: 108px;
+    justify-content: center;
+}
+
+.caixinhacont{
+    border: 1px solid black;
+    border-radius: 20px;
+    width: 264px;
+}
+
+.caixinhagrad{
+    border: 1px solid black;
+    border-radius: 20px;
+    width: 283px;
+}
+
+.caixinhacolab{
+    border: 1px solid black;
+    border-radius: 20px;
+    width: 170px;
+}
+
+p{
+    display: flex;
+    justify-content: center;
+}
