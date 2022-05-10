@@ -45,3 +45,17 @@ p{
     display: flex;
     justify-content: center;
 }
+
+h4{
+    text-decoration: underline;
+}
+
+.boxamarela{
+    color: #ebbb1f;
+}
+
+.espacamento{
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
