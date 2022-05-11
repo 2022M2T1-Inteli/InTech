@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital@0;1&family=Roboto+Slab:wght@800&family=Ubuntu:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+nav{
+    background-color: white;
+    height: 75px;
+    width: 100%;
+}
+
+body{
+    background-color: #530084;
+
+}
+
+.tituloPagina{
+    font-family: 'Roboto Slab', serif;
+    text-align: center; 
+    font-size: 25px;
+    color: white;
+    margin-top: 5vw;
+}
+
+.subTitulo{
+    font-family: 'Nunito', sans-serif;
+    text-align: center;
+    color: white;
+}
+
+
+.log{
+    margin-left: 75px;
+    margin-top: 13px;
+}
+
+.container{
+    height: 50vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    margin-top: 10vw;
+    margin-bottom: 10vw;
+    margin-left: 10vw;
+    margin-right: 10vw;
+}
+
+.child{
+    width: 20%;
+    height: 100%;
+    background-color: white;
+}
+
+.h1{
+    font-family: 'Roboto Slab', serif;
+}
+
+.p{
+    font-family: 'Nunito', sans-serif;
+}
+
+.button{
+    border-radius: 15px;
+}
