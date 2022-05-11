@@ -38,16 +38,6 @@ nav img {
 }
 
 
-@keyframes up {
-    from {
-        opacity: 0;
-        transform: translateY(15px);
-    }
-    to {
-        opacity: 1;
-    }
-}
-
 input[type="text"] {
     height: 70px;
     border-radius: 11px;
