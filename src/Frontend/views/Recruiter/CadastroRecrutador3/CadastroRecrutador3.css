@@ -19,12 +19,19 @@ nav {
     align-items: center;
 }
 
+.legendaProgresso {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    margin-bottom: 20px;
+
+}
+
 .legendaDados {
     display: flex;
     justify-content: start;
 
-    
-    margin-top: 0px;
 
 }
 
@@ -33,16 +40,12 @@ nav {
     justify-content: start;
 
 
-    margin-left: 10px
-
 }
 
 .legendaCadastro {
     display: flex;
     justify-content: start;
 
-    margin-left: 1.810px;
-    margin-bottom: 20px;
 
 }
 
@@ -65,34 +68,12 @@ nav {
 
 }
 
-.proximaEtapa {
+.finalizarCadastro {
 
     display: flex;
     justify-content: end;
-    margin-right: 5em;
-    text-decoration: underline;
+    margin-right: 0px;
+    text-decoration: solid;
     font-family: 'Roboto Slab', serif;
-
-}
-
-.elipse2 {
-    width: 40px;
-    height: 38px;
-    border-radius: 50%;
-    background-color: #F3C42E;
-    color: white;
-
-}
-
-.linha {
-    box-sizing: border-box;
-    position: absolute;
-    width: 46.58px;
-    height: 511.81px;
-    left: -33.69px;
-    top: 184.22px;
-    background: #FFFDFD;
-    border-radius: 30px;
-    transform: rotate(127.31deg);
 
 }
