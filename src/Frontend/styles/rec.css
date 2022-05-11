@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital@0;1&family=Roboto+Slab:wght@800&family=Ubuntu:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+@keyframes bounce{
+    0%, 20%, 60%, 100%{
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+    40%{
+        -webkit-transform: translateY(-20px);
+        transform: translateY(-20px);
+    }
+    80%{
+        -webkit-transform: translateY(-10px);
+        transform: translateY(-10px);
+    }
+
+
+}
+body{
+
+    background-color: #530084;
+    background-image: url('Design\ sem\ nome.png');
+    background-size: cover;
+
+}
+nav {
+
+    background-color: #FFFFFF;
+    height: 4em;
+
+}
+
+
+    /* display: flex; */
+
+input{
+    align-items: center;
+    text-align: center;
+    border-radius: 20mm;
+    border-style: none;
+
+}
+    /*border-radius: 50%;
+    padding: 70px 5px 70px 5px;
+    box-sizing: 30px;*/
+/*    input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+  align-items: center;
+  text-align: center;
+  border-radius: 20mm;
+  border-style: none; */
+
+
+
+
+h3 {
+
+    color: #FFFFFF;
+    text-align: center;
+    margin-top: 4em;
+    font-family: 'Roboto Slab';
+
+}
+
+p {
+
+    color: #FFFDFD;
+    text-align: center;
+    font-size: small;
+    font-family: 'Nunito', sans-serif;
+
+}
+
+img{
+
+    max-width: 80em;
+    max-height: 41em; 
+    width: 110px;
+    height: 45px;
+    margin-left: 20x;
+    margin-top: 8px;
+
+}
+
+.divclass {
+
+    /*display: flex;
+    justify-content: center;*/
+    text-align: center;
+
+}
+
+p {
+    color: #FFFDFD;
+    text-align: center;
+    font-size: small;
+    font-family: 'Nunito', sans-serif;
+}
+
+#botao{
+
+    display: flex;
+    justify-content: center;
+    border-radius: 30px;
+    height: 60px;
+    width: 252px;
+    left: 30px;
+    top: 38px;
+    border-style: outset;
+    place-content: center;
+
+}
+
+form {
+    text-align: center;
+}
+
+.submit {
+    display: block;
+    width: 33.33%;
+    position: relative;
+    margin: 2rem auto 0 auto;
+    padding: .8rem 0;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1rem;
+    color: black;
+    border: 0;
+    border-radius: 2rem;
+    background-color: #FFFDFD;
+}
+
+.submit::after{
+    content:"";
+    width: 2.6rem;
+    height: 2.6rem;
+    position: absolute;
+    top: 0.1rem;
+    right: 0.6rem;
+    background-image: url('right-arrow.png');
+    background-size: 40% 40%;
+    background-position: center;
+    /*background-repeat: no-repeat;*/
+}
+
+.primeira {
+    width: 2.6rem;
+    height: 2.6rem;
+}
+
+.card {
+    background-color: rgba(50, 50, 50, 0.5);
+    
+    max-width: 100%;
+    padding: 30px;
+    border: 1px solid;
+}
+
+.verifique {
+    font-size: x-small  ;
+}
+
+#efeito4 {
+    background: #FFFDFD;
+}
+#efeito4 :hover{
+    animation: bounce 1s;
+}
