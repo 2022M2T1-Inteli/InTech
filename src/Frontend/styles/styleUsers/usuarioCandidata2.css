@@ -1,0 +1,104 @@
+.subtitulo{
+    color: #8C8C8C;
+    text-align: center;
+}
+
+body{
+    text-align: center;
+    background-color:white;
+}
+
+img{
+        max-width: 80em;
+        max-height: 41em;
+        width: 110px;
+        height: 45px;
+        margin-left: 20x;
+        margin-top: 8px;
+        text-align: left;
+}
+
+nav{
+        background-color: #FFFFFF;
+        height: 4em;
+        text-align: left;
+}
+
+.caixinha{
+    border: 1px solid black;
+    border-radius: 20px;
+    width: 108px;
+    justify-content: center;
+    font-size: 19px;
+}
+
+.caixinhacont{
+    border: 1px solid black;
+    border-radius: 20px;
+    width: 264px;
+    font-size: 19px;
+}
+
+.caixinhagrad{
+    border: 1px solid black;
+    border-radius: 20px;
+    width: 283px;
+    font-size: 19px;
+}
+
+.caixinhacolab{
+    border: 1px solid black;
+    border-radius: 20px;
+    width: 170px;
+    font-size: 19px;
+}
+
+p{
+    display: flex;
+    justify-content: center;
+}
+
+.textinho{
+    display: flex;
+    justify-content: center;
+    width: 700px;
+    text-align: left;
+    margin: auto;
+    margin-bottom: 25px;
+}
+
+h4{
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.boxamarela{
+    color: #ebbb1f;
+}
+
+.espacamento{
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+.voltarbut{
+    border: 1px solid black;
+    border-radius: 13px;
+    font-size: 29px;
+}
+
+.but{
+    text-align: center;
+    margin: 110px;
+    padding: 17px;
+    margin-top: 50px;
+}
+
+.aplicarbut{
+    border: 0px solid black;
+    border-radius: 13px;
+    background-color: #69B748;
+    color: white;
+    font-size: 29px;
+}
