@@ -3,7 +3,7 @@
 body { 
     margin: 0;
     color: white;
-    height: 100vh;
+    
 }
 
 nav {
@@ -33,8 +33,19 @@ nav img {
     text-align: center;
     color: gray;
     width: 430px;
-
+    
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+
+@keyframes up {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 input[type="text"] {
@@ -44,24 +55,6 @@ input[type="text"] {
 
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
-
-/*.curriculoLabelButton {   
-    width: 200px;   
-    color: #FFF;   
-    background-color: rgba(255, 255, 255, 0.3);
-    padding: 5px;
-    border-radius: 11px;
-    text-align: center;    
-    display: block;    
-    margin-top: 10px;    
-    font-family: 'Roboto Slab', serif;
-    cursor: pointer;
-    font-size: 26px;
-}
-
-.curriculoLabelButton:hover {
-    background-color: rgba(255, 255, 255, 0.5);
-}*/
 
 /* From uiverse.io by @Voxybuns */
 .button_top {
@@ -110,7 +103,7 @@ input[type="text"] {
     align-items: center;
     flex-direction: column;
     height: 290px;
-    margin: 0;
+    margin: 16px 0;
 }
 
 
