@@ -14,3 +14,14 @@
     margin-bottom: 20px;
     text-align: center;
 }
+
+/* Código para animação, a ideia é que haja uma mudança no eixo Y de 15px e uma mudança de opacidade */
+@keyframes up {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+    }
+}
