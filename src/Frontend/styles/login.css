@@ -2,10 +2,11 @@
     --white
 } */
 @import url('https://fonts.googleapis.com/css2?family=Cabin:ital@0;1&family=Roboto+Slab:wght@800&family=Ubuntu:wght@300&display=swap');
-
 body{
 
     background-color: #530084;
+    background-image: url('Design sem nome.jpg');
+    background-size: cover;
    
 }
 
@@ -15,7 +16,6 @@ div {
     text-align: center;
     margin-top: 4em;
     font-family: 'Roboto Slab';
-    
     
 }
 
@@ -33,52 +33,60 @@ nav{
 
     background-color: #FFFFFF;
     height: 4em;
-    
 
 }
 h3 {
 
     font-size: x-large;
     text-align: center;
-    
 
 }
 img{
 
-    max-width: 100em;
-    max-height: 51em; 
-    width: 118px;
-    height: 57px;
-   
+    max-width: 80em;
+    max-height: 41em; 
+    width: 110px;
+    height: 45px;
+    margin-left: 20x;
+    margin-top: 8px;
 
 }
-div {
 
-   
-
-}
 input {
 
-    
+    text-align: center;
 
 }
 
 button {
 
-    
+    font-family: 'Roboto Slab';
 
 }
 a {
 
     color: #FFFFFF;
     
-    
 }
 
 #e-mail {
+
     border-radius: 30px;
+    height: 60.47517776489258px;
+    width: 252.3405456542969px;
+    left: 1030px;
+    top: 383px;
+    border-style: none;
+
+
 }
 
 #senha {
+
+    height: 60.47517776489258px;
+    width: 252.3405456542969px;
+    left: 1030px;
+    top: 383px;
     border-radius: 30px;
+    border-style: none;
 }
