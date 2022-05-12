@@ -46,3 +46,13 @@ p{
     margin-bottom: 30px;
     text-align: center;
 }
+
+.prox{
+    border: 0px;
+   background-color: transparent;
+    text-decoration: underline;
+    display: flex;
+    color: white;
+    font-size: 24px;
+    margin-left: 950px;
+}
