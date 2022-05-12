@@ -76,3 +76,10 @@ nav{
     color: var(--cor--principal);
     text-align: center;
 }
+
+@media only screen and (max-width: 600px) {
+    .caixa2{
+        width: 80%;
+    }
+   
+ }
