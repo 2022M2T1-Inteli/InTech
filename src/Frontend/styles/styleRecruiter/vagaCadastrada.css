@@ -1,9 +1,5 @@
 body{
     background-color: #530084;
-    background-image: url("./Design\ sem\ nome.jpg");
-    background-repeat: no-repeat;
-    background-size:cover;
-
     color: white;
     
 }
@@ -74,6 +70,7 @@ nav img{
     width: 200px;
     height: 200px;
     border: 6px dashed white;
+    border-radius: 20px;
 }
 
 .porcentagemReq{
