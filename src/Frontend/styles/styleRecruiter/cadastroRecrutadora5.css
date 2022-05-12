@@ -19,9 +19,6 @@ nav{
     justify-content: center;
 }
 
-.caixa {
-    justify-content: center;
-}
 
 .logo{
     margin-left: 110px;
@@ -42,51 +39,21 @@ nav{
     justify-content: space-between;
     align-items: center;
     border-bottom: 10px;
+    margin: 10px, 10px, 10px, 10px;
 }
 
-.caixa2{
+.input{
     width: 430px;
     height: 70px;
     border-radius: 11px;
     margin-bottom: 10px;
-    text-align: center;  
+    text-align: center;
+    margin: 10px, 10px, 10px, 10px;  
 }
 
-.caixa3{
+.textarea{
     width: 430px;
     height: 200px;
-    border-radius: 11px;
-    margin-bottom: 10px;
-    text-align: center;
-}
-
-.caixa4{
-    width: 430px;
-    height: 70px;
-    border-radius: 11px;
-    margin-bottom: 10px;
-    text-align: center;
-}
-
-.caixa5{
-    width: 430px;
-    height: 70px;
-    border-radius: 11px;
-    margin-bottom: 10px;
-    text-align: center;
-}
-
-.caixa6{
-    width: 430px;
-    height: 70px;
-    border-radius: 11px;
-    margin-bottom: 10px;
-    text-align: center;
-}
-
-.caixa7{
-    width: 430px;
-    height: 70px;
     border-radius: 11px;
     margin-bottom: 10px;
     text-align: center;
@@ -104,29 +71,6 @@ nav{
     text-align: center;
 }
 
-
-
-.row{
-    flex-shrink: 0;
-    width: 100%;
-    max-width: 100%;
-    padding-right: calc(var(--bs-gutter-x) * .5);
-    padding-left: calc(var(--bs-gutter-x) * .5);
-    margin-top: var(--bs-gutter-y);
-}
-
-/* .soft2{
-    font-family: 'Roboto Slab', serif;
-    text-align: center;
-    border-radius: 100px;
-    border: var(--cor--tercia);
-    height: 35px;
-    margin-top: 15px;
-    background-color: rgba(245, 226, 55, 0.7);
-    color:aliceblue;
-} */
-
-
 .avanço{
     font-family: 'Roboto Slab', serif;
     border-radius: 100px;
@@ -135,5 +79,12 @@ nav{
     margin-top: 15px;
     background-color:#ffff;
     color: var(--cor--principal);
+}
+
+input[type="text"]{
+    height: 70px;
+    border-radius: 11px;
+    margin-bottom: 30px;
+    width: 430px;
 }
 

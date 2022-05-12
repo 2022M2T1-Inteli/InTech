@@ -48,7 +48,7 @@
             <div class="caixa" style="animation: up 2s backwards;">
                 <!-- Caixa de texto para seleção de profissões -->
                 <div>
-                    <select class="caixa2 border-0" name="" id="">
+                    <select class="input border-0" name="" id="">
                         <option value="" disabled selected hidden> Nome da vaga</option>
                         <OPtion>Desenvolvedora junior</OPtion>
                         <OPtion>Desenvolvedora plena</OPtion>
@@ -58,11 +58,11 @@
 
                 <div>
                     <!-- <input class="caixa3 border-0" type="text" placeholder="Descrição da vaga" /> -->
-                    <TEXTarea class="caixa3 border-0" placeholder="Descrição da vaga"></TEXTarea>
+                    <TEXTarea class="input border-0" placeholder="Descrição da vaga"></TEXTarea>
                 </div>
 
                 <div>
-                    <input class="caixa4 border-0" type="text" placeholder="Localização da vaga" />
+                    <input class="input border-0" type="text" placeholder="Localização da vaga" />
                 </div>
 
                 <div>
@@ -70,13 +70,13 @@
                 </div>
 
              
-                <div class="softSkillsContainer">
-                    <input type="text" name="Soft-Skills" list="softskillslist" id="soft-skills" class="caixa5 form-control">
+                <div class="row softSkillsContainer">
+                    <input type="text" name="Soft-Skills" list="softskillslist" id="soft-skills" class="form-control">
 
                     <datalist id="softskillslist">
-                        <option value=" Controle de emoções">
-                        <option value=" Colaboração">
-                        <option value=" Boa comunicação verbal">
+                        <option value=" Controle de emoções"></option>
+                        <option value=" Colaboração"></option>
+                        <option value=" Boa comunicação verbal"></option>
                         <option value=" Solução de problemas"></option>
                         <option value=" Trabalho em equipe"></option>
                         <option value=" Gerenciamento de tempo"></option>
@@ -116,41 +116,118 @@
                     <p class="texto"> Hard skills </p>
                 </div>
 
-                <div class="hardSkillsContainer">
-                    <input type="text" name="Hard-Skills" list="hardskillslist" id="hard-skills" class="form-control">
+                <div class="row hardSkillsContainer">
+                    <input class=" border-0"type="text" name="Hard-Skills" list="hardskillslist" id="hard-skills" class="form-control">
 
                     <datalist id="hardskillslist">
-                        <option value="JavaScript"></option>
-                        <option value="HTML/CSS"></option>
-                        <option value="Python"></option>
-                        <option value="SQL"></option>
-                        <option value="Java"></option>
-                        <option value="Node.js"></option>
-                        <option value="TypeScript"></option>
-                        <option value="C#"></option>
-                        <option value="Bash/Shell"></option>
-                        <option value="C++"></option>
-                        <option value="PHP"></option>
-                        <option value="PowerShell"></option>
-                        <option value="C"></option>
-                        <option value="Go"></option>
-                        <option value="Kotlin"></option>
-                        <option value="Rust"></option>
-                        <option value="Ruby"></option>
-                        <option value="Assembly"></option>
-                        <option value="Swift"></option>
-                        <option value="R"></option>
-                        <option value="VBA"></option>
-                        <option value="Matlab"></option>
-                        <option value="Groovy"></option>
-                        <option value="Objective-C"></option>
-                        <option value="Scala"></option>
-                        <option value="Perl"></option>
-                        <option value="Haskell"></option>
-                        <option value="Delphi"></option>
-                        <option value="Clojure"></option>
-                        <option value="Elixir"></option>
-
+                            <option id='JavaScript'>JavaScript</option>
+                            <option id='HTML/CSS'>HTML/CSS</option>
+                            <option id='Python'>Python</option>
+                            <option id='SQL'>SQL</option>
+                            <option id='Java'>Java</option>
+                            <option id='Node.js'>Node.js</option>
+                            <option id='TypeScript'>TypeScript</option>
+                            <option id='C#'>C#</option>
+                            <option id='Bash/Shell'>Bash/Shell</option>
+                            <option id='C++'>C++</option>
+                            <option id='PHP'>PHP</option>
+                            <option id='C'>C</option>
+                            <option id='PowerShell'>PowerShell</option>
+                            <option id='Go'>Go</option>
+                            <option id='Kotlin'>Kotlin</option>
+                            <option id='Rust'>Rust</option>
+                            <option id='Ruby'>Ruby</option>
+                            <option id='Dart'>Dart</option>
+                            <option id='Assembly'>Assembly</option>
+                            <option id='Swift'>Swift</option>
+                            <option id='R'>R</option>
+                            <option id='VBA'>VBA</option>
+                            <option id='Matlab'>Matlab</option>
+                            <option id='Groovy'>Groovy</option>
+                            <option id='Objective-C'>Objective-C</option>
+                            <option id='Scala'>Scala</option>
+                            <option id='Perl'>Perl</option>
+                            <option id='Haskell'>Haskell</option>
+                            <option id='Delphi'>Delphi</option>
+                            <option id='Clojure'>Clojure</option>
+                            <option id='Elixir'>Elixir</option>
+                            <option id='LISP'>LISP</option>
+                            <option id='Julia'>Julia</option>
+                            <option id='F#'>F#</option>
+                            <option id='Erlang'>Erlang</option>
+                            <option id='APL'>APL</option>
+                            <option id='Crystal'>Crystal</option>
+                            <option id='COBOL'>COBOL</option>
+                            <option id='MySQL'>MySQL</option>
+                            <option id='PostgreSQL'>PostgreSQL</option>
+                            <option id='SQLite'>SQLite</option>
+                            <option id='MongoDB'>MongoDB</option>
+                            <option id='Microsoft SQL Server'>Microsoft SQL Server</option>
+                            <option id='Redis'>Redis</option>
+                            <option id='MariaDB'>MariaDB</option>
+                            <option id='Firebase'>Firebase</option>
+                            <option id='Elasticsearch'>Elasticsearch</option>
+                            <option id='Oracle'>Oracle</option>
+                            <option id='DynamoDB'>DynamoDB</option>
+                            <option id='Cassandra'>Cassandra</option>
+                            <option id='IBM DB2'>IBM DB2</option>
+                            <option id='Couchbase'>Couchbase</option>
+                            <option id='AWS'>AWS</option>
+                            <option id='Google Cloud Platform'>Google Cloud Platform</option>
+                            <option id='Microsoft Azure'>Microsoft Azure</option>
+                            <option id='Heroku'>Heroku</option>
+                            <option id='DigitalOcean'>DigitalOcean</option>
+                            <option id='BM Cloud or Watson'>BM Cloud or Watson</option>
+                            <option id='Oracle Cloud Infrastructure'>Oracle Cloud Infrastructure</option>
+                            <option id='React.js'>React.js</option>
+                            <option id='jQuery'>jQuery</option>
+                            <option id='Express'>Express</option>
+                            <option id='Angular'>Angular</option>
+                            <option id='Vue.js'>Vue.js</option>
+                            <option id='ASP.NET Core'>ASP.NET Core</option>
+                            <option id='Flask'>Flask</option>
+                            <option id='ASP.NET'>ASP.NET</option>
+                            <option id='Django'>Django</option>
+                            <option id='Spring'>Spring</option>
+                            <option id='Angular.js'>Angular.js</option>
+                            <option id='Laravel'>Laravel</option>
+                            <option id='Ruby on Rails'>Ruby on Rails</option>
+                            <option id='Gatsby'>Gatsby</option>
+                            <option id='FastAPI'>FastAPI</option>
+                            <option id='Symfony'>Symfony</option>
+                            <option id='Svelte'>Svelte</option>
+                            <option id='Rupal'>Rupal</option>
+                            <option id='.NET Framework'>.NET Framework</option>
+                            <option id='NumPy'>NumPy</option>
+                            <option id='.NET Core / .NET 5'>.NET Core / .NET 5</option>
+                            <option id='Pandas'>Pandas</option>
+                            <option id='TensorFlow'>TensorFlow</option>
+                            <option id='React Native'>React Native</option>
+                            <option id='Flutter'>Flutter</option>
+                            <option id='Keras'>Keras</option>
+                            <option id='Qt'>Qt</option>
+                            <option id='Torch/PyTorch'>Torch/PyTorch</option>
+                            <option id='ordova'>ordova</option>
+                            <option id='Apache Spark'>Apache Spark</option>
+                            <option id='Adoop'>Adoop</option>
+                            <option id='Git'>Git</option>
+                            <option id='Docker'>Docker</option>
+                            <option id='Yarn'>Yarn</option>
+                            <option id='Kubernetes'>Kubernetes</option>
+                            <option id='Unity 3D'>Unity 3D</option>
+                            <option id='Ansible'>Ansible</option>
+                            <option id='Terraform'>Terraform</option>
+                            <option id='Xamarin'>Xamarin</option>
+                            <option id='Unreal Engine'>Unreal Engine</option>
+                            <option id='Puppet'>Puppet</option>
+                            <option id='Deno'>Deno</option>
+                            <option id='hef'>hef</option>
+                            <option id='Flow'>Flow</option>
+                            <option id='Ulumi'>Ulumi</option>
+                            <option id='Windows'>Windows</option>
+                            <option id='Linux-based'>Linux-based</option>
+                            <option id='MacOS'>MacOS</option>
+                            <option id='Windows Subsystem for Linux (WSL)'>Windows Subsystem for Linux (WSL)</option>
                     </datalist>
                 </div>
 
@@ -159,7 +236,7 @@
                 </div>
 
                 <div>
-                    <input class="caixa7 border-0" type="text" placeholder="Salário (R$)" />
+                    <input class="input border-0" type="text" placeholder="Salário (R$)" />
                 </div>
 
                 <div>
@@ -168,7 +245,7 @@
 
                 <div>
                     <!-- <input class="caixa3 border-0" type="text" placeholder="Descrição da vaga" /> -->
-                    <TEXTarea class="caixa3 border-0" placeholder="Tags"></TEXTarea>
+                    <TEXTarea class="textarea border-0" placeholder="Tags"></TEXTarea>
                 </div>
 
                 <div>
@@ -183,17 +260,6 @@
 
     <script src="../../script/tagInputs/softSkillsTagInput.js"></script>
     <script src="../../script/tagInputs/hardSkillsTagInput.js"></script>
-
-    <footer>
-        <div>
-            <!--Barra de navegação acima do site. -->
-            <nav>
-                <!-- Imagem do logotipo superior -->
-                <img class="logo" src="../../images/logo.svg" width="100" height="50" alt="Logo Brazilians in Tech">
-            </nav>
-            <br>
-        </div>
-    </footer>
 
 </body>
 
