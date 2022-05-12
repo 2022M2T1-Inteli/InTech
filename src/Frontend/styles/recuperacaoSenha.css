@@ -2,6 +2,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 
 
+
+body{
+    background-image: url("../images/Background.svg");
+}
+
 h3 {
     
     color: #FFFFFF;
@@ -150,3 +155,10 @@ form {
     animation: bounce 2.7s;
 }
 
+@media only screen and (max-width: 600px) {
+    .card{
+        width: 80%;
+    }
+   
+   
+ }

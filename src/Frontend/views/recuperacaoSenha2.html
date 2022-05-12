@@ -10,8 +10,7 @@
         <link rel="stylesheet" href="../styles/recuperacaoSenha.css">
     </head>
 
-    <body class="bg-image"  style="background-image: url('../images/Background.svg');
-    height: 100%; background-repeat: no-repeat; background-size: cover; margin: 0;">
+    <body class="bg-image">
     
         <nav><img src="../images/logo.svg" alt="Logo Brazilians in Tech" href=""></nav>
         <!-- APLIQUEI OS MESMO CONCEITOS DA TELA DE RECUPERAÇÃO ANTERIOR :D -->
@@ -25,12 +24,12 @@
                         </div>
                         
                         
-                        <form class="row">
+                        <form class="row" method="get" action="./index.html">
                             <!-- <input type="text" maxlength="4" onkeypress="if (!isNaN(String.fromCharCode(window.event.keyCode))) return true; else return false;"> -->
                             <input type="text" maxlength="4" id="input" placeholder="Digite o código" onkeypress="if (!isNaN(String.fromCharCode(window.event.keyCode))) return true; else return false;">
                             <p class="verifique">*Verifique sua caixa de entrada ou spam</p>
 
-                            <button class="botao " id="efeito" type="submit" name="signUp" value="submit"
+                            <button class="botao" id="efeito" type="submit" name="signUp" value="submit"
                                 onclick="clicar()">Verificar</button> <br>
 
                         </form>
