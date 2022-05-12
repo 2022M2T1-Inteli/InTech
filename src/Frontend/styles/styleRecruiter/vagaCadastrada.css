@@ -1,5 +1,7 @@
 body{
     background-color: #530084;
+    background-image: url("../../images/Background.svg");
+    background-size: cover;
     color: white;
     
 }

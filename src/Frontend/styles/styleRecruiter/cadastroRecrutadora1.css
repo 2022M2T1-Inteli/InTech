@@ -1,4 +1,8 @@
-:root
+body{
+    background-image: url("../../images/Background.svg");
+    background-size: cover;
+    overflow-x: hidden;
+}
 
 h1{
     color: white;
@@ -11,6 +15,7 @@ img{
 
 nav{
     background-color: white;
+    width: 103%;
 }
 
 .caixa{
@@ -40,3 +45,15 @@ p{
     margin-bottom: 30px;
     text-align: center;
 }
+
+@media only screen and (max-width: 600px) {
+    .inputBit{
+        width: 80%;
+    }
+
+   .imagemprocess{
+       width: 80%;
+   }
+
+
+ }

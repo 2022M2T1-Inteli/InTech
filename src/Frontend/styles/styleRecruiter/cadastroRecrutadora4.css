@@ -4,6 +4,9 @@
 body{
     background-color: #530084;
     color: white;
+    background-image: url("../../images/Background.svg");
+    background-size: cover;
+    overflow-x: hidden;
 }
 
 .tituloPagina{
@@ -11,11 +14,12 @@ body{
     text-align: center; 
     font-size: 25px;
     color: white;
+    margin-left: 10%;
 }
 
 nav{
     background-color: white;
-    width: 100%;
+    width: 105%;
     height: 75px;
 }
 
@@ -25,8 +29,19 @@ nav{
 }
 
 .geral{
-    width: 430px;
+    
     justify-content: center;
+}
+
+.e-mail{
+    text-align: center;
+    height: 53px;
+}
+
+.cult{
+    text-align: center;
+    height: 213px;
+    border-radius: 31px;
 }
 
 .arquivo{
@@ -111,3 +126,14 @@ nav{
     /* Push the button downwards when pressed */
    transform: translateY(0);
   }
+
+
+.add{
+    height: 72px;
+    margin-top: 10px;
+}
+
+.btnpro{
+    font-size: 1.5em;
+    background-color: rgba(92, 92, 119, 0.7);
+}

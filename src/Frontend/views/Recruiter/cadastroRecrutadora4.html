@@ -16,31 +16,66 @@
         <img class="log" src="../../images/logo.svg" width="100" height="50" alt="Logo Brazilians in Tech">
     </nav>
 
-    
 
-    <div class="geral container">
-        <div class="tituloPagina">
-            <h1>Perfil da empresa</h1>
-        </div>
 
-            <form class="upload" action="./cadastroRecrutadora5.html" method="get">
-                <div class="arquivo">
-                    <img src="../../images/InsertPhoto.svg" alt="Selecione um arquivo png" id="imgPhoto">
-                    <h1>Upload <i class="fas fa-cloud-upload-alt"></i></h1>
-                    <label for="form-logo" class="button_top">Carregue sua Logo</label>
-                    <input id="form-logo" type="file" name="input_logo" placeholder="Selecione o arquivo" hidden>
+    <form class="upload" action="./cadastroRecrutadora5.html" method="get">
+        <div class="geral container">
+            <div class="row d-sm-flex justify-content-center">
+
+                <div class="tituloPagina mt-4 mb-4">
+                    <h1>Perfil da empresa</h1>
                 </div>
 
-                <div class="registerContainer">
-                    <label class="form-label">Email de Contato</label>
-                    <input id="emailInput" class="e-mail" type="text" placeholder="Digite seu e-mail"
-                        aria-label="default input example">
-                    <label class="form-label">Cultura da Empresa</label>
-                    <input id="cadastreInput" class="form-control" placeholder="Cultura da Empresa" />
-                    </input>
+                <div class="col-lg-4 col-sm-12">
+
+                    <div class="arquivo">
+                        <img src="../../images/InsertPhoto.svg" alt="Selecione um arquivo png" id="imgPhoto">
+                        <h1>Upload <i class="fas fa-cloud-upload-alt"></i></h1>
+                        <label for="form-logo" class="button_top">Carregue sua Logo</label>
+                        <input id="form-logo" type="file" name="input_logo" placeholder="Selecione o arquivo" hidden>
+                    </div>
+
+
                 </div>
-                <button type="submit" class="button_top vagas">Adicionar vagas</button>
-            </form>
+
+                <div class="col-lg-1 col-sm-12">
+
+                </div>
+
+                <div class="mx-5 col-lg col-sm-12">
+
+                    <div class="registerContainer">
+                        <label class="form-label">Email de Contato</label>
+
+                        <input id="emailInput " class="e-mail rounded-pill" type="text" placeholder="Digite seu e-mail"
+                            aria-label="default input example">
+
+                        <label class="form-label">Cultura da Empresa</label>
+                        <input id="cadastreInput" class="cult" placeholder="Cultura da Empresa" />
+                        </input>
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+            <div class="row add text-center ">
+                <button type="submit" class="rounded-pill btnpro">+ adicione vagas</button>
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+    </form>
     </div>
 </body>
 
