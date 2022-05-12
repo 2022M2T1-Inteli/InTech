@@ -1,11 +1,13 @@
 body {
+<<<<<<< Updated upstream:src/Frontend/styles/styleRecruiter/CadastroRecrutador2.css
     background-color: #530084;
     background-image: url("./imagens/530084 (5).png");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+=======
+>>>>>>> Stashed changes:src/Frontend/styles/styleRecruiter/cadastroRecrutadora2.css
     color: white;
-    
 }
 
 nav {
