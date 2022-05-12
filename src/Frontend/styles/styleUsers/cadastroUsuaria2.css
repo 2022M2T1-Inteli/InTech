@@ -16,7 +16,9 @@ nav {
 }
 
 nav img {
-    margin: 20px;
+    margin-left:110px;
+    margin-top: 13px;
+    height: 50px;
     width: 100px;
 }
 
