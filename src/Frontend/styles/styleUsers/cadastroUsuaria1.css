@@ -3,8 +3,8 @@
 /* :root{} */
 
 body{
-    background-color: #530084;
-
+    background-image: url(../../images/Background.svg);
+    
 }
 
 .titulo-da-pagina{
@@ -15,16 +15,19 @@ body{
 }
 
 
-
 nav{
-    background-color: white;
+    background-color: #f8f3fb;
     height: 75px;
+    position: fixed;
+    width: 100%;
 }
 
 
 .log{
-    margin-left: 20px;
-    margin-top: 3px;
+
+    margin-left: 110px;
+    margin-top: 13px;
+
 }
 
 .caixa{
@@ -55,4 +58,21 @@ nav{
     height: 70px;
     border-radius: 11px; 
     border-bottom: 10px; 
+}
+
+.avanço1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.avanço{
+    font-family: 'Roboto Slab', serif;
+    border-radius: 100px;
+    border: var(--cor--tercia);
+    height: 35px;
+    margin-top: 15px;
+    background-color:#ffff;
+    color: var(--cor--principal);
+    text-align: center;
 }
