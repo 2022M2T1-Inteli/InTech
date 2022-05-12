@@ -1,13 +1,3 @@
-body {
-    background-color: #530084;
-    background-image: url("/src/Frontend/images/530084\ \(5\).png");
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    color: white;
-    
-}
-
 nav {
     height: auto;
     background-color: white;

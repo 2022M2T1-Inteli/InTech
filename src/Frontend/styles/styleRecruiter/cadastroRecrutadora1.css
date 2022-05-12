@@ -1,11 +1,5 @@
 :root
 
-body{
-    text-align: center;
-    background-image: url("/images/Background.svg");
-    background-size: cover;
-}
-
 h1{
     color: white;
 }
