@@ -139,12 +139,6 @@ label p{
     width: 80%;
 }
 
-.btnproprio{
-    background-color: white;
-    width: auto;
-    
-}
-
 
 @media only screen and (max-width: 600px) {
     

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital@0;1&family=Roboto+Slab:wght@800&family=Ubuntu:wght@300&display=swap');
+
 :root {
     --cor--principal: #530084;
     --cor--secundaria: #1A1A1A;
@@ -24,4 +26,26 @@
     to {
         opacity: 1;
     }
+}
+
+.btnproprio{
+    background-color: white;
+    width: auto;
+    padding: 10px;
+    font-size: 22px;
+    border-style: none;
+    font-weight: bold;
+    border-radius: 11px;
+
+    font-family: 'Roboto Slab', serif;
+    margin-top: 15px;
+    margin-bottom: 25px;
+    color: var(--cor--principal);
+    text-align: center;
+}
+
+.btnproprio:hover {
+    background-color: rgb(210, 210, 210);
+    transform: scale(1.08);
+    transition: 1s;
 }
