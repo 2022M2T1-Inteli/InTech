@@ -1,16 +1,17 @@
 body {
   background-color: #530084;
-  background-image: url("images/Background.svg");
-  background-position: center;
+  background-image: url("/src/Frontend/images/Background.svg");
+  background-position: top;
   background-size: cover;
   background-repeat: no-repeat;
   color: white;
+  font-family: "Roboto Slab";
 }
 
 nav {
   height: auto;
   background-color: white;
-  box-shadow: 0px 2px 20px rgb(50, 50, 50);
+  box-shadow: 1px 1px 15px rgb(50, 50, 50);
   margin-bottom: 40px;
 }
 
@@ -19,7 +20,8 @@ nav {
   flex-direction: column;
   justify-content: start;
   align-items: center;
-  text-shadow: 2px 2px 2px rgb(50, 50, 50);
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgb(50, 50, 50);
 }
 
 .cadastroBox2 {
@@ -29,7 +31,7 @@ nav {
 }
 
 .progress {
-  box-shadow: 2px 2px 10px rgb(50, 50, 50);
+  box-shadow: 1px 1px 5px rgb(50, 50, 50);
 }
 
 .legendaProgresso {
@@ -44,19 +46,26 @@ nav {
 .legendaDados {
   display: flex;
   justify-content: start;
+  align-items: center;
   color: grey;
+  margin-right: 0px;
 }
 
 .legendaContato {
   display: flex;
   justify-content: start;
+  align-items: center;
   color: grey;
+  margin-right: 20px;
+  margin-left: 30px;
 }
 
 .legendaCadastro {
   display: flex;
   justify-content: start;
+  align-items: center;
   color: lightgrey;
+  margin-left: 50px;
 }
 
 .insiraEmail {
@@ -72,7 +81,7 @@ nav {
   border-radius: 11px;
   margin-bottom: 20px;
   text-align: center;
-  box-shadow: 2px 2px 10px rgb(50, 50, 50);
+  box-shadow: 1px 1px 8px rgb(50, 50, 50);
 }
 
 .definirSenha {
@@ -81,13 +90,15 @@ nav {
 
   /* margin-top: 30px; */
   margin-bottom: 10px;
+  margin-top: 10px;
 }
 
 .finalizarCadastro {
   display: flex;
   justify-content: end;
-  margin-right: 0px;
+  align-items: flex-end;
   text-decoration: solid;
   font-family: "Roboto Slab", serif;
   text-shadow: 1px 1px 1px rgb(50, 50, 50);
+  margin-top: 20px;
 }
