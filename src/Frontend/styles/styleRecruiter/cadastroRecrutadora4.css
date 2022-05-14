@@ -17,14 +17,12 @@ body{
 nav{
     background-color: white;
     width: 105%;
-    height: 75px;
+    height: 4em;
 }
 
 .log{
-    margin-left: 75px;
-    margin-top: 13px;
+    margin-top: 10px;
 }
-
 .geral{
     
     justify-content: center;
@@ -179,4 +177,14 @@ nav{
 .card .icons img {
     height: 30px;
     padding-left: 18px;
+}
+
+@media only screen and (max-width: 600px) {
+
+    nav{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
 }

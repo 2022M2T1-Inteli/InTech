@@ -1,24 +1,24 @@
-body{
+body {
     overflow-x: hidden;
     background-image: url("../../images/Background.svg");
     background-size: cover;
     width: 102%;
 }
 
-nav{
+nav {
     background-color: white;
     display: flex;
     height: 75px;
     align-items: center;
-    
+
 }
 
 
-input{
+input {
     width: 357px;
 }
 
-.cardsVagas{
+.cardsVagas {
     display: flex;
     width: 400px;
     height: 191px;
@@ -31,34 +31,40 @@ input{
 }
 
 
-img{
+img {
     width: 117px;
-    
+
 }
 
-main{
+main {
     display: flex;
     justify-content: center;
 }
 
-.vagas{
+.vagas {
     display: flex;
 }
 
 @media only screen and (max-width: 600px) {
-   .cardsVagas{
-       width: 80%;
-       margin-right: 0px;
-   }
+    .cardsVagas {
+        width: 80%;
+        margin-right: 0px;
+    }
+
+    nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }
 
 
-.meuinput{
+.meuinput {
     margin-top: 20px;
     padding: 20px;
 }
 
-.meuinput:focus{
+.meuinput:focus {
     border-top: 0px;
     border-left: 0px;
     border-right: 0px;

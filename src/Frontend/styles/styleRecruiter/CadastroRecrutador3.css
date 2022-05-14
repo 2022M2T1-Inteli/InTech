@@ -9,6 +9,7 @@ body {
 nav {
     height: auto;
     background-color: white;
+    height: 4em;
 }
 
 .cadastroBox2 {
@@ -106,5 +107,11 @@ nav {
 
     .areaInputs{
         width: 80%;
+    }
+
+    nav{
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }

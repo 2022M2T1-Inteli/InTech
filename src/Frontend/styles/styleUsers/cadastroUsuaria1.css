@@ -17,17 +17,15 @@ body{
 
 nav{
     background-color: #f8f3fb;
-    height: 75px;
+    height: 4em;
     position: fixed;
     width: 100%;
 }
 
 
 .log{
-
-    margin-left: 110px;
-    margin-top: 13px;
-
+    margin-top: 10px;
+    margin-left: 10px;
 }
 
 .caixa{
@@ -100,5 +98,11 @@ nav{
     /* .boxInputs .caixa4{
         width: 40%;
     } */
+
+    nav{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
    
  }

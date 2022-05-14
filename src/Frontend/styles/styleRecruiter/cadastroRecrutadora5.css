@@ -7,7 +7,7 @@
 }
 nav{
     background-color: #F8F3FB;
-    height: 75px;
+    height: 4em;
     position: fixed;
     width: 100%;
 }
@@ -16,8 +16,8 @@ nav{
     justify-content: center;
 }
 .logo{
-    margin-left: 110px;
-    margin-top: 13px;
+    margin-top: 10px;
+    
 }
 .titulo-da-pagina{
     font-family: 'Roboto Slab', serif;
@@ -101,6 +101,12 @@ input[type="text"]{
         border-radius: 11px;
         margin-bottom: 10px;
         text-align: center;
+    }
+
+    nav{
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
     }
  
  }

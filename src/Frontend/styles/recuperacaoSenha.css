@@ -159,6 +159,12 @@ form {
     .card{
         width: 80%;
     }
+
+    nav{
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+    }
    
    
  }

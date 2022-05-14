@@ -10,14 +10,12 @@ nav{
     display: flex;
     align-items: center;
     background-color: white;
-    height: 75px;
+    height:4em;
     margin-bottom: 3%;
 }
 
 nav img{
-    width: 100px;
-    height: 100px;
-    margin-left: 10px;
+    margin-top: 10px;
     
     
 }
@@ -112,4 +110,13 @@ nav img{
     font-size: 23px;
     
     
+}
+
+@media only screen and (max-width: 600px) {
+
+    nav{
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+    }
 }

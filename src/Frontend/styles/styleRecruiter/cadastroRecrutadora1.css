@@ -9,13 +9,13 @@ h1{
 }
 
 img{
-    text-align: left;
-    display: flex;
+   margin-top: 10px;
 }
 
 nav{
     background-color: white;
     width: 103%;
+    height: 4em;
 }
 
 .caixa{
@@ -54,6 +54,12 @@ p{
    .imagemprocess{
        width: 80%;
    }
+
+   nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 
  }

@@ -95,4 +95,10 @@ a {
     body{
         background-image: url("../images/Background.svg");
     }
+
+    nav{
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+    }
  }
