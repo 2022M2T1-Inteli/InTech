@@ -19,7 +19,7 @@
 
     <nav><img class="" src="../../images/logo.svg" alt="" style="width: 110px;height: 45px;"></nav>
 
-    <form action="./cadastroRecrutadora2.html" method="get" style="animation: up 1.7s; margin-top: 20px;">
+    <form action="http://localhost:3000/formEmpresa" method="post" style="animation: up 1.7s; margin-top: 20px;">
         <div class="caixa">
 
             <!-- O código está incrível, só procure usar a maior quantidade de valores reais possíveis para as options-->
@@ -27,16 +27,17 @@
             <h1>Cadastre sua empresa</h1>
             <img  src="../../images/CadastroRecrutadora1ProgressBar.svg" class="mt-2 imagemprocess" alt="">
             <br>
-            <input class="inputBit border-0" type="text" placeholder="Nome da Empresa">
-            <select class="inputBit border-0" name="Ramo de Atividade" id="">
+            
+            <input class="inputBit border-0" type="text" placeholder="Nome_da_Empresa" name="Nome_Empresa">
+            <select class="inputBit border-0" name="Ramo_de_Atividade" id="" name="Ramo_de_Atividade">
                 <option value="" disabled selected hidden>Ramo de Atividade</option>
                 <option value="xxxxx">xxxxx</option>
                 <option value="yyyyy">yyyyy</option>
                 <option value="zzzzz">zzzzz</option>
             </select>
-            <input class="inputBit border-0" type="text" placeholder="CNPJ">
-            <input class="inputBit border-0" type="text" placeholder="Data de Fundação">
-            <input class="inputBit border-0" type="text" placeholder="Localização">
+            <input class="inputBit border-0" type="text" placeholder="CNPJ" name="cnpj">
+            <input class="inputBit border-0" type="text" placeholder="Data de Fundação" name="Data_Fundação">
+            <input class="inputBit border-0" type="text" placeholder="Localização" name="Localização">
             
             <button type="submit" class="btnproprio">Próxima etapa</button>
 
