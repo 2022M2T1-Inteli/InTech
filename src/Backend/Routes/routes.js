@@ -12,6 +12,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 
+
+
 //                      GET
 
 // Aparece todas as vagas cadastradas no banco de dados
@@ -183,6 +185,8 @@ Routes.put("/editVaga", (req, res) => {
 
         // abre o banco de dados
         const db = await sqlite.open({ filename: "./database/banco_de_dados.db", driver: sqlite3.Database })
+        
+        
 
 
         // executa comando sql
@@ -365,6 +369,9 @@ Routes.delete("/deleteCandidata", (req, res) => {
 
 
 })
+
+
+
 
 
 // exportando todos os Routes para serem utilizados em outro arquivo js
