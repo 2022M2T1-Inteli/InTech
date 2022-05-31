@@ -6,8 +6,8 @@
     --cor--quarta:#69B748;
 }
 nav{
-    background-color: #F8F3FB;
-    height: 4em;
+    background-color: white;
+    height: 4.7em;
     position: fixed;
     width: 100%;
 }
@@ -16,8 +16,7 @@ nav{
     justify-content: center;
 }
 .logo{
-    margin-top: 10px;
-    
+    margin: 1em 6.5em;
 }
 .titulo-da-pagina{
     font-family: 'Roboto Slab', serif;

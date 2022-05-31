@@ -6,7 +6,11 @@ body {
 nav {
     height: auto;
     background-color: white;
-    height: 4em;
+    height: 4.7em;
+}
+
+.imagem{
+    margin: 1em 6.5em;
 }
 
 .cadastroBox2 {

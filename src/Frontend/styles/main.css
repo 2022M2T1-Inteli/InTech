@@ -7,7 +7,18 @@
     --cor--quarta:#69B748;
 }
 
+nav{
+    background-color: white;
+    height: 4.7em;
+    width: 100%;
+    align-items: center;
+}
 
+nav img{
+    margin: 0.8em 6.7em;
+    width: 100px;
+    height: 50px;
+}
 
 .inputBit{
     width: 60%;

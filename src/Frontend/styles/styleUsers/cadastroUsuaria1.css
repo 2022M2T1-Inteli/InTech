@@ -15,19 +15,6 @@ body{
 }
 
 
-nav{
-    background-color: #f8f3fb;
-    height: 4em;
-    position: fixed;
-    width: 100%;
-}
-
-
-.log{
-    margin-top: 10px;
-    margin-left: 10px;
-}
-
 .caixa{
     display: flex;
     flex-direction: column;

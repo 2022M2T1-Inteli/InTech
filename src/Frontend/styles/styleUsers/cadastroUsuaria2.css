@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500;700&display=swap');@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital@0;1&family=Roboto+Slab:wght@800&family=Ubuntu:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap');
 
 body { 
     margin: 0;
@@ -7,22 +8,17 @@ body {
     
 }
 
-nav {
-    display: flex;
-    align-items: center;
-    background-color: white;
-    height: 4em;
-    margin-bottom: 3%;
-    width: 103%;
-}
-
-nav img {
-   margin-top: 10px;
-}
-
 .CadastroUsuaria2 {
     width:430px;
     justify-content: center;
+}
+
+h1{
+    font-family: 'Roboto Slab', serif;
+    text-align: center; 
+    font-size: 35px;
+    font-weight: 800;
+    color: white;
 }
 
 .select {
@@ -41,7 +37,6 @@ nav img {
 input[type="text"] {
     height: 70px;
     border-radius: 11px;
-    margin-bottom: 30px;
 
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
@@ -101,9 +96,6 @@ input[type="text"] {
     visibility: hidden;
 }
 
-.choose::before {
-    -webkit-user-select: none;
-}
 
 .submitBtn {
     border: none;

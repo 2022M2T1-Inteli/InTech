@@ -28,14 +28,6 @@ div {
     background-color: blue;
 }
 
-
-nav{
-
-    background-color: #FFFFFF;
-    height: 4em;
-    
-
-}
 h3 {
 
     font-size: x-large;
@@ -43,36 +35,9 @@ h3 {
     
 
 }
-img{
 
-    max-width: 100em;
-    max-height: 51em; 
-    width: 118px;
-    height: 57px;
-   
-
-}
-div {
-
-   
-
-}
-input {
-
-    
-
-}
-
-button {
-
-    
-
-}
 a {
-
-    color: #FFFFFF;
-    
-    
+    color: #FFFFFF;  
 }
 
 #e-mail {
