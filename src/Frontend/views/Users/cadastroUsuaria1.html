@@ -52,16 +52,27 @@
                 <br>
                 <input class="caixa2 border-0" type="text" placeholder="Digite seu nome" />
                 <input class="caixa2 border-0" type="email" placeholder="Digite seu melhor email" />
+                <input class="caixa2 border-0" type="tel" placeholder="Digite o número do seu celular" />
                 <input class="caixa2 border-0" type="number" placeholder="Digite se CPF">
 
                 <div class="mb-2 boxInputs">
-                    <input class="caixa3 border-0" type="text" placeholder="Cidade">
                     <input class="caixa4 border-0" type="text" placeholder="UF">
+                    <input class="caixa3 border-0" type="text" placeholder="Cidade">
                 </div>
                 <div class="mb-2 boxInputs" >
-                    <input class="caixa4 border-0" type="number" placeholder="Idade" >
-                    <input class="caixa3 border-0" type="text" placeholder="Gênero">
+                    <label style="color: white; margin-left: 5px; margin-top: 10px;" class="row form-label" for="data-nascimento">Data de nascimento: </label>
+                    <input id="data-nascimento" style="color: gray;" class="caixa2 border-0" type="date" placeholder="Data de nascimento" >
+                    
                 </div>
+                <select style="color: gray;" class="caixa2 border-0" name="genero" id="">
+                    <option value="" disabled hidden selected>Informe seu gênero</option>
+                    <option value="mulher-cis">Mulher-Cis</option>
+                    <option value="">Homen-Cis</option>
+                    <option value="">Mulher Trans</option>
+                    <option value="">Homem Trans</option>
+                    <option value="">Não-Binário</option>
+                    <option value="">Prefiro não responder</option>
+                </select>
                 <input class="caixa2 border-0" type="password" placeholder="Crie uma senha.">
             </div>
 
