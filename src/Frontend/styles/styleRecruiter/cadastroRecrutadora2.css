@@ -1,16 +1,16 @@
 body {
-    background-color: #530084;
-    background-image: url("/src/Frontend/images/530084\ \(5\).png");
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
     color: white;
-    
+    background-image: url("../../images/Background.svg");
 }
 
 nav {
     height: auto;
     background-color: white;
+    height: 4.7em;
+}
+
+.imagem{
+    margin: 1em 6.5em;
 }
 
 .cadastroBox2 {
@@ -78,4 +78,25 @@ nav {
     box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
     border-radius: 30px;
     transform: rotate(127.31deg);
+}
+
+
+@media only screen and (max-width: 600px) {
+  
+
+   .imagemprocess{
+       width: 80%;
+   }
+
+   .areaInputs{
+       width: 80%;
+   }
+
+   nav{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+
 }

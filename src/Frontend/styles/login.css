@@ -1,0 +1,87 @@
+/* :root {
+    --white
+} */
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital@0;1&family=Roboto+Slab:wght@800&family=Ubuntu:wght@300&display=swap');
+
+body{
+    background-image: url("../images/LoginBackground.svg");
+}
+
+
+div {
+
+    color: #FFFFFF;
+    text-align: center;
+    margin-top: 4em;
+    font-family: 'Roboto Slab';
+    
+}
+
+.red{
+    background-color: red;
+}
+
+
+.blue{
+    background-color: blue;
+}
+
+h3 {
+
+    font-size: x-large;
+    text-align: center;
+
+}
+
+input {
+
+    text-align: center;
+
+}
+
+button {
+
+    font-family: 'Roboto Slab';
+
+}
+a {
+
+    color: #FFFFFF;
+    
+}
+
+#e-mail {
+
+    border-radius: 30px;
+    height: 60.47517776489258px;
+    width: 252.3405456542969px;
+    left: 1030px;
+    top: 383px;
+    border-style: none;
+
+
+}
+
+#senha {
+
+    height: 60.47517776489258px;
+    width: 252.3405456542969px;
+    left: 1030px;
+    top: 383px;
+    border-radius: 30px;
+    border-style: none;
+}
+
+
+@media only screen and (max-width: 600px) {
+   
+    body{
+        background-image: url("../images/Background.svg");
+    }
+
+    nav{
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+    }
+ }
