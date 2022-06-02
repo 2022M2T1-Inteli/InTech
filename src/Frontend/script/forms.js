@@ -1,19 +1,26 @@
 // Candidata 
-var NomeCandidata
+let userForms1
 
 function catchUserData() {
 
     //Tela de Cadastro 1
+    let forms1 = {
+        NomeCandidata:document.querySelector('#nomeCandidata').value,
+        EmailCandidata : document.querySelector('#emailCandidata').value,
+        CelularCandidata : document.querySelector('#celularCandidata').value,
+        CPFCandidata : document.querySelector('#cpfCandidata').value,
+        GeneroCandidata : document.querySelector('#genero').value,
+        SenhaCandidata : document.querySelector('#senha').value
 
-    NomeCandidata = document.querySelector('#nomeCandidata').value;
-    let EmailCandidata = document.querySelector('#emailCandidata').value;
-    let CelularCandidata = document.querySelector('#celularCandidata').value;
-    let CPFCandidata = document.querySelector('#cpfCandidata').value;
+
+
+    }
+
+    sessionStorage.setItem("User1",JSON.stringify(forms1))
+
 
     // adicionar localizacao
 
-    let GeneroCandidata = document.querySelector('#genero').value;
-    let SenhaCandidata = document.querySelector('#senha').value;
 
 
     window.location.pathname = "/src/Frontend/views/Users/cadastroUsuaria2.html"
@@ -28,7 +35,7 @@ function catchUserData() {
 }
 
 function catchUserData2(){
-    console.log(NomeCandidata)
+    userForms1 =  JSON.parse(sessionStorage.getItem("User1"))
     //aqui vai as infos da tela cadastro 2
 
     // sendUserData(nome)
