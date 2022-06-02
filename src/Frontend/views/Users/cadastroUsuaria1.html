@@ -43,45 +43,51 @@
         <h1 class="titulo-da-pagina mt-4">Cadastre seu perfil</h1>
 
         <!-- Caixas de texto presentes na tela de cadastro da usuária -->
-        <form action="./cadastroUsuaria2.html" method="get">
+        <form>
             <div class="caixa">
                 <div class="mb-1 mt-4">
                     <img src="../../images/CadastroUsuaria1ProgressBar.svg" alt="barra de progresso 1 - seus dados" srcset="">
                 </div>
                 <br>
-                <input class="caixa2 border-0" type="text" placeholder="Digite seu nome" />
-                <input class="caixa2 border-0" type="email" placeholder="Digite seu melhor email" />
-                <input class="caixa2 border-0" type="tel" placeholder="Digite o número do seu celular" />
-                <input class="caixa2 border-0" type="number" placeholder="Digite se CPF">
+                <input id="nomeCandidata" class="caixa2 border-0" type="text" placeholder="Digite seu nome" name="Nome_candidata"/>
+                <input id="emailCandidata" class="caixa2 border-0" type="email" placeholder="Digite seu melhor email" name="Email_candidata"/>
+                <input id="celularCandidata" class="caixa2 border-0" type="tel" placeholder="Digite o número do seu celular" name="Celular_candidata"/>
+                <input id="cpfCandidata" class="caixa2 border-0" type="number" placeholder="Digite seu CPF" name="CPF_candidata">
 
                 <div class="mb-2 boxInputs">
-                    <input class="caixa4 border-0" type="text" placeholder="UF">
-                    <input class="caixa3 border-0" type="text" placeholder="Cidade">
+                    <input class="caixa4 border-0" type="text" placeholder="UF" name="UF_candidata">
+                    <input class="caixa3 border-0" type="text" placeholder="Cidade" name="Cidade_candidata">
                 </div>
                 <div class="mb-2 boxInputs" >
                     <label style="color: white; margin-left: 5px; margin-top: 10px;" class="row form-label" for="data-nascimento">Data de nascimento: </label>
-                    <input id="data-nascimento" style="color: gray;" class="caixa2 border-0" type="date" placeholder="Data de nascimento" >
+                    <input id="data-nascimento" style="color: gray;" class="caixa2 border-0" type="date" placeholder="Data de nascimento" name="Data_nascimento">
                     
                 </div>
-                <select style="color: gray;" class="caixa2 border-0" name="genero" id="">
+                <select style="color: gray;" class="caixa2 border-0" name="Genero_candidata" id="genero">
                     <option value="" disabled hidden selected>Informe seu gênero</option>
                     <option value="mulher-cis">Mulher-Cis</option>
-                    <option value="">Homen-Cis</option>
-                    <option value="">Mulher Trans</option>
-                    <option value="">Homem Trans</option>
-                    <option value="">Não-Binário</option>
-                    <option value="">Prefiro não responder</option>
+                    <option value="homem-cis">Homen-Cis</option>
+                    <option value="mulher-cis">Mulher Trans</option>
+                    <option value="homem-trans">Homem Trans</option>
+                    <option value="nao-binario">Não-Binário</option>
+                    <option value="nao-resposta">Prefiro não responder</option>
                 </select>
-                <input class="caixa2 border-0" type="password" placeholder="Crie uma senha.">
+                <input id="senha" class="caixa2 border-0" name="Senha_candidata" type="password" placeholder="Crie uma senha">
             </div>
 
-            <div class="avanço1">
-                <button type="submit" class="avanço">Completar cadastro </button>
-            </div>
         </form>
 
         
+            <div class="avanço1">
+                
+                <button onclick="catchUserData()" class="avanço">Completar cadastro </button>
+            </div>
+
+        
     </main>
+
+
+    <script src="../../script/forms.js"></script>
 </body>
 
 </html>
