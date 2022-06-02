@@ -20,19 +20,7 @@
             <img class="log" src="../images/logo.svg" alt="Logo da Brazilians in Tech">
         </nav>
     </header>
-
-    <!-- NO BOOTSTRAP PODEMOS TRABALHAR COM CONTAINERS
-        VOU TENTAR ESPECIFICAR EM CADA LINHA COMO A GENTE PODE USAR ISSO :)
-    -->
-
-    <!-- O w-75 é uma abreviação do Bootstrap para width: 75%; igual no CSS-->
     <div class="container w-75">
-        <!-- Ao criar uma div com a classe container estamos puxando atributos do bootstrap já definidos como margem, alinhamento e todas essas coisas de design hehe -->
-
-        <!-- Utilizando a classe row estamos dizendo que nosso conteúdo deve ser tratado como uma linha pelo container, ou seja ele irá ocupar uma linha inteira sem colunas; por exemplo: 
-        ========================== LINHA INTEIRA
-        ============   =========== COLUNAS 
-        -->
         <div class="row tituloPagina">
             <h1>Participe e nos ajude a crescer nossa comunidade</h1>
         </div>
@@ -42,14 +30,11 @@
                 conectar mulheres Brasileiras na área de tecnologia.</h2>
         </div>
 
-        <!-- Preferi remover a antiga <section> e trocar por uma div normal, bem mais fácil de trabalhar 🥲 -->
         <div class="row section">
-
-            <!-- A classe col faz com que os checkboxes sejam tratados como colunas, como exemplificado anteriormente-->
             <div class="col-sm-12 child">
                 <input type="checkbox" name="candidata" id="candidata">
                 <label for="candidata">
-                    <img class="icon" src="../images/CandidataIcon.svg">
+                    <img class="icon" alt="Icone de candidata" src="../images/CandidataIcon.svg">
                     <h1 class="responseH1">Sou candidata</h1>
                     <p class="responseP">Quero me candidatar às vagas e me conectar com outras mulheres</p>
                 </label>
@@ -58,7 +43,7 @@
             <div class="col-sm-12 child">
                 <input type="checkbox" name="recrutadora" id="recrutadora">
                 <label for="recrutadora">
-                    <img class="icon" src="../images/RecrutadoraIcon.svg">
+                    <img class="icon" alt="Icone de recrutamento" src="../images/RecrutadoraIcon.svg">
                     <h1 class="responseH1">Sou recrutadora</h1>
                     <p class="responseP">Quero encontrar candidatas para participar dos meus processos seletivos</p>
                 </label>
@@ -66,25 +51,23 @@
 
         </div>
         <div class="row d-flex justify-content-center">
-            <button class="btnproprio" onclick="root()">Continuar</button>
+            <button id="continuarBtn" class="" onclick="root()">Continuar</button>
 
         </div>
 
     </div>
-
-    <!-- Esse é o código que faz com que apenas uma opção seja selecionada! Está sendo utilizado os conceitos de JQuery para facilitar! -->
-
-    <!-- Aqui estou importando o JQuery-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
     <script>
-        var check
+        let button = document.querySelector("#continuarBtn");
+        var check;
+
         $('#candidata').change(function () {
             if ($(this).is(":checked")) {
                 $('#recrutadora').attr('checked', false);
                 check = 1
-
             }
+            button.setAttribute('class', 'btnproprio');
         });
 
         $('#recrutadora').change(function () {
@@ -92,7 +75,13 @@
                 $('#candidata').attr('checked', false);
                 check = 2
             }
+
+            button.setAttribute('class', 'btnproprio');
         });
+
+        if ($('#candidata').attr('checked', false) || $('#recrutadora').attr('checked', false)) {
+            button.setAttribute('class', 'normal')
+        }
 
         function root() {
             if (check == 1) {
@@ -104,7 +93,4 @@
         }
     </script>
 </body>
-
-<!-- O código estava ótimo, só necessitou de alguns ajustes... coisa boba; Parabéns :) -->
-
 </html>

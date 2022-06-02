@@ -7,6 +7,10 @@
     --cor--quarta:#69B748;
 }
 
+label {
+    display: none;
+}
+
 nav{
     background-color: white;
     height: 4.7em;
@@ -18,6 +22,10 @@ nav img{
     margin: 0.8em 6.7em;
     width: 100px;
     height: 50px;
+}
+
+input {
+    outline-color: #A77EBF;
 }
 
 .inputBit{
@@ -55,8 +63,45 @@ nav img{
     text-align: center;
 }
 
+.normal {
+    background-color: rgba(255, 255, 255, 0.3);
+    width: auto;
+    padding: 10px;
+    font-size: 22px;
+    border-style: none;
+    font-weight: bold;
+    border-radius: 11px;
+
+    font-family: 'Roboto Slab', serif;
+    margin-top: 15px;
+    margin-bottom: 25px;
+    color: var(--cor--principal);
+    text-align: center;
+
+}
+
 .btnproprio:hover {
     background-color: rgb(210, 210, 210);
     transform: scale(1.08);
     transition: 1s;
+}
+
+a {
+    color: white;
+    font-family: 'Roboto Slab';
+}
+
+a:hover {
+    color: #A77EBF;
+}
+
+.btn {
+    font-size: 18px;
+    border: none;
+}
+
+.btn:hover {
+    background-color: #d0d0d0;
+    transition: 2s;
+    outline: none;
 }
