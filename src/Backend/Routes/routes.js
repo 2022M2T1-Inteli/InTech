@@ -4,6 +4,8 @@ const sqlite = require("sqlite") // Trazendo o sqlite (criado pela comunidade) p
 const bodyParser = require("body-parser") // Trazendo o body-parser para ser utilizado
 const Routes = express.Router() // Trazendo o Router do proprio express para ser utilizado
 
+
+
 const app = express()
 
 app.use(bodyParser.json());
@@ -19,6 +21,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Aparece todas as vagas cadastradas no banco de dados
 Routes.get("/listVagas", (req, res) => {
 
+
+
     //Uma função que espera as coisas dentro dela acontecem para assim efetuar o codigo
     async function getDB() {
 
@@ -26,7 +30,9 @@ Routes.get("/listVagas", (req, res) => {
         const db = await sqlite.open({ filename: "./database/banco_de_dados.db", driver: sqlite3.Database })
 
         //roda comando sql e retorna uma promise
-        await db.all("SELECT * FROM vagas").then((result) => {
+
+        
+        await db.all("SELECT * FROM vagas").then((result)=>{
             res.json(result)
         })
 
@@ -74,7 +80,7 @@ Routes.get("/listEmpresa", (req, res) => {
         const db = await sqlite.open({ filename: "./database/banco_de_dados.db", driver: sqlite3.Database })
 
         // roda comandos sql e retorna uma promise
-        await db.run("SELECT * FROM empresas").then((result) => {
+        await db.all("SELECT * FROM empresas").then((result) => {
             res.json(result)
         })
 
@@ -104,7 +110,13 @@ Routes.post("/formEmpresa", (req, res) => {
         // 1ª liste as colunas em ordem que querem ser preenchidas
         // 2ª Values (? x quantidade de dados que entrarao)
         // 3ª [valor1, valor2,valor3 .....]
-        await db.run("INSERT INTO empresas (nome_empresa,ramo_empresa,cnpj_empresa,localizacao_empresa,telefone_empresa,site_empresa,email_empresa) VALUES (?,?,?,?,?,?,?)", [req.body.Nome_Empresa, req.body.Ramo_de_Atividade, req.body.cnpj, req.body.Localização, req.body.Telefone, req.body.Site, req.body.Email])
+
+
+        const {Nome_Empresa, Ramo_de_Atividade, cnpj, Localizacao, Telefone, Site, Email} = req.body
+
+        await db.run("INSERT INTO empresas (nome_empresa,ramo_empresa,cnpj_empresa,localizacao_empresa,telefone_empresa,site_empresa,email_empresa) VALUES (?,?,?,?,?,?,?)", [Nome_Empresa, Ramo_de_Atividade, cnpj, Localização, Telefone, Site, Email])
+
+        console.log(req.body.cnpj)
 
 
         // fecha o banco
@@ -135,7 +147,10 @@ Routes.post("/formCandidata", (req, res) => {
         // 1ª liste as colunas em ordem que querem ser preenchidas
         // 2ª Values (? x quantidade de dados que entrarao)
         // 3ª [valor1, valor2,valor3 .....]
-        const result = await db.run("INSERT INTO candidatas (nome_candidata, escolaridade_candidata,email_candidata,cpf_candidata,genero_candidata,nascimento_candidata,habilidades_candidatas,senha_candidata,cargo_candidata,curriculo_candidata) VALUES (?,?,?,?,?,?,?,?,?,?)", z[req.body.Nome_candidata, req.body.Escolaridade_candidata, req.body.Email_candidata, req.body.Cpf_canditada, req.body.Genero_canditada, req.body.Data_Nascimento, req.body.Habilidade_candidata, req.body.Senha_canditada, req.body.Cargo_canditada, "curriculo"])
+
+        const {Nome_candidata, Escolaridade_candidata, Email_candidata, Celular_candidata, CPF_canditada, UF_candidata, Cidade_candidata, Data_nascimento, Genero_canditada, Habilidade_candidata, Senha_canditada, Cargo_canditada} = req.body
+
+        const result = await db.run("INSERT INTO candidatas (nome_candidata,escolaridade_candidata,email_candidata,celular_candidata,) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)",[ Nome_candidata, Escolaridade_candidata, Email_candidata, Celular_candidata, CPF_canditada, UF_candidata, Cidade_candidata, Data_nascimento, Genero_canditada, Habilidade_candidata, Senha_canditada, Cargo_canditada, "curriculo"])
 
 
         // fecha o banco de dados
@@ -160,7 +175,10 @@ Routes.post("/formVagas", (req, res) => {
         // 1ª liste as colunas em ordem que querem ser preenchidas
         // 2ª Values (? x quantidade de dados que entrarao)
         // 3ª [valor1, valor2,valor3 .....]
-        await db.run("INSERT INTO vagas (soft_vaga,hard_vaga,nome_vaga,descricao_vaga,local_vaga,salario_vaga) VALUES(?,?,?,?,?,?)", [req.body.Soft_Vaga, req.body.Hard_Vaga, req.body.Nome_vaga, req.body.Descricao_Vaga, req.body.Local_Vaga, req.body.Salario_Vaga])
+
+        const {Soft_Vaga, Hard_Vaga, Nome_vaga, Descricao_Vaga, Local_Vaga, Salario_Vaga} = req.body
+
+        await db.run("INSERT INTO vagas (soft_vaga,hard_vaga,nome_vaga,descricao_vaga,local_vaga,salario_vaga) VALUES(?,?,?,?,?,?)", [Soft_Vaga, Hard_Vaga, Nome_vaga, Descricao_Vaga, Local_Vaga, Salario_Vaga])
 
 
         //fecha o bando de dados
@@ -194,6 +212,8 @@ Routes.put("/editVaga", (req, res) => {
         // 2ª os valores que quero alterar
         // 3ª ?, ?
         // 4ª [valor1,valor2,valor3]
+
+        
         await db.run(`UPDATE vagas SET nome_vaga = ? , salario_vaga = ?  WHERE id_vaga == ? `, [req.body.Nome_vaga, req.body.Salario_vaga, req.body.id_chave])
 
 
@@ -253,6 +273,7 @@ Routes.put("/editEmpresa", (req, res) => {
         // 3ª ?, ?
         // 4ª [valor1,valor2,valor3]
         await db.run(`UPDATE empresas SET email_empresa = ?  WHERE id_vaga == ? `, [req.body.Email_empresa, req.body.id_chave])
+        
 
 
         // fecha o banco de dados
@@ -324,7 +345,7 @@ Routes.delete("/deleteEmpresa", (req, res) => {
         // - Sempre fazer uma condição se não excluirar todos os valores de tal tabela
         // - Sempre fazer uma condição se não excluirar todos os valores de tal tabela
 
-        await db.run(`DELETE FROM empresas WHERE id_vaga == ${req.body.id_chave}`)
+        await db.run(`DELETE FROM empresas WHERE id_vaga == ${req.body.id_chave} `)
 
         //fecha banco de dados
         db.close()

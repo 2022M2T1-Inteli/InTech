@@ -30,8 +30,9 @@
         <div class="row text-center" style="animation: up 0.8s;">
             <h1 class="mt-4">Cadastre seu currículo</h1>
 
-            <div class="mb-4 mt-4" >
-                <img src="../../images/CadastroUsuaria2ProgressBar.svg" alt="" srcset="">
+            <div class="mb-4 mt-4">
+                <img src="../../images/CadastroUsuaria2ProgressBar.svg" alt="Barra de Progresso - Suas competências"
+                    srcset="">
             </div>
         </div>
 
@@ -39,7 +40,7 @@
 
         <div class="" style="animation: up 2s backwards;">
             <form class="col justify-content-center" action="./UsuáriaCanditada1.html">
-                <select class="row form-select select" name="" id="">
+                <select class="row form-select select" name="Status_candidata" id="">
                     <option value="" disabled hidden selected>Você está ...</option>
                     <option value="Estudante">Estudando</option>
                     <option value="Profissional-Industria">Trabalhando na indústria</option>
@@ -47,7 +48,7 @@
                     <option value="N">Não estou trabalhando, nem estudando</option>
                 </select>
 
-                <select class="row form-select select" name="escolaridade" id="">
+                <select class="row form-select select" name="Escolaridade_candidata" id="">
                     <option value="" disabled hidden selected>Grau de instrução</option>
                     <option value="EM">Ensino Médio</option>
                     <option value="SI">Superior Incompleto</option>
@@ -60,10 +61,10 @@
                     <option value="DC">Doutorado Completo</option>
                 </select>
 
-                <select class="row form-select select" name="profissões">
-                    <option value="" disabled hidden selected>Que tipo de cargo você procura? </option>
-                    <option value="DevJ">Desenvolvedor Junior</option>
-                </select>
+                <input type="text" name="Cargo_candidata" list="cargos" id="cargos" class="form-control">
+                <datalist id="cargos">
+                    <option value="1"></option>
+                </datalist>
 
                 <div class="row mt-4 softSkillsContainer">
                     <label for="Soft-Skills" class="form-label">Soft-Skills</label>
@@ -147,14 +148,15 @@
                     <input class="form-control" type="file" id="formFile" hidden>
                     <p>*Apenas arquivos PDF</p>
                 </div>
-
+<!-- 
                 <div class="d-flex justify-content-center">
                     <button type="submit" class="btnproprio">Concluir cadastro</button>
-                </div>
+                </div> -->
 
 
 
             </form>
+            <button onclick=" catchUserData2()">Funcione por favor</button>
         </div>
     </div>
 
@@ -171,6 +173,7 @@
     </script>
 
 
+    <script src="../../script/forms.js"></script>
     <script src="../../script/tagInputs/softSkillsTagInput.js"></script>
     <script src="../../script/tagInputs/hardSkillsTagInput.js"></script>
 </body>
