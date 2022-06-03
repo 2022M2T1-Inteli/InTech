@@ -4,11 +4,11 @@
 <a href= "https://www.inteli.edu.br/"><img src="https://www.inteli.edu.br/wp-content/uploads/2021/08/20172028/marca_1-2.png" alt="Inteli - Instituto de Tecnologia e Liderança" border="0"></a>
 </p>
 
-# Nome do Projeto
+# Brazilians in Tech
 
-## Nome do Grupo
+## InTech
 
-## Integrantes: <a href="https://www.linkedin.com/in/victorbarq/">Goku Sayajin</a>, <a href="https://www.linkedin.com/in/victorbarq/">Saitama One</a>, <a href="https://www.linkedin.com/in/victorbarq/">Ikki de Fenix</a>, <a href="https://www.linkedin.com/in/victorbarq/">Yusuke Urameshi</a>, <a href="https://www.linkedin.com/in/victorbarq/">Roronoa Zoro</a>
+## Integrantes: <a href="https://www.linkedin.com/in/abner-silva-barbosa-8a3542225/">Abner Silva</a>, <a href="https://www.linkedin.com/in/fernando-tavares-bertholdo/">Fernando Bertholdo</a>, <a href="https://www.linkedin.com/in/gabecarneiro/">Gabriel Carneiro</a>, <a href="https://www.linkedin.com/in/izabellaalmeida/">Izabella Almeida</a>, <a href="https://www.linkedin.com/in/julia-togni/">Julia Togni</a>,<a href="https://www.linkedin.com/in/thomas-brand-b37170238/">Thomas Brand</a> e <a href="https://www.linkedin.com/in/yveslevi/">Yves Levi</a>
 
 ## Descrição
 
