@@ -17,6 +17,9 @@
 <!-- Esse é código que a gente encontrou pra  melhorar o background-image, a única coisa que eu mudei foi colocar o que estava no arquivo CSS para cá -->
 
 <body class="bg-image">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.1.62/jquery.inputmask.bundle.js"></script>
+
 
   <nav>
     <img class="imagem" src="../../images/logo.svg" alt="iconBit" style="width: 110px; height: 45px;" />
@@ -26,38 +29,39 @@
     <div class="cadastroBox2 container-fluid mt-4 col-sm-12 col-md-6">
 
       <h1>Cadastre sua empresa</h1>
-
-      <!-- A imagem da progress bar -->
       <img src="../../images/CadastroRecrutadora2ProgressBar.svg" alt="" class="mt-2 mb-5 imagemprocess">
 
+      <label for="telefoneEmpresa">Telefone</label>
+      <input class="areaInputs border-0" type="text" name="Telefone_empresa" id="telefoneEmpresa"
+        placeholder="Telefone" />
 
-
-      <input class="areaInputs border-0" type="text" name="Telefone_empresa" id="telefoneEmpresa" placeholder="Telefone"  />
+      <label for="siteEmpresa">Site</label>
       <input class="areaInputs border-0" type="text" name="Site_empresa" id="siteEmpresa" placeholder="Site" />
+
+      <label for="emailEmpresa">Email</label>
       <input class="areaInputs border-0" type="text" name="Email_empresa" id="emailEmpresa" placeholder="Email" />
 
       <div class="definirSenha">
         <p>Defina uma senha de acesso</p>
       </div>
 
-      <input class="areaInputs border-0" type="text" name="" id="" placeholder="Senha" />
-      <!-- <input class="areaInputs border-0" type="text" name="" id="" placeholder="Confirme a sua senha" /> -->
-
-
-      <!-- <button type="submit" class="btnproprio">Finalizar Cadastro</button> -->
-
+      <label for="senha">Senha</label>
+      <input class="areaInputs border-0" type="password" name="Senha" id="senha" placeholder="Senha" />
     </div>
   </form>
 
   <button onclick=" catchUserData2()">Funcione por favor</button>
-
-
-  <!-- <div class="linha">
-
-    </div>
-
-    <div class="bolinha"></div> -->
-    <script src="../../script/forms.js"></script>
+  <script src="../../script/forms.js"></script>
+  <script>
+    let phoneMask = { "mask": "(##) #####-####" };
+    $(window).load(() => {
+      $('#telefoneEmpresa').inputmask({
+        mask: phoneMask,
+        greedy: false,
+        definitions: { '#': { validator: "[0-9]", cardinality: 1 } }
+      });
+    })
+  </script>
 </body>
 
 </html>

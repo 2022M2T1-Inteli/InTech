@@ -7,6 +7,10 @@ body{
     overflow-x: hidden;
 }
 
+button {
+    color: white;
+}
+
 .tituloPagina{
     font-family: 'Roboto Slab', serif;
     text-align: center; 
@@ -14,22 +18,12 @@ body{
     color: white;
 }
 
-nav{
-    background-color: white;
-    width: 105%;
-    height: 4.7em;
-}
-
-.log{
-    margin: 1em 6.5em;
-}
-
 .geral{
     
     justify-content: center;
 }
 
-.e-mail{
+.email{
     text-align: center;
     height: 53px;
     border: none;

@@ -14,16 +14,14 @@
     <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
     <title>Brazilians in Tech</title>
 </head>
-<!-- Aqui no body eu mudei um pouquinho, só tirei o background-image do seu css e coloquei direto aqui na tag <body> -->
 
 <body class="bg-image"
     style="background-image: url('../../images/Background.svg'); height: 100%; background-repeat: no-repeat; background-size: cover; margin: 0;">
     <header>
         <div>
-            <!--Barra de navegação acima do site. -->
             <nav>
-                <!-- Imagem do logotipo superior -->
-                <img class="logo" src="../../images/logo.svg" style="width: 110px;height: 45px;" alt="Logo Brazilians in Tech">
+                <img class="logo" src="../../images/logo.svg" style="width: 110px;height: 45px;"
+                    alt="Logo Brazilians in Tech">
             </nav>
             <br>
         </div>
@@ -35,32 +33,54 @@
                     <h1 class="titulo-da-pagina mb-4"> Cadastro da vaga</h1>
                     <br>
                 </div>
-                <!-- Aqui já deu pra fazer o efeito que eu disse de uma animação carregar
-            primeiro! Ficou incrível, da pra melhorar algumas coisas bobas de nomes
-            nada demais, ficou ótimo-->
                 <div class="caixa" style="animation: up 2s backwards;">
-                    <!-- Caixa de texto para seleção de profissões -->
                     <div>
-                        <select class="caixa2 border-0" name="" id="">
-                            <option value="" disabled selected hidden> Nome da vaga</option>
-                            <OPtion>Desenvolvedora junior</OPtion>
-                            <OPtion>Desenvolvedora plena</OPtion>
-                            <OPtion>Desenvolvedora sênior </OPtion>
+                        <label for="nomeVaga">Em que área sua vaga se encaixa?</label>
+                        <select class="input input2 border-0" name="Nome_vaga" id="nomeVaga">
+                            <option value="" selected disabled hidden>Área que está procurando?</option>
+                            <option id='Administrador de Sistemas'>Administrador de Sistemas</option>
+                            <option id='Administrador do Banco de Dados (DBA)'>Administrador do Banco de Dados (DBA)
+                            </option>
+                            <option id='Analista de Mídias Sociais'>Analista de Mídias Sociais</option>
+                            <option id='Analista de Segurança de Informação'>Analista de Segurança de Informação
+                            </option>
+                            <option id='Analista de Sistemas'>Analista de Sistemas</option>
+                            <option id='Arquiteto de redes'>Arquiteto de redes</option>
+                            <option id='Ciência de dados'>Ciência de dados</option>
+                            <option id='Desenvolvedor mobile'>Desenvolvedor mobile</option>
+                            <option id='Engenharia de computação'>Engenharia de computação</option>
+                            <option id='Engenharia de software'>Engenharia de software</option>
+                            <option id='Especialista em e-Commerce'>Especialista em e-Commerce</option>
+                            <option id='Gestão de Tecnologia da Informação'>Gestão de Tecnologia da Informação</option>
+                            <option id='Jogos Digitais'>Jogos Digitais</option>
+                            <option id='Marketing Digital'>Marketing Digital</option>
+                            <option id='Profissional Help Desk'>Profissional Help Desk</option>
+                            <option id='Programador de Computador'>Programador de Computador</option>
+                            <option id='Programador web'>Programador web</option>
+                            <option id='Robótica'>Robótica</option>
+                            <option id='Segurança da informação'>Segurança da informação</option>
+                            <option id='Segurança de sistemas'>Segurança de sistemas</option>
+                            <option id='Técnico de informática'>Técnico de informática</option>
                         </select>
                     </div>
                     <div>
-                        <!-- <input class="caixa3 border-0" type="text" placeholder="Descrição da vaga" /> -->
-                        <TEXTarea class="textarea border-0" placeholder="Descrição da vaga"></TEXTarea>
+                        <label for="descricaoVaga">Descrição da vaga</label>
+                        <!-- INSERIR CONTADORES DE CARACTERES-->
+                        <TEXTarea id="descricaoVaga" maxlength="600" class="textarea border-0"
+                            placeholder="Descrição da vaga"></TEXTarea>
                     </div>
                     <div>
-                        <input class="input input2 border-0" type="text" placeholder="Localização da vaga" />
+                        <label for="localizacao">Localização</label>
+                        <input id="localizacao" class="input input2 border-0" type="text"
+                            placeholder="Localização da vaga" />
                     </div>
                     <div>
                         <p class="texto"> Soft skills </p>
                     </div>
                     <div class="row mt-4 softSkillsContainer">
-                        <input type="text" name="Soft-Skills" list="softskillslist" id="soft-skills"
-                            class="input form-control">
+                        <label for="soft-skills">Digite as soft-skills necessárias</label>
+                        <input placeholder="Digite a habilidade desejada e pressione ENTER" type="text"
+                            name="Soft-Skills" list="softskillslist" id="soft-skills" class="input form-control">
                         <datalist id="softskillslist">
                             <option value=" Controle de emoções">
                             <option value=" Colaboração">
@@ -103,8 +123,9 @@
                         <p class="texto"> Hard skills </p>
                     </div>
                     <div class="row mt-4 hardSkillsContainer">
-                        <input type="text" name="Hard-Skills" list="hardskillslist" id="hard-skills"
-                            class="form-control">
+                        <label for="hard-skills">Digite as Hard-Skills necessárias</label>
+                        <input placeholder="Digite a habilidade desejada e pressione ENTER" type="text"
+                            name="Hard-Skills" list="hardskillslist" id="hard-skills" class="form-control">
                         <datalist id="hardskillslist">
                             <option value="JavaScript"></option>
                             <option value="HTML/CSS"></option>
@@ -142,15 +163,10 @@
                         <p class="texto"> Salário (opcional)</p>
                     </div>
                     <div>
+                        <label for=""></label>
                         <input class="input border-0" type="text" placeholder="Salário (R$)" />
                     </div>
-                    <div>
-                        <p class="texto">Tags</p>
-                    </div>
-                    <div>
-                        <!-- <input class="caixa3 border-0" type="text" placeholder="Descrição da vaga" /> -->
-                        <TEXTarea class="input border-0 textarea" placeholder="Tags"></TEXTarea>
-                    </div>
+                    <!-- INSERIR MODALIDADE DE VAGAS-->
                     <div>
                         <button class="btnproprio" type="submit">Cadastrar vaga </button>
                     </div>
