@@ -29,6 +29,10 @@ Routes.get("/listVagas", (req, res) => {
         //abre o banco de dados sqlite
         const db = await sqlite.open({ filename: "./database/banco_de_dados.db", driver: sqlite3.Database })
 
+
+
+        
+
         //roda comando sql e retorna uma promise
 
         
