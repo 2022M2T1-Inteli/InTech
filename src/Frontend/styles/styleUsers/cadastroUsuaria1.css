@@ -50,6 +50,7 @@ body{
     align-items: center;
     justify-content: center;
     margin-bottom: 12px;
+    margin-top: 15px;
 }
 
 .avanço{
@@ -57,7 +58,6 @@ body{
     border-radius: 11px;
     border: var(--cor--tercia);
     padding: 10px;
-    margin-top: 15px;
     background-color:#ffff;
     color: var(--cor--principal);
     text-align: center;

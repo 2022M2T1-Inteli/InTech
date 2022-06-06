@@ -89,6 +89,7 @@ input {
 a {
     color: white;
     font-family: 'Roboto Slab';
+    justify-content: center;
 }
 
 a:hover {
