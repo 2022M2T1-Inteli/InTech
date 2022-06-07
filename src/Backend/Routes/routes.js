@@ -120,17 +120,26 @@ Routes.post("/formEmpresa", (req, res) => {
 
         await db.run("INSERT INTO empresas (nome_empresa,email_empresa,ramo_empresa,logo_empresa,senha_empresa,cultura_empresa,telefone_empresa,site_empresa,cnpj_empresa,localizacao_empresa) VALUES (?,?,?,?,?,?,?,?,?,?)", [Nome_Empresa,Email_Empresa,Ramo_de_Atividade, Logo_Empresa,Senha_Empresa,Cultura_Empresa,Telefone_Empresa,Site_Empresa,cnpj_Empresa,Localizacao_Empresa])
 
-        console.log(req.body.cnpj)
 
-
+        
         // fecha o banco
         db.close()
+
+        
+
+        
     }
 
     putDB()
 
+    console.log("safsafs")
+
+    res.status(200).send()
+
+    
+
     // resposta depois de executar tudo
-    res.send("Empresa registrada com sucesso")
+    
 
 
 
@@ -163,7 +172,7 @@ Routes.post("/formCandidata", (req, res) => {
 
     putDB()
 
-    res.send("Candidata registrada com sucesso")
+    res.status(200).send()
 })
 
 
@@ -191,7 +200,7 @@ Routes.post("/formVagas", (req, res) => {
 
     putDB()
 
-    res.send("Vaga registra com sucesso!")
+    res.status(200).send()
 
 })
 

@@ -9,6 +9,7 @@ const app = express()
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static("../Frontend"))
 
 // separador de rodas ( localhost:3000/rotas/X)
 app.use("/rotas",rotas)

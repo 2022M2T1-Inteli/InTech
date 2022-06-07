@@ -44,7 +44,7 @@
 
             <!--  TEMPLATE BOTÃO VOLTAR -->
         <div class="col d-flex align-items-center justify-content-center">
-            <button type="submit" class="btnproprio">Próxima etapa</button>
+            <button type="submit" class="btnproprio" onclick="catchRecruiterData()">Próxima etapa</button>
             <a class="row" style="margin-left: 30px;" href="../telaCadastro.html">Voltar</a>
 
         </div>
@@ -53,6 +53,7 @@
     </form>
 
 
+    <script src="../../script/forms.js"></script>
     <script>
         $("#cnpjEmpresa").on("keyup", function (e) {
             $(this).val(

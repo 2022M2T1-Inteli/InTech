@@ -1,8 +1,4 @@
 let userForms1
-let recuitForms1
-
-
-
 
 
 function catchUserData() {
@@ -107,18 +103,20 @@ function catchRecruiterData() {
 
 function catchRecruiterData2() {
 
-    recuitForms1 = JSON.parse(sessionStorage.getItem("Recruit1"))
+    let recuitForms1 = JSON.parse(sessionStorage.getItem("Recruit1"))
 
     // Tela de Cadadastro Recrutadora 2
     let TelefoneEmpresa = document.querySelector('#telefoneEmpresa').value;
     let SiteEmpresa = document.querySelector('#siteEmpresa').value;
     let EmailEmpresa = document.querySelector('#emailEmpresa').value;
-    let SenhaEmpresa = document.querySelector('#senhaEmpresa').value;
+    let SenhaEmpresa = document.querySelector('#senha').value;
 
 
 
 
     sendRecruitData(recuitForms1.NomeEmpresa,EmailEmpresa,recuitForms1.RamoAtividade,"logo",SenhaEmpresa,"cultura",TelefoneEmpresa,SiteEmpresa,recuitForms1.CnpjEmpresa,recuitForms1.LocalizacaoEmpresa)
+
+    sessionStorage.removeItem("Recruit1")
 
 }
 
@@ -169,7 +167,11 @@ function sendUserData(Nome_Candidata,Escolaridade_candidata,Email_candidata,CPF_
             UF_candidata: UF_candidata,
             Status_candidata:Status_candidata 
                  
+        },
+        success: function(){
+            window.location.replace()
         }
+
     })
 }
 
@@ -188,18 +190,11 @@ function sendRecruitData(NomeEmpresa,EmailEmpresa,RamoAtividade,Logo_Empresa,Sen
             Site_Empresa:SiteEmpresa,
             cnpj_Empresa:CnpjEmpresa,
             Localizacao_Empresa:LocalizacaoEmpresa
-            
-            
-            
-
         },
-        sucesse: function(sucess){
-            console.log(sucess.status)
-           
+        success: function(){
+            window.location.replace('/views/Recruiter/cadastroRecrutadora4.html')       
 
         }
-    }).done(function(){
-        window.location.pathname = '/src/Frontend/views/Recruiter/cadastroRecrutadora4.html'
     })
 
 
