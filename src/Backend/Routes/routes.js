@@ -116,9 +116,9 @@ Routes.post("/formEmpresa", (req, res) => {
         // 3ª [valor1, valor2,valor3 .....]
 
 
-        const {Nome_Empresa, Ramo_de_Atividade, cnpj, Localizacao, Telefone, Site, Email} = req.body
+        const {Nome_Empresa,Email_Empresa,Ramo_de_Atividade, Logo_Empresa,Senha_Empresa,Cultura_Empresa,Telefone_Empresa,Site_Empresa,cnpj_Empresa,Localizacao_Empresa} = req.body
 
-        await db.run("INSERT INTO empresas (nome_empresa,ramo_empresa,cnpj_empresa,localizacao_empresa,telefone_empresa,site_empresa,email_empresa) VALUES (?,?,?,?,?,?,?)", [Nome_Empresa, Ramo_de_Atividade, cnpj, Localização, Telefone, Site, Email])
+        await db.run("INSERT INTO empresas (nome_empresa,email_empresa,ramo_empresa,logo_empresa,senha_empresa,cultura_empresa,telefone_empresa,site_empresa,cnpj_empresa,localizacao_empresa) VALUES (?,?,?,?,?,?,?,?,?,?)", [Nome_Empresa,Email_Empresa,Ramo_de_Atividade, Logo_Empresa,Senha_Empresa,Cultura_Empresa,Telefone_Empresa,Site_Empresa,cnpj_Empresa,Localizacao_Empresa])
 
         console.log(req.body.cnpj)
 
@@ -152,9 +152,9 @@ Routes.post("/formCandidata", (req, res) => {
         // 2ª Values (? x quantidade de dados que entrarao)
         // 3ª [valor1, valor2,valor3 .....]
 
-        const {Nome_candidata, Escolaridade_candidata, Email_candidata, Celular_candidata, CPF_canditada, UF_candidata, Cidade_candidata, Data_nascimento, Genero_canditada, Habilidade_candidata, Senha_canditada, Cargo_canditada} = req.body
+        const {Nome_Candidata,Escolaridade_candidata,Email_candidata,CPF_canditada,Genero_canditada,Data_nascimento,Curriculo_candidata,Habilidade_candidata,Senha_canditada,Cargo_canditada,Celular_candidata,UF_candidata,Status_candidata} = req.body
 
-        const result = await db.run("INSERT INTO candidatas (nome_candidata,escolaridade_candidata,email_candidata,celular_candidata,) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)",[ Nome_candidata, Escolaridade_candidata, Email_candidata, Celular_candidata, CPF_canditada, UF_candidata, Cidade_candidata, Data_nascimento, Genero_canditada, Habilidade_candidata, Senha_canditada, Cargo_canditada, "curriculo"])
+        const result = await db.run("INSERT INTO candidatas (nome_candidata ,escolaridade_candidata ,email_candidata,cpf_candidata,genero_candidata,nascimento_candidata,curriculo_candidata,habilidades_candidata,senha_candidata,cargo_candidata,celular_candidata,pais_candidata,status_candidata) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)",[ Nome_Candidata,Escolaridade_candidata,Email_candidata,CPF_canditada,Genero_canditada,Data_nascimento,Curriculo_candidata,Habilidade_candidata,Senha_canditada,Cargo_canditada,Celular_candidata,UF_candidata,Status_candidata])
 
 
         // fecha o banco de dados
@@ -180,9 +180,9 @@ Routes.post("/formVagas", (req, res) => {
         // 2ª Values (? x quantidade de dados que entrarao)
         // 3ª [valor1, valor2,valor3 .....]
 
-        const {Soft_Vaga, Hard_Vaga, Nome_vaga, Descricao_Vaga, Local_Vaga, Salario_Vaga} = req.body
+        const {Habilidades_vaga,Nome_vaga,Descricao_vaga,Local_vaga,Salario_vaga} = req.body
 
-        await db.run("INSERT INTO vagas (soft_vaga,hard_vaga,nome_vaga,descricao_vaga,local_vaga,salario_vaga) VALUES(?,?,?,?,?,?)", [Soft_Vaga, Hard_Vaga, Nome_vaga, Descricao_Vaga, Local_Vaga, Salario_Vaga])
+        await db.run("INSERT INTO vagas (habilidades_vaga,nome_vaga,descricao_vaga,local_vaga,salario_vaga) VALUES(?,?,?,?,?)", [Habilidades_vaga,Nome_vaga,Descricao_vaga,Local_vaga,Salario_vaga])
 
 
         //fecha o bando de dados

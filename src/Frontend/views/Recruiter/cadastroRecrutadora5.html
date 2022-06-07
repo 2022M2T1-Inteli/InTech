@@ -27,7 +27,7 @@
         </div>
     </header>
     <main>
-        <form action="./cadastroRecrutadora6.html" method="get">
+        <form>
             <div class="container cadastroRecrutadora5">
                 <div class="row text-center" style="animation: up 0.8s;">
                     <h1 class="titulo-da-pagina mb-4"> Cadastro da vaga</h1>
@@ -164,17 +164,22 @@
                     </div>
                     <div>
                         <label for=""></label>
-                        <input class="input border-0" type="text" placeholder="Salário (R$)" />
+                        <input class="input border-0" type="text" placeholder="Salário (R$)" id="salarioVaga" />
                     </div>
+                
                     <!-- INSERIR MODALIDADE DE VAGAS-->
-                    <div>
-                        <!--  TEMPLATE BOTÃO VOLTAR -->
-                        <div class="col d-flex align-items-center justify-content-center">
-                            <button class="btnproprio" type="submit">Cadastrar vaga </button>
-                            <a class="row" style="margin-left: 30px;" href="../Recruiter/cadastroRecrutadora4.html">Voltar</a>
-                    </div>
-                </div>
+                 
         </form>
+        
+
+        <div>
+            <!--  TEMPLATE BOTÃO VOLTAR -->
+            <div class="col d-flex align-items-center justify-content-center">
+                
+                <button class="btnproprio" onclick="catchVacancyData()">Cadastrar vaga</button>
+                <a class="row" style="margin-left: 30px;" href="../Recruiter/cadastroRecrutadora4.html">Voltar</a>
+            </div>
+        </div>
     </main>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -191,6 +196,7 @@
 
     <script src="../../script/tagInputs/softSkillsTagInput.js"></script>
     <script src="../../script/tagInputs/hardSkillsTagInput.js"></script>
+    <script src="../../script/forms.js"></script>
 </body>
 
 </html>

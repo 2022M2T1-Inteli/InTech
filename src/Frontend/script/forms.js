@@ -14,7 +14,8 @@ function catchUserData() {
         CelularCandidata: document.querySelector('#celularCandidata').value,
         CPFCandidata: document.querySelector('#cpfCandidata').value,
         GeneroCandidata: document.querySelector('#genero').value,
-        SenhaCandidata: document.querySelector('#senha').value
+        SenhaCandidata: document.querySelector('#senha').value,
+        NascimentoCandidata:document.getSelection("#data-nascimento").value
     }
 
     sessionStorage.setItem("User1", JSON.stringify(forms1))
@@ -44,32 +45,33 @@ function catchUserData2() {
     //aqui vai as infos da tela cadastro 2
     let Status_candidata = document.querySelector("#Status_candidata").value
     let Escolaridade_candidata = document.querySelector("#Escolaridade_candidata").value
+    let Cargo_canditada = document.querySelector("#cargoCandidata").value
 
     let SoftSkillIn = document.querySelectorAll("#testesoft")
     let HardSkillIn = document.querySelectorAll("#testehard")
-    let SoftSkillon = []
-    let HardSkillon = []
+    let habilidades = []
+    
 
     let PDFcurriculo = document.querySelector("#formFile")
 
     for (let i = 0; i < SoftSkillIn.length; i++) {
 
-        SoftSkillon.push(SoftSkillIn[i].innerText)
+        habilidades.push(SoftSkillIn[i].innerText)
 
     }
+
     for (let i = 0; i < HardSkillIn.length; i++) {
 
-        HardSkillon.push(HardSkillIn[i].innerText)
+        habilidades.push(HardSkillIn[i].innerText)
 
     }
 
-    let SoftSkill = SoftSkillon.toString()
-    let HardSkill = HardSkillon.toString()
 
+    let habilidadeDB = habilidades.toString()
 
     
 
-    sendUserData(userForms1.NomeCandidata, Escolaridade_candidata, userForms1.EmailCandidata, userForms1.CelularCandidata, userForms1.CPFCandidata, "teste", "teste2", "teste3", userForms1.GeneroCandidata, SoftSkill || HardSkill, userForms1.SenhaCandidata)
+    sendUserData(userForms1.NomeCandidata, Escolaridade_candidata, userForms1.EmailCandidata, userForms1.CPFCandidata,userForms1.GeneroCandidata,userForms1.NascimentoCandidata,PDFcurriculo,habilidadeDB,userForms1.SenhaCandidata,Cargo_canditada,userForms1.CelularCandidata, "testeteste",Status_candidata)
 }
 
 
@@ -116,14 +118,39 @@ function catchRecruiterData2() {
 
 
 
-    sendRecruitData(recuitForms1.NomeEmpresa,recuitForms1.RamoAtividade,recuitForms1.CnpjEmpresa,recuitForms1.LocalizacaoEmpresa,TelefoneEmpresa,SiteEmpresa,EmailEmpresa,SenhaEmpresa)
+    sendRecruitData(recuitForms1.NomeEmpresa,EmailEmpresa,recuitForms1.RamoAtividade,"logo",SenhaEmpresa,"cultura",TelefoneEmpresa,SiteEmpresa,recuitForms1.CnpjEmpresa,recuitForms1.LocalizacaoEmpresa)
+
+}
+
+
+function catchVacancyData(){
+    let Nome_vaga = document.querySelector("#nomeVaga").value
+    let Descricao_vaga = document.querySelector("#descricaoVaga").value
+    let Local_vaga = document.querySelector("#localizacao").value
+
+    let Habilidades_vaga = document.querySelectorAll("span")
+    let habilidadeDB = []
+    
+
+    for (let i = 0; i < Habilidades_vaga.length; i++) {
+
+        habilidadeDB.push(Habilidades_vaga[i].innerText)
+
+    }
+
+    let HabilidadeDBVaga = habilidadeDB.toString()
+    let Salario_vaga = document.querySelector("#salarioVaga").value
+
+    sendVacancyData(HabilidadeDBVaga,Nome_vaga,Descricao_vaga,Local_vaga,Salario_vaga)
+
+
 
 }
 
 
 
 
-function sendUserData(Nome_Candidata, Escolaridade_candidata, Email_candidata, Celular_candidata, CPF_canditada, UF_candidata, Cidade_candidata, Data_nascimento, Genero_canditada, Habilidade_candidata, Senha_canditada, Cargo_canditada) {
+function sendUserData(Nome_Candidata,Escolaridade_candidata,Email_candidata,CPF_canditada,Genero_canditada,Data_nascimento,Curriculo_candidata,Habilidade_candidata,Senha_canditada,Cargo_canditada,Celular_candidata, UF_candidata,Status_candidata ) {
     $.ajax({
         url: "http://localhost:3000/formCandidata",
         method: "POST",
@@ -131,32 +158,39 @@ function sendUserData(Nome_Candidata, Escolaridade_candidata, Email_candidata, C
             Nome_Candidata: Nome_Candidata,
             Escolaridade_candidata: Escolaridade_candidata,
             Email_candidata: Email_candidata,
-            Celular_candidata: Celular_candidata,
             CPF_canditada: CPF_canditada,
-            UF_candidata: UF_candidata,
-            Cidade_candidata: Cidade_candidata,
-            Data_nascimento: Data_nascimento,
             Genero_canditada: Genero_canditada,
+            Data_nascimento: Data_nascimento,
+            Curriculo_candidata:Curriculo_candidata,
             Habilidade_candidata: Habilidade_candidata,
             Senha_canditada: Senha_canditada,
+            Cargo_canditada:Cargo_canditada,
+            Celular_candidata: Celular_candidata,
+            UF_candidata: UF_candidata,
+            Status_candidata:Status_candidata 
+                 
         }
     })
 }
 
-
-
-function sendRecruitData(NomeEmpresa,RamoAtividade,CnpjEmpresa,LocalizacaoEmpresa,TelefoneEmpresa,SiteEmpresa,EmailEmpresa,SenhaEmpresa){
+function sendRecruitData(NomeEmpresa,EmailEmpresa,RamoAtividade,Logo_Empresa,SenhaEmpresa,Cultura_Empresa,TelefoneEmpresa,SiteEmpresa,CnpjEmpresa,LocalizacaoEmpresa){
     $.ajax({
         url:"http://localhost:3000/rotas/formEmpresa",
         method: "POST",
-        data:{Nome_Empresa:NomeEmpresa,
+        data:{
+            Nome_Empresa:NomeEmpresa,
+            Email_Empresa:EmailEmpresa,
             Ramo_de_Atividade:RamoAtividade,
-            cnpj:CnpjEmpresa,
-            Localizacao:LocalizacaoEmpresa,
-            Telefone:TelefoneEmpresa,
-            Site:SiteEmpresa,
-            Email:EmailEmpresa,
-            Senha:SenhaEmpresa
+            Logo_Empresa:Logo_Empresa,
+            Senha_Empresa:SenhaEmpresa,
+            Cultura_Empresa:Cultura_Empresa,
+            Telefone_Empresa:TelefoneEmpresa,
+            Site_Empresa:SiteEmpresa,
+            cnpj_Empresa:CnpjEmpresa,
+            Localizacao_Empresa:LocalizacaoEmpresa
+            
+            
+            
 
         },
         sucesse: function(sucess){
@@ -170,4 +204,20 @@ function sendRecruitData(NomeEmpresa,RamoAtividade,CnpjEmpresa,LocalizacaoEmpres
 
 
 
+}
+
+
+function sendVacancyData(Habilidades_vaga,Nome_vaga,Descricao_vaga,Local_vaga,Salario_vaga){
+    $.ajax({
+        url:"http://localhost:3000/rotas/formVagas",
+        method:"POST",
+        data:{
+            Habilidades_vaga:Habilidades_vaga,
+            Nome_vaga:Nome_vaga,
+            Descricao_vaga:Descricao_vaga,
+            Local_vaga:Local_vaga,
+            Salario_vaga:Salario_vaga
+
+        }
+    })
 }
