@@ -1,4 +1,4 @@
-let userForms1
+
 
 
 function catchUserData() {
@@ -16,13 +16,8 @@ function catchUserData() {
 
     sessionStorage.setItem("User1", JSON.stringify(forms1))
 
-
-    // adicionar localizacao
-
-
-
-    window.location.pathname = "/src/Frontend/views/Users/cadastroUsuaria2.html"
-    // Tela de Cadastro 2
+    window.location.replace("/views/Users/cadastroUsuaria2.html") 
+    
 
 
 
@@ -33,43 +28,47 @@ function catchUserData() {
 }
 
 function catchUserData2() {
-    userForms1 = JSON.parse(sessionStorage.getItem("User1"))
+    let userForms1 = JSON.parse(sessionStorage.getItem("User1"))
 
 
 
 
     //aqui vai as infos da tela cadastro 2
-    let Status_candidata = document.querySelector("#Status_candidata").value
-    let Escolaridade_candidata = document.querySelector("#Escolaridade_candidata").value
+    let Status_candidata = document.querySelector("#statusCandidata").value
+    let Escolaridade_candidata = document.querySelector("#escolaridadeCandidata").value
     let Cargo_canditada = document.querySelector("#cargoCandidata").value
 
-    let SoftSkillIn = document.querySelectorAll("#testesoft")
-    let HardSkillIn = document.querySelectorAll("#testehard")
+    let SoftHard = document.querySelectorAll("span")
     let habilidades = []
     
 
     let PDFcurriculo = document.querySelector("#formFile")
 
-    for (let i = 0; i < SoftSkillIn.length; i++) {
+    for (let i = 0; i < SoftHard.length; i++) {
 
-        habilidades.push(SoftSkillIn[i].innerText)
-
-    }
-
-    for (let i = 0; i < HardSkillIn.length; i++) {
-
-        habilidades.push(HardSkillIn[i].innerText)
+        habilidades.push(SoftHard[i].innerText)
 
     }
+
 
 
     let habilidadeDB = habilidades.toString()
 
     
 
-    sendUserData(userForms1.NomeCandidata, Escolaridade_candidata, userForms1.EmailCandidata, userForms1.CPFCandidata,userForms1.GeneroCandidata,userForms1.NascimentoCandidata,PDFcurriculo,habilidadeDB,userForms1.SenhaCandidata,Cargo_canditada,userForms1.CelularCandidata, "testeteste",Status_candidata)
+    sendUserData(userForms1.NomeCandidata, Escolaridade_candidata, userForms1.EmailCandidata, userForms1.CPFCandidata,userForms1.GeneroCandidata,"23/09/2003","asdada",habilidadeDB,userForms1.SenhaCandidata,Cargo_canditada,userForms1.CelularCandidata, "testeteste",Status_candidata)
 }
 
+function deleteCatchDataUser(){
+    sessionStorage.removeItem("User1")
+
+}
+
+function putDatas(){
+    userForms1 = JSON.parse(sessionStorage.getItem("User1"))
+
+    document.querySelector('#nomeCandidata').value = userForms1.NomeCandidata
+}
 
 
 
@@ -150,26 +149,26 @@ function catchVacancyData(){
 
 function sendUserData(Nome_Candidata,Escolaridade_candidata,Email_candidata,CPF_canditada,Genero_canditada,Data_nascimento,Curriculo_candidata,Habilidade_candidata,Senha_canditada,Cargo_canditada,Celular_candidata, UF_candidata,Status_candidata ) {
     $.ajax({
-        url: "http://localhost:3000/formCandidata",
+        url: "http://localhost:3000/rotas/formCandidata",
         method: "POST",
         data: {
             Nome_Candidata: Nome_Candidata,
             Escolaridade_candidata: Escolaridade_candidata,
             Email_candidata: Email_candidata,
-            CPF_canditada: CPF_canditada,
-            Genero_canditada: Genero_canditada,
+            CPF_candidata: CPF_canditada,
+            Genero_candidata: Genero_canditada,
             Data_nascimento: Data_nascimento,
             Curriculo_candidata:Curriculo_candidata,
             Habilidade_candidata: Habilidade_candidata,
-            Senha_canditada: Senha_canditada,
-            Cargo_canditada:Cargo_canditada,
+            Senha_candidata: Senha_canditada,
+            Cargo_candidata:Cargo_canditada,
             Celular_candidata: Celular_candidata,
             UF_candidata: UF_candidata,
             Status_candidata:Status_candidata 
                  
         },
         success: function(){
-            window.location.replace()
+            window.location.replace("/views/index.html")
         }
 
     })
@@ -192,7 +191,7 @@ function sendRecruitData(NomeEmpresa,EmailEmpresa,RamoAtividade,Logo_Empresa,Sen
             Localizacao_Empresa:LocalizacaoEmpresa
         },
         success: function(){
-            window.location.replace('/views/Recruiter/cadastroRecrutadora4.html')       
+            window.location.replace("/views/index.html")       
 
         }
     })

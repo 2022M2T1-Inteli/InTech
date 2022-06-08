@@ -13,6 +13,7 @@ app.use(express.static("../Frontend"))
 
 // separador de rodas ( localhost:3000/rotas/X)
 app.use("/rotas",rotas)
+app.use("/",express.static("../Frontend/views"))
 
 
 

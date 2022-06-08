@@ -26,7 +26,7 @@
     </header>
     <main style="animation: up 1.5s;">
         <h1 class="titulo-da-pagina mt-4">Cadastre seu perfil</h1>
-        <form>
+        <form action="">
             <div class="caixa">
                 <div class="mb-1 mt-4">
                     <img src="../../images/CadastroUsuaria1ProgressBar.svg" alt="barra de progresso 1 - seus dados"
@@ -35,10 +35,10 @@
                 <br>
                 <label for="nomeCandidata">Nome</label>
                 <input id="nomeCandidata" class="caixa2 border-0" type="text" placeholder="Digite seu nome"
-                    name="Nome_candidata" />
+                    name="Nome_candidata" required />
                 <label for="emailCandidata">Email</label>
                 <input id="emailCandidata" class="caixa2 border-0" type="email" placeholder="Digite seu melhor email"
-                    name="Email_candidata" />
+                    name="Email_candidata" required />
                 <label for="celularCandidata">Número de telefone celular</label>
                 <input id="celularCandidata" class="caixa2 border-0" type="tel"
                     placeholder="Digite o número do seu celular" name="Celular_candidata" />
@@ -60,8 +60,8 @@
                 <div class="mb-2 boxInputs">
                     <label style="color: white; margin-left: 5px; margin-top: 10px;" class="row form-label"
                         for="data-nascimento">Data de nascimento: </label>
-                    <input id="data-nascimento" class="caixa2 border-0" type="date"
-                        placeholder="Data de nascimento" name="Data_nascimento">
+                    <input id="data-nascimento" class="caixa2 border-0" type="date" placeholder="Data de nascimento"
+                        name="Data_nascimento">
 
                 </div>
                 <label for="genero">Informe seu gênero</label>
@@ -79,13 +79,19 @@
                     placeholder="Crie uma senha">
             </div>
 
-        </form>
 
+
+
+        </form>
 
         <div class="avanço1">
             <button onclick="catchUserData()" class="avanço">Completar cadastro </button>
-            <a class="row" style="margin-left: 30px;" href="../telaCadastro.html">Voltar</a>
+            <a onclick="deleteCatchDataUser()" class="row" style="margin-left: 30px;"
+                href="../telaCadastro.html">Voltar</a>
         </div>
+
+
+
 
 
     </main>
@@ -96,8 +102,8 @@
     <script>
         // Mascara CPF
 
-        
-        
+
+
         // API de Localização 
         function montaCidade(estado, pais) {
             $.ajax({
