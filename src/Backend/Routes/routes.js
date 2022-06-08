@@ -64,7 +64,7 @@ Routes.post("/loginUser",(req,res)=>{
 
 
 
-    }})
+}})
 
 
 
@@ -218,9 +218,9 @@ Routes.post("/formCandidata", (req, res) => {
         // 2ª Values (? x quantidade de dados que entrarao)
         // 3ª [valor1, valor2,valor3 .....]
 
-        const {Nome_Candidata,Escolaridade_candidata,Email_candidata,CPF_candidata,Genero_candidata,Data_nascimento,Curriculo_candidata,Habilidade_candidata,Senha_candidata,Cargo_candidata,Celular_candidata,UF_candidata,Status_candidata} = req.body
+        const {Nome_Candidata,Escolaridade_candidata,Email_candidata,CPF_candidata,Genero_candidata,Data_nascimento,Curriculo_candidata,Softskill_candidata,Senha_candidata,Cargo_candidata,Celular_candidata,Pais_candidata,Status_candidata,Hardskill_candidata,Estado_candidata,Cidade_candidata} = req.body
 
-        await db.run("INSERT INTO candidatas (nome_candidata ,escolaridade_candidata ,email_candidata,cpf_candidata,genero_candidata,nascimento_candidata,curriculo_candidata,habilidades_candidata,senha_candidata,cargo_candidata,celular_candidata,pais_candidata,status_candidata) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)",[ Nome_Candidata,Escolaridade_candidata,Email_candidata,CPF_candidata,Genero_candidata,Data_nascimento,Curriculo_candidata,Habilidade_candidata,Senha_candidata,Cargo_candidata,Celular_candidata,UF_candidata,Status_candidata])
+        await db.run("INSERT INTO candidatas (nome_candidata ,escolaridade_candidata ,email_candidata,cpf_candidata,genero_candidata,nascimento_candidata,curriculo_candidata,softskill_candidata,senha_candidata,cargo_candidata,celular_candidata,pais_candidata,status_candidata,hardskill_candidata,estado_candidata,cidade_candidata) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",[ Nome_Candidata,Escolaridade_candidata,Email_candidata,CPF_candidata,Genero_candidata,Data_nascimento,Curriculo_candidata,Softskill_candidata,Senha_candidata,Cargo_candidata,Celular_candidata,Pais_candidata,Status_candidata,Hardskill_candidata,Estado_candidata,Cidade_candidata])
 
 
         // fecha o banco de dados

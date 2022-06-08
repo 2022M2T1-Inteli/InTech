@@ -147,7 +147,7 @@ function catchVacancyData(){
 
 
 
-function sendUserData(Nome_Candidata,Escolaridade_candidata,Email_candidata,CPF_canditada,Genero_canditada,Data_nascimento,Curriculo_candidata,Habilidade_candidata,Senha_canditada,Cargo_canditada,Celular_candidata, UF_candidata,Status_candidata ) {
+function sendUserData(Nome_Candidata,Escolaridade_candidata,Email_candidata,CPF_canditada,Genero_canditada,Data_nascimento,Curriculo_candidata,Softskill_candidata,Senha_canditada,Cargo_canditada,Celular_candidata, Pais_candidata,Status_candidata,Hardskill_candidata,Estado_candidata,Cidade_candidata ) {
     $.ajax({
         url: "http://localhost:3000/rotas/formCandidata",
         method: "POST",
@@ -159,12 +159,15 @@ function sendUserData(Nome_Candidata,Escolaridade_candidata,Email_candidata,CPF_
             Genero_candidata: Genero_canditada,
             Data_nascimento: Data_nascimento,
             Curriculo_candidata:Curriculo_candidata,
-            Habilidade_candidata: Habilidade_candidata,
+            Softskill_candidata: Softskill_candidata,
             Senha_candidata: Senha_canditada,
             Cargo_candidata:Cargo_canditada,
             Celular_candidata: Celular_candidata,
-            UF_candidata: UF_candidata,
-            Status_candidata:Status_candidata 
+            Pais_candidata:Pais_candidata,
+            Status_candidata:Status_candidata,
+            Hardskill_candidata:Hardskill_candidata,
+            Estado_candidata:Estado_candidata,
+            Cidade_candidata:Cidade_candidata
                  
         },
         success: function(){
