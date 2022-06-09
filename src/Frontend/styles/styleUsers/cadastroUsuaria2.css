@@ -132,5 +132,28 @@ input[type="text"] {
         justify-content: center;
         align-items: center;
     }
-
  }
+
+ .avanço1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+    margin-top: 15px;
+}
+
+.avanço{
+    font-family: 'Roboto Slab', serif;
+    border-radius: 11px;
+    border: var(--cor--tercia);
+    padding: 10px;
+    background-color:#ffff;
+    color: var(--cor--principal);
+    text-align: center;
+}
+
+.avanço:hover {
+    background-color: rgb(211, 211, 211);
+    transform: scale(1.08);
+    transition: 1s;
+}

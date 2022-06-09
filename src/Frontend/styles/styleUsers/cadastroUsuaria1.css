@@ -7,13 +7,18 @@ body{
     
 }
 
-.titulo-da-pagina{
+h1{
+    color: white;
+    font-family: 'Roboto Slab';
+    text-align: center;
+}
+
+/* .titulo-da-pagina{
     font-family: 'Roboto Slab', serif;
     text-align: center; 
     font-size: 35px;
     color: white;
-}
-
+} */
 
 .caixa{
     display: flex;
