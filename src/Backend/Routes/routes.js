@@ -19,18 +19,18 @@ Routes.post("/loginUser", (req, res) => {
 
     function verify() {
 
-      
-        if(!email && !senha){
+
+        if (!email && !senha) {
             res.status(400).json({
                 message: "Email e Senha necessários"
             })
 
-        }else if (!email) {
+        } else if (!email) {
             res.status(400).json({
                 message: "Email necessário"
 
             })
-        }else if (!senha) {
+        } else if (!senha) {
             res.status(400).json({
                 message: "Senha necessária"
             })
@@ -72,7 +72,7 @@ Routes.post("/loginUser", (req, res) => {
 
         }
 
-        
+
 
 
 
@@ -83,8 +83,78 @@ Routes.post("/loginUser", (req, res) => {
     verify()
 })
 
-Routes.put("/editarUser",(req,res)=>{
-    
+Routes.post("/loginRecruit", (req, res) => {
+    const { email, senha } = req.body
+
+    function verify() {
+
+
+        if (!email && !senha) {
+            res.status(400).json({
+                message: "Email e Senha necessários"
+            })
+
+        } else if (!email) {
+            res.status(400).json({
+                message: "Email necessário"
+
+            })
+        } else if (!senha) {
+            res.status(400).json({
+                message: "Senha necessária"
+            })
+        } else if (email && senha) {
+            async function verifyDada() {
+
+
+                const db = await sqlite.open({ filename: "./database/banco_de_dados.db", driver: sqlite3.Database })
+
+                const user = await db.all("SELECT * FROM empresas WHERE email_empresa == ?", [email])
+
+
+
+                if (!user[0]) {
+                    res.status(400).json({
+                        message: "Email não registrado"
+                    })
+                }
+
+
+
+                else if (user[0].senha_empresa == senha) {
+                    res.json(
+                        user[0]
+                    )
+
+                }
+
+                else if ((user[0].senha_empresa == senha) == false) {
+                    res.status(400).json({
+                        message: "Email ou Senha não corresponde"
+                    })
+                }
+
+            }
+
+            verifyDada()
+
+
+        }
+
+
+
+
+
+
+
+    }
+
+    verify()
+
+})
+
+Routes.put("/editarUser", (req, res) => {
+
 })
 
 

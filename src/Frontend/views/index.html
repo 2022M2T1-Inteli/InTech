@@ -43,7 +43,7 @@
                         </label>
                     </div>
                     <button type="button" class="btn btn-light" id="btnLogin" href=""
-                        onclick="login()">Entrar</button><br><br>
+                        onclick="loginUser()">Entrar</button><br><br>
                     <a href="./recuperacaoSenha1.html">Esqueci minha senha</a><br>
                     <a href="./telaCadastro.html">Ainda não é cadastrada? Cadastre-se aqui!</a><br>
                 </form>
@@ -61,12 +61,12 @@
 
     $('#option-1').change(function () {
         if ($(this).is(":checked")) {
-            btn.setAttribute("onclick", "login()")
+            btn.setAttribute("onclick", "loginUser()")
         }
     })
     $("#option-2").change(function () {
         if ($(this).is(":checked")) {
-            btn.setAttribute("onclick", "teste2()")
+            btn.setAttribute("onclick", "loginRecruit()")
         }
     })
 
