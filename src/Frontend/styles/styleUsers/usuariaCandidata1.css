@@ -1,0 +1,116 @@
+.cardsVagas {
+    display: flex;
+    width: 400px;
+    height: 191px;
+    border-radius: 36px;
+    box-shadow: 2px 4px 12px 3px rgba(0, 0, 0, 0.25);
+    align-items: center;
+    margin-right: 50px;
+    margin-bottom: 30px;
+}
+.textdescript {
+    font-family: 'Nunito';
+}
+
+main {
+    display: flex;
+    justify-content: center;
+}
+
+.vagas {
+    display: flex;
+}
+
+@media only screen and (max-width: 600px) {
+    .cardsVagas {
+        width: 80%;
+        margin-right: 0px;
+    }
+
+    nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.form-control {
+    position: relative;
+    margin: 80px 0 40px;
+    background-color: transparent;
+    border: none;
+    width: 300px;
+}
+
+.form-control input {
+    background-color: transparent;
+    border: 0;
+    border-bottom: 2px #8D8D8D solid;
+    display: block;
+    width: 320px;
+    padding: 2px 0;
+    font-size: 18px;
+    color: #8D8D8D;
+    background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E") no-repeat 300px center;
+}
+
+.form-control input:focus,
+.form-control input:valid {
+    outline: 0;
+    border-bottom-color: #8D8D8D;
+}
+
+.form-control label {
+    position: absolute;
+    top: 5px;
+    left: 15px;
+    pointer-events: none;
+}
+
+.form-control label span {
+    display: inline-block;
+    font-size: 18px;
+    min-width: 5px;
+    transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.form-control input:focus+label span,
+.form-control input:valid+label span {
+    color: #8D8D8D;
+    transform: translateY(-30px);
+}
+
+.headContent {
+    display: flex;
+    justify-content: space-between;
+}
+
+.profile {
+    display: flex;
+    flex-direction: row;
+}
+
+.profile img {
+    width: 30%;
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 20px;
+}
+
+.title h2 {
+    font-family: 'Roboto Slab';
+    color: #280044;
+    margin-bottom: 5px;
+    text-align: right;
+}
+
+.title h3 {
+    font-family: 'Roboto Slab';
+    color: #280044;
+    font-size: 18px;
+    text-align: right;
+}

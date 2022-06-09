@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital@0;1&family=Roboto+Slab:wght@800&family=Ubuntu:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;500&display=swap');
 :root {
     --cor--principal: #530084;
     --cor--secundaria: #1A1A1A;
@@ -5,7 +7,27 @@
     --cor--quarta:#69B748;
 }
 
+label {
+    display: none;
+}
 
+nav{
+    background-color: white;
+    height: 4.7em;
+    width: 100%;
+    align-items: center;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+nav img{
+    margin: 0.8em 6.7em;
+    width: 100px;
+    height: 50px;
+}
+
+input {
+    outline-color: #A77EBF;
+}
 
 .inputBit{
     width: 60%;
@@ -24,4 +46,64 @@
     to {
         opacity: 1;
     }
+}
+
+.btnproprio{
+    background-color: white;
+    width: auto;
+    padding: 10px;
+    font-size: 22px;
+    border-style: none;
+    font-weight: bold;
+    border-radius: 11px;
+
+    font-family: 'Roboto Slab', serif;
+    margin-top: 15px;
+    margin-bottom: 25px;
+    color: var(--cor--principal);
+    text-align: center;
+}
+
+.normal {
+    background-color: rgba(255, 255, 255, 0.3);
+    width: auto;
+    padding: 10px;
+    font-size: 22px;
+    border-style: none;
+    font-weight: bold;
+    border-radius: 11px;
+
+    font-family: 'Roboto Slab', serif;
+    margin-top: 15px;
+    margin-bottom: 25px;
+    color: var(--cor--principal);
+    text-align: center;
+
+}
+
+.btnproprio:hover {
+    background-color: rgb(210, 210, 210);
+    transform: scale(1.08);
+    transition: 1s;
+}
+
+a {
+    color: white;
+    font-family: 'Roboto Slab';
+    justify-content: center;
+}
+
+a:hover {
+    color: #A77EBF;
+}
+
+.btn {
+    font-size: 18px;
+    border: none;
+}
+
+.btn:hover {
+    background-color: #d0d0d0;
+    transition: 2s;
+    outline: none;
 }

@@ -1,9 +1,7 @@
 body{
     background-color: #530084;
-    background-image: url("./Design\ sem\ nome.jpg");
-    background-repeat: no-repeat;
-    background-size:cover;
-
+    background-image: url("../../images/Background.svg");
+    background-size: cover;
     color: white;
     
 }
@@ -12,16 +10,12 @@ nav{
     display: flex;
     align-items: center;
     background-color: white;
-    height: 75px;
+    height:4.7em;
     margin-bottom: 3%;
 }
 
 nav img{
-    width: 100px;
-    height: 100px;
-    margin-left: 10px;
-    
-    
+    margin: 1em 6.5em; 
 }
 
 
@@ -74,6 +68,7 @@ nav img{
     width: 200px;
     height: 200px;
     border: 6px dashed white;
+    border-radius: 20px;
 }
 
 .porcentagemReq{
@@ -113,4 +108,13 @@ nav img{
     font-size: 23px;
     
     
+}
+
+@media only screen and (max-width: 600px) {
+
+    nav{
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+    }
 }

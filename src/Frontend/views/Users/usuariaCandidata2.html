@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -7,45 +7,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="/styles/main.css">
-    <link rel="stylesheet" href="/styles/styleUsers/usuarioCandidata2.css">
+    <link rel="stylesheet" href="../../styles/styleUsers/usuarioCandidata2.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <title>Seu Currículo</title>
 </head>
 
-<body>
-    <div class="container text-center">
-        <nav> <img src="/images/Group.svg" alt=""></nav>
-        <h1>Front-End Developer</h1>
-        <p class="subtitulo">Google - Sênior - R$1000,00</p>
-        <p class="textinho">Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis eligendi ipsum ex
-            commodi nemo eum
-            architecto
-            neque distinctio, nihil quisquam deserunt tenetur, molestias totam laboriosam voluptatibus atque maiores
-            ducimus
-            harum?
-        </p>
-        <p class="textinho">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam ratione officia quo rem
-            velit in,
-            laboriosam
-            hic quis labore dolorum. Vel, neque a ratione beatae quos ex impedit minus cum!</p>
-        <div class="boxamarela">
-            <h4>Soft Skills</h4>
-            <div class="espacamento mb-4 p-3">
-                <p class="caixinhacolab">Colaboração</p>
-                <p class="caixinhacont">Controle das emoções</p>
+<body onload="loadVagaData()">
+
+    <nav class="shadow mb-2 bg-body rounded"> <img src="../../images/logo.svg" alt="Logo da brazilians in tech"></nav>
+    <div class="row">
+        <div class="col-3 background">
+
+        </div>
+
+
+        <div class="col col-sm-12 col-lg-7">
+            <div class="container text-center">
+
+
+                <h1 id="tituloVaga"></h1>
+                <p class="subtitulo"><span id="nomeEmpresa"></span> <span id="salarioVaga"></span></p>
+
+                <h2>Descrição da vaga</h2>
+                <p id="descricaoVaga" class="textinho">
+                </p>
+                <h2>Cultura da Empresa</h2>
+                <p id="culturaEmpresa" class="textinho">
+                </p>
+
+                <div class="boxamarela text-start mt-5">
+                    <h4 class="" style="color:black ;">Soft Skills</h4>
+                    <div id="soft-skills" class="espacamento">
+
+                    </div>
+
+                    <h4 class="mt-5" style="color:black ;">Hard Skills</h4>
+                    <div id="hard-skills" class="espacamento">
+
+                    </div>
+                </div>
+                <a class="voltarbut rounded-pill but text-decoration-none" href="./usuariaCandidata1.html"
+                    style="color:black ;">Voltar</a>
+                <button class="aplicarbut rounded-pill but" onclick="applyVaga()">Aplicar</button>
             </div>
 
-            <h4>Hard Skills</h4>
-            <div class="espacamento p-3">
-                <p class="caixinhagrad">Graduação em Tecnologia</p>
-                <p class="caixinha">Excel</p>
-                <p class="caixinha">Python</p>
-                <p class="caixinha">Inglês</p>
-            </div>
         </div>
-        <button class="voltarbut but">Voltar</button>
-        <button class="aplicarbut but">Aplicar</button>
+
     </div>
+
+
+
+    <script src="../../script/vaga-descricao.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
         integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
         crossorigin="anonymous"></script>

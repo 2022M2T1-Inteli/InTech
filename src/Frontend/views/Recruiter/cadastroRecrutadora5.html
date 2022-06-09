@@ -7,194 +7,207 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="../../styles/styleRecruiter/cadastroRecrutadora5.css">
-
+    
     <link rel="stylesheet" href="../../styles/styleUsers/softSkillsTagInput.css">
     <link rel="stylesheet" href="../../styles/styleUsers/hardSkillsTagInput.css">
-
     <link rel="stylesheet" href="../../styles/main.css">
-
+    <link rel="stylesheet" href="../../styles/styleRecruiter/cadastroRecrutadora5.css">
     <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
     <title>Brazilians in Tech</title>
 </head>
-
-<!-- Aqui no body eu mudei um pouquinho, só tirei o background-image do seu css e coloquei direto aqui na tag <body> -->
 
 <body class="bg-image"
     style="background-image: url('../../images/Background.svg'); height: 100%; background-repeat: no-repeat; background-size: cover; margin: 0;">
     <header>
         <div>
-            <!--Barra de navegação acima do site. -->
             <nav>
-                <!-- Imagem do logotipo superior -->
-                <img class="logo" src="../../images/logo.svg" width="100" height="50" alt="Logo Brazilians in Tech">
+                <img class="logo" src="../../images/logo.svg" style="width: 110px;height: 45px;"
+                    alt="Logo Brazilians in Tech">
             </nav>
             <br>
         </div>
     </header>
-
     <main>
-
-        <div class="container cadastroRecrutadora5">
-            <div class="row text-center" style="animation: up 0.8s;">
-                <h1 class="titulo-da-pagina"> Cadastro da vaga</h1>
-                <br>
-            </div>
-
-            <!-- Aqui já deu pra fazer o efeito que eu disse de uma animação carregar 
-            primeiro! Ficou incrível, da pra melhorar algumas coisas bobas de nomes
-            nada demais, ficou ótimo-->
-
-            <div class="caixa" style="animation: up 2s backwards;">
-                <!-- Caixa de texto para seleção de profissões -->
-                <div>
-                    <select class="caixa2 border-0" name="" id="">
-                        <option value="" disabled selected hidden> Nome da vaga</option>
-                        <OPtion>Desenvolvedora junior</OPtion>
-                        <OPtion>Desenvolvedora plena</OPtion>
-                        <OPtion>Desenvolvedora sênior </OPtion>
-                    </select>
+        <form>
+            <div class="container cadastroRecrutadora5">
+                <div class="row text-center" style="animation: up 0.8s;">
+                    <h1 class="titulo-da-pagina mb-4"> Cadastro da vaga</h1>
+                    <br>
                 </div>
+                <div class="caixa" style="animation: up 2s backwards;">
+                    <div>
+                        <label for="nomeVaga">Em que área sua vaga se encaixa?</label>
+                        <select class="caixa2 border-0" name="Nome_vaga" id="nomeVaga">
+                            <option value="" selected disabled hidden>Área que está procurando?</option>
+                            <option value='Administrador de Sistemas'>Administrador de Sistemas</option>
+                            <option value='Administrador do Banco de Dados (DBA)'>Administrador do Banco de Dados (DBA)
+                            </option>
+                            <option value='Analista de Mídias Sociais'>Analista de Mídias Sociais</option>
+                            <option value='Analista de Segurança de Informação'>Analista de Segurança de Informação
+                            </option>
+                            <option value='Analista de Sistemas'>Analista de Sistemas</option>
+                            <option value='Arquiteto de redes'>Arquiteto de redes</option>
+                            <option value='Ciência de dados'>Ciência de dados</option>
+                            <option value='Desenvolvedor mobile'>Desenvolvedor mobile</option>
+                            <option value='Engenharia de computação'>Engenharia de computação</option>
+                            <option value='Engenharia de software'>Engenharia de software</option>
+                            <option value='Especialista em e-Commerce'>Especialista em e-Commerce</option>
+                            <option value='Gestão de Tecnologia da Informação'>Gestão de Tecnologia da Informação</option>
+                            <option value='Jogos Digitais'>Jogos Digitais</option>
+                            <option value='Marketing Digital'>Marketing Digital</option>
+                            <option value='Profissional Help Desk'>Profissional Help Desk</option>
+                            <option value='Programador de Computador'>Programador de Computador</option>
+                            <option value='Programador web'>Programador web</option>
+                            <option value='Robótica'>Robótica</option>
+                            <option value='Segurança da informação'>Segurança da informação</option>
+                            <option value='Segurança de sistemas'>Segurança de sistemas</option>
+                            <option value='Técnico de informática'>Técnico de informática</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="descricaoVaga">Descrição da vaga</label>
+                        <!-- INSERIR CONTADORES DE CARACTERES-->
+                        <TEXTarea id="descricaoVaga" maxlength="600" class="textarea border-0"
+                            placeholder="Descrição da vaga"></TEXTarea>
+                    </div>
+                    <div>
+                        <label for="modalidade">Modalidade</label>
+                        <select class="caixa2 border-0" id="modalidade">
+                            <option value="" selected disabled hidden>Modalidade</option>
+                            <option value='Presencial'>Presencial</option>
+                            <option value='Remoto'>Remoto</option>
+                            <option value='Híbrido'>Híbrido</option>
+                        </select>
 
-                <div>
-                    <!-- <input class="caixa3 border-0" type="text" placeholder="Descrição da vaga" /> -->
-                    <TEXTarea class="caixa3 border-0" placeholder="Descrição da vaga"></TEXTarea>
-                </div>
+                    </div>
+                    <div>
+                        <label for="localizacao">Localização</label>
+                        <input id="localizacao" class="input input2 border-0" type="text"
+                            placeholder="Localização da vaga" />
+                    </div>
+                    <div>
+                        <p class="texto"> Soft skills </p>
+                    </div>
+                    <div class="row mt-4 softSkillsContainer">
+                        <label for="soft-skills">Digite as soft-skills necessárias</label>
+                        <input placeholder="Digite a habilidade desejada e pressione ENTER" type="text"
+                            name="Soft-Skills" list="softskillslist" id="soft-skills" class="input form-control">
+                        <datalist id="softskillslist">
+                            <option value=" Controle de emoções">
+                            <option value=" Colaboração">
+                            <option value=" Boa comunicação verbal">
+                            <option value=" Solução de problemas"></option>
+                            <option value=" Trabalho em equipe"></option>
+                            <option value=" Gerenciamento de tempo"></option>
+                            <option value=" Pensamento crítico"></option>
+                            <option value=" Organizacional"></option>
+                            <option value=" Tomada de decisões"></option>
+                            <option value=" Gerenciamento de estresse"></option>
+                            <option value=" Adaptabilidade"></option>
+                            <option value=" Liderança"> </option>
+                            <option value=" Criatividade"></option>
+                            <option value=" Desenvoltura"></option>
+                            <option value=" Gestão e resolução de conflitos"></option>
+                            <option value=" Persuasão"></option>
+                            <option value=" Abertura a críticas"></option>
+                            <option value=" Atenção aos detalhes"></option>
+                            <option value=' Atenção a detalhes'></option>
+                            <option value=' Ética de trabalho'></option>
+                            <option value=' Priorização'></option>
+                            <option value=' Definição de metas'></option>
+                            <option value=' Otimismo'></option>
+                            <option value=' Imaginação'></option>
+                            <option value=' Inovação'></option>
+                            <option value=' Autenticidade'></option>
+                            <option value=' Generosidade'></option>
+                            <option value=' Tolerância'></option>
+                            <option value=' Humor'></option>
+                            <option value=' Diplomacia'></option>
+                            <option value=' Disciplina'></option>
+                            <option value=' Comprometimento'></option>
+                            <option value=' Responsabilidade'></option>
+                            <option value=' Introspecção'></option>
+                            <option value=' Despersonalização'></option>
+                        </datalist>
+                    </div>
+                    <div>
+                        <p class="texto"> Hard skills </p>
+                    </div>
+                    <div class="row mt-4 hardSkillsContainer">
+                        <label for="hard-skills">Digite as Hard-Skills necessárias</label>
+                        <input placeholder="Digite a habilidade desejada e pressione ENTER" type="text"
+                            name="Hard-Skills" list="hardskillslist" id="hard-skills" class="form-control">
+                        <datalist id="hardskillslist">
+                            <option value="JavaScript"></option>
+                            <option value="HTML/CSS"></option>
+                            <option value="Python"></option>
+                            <option value="SQL"></option>
+                            <option value="Java"></option>
+                            <option value="Node.js"></option>
+                            <option value="TypeScript"></option>
+                            <option value="C#"></option>
+                            <option value="Bash/Shell"></option>
+                            <option value="C++"></option>
+                            <option value="PHP"></option>
+                            <option value="PowerShell"></option>
+                            <option value="C"></option>
+                            <option value="Go"></option>
+                            <option value="Kotlin"></option>
+                            <option value="Rust"></option>
+                            <option value="Ruby"></option>
+                            <option value="Assembly"></option>
+                            <option value="Swift"></option>
+                            <option value="R"></option>
+                            <option value="VBA"></option>
+                            <option value="Matlab"></option>
+                            <option value="Groovy"></option>
+                            <option value="Objective-C"></option>
+                            <option value="Scala"></option>
+                            <option value="Perl"></option>
+                            <option value="Haskell"></option>
+                            <option value="Delphi"></option>
+                            <option value="Clojure"></option>
+                            <option value="Elixir"></option>
+                        </datalist>
+                    </div>
+                    <div>
+                        <p class="texto"> Salário (opcional)</p>
+                    </div>
+                    <div>
+                        <label for=""></label>
+                        <input class="input border-0" type="text" placeholder="Salário (R$)" id="salarioVaga" />
+                    </div>
+                
+                    <!-- INSERIR MODALIDADE DE VAGAS-->
+                 
+        </form>
+        
 
-                <div>
-                    <input class="caixa4 border-0" type="text" placeholder="Localização da vaga" />
-                </div>
-
-                <div>
-                    <p class="texto"> Soft skills </p>
-                </div>
-
-             
-                <div class="softSkillsContainer">
-                    <input type="text" name="Soft-Skills" list="softskillslist" id="soft-skills" class="caixa5 form-control">
-
-                    <datalist id="softskillslist">
-                        <option value=" Controle de emoções">
-                        <option value=" Colaboração">
-                        <option value=" Boa comunicação verbal">
-                        <option value=" Solução de problemas"></option>
-                        <option value=" Trabalho em equipe"></option>
-                        <option value=" Gerenciamento de tempo"></option>
-                        <option value=" Pensamento crítico"></option>
-                        <option value=" Organizacional"></option>
-                        <option value=" Tomada de decisões"></option>
-                        <option value=" Gerenciamento de estresse"></option>
-                        <option value=" Adaptabilidade"></option>
-                        <option value=" Liderança"> </option>
-                        <option value=" Criatividade"></option>
-                        <option value=" Desenvoltura"></option>
-                        <option value=" Gestão e resolução de conflitos"></option>
-                        <option value=" Persuasão"></option>
-                        <option value=" Abertura a críticas"></option>
-                        <option value=" Atenção aos detalhes"></option>
-                        <option value=' Atenção a detalhes'></option>
-                        <option value=' Ética de trabalho'></option>
-                        <option value=' Priorização'></option>
-                        <option value=' Definição de metas'></option>
-                        <option value=' Otimismo'></option>
-                        <option value=' Imaginação'></option>
-                        <option value=' Inovação'></option>
-                        <option value=' Autenticidade'></option>
-                        <option value=' Generosidade'></option>
-                        <option value=' Tolerância'></option>
-                        <option value=' Humor'></option>
-                        <option value=' Diplomacia'></option>
-                        <option value=' Disciplina'></option>
-                        <option value=' Comprometimento'></option>
-                        <option value=' Responsabilidade'></option>
-                        <option value=' Introspecção'></option>
-                        <option value=' Despersonalização'></option>
-                    </datalist>
-                </div>
-
-                <div>
-                    <p class="texto"> Hard skills </p>
-                </div>
-
-                <div class="hardSkillsContainer">
-                    <input type="text" name="Hard-Skills" list="hardskillslist" id="hard-skills" class="form-control">
-
-                    <datalist id="hardskillslist">
-                        <option value="JavaScript"></option>
-                        <option value="HTML/CSS"></option>
-                        <option value="Python"></option>
-                        <option value="SQL"></option>
-                        <option value="Java"></option>
-                        <option value="Node.js"></option>
-                        <option value="TypeScript"></option>
-                        <option value="C#"></option>
-                        <option value="Bash/Shell"></option>
-                        <option value="C++"></option>
-                        <option value="PHP"></option>
-                        <option value="PowerShell"></option>
-                        <option value="C"></option>
-                        <option value="Go"></option>
-                        <option value="Kotlin"></option>
-                        <option value="Rust"></option>
-                        <option value="Ruby"></option>
-                        <option value="Assembly"></option>
-                        <option value="Swift"></option>
-                        <option value="R"></option>
-                        <option value="VBA"></option>
-                        <option value="Matlab"></option>
-                        <option value="Groovy"></option>
-                        <option value="Objective-C"></option>
-                        <option value="Scala"></option>
-                        <option value="Perl"></option>
-                        <option value="Haskell"></option>
-                        <option value="Delphi"></option>
-                        <option value="Clojure"></option>
-                        <option value="Elixir"></option>
-
-                    </datalist>
-                </div>
-
-                <div>
-                    <p class="texto"> Salário (opcional)</p>
-                </div>
-
-                <div>
-                    <input class="caixa7 border-0" type="text" placeholder="Salário (R$)" />
-                </div>
-
-                <div>
-                    <p class="texto">Tags</p>
-                </div>
-
-                <div>
-                    <!-- <input class="caixa3 border-0" type="text" placeholder="Descrição da vaga" /> -->
-                    <TEXTarea class="caixa3 border-0" placeholder="Tags"></TEXTarea>
-                </div>
-
-                <div>
-                    <button class="avanço">Cadastrar vaga </button>
-                </div>
-
+        <div>
+            <!--  TEMPLATE BOTÃO VOLTAR -->
+            <div class="col d-flex align-items-center justify-content-center">
+                
+                <button class="btnproprio" onclick="catchVacancyData()">Cadastrar vaga</button>
+                <a class="row" style="margin-left: 30px;" href="../Recruiter/cadastroRecrutadora4.html">Voltar</a>
             </div>
         </div>
-
-
     </main>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('input').keypress(function (e) {
+                var code = null;
+                code = (e.keyCode ? e.keyCode : e.which);
+                return (code == 13) ? false : true;
+            });
+        });
+    </script>
 
     <script src="../../script/tagInputs/softSkillsTagInput.js"></script>
     <script src="../../script/tagInputs/hardSkillsTagInput.js"></script>
-
-    <footer>
-        <div>
-            <!--Barra de navegação acima do site. -->
-            <nav>
-                <!-- Imagem do logotipo superior -->
-                <img class="logo" src="../../images/logo.svg" width="100" height="50" alt="Logo Brazilians in Tech">
-            </nav>
-            <br>
-        </div>
-    </footer>
-
+    <script src="../../script/forms.js"></script>
 </body>
 
 </html>

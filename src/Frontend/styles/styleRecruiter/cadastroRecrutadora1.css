@@ -1,22 +1,22 @@
-:root
-
 body{
-    text-align: center;
-    background-image: url("/images/Background.svg");
+    background-image: url("../../images/Background.svg");
     background-size: cover;
+    overflow-x: hidden;
 }
 
 h1{
     color: white;
+    font-family: 'Roboto Slab';
 }
 
 img{
-    text-align: left;
-    display: flex;
+    margin: 1em 6.5em;
 }
 
 nav{
     background-color: white;
+    width: 103%;
+    height: 4.7em;
 }
 
 .caixa{
@@ -46,3 +46,21 @@ p{
     margin-bottom: 30px;
     text-align: center;
 }
+
+@media only screen and (max-width: 600px) {
+    .inputBit{
+        width: 80%;
+    }
+
+   .imagemprocess{
+       width: 80%;
+   }
+
+   nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+ }
