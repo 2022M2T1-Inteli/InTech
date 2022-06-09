@@ -83,6 +83,10 @@ Routes.post("/loginUser", (req, res) => {
     verify()
 })
 
+Routes.put("/editarUser",(req,res)=>{
+    
+})
+
 
 
 
