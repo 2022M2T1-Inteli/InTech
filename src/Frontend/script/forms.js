@@ -11,17 +11,16 @@ function catchUserData() {
         CPFCandidata: document.querySelector('#cpfCandidata').value,
         GeneroCandidata: document.querySelector('#genero').value,
         SenhaCandidata: document.querySelector('#senha').value,
-        NascimentoCandidata:document.getSelection("#data-nascimento").value
+        NascimentoCandidata:document.getSelection("#data-nascimento").value,
+        PaisCandidata:document.getSelection("#pais").value,
+        EstadoCandidata:document.getSelection("#estado").value,
+        CidadeCandidata:document.getSelection("#cidade").value
     }
 
     sessionStorage.setItem("User1", JSON.stringify(forms1))
 
     window.location.replace("/views/Users/cadastroUsuaria2.html") 
     
-
-
-
-
 
 
 
@@ -38,25 +37,38 @@ function catchUserData2() {
     let Escolaridade_candidata = document.querySelector("#escolaridadeCandidata").value
     let Cargo_canditada = document.querySelector("#cargoCandidata").value
 
-    let SoftHard = document.querySelectorAll("span")
-    let habilidades = []
+    let Softskills = document.querySelectorAll("#softskills")
+    let Hardskills = document.querySelectorAll("#hardskills")
     
+    let SoftskillsOn = []
+    let HardskillsOn = []
 
     let PDFcurriculo = document.querySelector("#formFile")
 
-    for (let i = 0; i < SoftHard.length; i++) {
+    for (let i = 0; i <Softskills.length; i++) {
 
-        habilidades.push(SoftHard[i].innerText)
+        SoftskillsOn.push(Softskills[i].innerText)
 
     }
 
+    for (let i = 0; i <Hardskills.length; i++) {
+
+        HardskillsOn.push(Hardskills[i].innerText)
+
+    }
+
+    let SoftskillsDB = SoftskillsOn.toString()
+    let HardskillsDB = HardskillsOn.toString()
 
 
-    let habilidadeDB = habilidades.toString()
 
     
+    // Nome_Candidata,Escolaridade_candidata,Email_candidata,CPF_canditada,Genero_canditada,Data_nascimento,Curriculo_candidata,Softskill_candidata,Senha_canditada,Cargo_canditada,Celular_candidata, Pais_candidata,Status_candidata,Hardskill_candidata,Estado_candidata,Cidade_candidata
+    
 
-    sendUserData(userForms1.NomeCandidata, Escolaridade_candidata, userForms1.EmailCandidata, userForms1.CPFCandidata,userForms1.GeneroCandidata,"23/09/2003","asdada",habilidadeDB,userForms1.SenhaCandidata,Cargo_canditada,userForms1.CelularCandidata, "testeteste",Status_candidata)
+    sendUserData(userForms1.NomeCandidata, Escolaridade_candidata, userForms1.EmailCandidata, userForms1.CPFCandidata,userForms1.GeneroCandidata,"23/09/2003","asdada",SoftskillsDB,userForms1.SenhaCandidata,Cargo_canditada,userForms1.CelularCandidata, "Lembrar gabriel",Status_candidata,HardskillsDB,"Lembrar gabriel","Lembrar gabriel")
+
+    sessionStorage.removeItem("User1")
 }
 
 function deleteCatchDataUser(){
@@ -64,11 +76,11 @@ function deleteCatchDataUser(){
 
 }
 
-function putDatas(){
-    userForms1 = JSON.parse(sessionStorage.getItem("User1"))
+// function putDatas(){
+//     userForms1 = JSON.parse(sessionStorage.getItem("User1"))
 
-    document.querySelector('#nomeCandidata').value = userForms1.NomeCandidata
-}
+//     document.querySelector('#nomeCandidata').value = userForms1.NomeCandidata
+// }
 
 
 
@@ -217,4 +229,38 @@ function sendVacancyData(Habilidades_vaga,Nome_vaga,Descricao_vaga,Local_vaga,Sa
 
         }
     })
+}
+
+function login(){
+
+    let email_candidata = document.querySelector("#email").value
+    let senha_candidata = document.querySelector("#senha").value
+
+
+    $.ajax({
+        url:"http://localhost:3000/rotas/loginUser",
+        method:"POST",
+        data:{
+            email:email_candidata,
+            senha:senha_candidata
+
+        },
+        error:function(res){
+            $("#error").html(res.responseJSON.message)
+        },
+        success:function(res){
+            sessionStorage.setItem("UsuarioDadosLogin",JSON.stringify(res))
+            window.location.replace("./testelogin.html")
+
+        }
+    })
+}
+
+function logado(){
+    let usuario =JSON.parse(sessionStorage.getItem("UsuarioDadosLogin"))
+
+    $("#nome_candidataLogada").html(usuario.nome_candidata)
+    $("#email_candidataLogada").html(usuario.email_candidata)
+    $("#softskill_candidataLogada").html(usuario.softskill_candidata)
+    $("#hardskill_candidataLogada").html(usuario.hardskill_candidata)
 }

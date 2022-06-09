@@ -33,6 +33,7 @@ function createHardSkillsTag(tag) {
 
     const hardSkillSpan = document.createElement('span');
     hardSkillSpan.innerHTML = tag
+    hardSkillSpan.setAttribute("id","hardskills")
 
     hardSkillDiv.append(hardSkillSpan);
 

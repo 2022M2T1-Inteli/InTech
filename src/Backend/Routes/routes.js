@@ -13,58 +13,75 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 
-Routes.post("/loginUser",(req,res)=>{
+Routes.post("/loginUser", (req, res) => {
 
-    const {email,senha} = req.body
+    const { email, senha } = req.body
 
-    if(!email){
-        res.status(400).json({
-            message:"Email necessário"
+    function verify() {
 
-        })
-    }if(!senha){
-        res.status(400).json({
-            message:"Senha necessária"
-        })
-    }if(email && senha){
-        async function verifyDada(){
+      
+        if(!email && !senha){
+            res.status(400).json({
+                message: "Email e Senha necessários"
+            })
+
+        }else if (!email) {
+            res.status(400).json({
+                message: "Email necessário"
+
+            })
+        }else if (!senha) {
+            res.status(400).json({
+                message: "Senha necessária"
+            })
+        } else if (email && senha) {
+            async function verifyDada() {
 
 
-            const db = await sqlite.open({filename:"./database/banco_de_dados.db",driver:sqlite3.Database})
+                const db = await sqlite.open({ filename: "./database/banco_de_dados.db", driver: sqlite3.Database })
 
-            const user = await db.all("SELECT * FROM candidatas WHERE email_candidata == ?",[email])
-            
-        
+                const user = await db.all("SELECT * FROM candidatas WHERE email_candidata == ?", [email])
 
-            if(!user[0]){
-                res.status(400).json({
-                    message:"Email não registrado"
-                })
+
+
+                if (!user[0]) {
+                    res.status(400).json({
+                        message: "Email não registrado"
+                    })
+                }
+
+
+
+                else if (user[0].senha_candidata == senha) {
+                    res.json(
+                        user[0]
+                    )
+
+                }
+
+                else if ((user[0].senha_candidata == senha) == false) {
+                    res.status(400).json({
+                        message: "Email ou Senha não corresponde"
+                    })
+                }
+
             }
 
+            verifyDada()
 
 
-            if(user[0].senha_candidata == senha){
-                res.json(
-                    user[0]
-                )
-
-            }
-
-            if((user[0].senha_candidata == senha) == false ){
-                res.status(400).json({
-                    message:"Email ou Senha não corresponde"
-                })
-            }
         }
 
-        verifyDada()
-
-    
+        
 
 
 
-}})
+
+
+    }
+
+    verify()
+})
 
 
 
@@ -88,12 +105,12 @@ Routes.get("/listVagas", (req, res) => {
 
 
 
-        
+
 
         //roda comando sql e retorna uma promise
 
-        
-        await db.all("SELECT * FROM vagas").then((result)=>{
+
+        await db.all("SELECT * FROM vagas").then((result) => {
             res.json(result)
         })
 
@@ -173,30 +190,30 @@ Routes.post("/formEmpresa", (req, res) => {
         // 3ª [valor1, valor2,valor3 .....]
 
 
-        const {Nome_Empresa,Email_Empresa,Ramo_de_Atividade, Logo_Empresa,Senha_Empresa,Cultura_Empresa,Telefone_Empresa,Site_Empresa,cnpj_Empresa,Localizacao_Empresa} = req.body
+        const { Nome_Empresa, Email_Empresa, Ramo_de_Atividade, Logo_Empresa, Senha_Empresa, Cultura_Empresa, Telefone_Empresa, Site_Empresa, cnpj_Empresa, Localizacao_Empresa } = req.body
 
-        await db.run("INSERT INTO empresas (nome_empresa,email_empresa,ramo_empresa,logo_empresa,senha_empresa,cultura_empresa,telefone_empresa,site_empresa,cnpj_empresa,localizacao_empresa) VALUES (?,?,?,?,?,?,?,?,?,?)", [Nome_Empresa,Email_Empresa,Ramo_de_Atividade, Logo_Empresa,Senha_Empresa,Cultura_Empresa,Telefone_Empresa,Site_Empresa,cnpj_Empresa,Localizacao_Empresa])
+        await db.run("INSERT INTO empresas (nome_empresa,email_empresa,ramo_empresa,logo_empresa,senha_empresa,cultura_empresa,telefone_empresa,site_empresa,cnpj_empresa,localizacao_empresa) VALUES (?,?,?,?,?,?,?,?,?,?)", [Nome_Empresa, Email_Empresa, Ramo_de_Atividade, Logo_Empresa, Senha_Empresa, Cultura_Empresa, Telefone_Empresa, Site_Empresa, cnpj_Empresa, Localizacao_Empresa])
 
 
-        
+
         // fecha o banco
         db.close()
 
-        
 
-        
+
+
     }
 
     putDB()
 
-    
+
 
     res.status(200).send()
 
-    
+
 
     // resposta depois de executar tudo
-    
+
 
 
 
@@ -218,9 +235,9 @@ Routes.post("/formCandidata", (req, res) => {
         // 2ª Values (? x quantidade de dados que entrarao)
         // 3ª [valor1, valor2,valor3 .....]
 
-        const {Nome_Candidata,Escolaridade_candidata,Email_candidata,CPF_candidata,Genero_candidata,Data_nascimento,Curriculo_candidata,Softskill_candidata,Senha_candidata,Cargo_candidata,Celular_candidata,Pais_candidata,Status_candidata,Hardskill_candidata,Estado_candidata,Cidade_candidata} = req.body
+        const { Nome_Candidata, Escolaridade_candidata, Email_candidata, CPF_candidata, Genero_candidata, Data_nascimento, Curriculo_candidata, Softskill_candidata, Senha_candidata, Cargo_candidata, Celular_candidata, Pais_candidata, Status_candidata, Hardskill_candidata, Estado_candidata, Cidade_candidata } = req.body
 
-        await db.run("INSERT INTO candidatas (nome_candidata ,escolaridade_candidata ,email_candidata,cpf_candidata,genero_candidata,nascimento_candidata,curriculo_candidata,softskill_candidata,senha_candidata,cargo_candidata,celular_candidata,pais_candidata,status_candidata,hardskill_candidata,estado_candidata,cidade_candidata) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",[ Nome_Candidata,Escolaridade_candidata,Email_candidata,CPF_candidata,Genero_candidata,Data_nascimento,Curriculo_candidata,Softskill_candidata,Senha_candidata,Cargo_candidata,Celular_candidata,Pais_candidata,Status_candidata,Hardskill_candidata,Estado_candidata,Cidade_candidata])
+        await db.run("INSERT INTO candidatas (nome_candidata ,escolaridade_candidata ,email_candidata,cpf_candidata,genero_candidata,nascimento_candidata,curriculo_candidata,softskill_candidata,senha_candidata,cargo_candidata,celular_candidata,pais_candidata,status_candidata,hardskill_candidata,estado_candidata,cidade_candidata) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", [Nome_Candidata, Escolaridade_candidata, Email_candidata, CPF_candidata, Genero_candidata, Data_nascimento, Curriculo_candidata, Softskill_candidata, Senha_candidata, Cargo_candidata, Celular_candidata, Pais_candidata, Status_candidata, Hardskill_candidata, Estado_candidata, Cidade_candidata])
 
 
         // fecha o banco de dados
@@ -246,9 +263,9 @@ Routes.post("/formVagas", (req, res) => {
         // 2ª Values (? x quantidade de dados que entrarao)
         // 3ª [valor1, valor2,valor3 .....]
 
-        const {Habilidades_vaga,Nome_vaga,Descricao_vaga,Local_vaga,Salario_vaga} = req.body
+        const { Habilidades_vaga, Nome_vaga, Descricao_vaga, Local_vaga, Salario_vaga } = req.body
 
-        await db.run("INSERT INTO vagas (habilidades_vaga,nome_vaga,descricao_vaga,local_vaga,salario_vaga) VALUES(?,?,?,?,?)", [Habilidades_vaga,Nome_vaga,Descricao_vaga,Local_vaga,Salario_vaga])
+        await db.run("INSERT INTO vagas (habilidades_vaga,nome_vaga,descricao_vaga,local_vaga,salario_vaga) VALUES(?,?,?,?,?)", [Habilidades_vaga, Nome_vaga, Descricao_vaga, Local_vaga, Salario_vaga])
 
 
         //fecha o bando de dados
@@ -273,8 +290,8 @@ Routes.put("/editVaga", (req, res) => {
 
         // abre o banco de dados
         const db = await sqlite.open({ filename: "./database/banco_de_dados.db", driver: sqlite3.Database })
-        
-        
+
+
 
 
         // executa comando sql
@@ -283,7 +300,7 @@ Routes.put("/editVaga", (req, res) => {
         // 3ª ?, ?
         // 4ª [valor1,valor2,valor3]
 
-        
+
         await db.run(`UPDATE vagas SET nome_vaga = ? , salario_vaga = ?  WHERE id_vaga == ? `, [req.body.Nome_vaga, req.body.Salario_vaga, req.body.id_chave])
 
 
@@ -343,7 +360,7 @@ Routes.put("/editEmpresa", (req, res) => {
         // 3ª ?, ?
         // 4ª [valor1,valor2,valor3]
         await db.run(`UPDATE empresas SET email_empresa = ?  WHERE id_vaga == ? `, [req.body.Email_empresa, req.body.id_chave])
-        
+
 
 
         // fecha o banco de dados

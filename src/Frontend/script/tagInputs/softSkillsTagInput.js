@@ -33,6 +33,7 @@ function createSoftSkillsTags(tag) {
 
     const softSkillSpan = document.createElement('span');
     softSkillSpan.innerHTML = tag
+    softSkillSpan.setAttribute("id","softskills")
 
     softSkillDiv.append(softSkillSpan);
 
