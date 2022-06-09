@@ -81,6 +81,14 @@ input[type="text"]{
     color: var(--cor--principal);
 }
 
+.caixa2{
+    width: 430px;
+    height: 70px;
+    border-radius: 11px;
+    margin-bottom: 10px;
+    text-align: center;  
+}
+
 
 @media only screen and (max-width: 600px) {
 

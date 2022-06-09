@@ -332,14 +332,9 @@ Routes.post("/formVagas", (req, res) => {
         // abre o banco de dados
         let db = await sqlite.open({ filename: "./database/banco_de_dados.db", driver: sqlite3.Database })
 
-        // executa comando sql
-        // 1ª liste as colunas em ordem que querem ser preenchidas
-        // 2ª Values (? x quantidade de dados que entrarao)
-        // 3ª [valor1, valor2,valor3 .....]
+        const { SoftskillVaga,NomeVaga,DescricaoVaga,LocalVaga,SalarioVaga,IdEmpresa,HardskillVaga,ModalidadeVaga } = req.body
 
-        const { Habilidades_vaga, Nome_vaga, Descricao_vaga, Local_vaga, Salario_vaga } = req.body
-
-        await db.run("INSERT INTO vagas (habilidades_vaga,nome_vaga,descricao_vaga,local_vaga,salario_vaga) VALUES(?,?,?,?,?)", [Habilidades_vaga, Nome_vaga, Descricao_vaga, Local_vaga, Salario_vaga])
+        await db.run("INSERT INTO vagas (softskill_vaga,nome_vaga,descricao_vaga,local_vaga,salario_vaga,id_empresa,hardskill_vaga,modalidade_vaga) VALUES(?,?,?,?,?,?,?,?)", [SoftskillVaga,NomeVaga,DescricaoVaga,LocalVaga,SalarioVaga,IdEmpresa,HardskillVaga,ModalidadeVaga])
 
 
         //fecha o bando de dados

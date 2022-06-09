@@ -131,7 +131,6 @@ function catchRecruiterData2() {
 
 }
 
-
 function catchVacancyData() {
     let Nome_vaga = document.querySelector("#nomeVaga").value
     let Descricao_vaga = document.querySelector("#descricaoVaga").value
@@ -150,7 +149,7 @@ function catchVacancyData() {
     let HabilidadeDBVaga = habilidadeDB.toString()
     let Salario_vaga = document.querySelector("#salarioVaga").value
 
-    sendVacancyData(HabilidadeDBVaga, Nome_vaga, Descricao_vaga, Local_vaga, Salario_vaga)
+    sendVacancyData()
 
 
 
@@ -216,17 +215,20 @@ function sendRecruitData(NomeEmpresa, EmailEmpresa, RamoAtividade, Logo_Empresa,
 }
 
 
-function sendVacancyData(Habilidades_vaga, Nome_vaga, Descricao_vaga, Local_vaga, Salario_vaga) {
+function sendVacancyData(SoftskillVaga,NomeVaga,DescricaoVaga,LocalVaga,SalarioVaga,IdEmpresa,HardskillVaga,ModalidadeVaga) {
     $.ajax({
         url: "http://localhost:3000/rotas/formVagas",
         method: "POST",
         data: {
-            Habilidades_vaga: Habilidades_vaga,
-            Nome_vaga: Nome_vaga,
-            Descricao_vaga: Descricao_vaga,
-            Local_vaga: Local_vaga,
-            Salario_vaga: Salario_vaga
-
+            SoftskillVaga:SoftskillVaga,
+            NomeVaga:NomeVaga,
+            DescricaoVaga:DescricaoVaga,
+            LocalVaga:LocalVaga,
+            SalarioVaga:SalarioVaga,
+            IdEmpresa:IdEmpresa,
+            HardskillVaga:HardskillVaga,
+            ModalidadeVaga:ModalidadeVaga
+        
         }
     })
 }
