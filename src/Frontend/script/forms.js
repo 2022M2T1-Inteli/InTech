@@ -134,22 +134,37 @@ function catchRecruiterData2() {
 function catchVacancyData() {
     let Nome_vaga = document.querySelector("#nomeVaga").value
     let Descricao_vaga = document.querySelector("#descricaoVaga").value
+    let ModalidadeVaga = document.querySelector("#modalidade").value
     let Local_vaga = document.querySelector("#localizacao").value
 
-    let Habilidades_vaga = document.querySelectorAll("span")
-    let habilidadeDB = []
+    let SoftskillsVaga = document.querySelectorAll("#softskills")
+    let HardskillsVaga = document.querySelectorAll("#hardskills")
 
+    let SoftskillsVagaOn = []
+    let HardskillsVagaOn = []
 
-    for (let i = 0; i < Habilidades_vaga.length; i++) {
+    for (let i = 0; i < SoftskillsVaga.length; i++) {
 
-        habilidadeDB.push(Habilidades_vaga[i].innerText)
+        SoftskillsVagaOn.push(SoftskillsVaga[i].innerText)
 
     }
 
-    let HabilidadeDBVaga = habilidadeDB.toString()
+    
+    for (let i = 0; i < HardskillsVaga.length; i++) {
+
+        HardskillsVagaOn.push(HardskillsVaga[i].innerText)
+
+    }
+
+    
+
+    let SoftskillsVagaDB = SoftskillsVagaOn.toString()
+    let HardskillsVagaDB = HardskillsVagaOn.toString()
     let Salario_vaga = document.querySelector("#salarioVaga").value
 
-    sendVacancyData()
+    let empresa = JSON.parse(sessionStorage.getItem("EmpresaDadosLogin"))
+
+    sendVacancyData(SoftskillsVagaDB,Nome_vaga,Descricao_vaga,Local_vaga,Salario_vaga,empresa.id_empresas,HardskillsVagaDB,ModalidadeVaga)
 
 
 
@@ -229,6 +244,9 @@ function sendVacancyData(SoftskillVaga,NomeVaga,DescricaoVaga,LocalVaga,SalarioV
             HardskillVaga:HardskillVaga,
             ModalidadeVaga:ModalidadeVaga
         
+        },
+        success:function(){
+            window.location.replace("/views/Recruiter/cadastroRecrutadora4.html")
         }
     })
 }
@@ -277,7 +295,7 @@ function loginRecruit() {
         },
         success: function (res) {
             sessionStorage.setItem("EmpresaDadosLogin", JSON.stringify(res))
-            window.location.replace("./testelogin.html")
+            window.location.replace("/views/Recruiter/cadastroRecrutadora5.html")
 
         }
     })

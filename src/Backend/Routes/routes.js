@@ -330,11 +330,11 @@ Routes.post("/formVagas", (req, res) => {
     async function putDB() {
 
         // abre o banco de dados
-        let db = await sqlite.open({ filename: "./database/banco_de_dados.db", driver: sqlite3.Database })
+        const db = await sqlite.open({ filename: "./database/banco_de_dados.db", driver: sqlite3.Database })
 
         const { SoftskillVaga,NomeVaga,DescricaoVaga,LocalVaga,SalarioVaga,IdEmpresa,HardskillVaga,ModalidadeVaga } = req.body
 
-        await db.run("INSERT INTO vagas (softskill_vaga,nome_vaga,descricao_vaga,local_vaga,salario_vaga,id_empresa,hardskill_vaga,modalidade_vaga) VALUES(?,?,?,?,?,?,?,?)", [SoftskillVaga,NomeVaga,DescricaoVaga,LocalVaga,SalarioVaga,IdEmpresa,HardskillVaga,ModalidadeVaga])
+        await db.run("INSERT INTO vagas (softskill_vaga,nome_vaga,descricao_vaga,local_vaga,salario_vaga,id_empresas,hardskill_vaga,modalidade_vaga) VALUES(?,?,?,?,?,?,?,?)", [SoftskillVaga,NomeVaga,DescricaoVaga,LocalVaga,SalarioVaga,IdEmpresa,HardskillVaga,ModalidadeVaga])
 
 
         //fecha o bando de dados
