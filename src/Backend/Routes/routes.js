@@ -159,7 +159,7 @@ Routes.put("/editarUser", (req, res) => {
 //                      GET
 
 // Aparece todas as vagas cadastradas no banco de dados
-Routes.get("/listAllVagas", (req, res) => {
+Routes.get("/XlistAllVagas", (req, res) => {
 
     //Uma função que espera as coisas dentro dela acontecem para assim efetuar o codigo
     async function getDB() {
@@ -570,7 +570,20 @@ Routes.post('/applied', (req, res) => {
 }) 
     
    
+Routes.post('/listAllEmpresaVagas', (req, res) => {
+    async function getDB() {
+        const { id_empresa } = req.body
 
+        const db = await sqlite.open({ filename: "./database/banco_de_dados.db", driver: sqlite3.Database })
+
+        const vagas = await db.all(`SELECT * FROM vagas WHERE id_empresas = ${id_empresa}`)
+
+        res.status(200).json(vagas)
+        db.close()
+    }
+
+    getDB(); 
+})
 
 // exportando todos os Routes para serem utilizados em outro arquivo js
 module.exports = Routes

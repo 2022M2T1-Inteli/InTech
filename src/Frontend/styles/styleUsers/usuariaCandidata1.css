@@ -57,7 +57,7 @@ main {
 .form-control input:focus,
 .form-control input:valid {
     outline: 0;
-    border-bottom-color: ##8D8D8D;
+    border-bottom-color: #8D8D8D;
 }
 
 .form-control label {

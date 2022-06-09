@@ -29,9 +29,6 @@ function catchUserData() {
 function catchUserData2() {
     let userForms1 = JSON.parse(sessionStorage.getItem("User1"))
 
-
-
-
     //aqui vai as infos da tela cadastro 2
     let Status_candidata = document.querySelector("#statusCandidata").value
     let Escolaridade_candidata = document.querySelector("#escolaridadeCandidata").value
@@ -281,7 +278,6 @@ function loginRecruit() {
     let email_empresa = document.querySelector("#email").value
     let senha_empresa = document.querySelector("#senha").value
 
-
     $.ajax({
         url: "http://localhost:3000/rotas/loginRecruit",
         method: "POST",
@@ -295,7 +291,7 @@ function loginRecruit() {
         },
         success: function (res) {
             sessionStorage.setItem("EmpresaDadosLogin", JSON.stringify(res))
-            window.location.replace("/views/Recruiter/cadastroRecrutadora5.html")
+            window.location.replace("/views/Recruiter/cadastroRecrutadora3.html")
 
         }
     })
