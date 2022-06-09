@@ -271,7 +271,7 @@ function loginUser() {
         },
         success: function (res) {
             sessionStorage.setItem("UsuarioDadosLogin", JSON.stringify(res))
-            window.location.replace("./testelogin.html")
+            window.location.replace("/views/Users/usuariaCandidata1.html")
 
         }
     })
