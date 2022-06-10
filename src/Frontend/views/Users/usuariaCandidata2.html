@@ -15,41 +15,48 @@
 
 <body onload="loadVagaData()">
 
-    <nav class="shadow mb-2 bg-body rounded"> <img src="../../images/logo.svg" alt="Logo da brazilians in tech"></nav>
+    <nav> <img src="../../images/logo.svg" alt="Logo da brazilians in tech"></nav>
     <div class="row">
         <div class="col-3 background">
 
         </div>
-
-
-        <div class="col col-sm-12 col-lg-7">
-            <div class="container text-center">
-
-
-                <h1 id="tituloVaga"></h1>
-                <p class="subtitulo"><span id="nomeEmpresa"></span> <span id="salarioVaga"></span></p>
-
-                <h2>Descrição da vaga</h2>
-                <p id="descricaoVaga" class="textinho">
-                </p>
-                <h2>Cultura da Empresa</h2>
-                <p id="culturaEmpresa" class="textinho">
-                </p>
-
-                <div class="boxamarela text-start mt-5">
-                    <h4 class="" style="color:black ;">Soft Skills</h4>
-                    <div id="soft-skills" class="espacamento">
-
-                    </div>
-
-                    <h4 class="mt-5" style="color:black ;">Hard Skills</h4>
-                    <div id="hard-skills" class="espacamento">
-
-                    </div>
+        <!-- 
+        col-sm-12 col-lg-7 -->
+        <div class="col ">
+            <div class="container">
+                <div class="header">
+                    <h1 id="tituloVaga"></h1>
+                    <p class="subtitulo"><span id="nomeEmpresa"></span> <span id="salarioVaga"></span></p>
                 </div>
-                <a class="voltarbut rounded-pill but text-decoration-none" href="./usuariaCandidata1.html"
-                    style="color:black ;">Voltar</a>
-                <button class="aplicarbut rounded-pill but" onclick="applyVaga()">Aplicar</button>
+
+                <div class="body">
+                    <h4>Descrição da vaga</h2>
+                        <p id="descricaoVaga" class="paragrafo">
+                        </p>
+                        <h4>Cultura da Empresa</h2>
+                            <p id="culturaEmpresa" class="paragrafo">
+                            </p>
+
+                            <div>
+                                <h4>Soft Skills</h4>
+                                <div id="soft-skills" class="mb-3 mt-1 espacamento">
+
+                                </div>
+
+                                <h4>Hard Skills</h4>
+                                <div id="hard-skills" class="espacamento">
+
+                                </div>
+                            </div>
+                            <div class="row actions">
+                                <a class="col voltarbut text-decoration-none" href="./usuariaCandidata1.html"
+                                style="color:black ;">Voltar</a>
+                            <button class="col aplicarbut" onclick="applyVaga()">Aplicar</button>
+                            </div>
+                </div>
+
+                
+                
             </div>
 
         </div>

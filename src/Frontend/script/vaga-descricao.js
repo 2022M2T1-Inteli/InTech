@@ -33,12 +33,12 @@ function loadVagaData() {
 
             for (let i = 0; i < softskills.length; i++) {
                 const divSoftSkills = document.querySelector('#soft-skills');
-                divSoftSkills.innerHTML += `<p class="border border-warning rounded-pill p-2">${softskills[i]}</p>`
+                divSoftSkills.innerHTML += `<p class="skill rounded-pill">${softskills[i]}</p>`
             }
 
             for (let x = 0; x < hardskills.length; x++) {
                 const divHardSkills = document.querySelector('#hard-skills');
-                divHardSkills.innerHTML += `<p class="border border-warning rounded-pill p-2">${hardskills[x]}</p>`
+                divHardSkills.innerHTML += `<p class="skill rounded-pill">${hardskills[x]}</p>`
             }
         }
     })
