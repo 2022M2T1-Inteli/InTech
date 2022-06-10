@@ -1,4 +1,5 @@
 function catchMatchedVagas() {
+    $("#Paipopup").attr("class","none")
     let candidataInfos = JSON.parse(sessionStorage.getItem("UsuarioDadosLogin"))
     $("#nome").html(candidataInfos.nome_candidata)
     $("#titulo").html(candidataInfos.cargo_candidata)

@@ -114,7 +114,7 @@ input[type="text"] {
 .popup{
     width: 400px;
     background: rgba(217, 217, 217,0);
-    backdrop-filter: blur(1rem);
+    background-color: #fff;
     border-radius: 6px;
     position: absolute;
     top: 0;
@@ -125,17 +125,21 @@ input[type="text"] {
     color: #333;
     visibility: hidden;
     transition: transform 0.4s, top 0.4s;
+    border: 5px solid #401511;
+    box-shadow: 2px 4px 12px 3px rgba(0, 0, 0, 0.25);
 }
 
-.bg-image{
+/* .bg-image{
     filter: blur(8px);
-}
+} */
 
 .open-popup{
     visibility: visible;
     top: 50%;
     transform: translate(-50%,-50%) scale(1);
-    z-index: 1;
+    pointer-events: none;
+    user-select: none;
+    
 }
 
 .popup img{
@@ -164,6 +168,8 @@ input[type="text"] {
     cursor: pointer;
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
 }
+
+
 
 @media only screen and (max-width: 600px) {
     .select{

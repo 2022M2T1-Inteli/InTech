@@ -146,14 +146,14 @@ function catchVacancyData() {
 
     }
 
-    
+
     for (let i = 0; i < HardskillsVaga.length; i++) {
 
         HardskillsVagaOn.push(HardskillsVaga[i].innerText)
 
     }
 
-    
+
 
     let SoftskillsVagaDB = SoftskillsVagaOn.toString()
     let HardskillsVagaDB = HardskillsVagaOn.toString()
@@ -161,7 +161,7 @@ function catchVacancyData() {
 
     let empresa = JSON.parse(sessionStorage.getItem("EmpresaDadosLogin"))
 
-    sendVacancyData(SoftskillsVagaDB,Nome_vaga,Descricao_vaga,Local_vaga,Salario_vaga,empresa.id_empresas,HardskillsVagaDB,ModalidadeVaga)
+    sendVacancyData(SoftskillsVagaDB, Nome_vaga, Descricao_vaga, Local_vaga, Salario_vaga, empresa.id_empresas, HardskillsVagaDB, ModalidadeVaga)
 
 
 
@@ -227,22 +227,22 @@ function sendRecruitData(NomeEmpresa, EmailEmpresa, RamoAtividade, Logo_Empresa,
 }
 
 
-function sendVacancyData(SoftskillVaga,NomeVaga,DescricaoVaga,LocalVaga,SalarioVaga,IdEmpresa,HardskillVaga,ModalidadeVaga) {
+function sendVacancyData(SoftskillVaga, NomeVaga, DescricaoVaga, LocalVaga, SalarioVaga, IdEmpresa, HardskillVaga, ModalidadeVaga) {
     $.ajax({
         url: "http://localhost:3000/rotas/formVagas",
         method: "POST",
         data: {
-            SoftskillVaga:SoftskillVaga,
-            NomeVaga:NomeVaga,
-            DescricaoVaga:DescricaoVaga,
-            LocalVaga:LocalVaga,
-            SalarioVaga:SalarioVaga,
-            IdEmpresa:IdEmpresa,
-            HardskillVaga:HardskillVaga,
-            ModalidadeVaga:ModalidadeVaga
-        
+            SoftskillVaga: SoftskillVaga,
+            NomeVaga: NomeVaga,
+            DescricaoVaga: DescricaoVaga,
+            LocalVaga: LocalVaga,
+            SalarioVaga: SalarioVaga,
+            IdEmpresa: IdEmpresa,
+            HardskillVaga: HardskillVaga,
+            ModalidadeVaga: ModalidadeVaga
+
         },
-        success:function(){
+        success: function () {
             window.location.replace("/views/Recruiter/cadastroRecrutadora4.html")
         }
     })
@@ -300,13 +300,69 @@ function loginRecruit() {
 function logadoUser() {
     let usuario = JSON.parse(sessionStorage.getItem("UsuarioDadosLogin"))
 
-    $("#nome_candidataLogada").html(usuario.nome_candidata)
-    $("#email_candidataLogada").html(usuario.email_candidata)
-    $("#softskill_candidataLogada").html(usuario.softskill_candidata)
-    $("#hardskill_candidataLogada").html(usuario.hardskill_candidata)
+    $("#name").html(usuario.nome_candidata)
+    $("#local").html(usuario.pais_candidata)
+    $("#ocup").html(usuario.cargo_candidata)
+    $("#grau").html(usuario.escolaridade_candidata)
+
+    let Hardskills = usuario.hardskill_candidata.split(",")
+
+    for (let i = 0; i < Hardskills.length; i++) {
+
+        let hardspace = document.querySelector("#HSK")
+
+        hardspace.innerHTML += `<p class="softSkillTag">${Hardskills[i]}</p>`
+    }
+
+
+    let Softskills = usuario.softskill_candidata.split(",")
+
+    for (let i = 0; i < Softskills.length; i++) {
+
+        let softspace = document.querySelector("#SSK")
+
+        softspace.innerHTML += `<p class="softSkillTag">${Softskills[i]}</p>`
+    }
+
+    $.ajax({
+        url: "http://localhost:3000/rotas/listVagaUser",
+        method: "POST",
+        data: {
+            id_candidata: usuario.id_candidata
+        },
+        success: function (res) {
+
+            for (let i = 0; i < res.length; i++) {
+
+
+                let div = document.querySelector("#vagasUser")
+
+                div.innerHTML += `<div class=" rounded-pill card mb-2" style="width: 445px;">
+                <h1 class = "d-flex justify-content-center fs-4 p-3">${res[i].nome_vaga}</h1>
+                <p class = "d-flex justify-content-center">${res[i].descricao_vaga}</p>
+
+                <div class="icons">
+                    <a href="" class="mb-3 d-flex justify-content-center">
+                        <img src="../../images/DeleteIcon.svg"
+                            style="filter: invert(41%) sepia(53%) saturate(6570%) hue-rotate(343deg) brightness(96%) contrast(99%);"
+                            alt="">
+                    </a>
+                </div>
+            </div>`
+                
+
+
+
+            }
+
+
+        }
+    })
+
 }
 
-function logadoRecruit(){
+function logadoRecruit() {
     let Recruit = JSON.parse(sessionStorage.getItem("EmpresaDadosLogin"))
 
 }
+

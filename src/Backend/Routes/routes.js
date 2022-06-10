@@ -585,6 +585,25 @@ Routes.post('/listAllEmpresaVagas', (req, res) => {
     getDB(); 
 })
 
+
+Routes.post("/listVagaUser",(req,res)=>{
+    const {id_candidata} = req.body
+    async function openDB(){
+        
+        const db = await sqlite.open({ filename: "./database/banco_de_dados.db", driver: sqlite3.Database })
+
+        const result = await db.all("SELECT * FROM vagas WHERE id_candidatas = ?",[id_candidata])
+
+        res.status(200).json(result)
+
+        db.close()
+        
+
+    }
+
+    openDB()
+})
+
 // exportando todos os Routes para serem utilizados em outro arquivo js
 module.exports = Routes
 
