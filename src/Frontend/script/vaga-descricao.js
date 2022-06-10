@@ -57,7 +57,7 @@ function applyVaga() {
             id_vaga: id_vaga
         }, 
         success: function() {
-            alert('Aplicado, com sucesso!')
+            window.location.replace("/views/Users/usuariaCandidata3.html")
         }
     })
 }
