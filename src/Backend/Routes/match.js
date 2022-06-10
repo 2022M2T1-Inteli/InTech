@@ -37,7 +37,7 @@ Routes.post('/listMatch', (req, res) => {
                 }
             }
             console.log(matchedSkills)
-    
+            
             let matchPercent = matchedSkills.length / vagaSkills.length; 
     
             if (matchPercent >= 0.5) {

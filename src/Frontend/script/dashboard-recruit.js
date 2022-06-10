@@ -1,6 +1,9 @@
 function loadVagas() {
     let EmpresaInfos = JSON.parse(sessionStorage.getItem("EmpresaDadosLogin")); 
 
+    $("#nomeEmpresa").html(EmpresaInfos.nome_empresa)
+    $("#email").html(EmpresaInfos.email_empresa)
+
     $.ajax({
         url: 'http://localhost:3000/rotas/listAllEmpresaVagas',
         method: 'POST', 

@@ -243,7 +243,7 @@ function sendVacancyData(SoftskillVaga, NomeVaga, DescricaoVaga, LocalVaga, Sala
 
         },
         success: function () {
-            window.location.replace("/views/Recruiter/cadastroRecrutadora4.html")
+            window.location.replace("/views/Recruiter/cadastroRecrutadora3.html")
         }
     })
 }
