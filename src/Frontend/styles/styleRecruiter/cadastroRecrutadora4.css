@@ -77,6 +77,10 @@ button {
     margin-left: 20px;
 }
 
+button:hover{
+    transform: scale(1.08);
+    transition: 2s;
+}
 .row>* { 
     width: auto;
 }
@@ -110,10 +114,12 @@ button {
     box-shadow: 2px 4px 12px 3px rgba(0, 0, 0, 0.25);
     border-radius: 36px;
     padding: 30px;
+    margin-right: 20px;
+    margin-bottom: 20px;
 }
 
 .card:hover {
-    transform: scale(1.08);
+    transform: scale(1.02);
     transition: 0.7s;
     cursor: pointer;
 }

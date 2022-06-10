@@ -8,13 +8,14 @@ function loadVagas() {
             id_empresa: EmpresaInfos.id_empresas
         }, 
         success: function(res) {
+            console.log(res)
             const divPai = document.querySelector('#rowBack'); 
             for (let i = 0; i < res.length; i++) {
                 const divPai = document.querySelector('#rowBack'); 
 
                 divPai.innerHTML += `<div class="card" style="width: 445px;">
-                <h1>Desenvolvedora Front-End</h1>
-                <p>Descrição da vaga</p>
+                <h1>${res[i].nome_vaga}</h1>
+                <p>${res[i].descricao_vaga}</p>
 
                 <div class="icons">
                     <a href="./vagaCadastrada.html">
@@ -32,7 +33,7 @@ function loadVagas() {
             </div>`
             }
 
-            divPai.innerHTML += `<button onclick=""><img src="../../images/AddBtn.svg" alt="Adicionar vaga" srcset=""></button>`
+            divPai.innerHTML += `<button><a href="./cadastroRecrutadora5.html" ><img src="../../images/AddBtn.svg" alt="Adicionar vaga" srcset=""></a></button>`
 
         }
     })
