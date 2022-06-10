@@ -16,7 +16,7 @@
     <title>Brazilians in Tech</title>
 </head>
 
-<body class="bg-image" style="background-image: url('../../images/Background.svg');
+<body style="background-image: url('../../images/Background.svg');
  background-repeat: no-repeat; background-size: cover; margin: 0;">
 
 
@@ -184,7 +184,15 @@
 
             <!--  TEMPLATE BOTÃO VOLTAR -->
             <div class="col d-flex align-items-center justify-content-center">
-                <button onclick=" catchUserData2()" class="btnproprio">Completar cadastro</button>
+                <button onclick="openPopup()" class="btnproprio">Completar cadastro</button>
+                <div class="backPopup">
+                    <div class="popup" id="popup">
+                        <img src="../../images/feliz (1).png">
+                        <h2>Obrigada pelo seu registro!</h2>
+                        <p>Selecionamos as vagas que melhor se encaixam no seu perfil.</p>
+                        <button type="button" onclick=" catchUserData2()">Continuar</button>
+                    </div>
+                </div>
                 <a class="row" style="margin-left: 30px;" href="../Users/cadastroUsuaria1.html">Voltar</a>
             </div>
 
@@ -201,6 +209,14 @@
                 return (code == 13) ? false : true;
             });
         });
+
+        let popup = document.getElementById("popup");
+
+
+        function openPopup() {
+            $('body').attr('class','bg-image');
+            popup.classList.add("open-popup");
+        }
     </script>
 
 
