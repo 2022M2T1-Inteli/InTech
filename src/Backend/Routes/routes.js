@@ -315,9 +315,9 @@ Routes.post("/formVagas", (req, res) => {
         // abre o banco de dados
         const db = await sqlite.open({ filename: "./database/banco_de_dados.db", driver: sqlite3.Database })
 
-        const { SoftskillVaga,NomeVaga,DescricaoVaga,LocalVaga,SalarioVaga,IdEmpresa,HardskillVaga,ModalidadeVaga } = req.body
+        const { SoftskillVaga, NomeVaga, DescricaoVaga, LocalVaga, SalarioVaga, IdEmpresa, HardskillVaga, ModalidadeVaga } = req.body
 
-        await db.run("INSERT INTO vagas (softskill_vaga,nome_vaga,descricao_vaga,local_vaga,salario_vaga,id_empresas,hardskill_vaga,modalidade_vaga) VALUES(?,?,?,?,?,?,?,?)", [SoftskillVaga,NomeVaga,DescricaoVaga,LocalVaga,SalarioVaga,IdEmpresa,HardskillVaga,ModalidadeVaga])
+        await db.run("INSERT INTO vagas (softskill_vaga,nome_vaga,descricao_vaga,local_vaga,salario_vaga,id_empresas,hardskill_vaga,modalidade_vaga) VALUES(?,?,?,?,?,?,?,?)", [SoftskillVaga, NomeVaga, DescricaoVaga, LocalVaga, SalarioVaga, IdEmpresa, HardskillVaga, ModalidadeVaga])
 
 
         //fecha o bando de dados
@@ -443,12 +443,7 @@ Routes.delete("/deleteVagas", (req, res) => {
 
         // IMPORTANTE:
         // - Sempre fazer uma condição se não excluirar todos os valores de tal tabela
-        // - Sempre fazer uma condição se não excluirar todos os valores de tal tabela
-        // - Sempre fazer uma condição se não excluirar todos os valores de tal tabela
-        // - Sempre fazer uma condição se não excluirar todos os valores de tal tabela
-        // - Sempre fazer uma condição se não excluirar todos os valores de tal tabela
-        // - Sempre fazer uma condição se não excluirar todos os valores de tal tabela
-        // - Sempre fazer uma condição se não excluirar todos os valores de tal tabela
+
 
         await db.run(`DELETE FROM vagas WHERE id_vaga == ${req.body.id_chave}`)
 
@@ -477,12 +472,7 @@ Routes.delete("/deleteEmpresa", (req, res) => {
 
         // IMPORTANTE:
         // - Sempre fazer uma condição se não excluirar todos os valores de tal tabela
-        // - Sempre fazer uma condição se não excluirar todos os valores de tal tabela
-        // - Sempre fazer uma condição se não excluirar todos os valores de tal tabela
-        // - Sempre fazer uma condição se não excluirar todos os valores de tal tabela
-        // - Sempre fazer uma condição se não excluirar todos os valores de tal tabela
-        // - Sempre fazer uma condição se não excluirar todos os valores de tal tabela
-        // - Sempre fazer uma condição se não excluirar todos os valores de tal tabela
+
 
         await db.run(`DELETE FROM empresas WHERE id_vaga == ${req.body.id_chave} `)
 
@@ -510,12 +500,7 @@ Routes.delete("/deleteCandidata", (req, res) => {
 
         // IMPORTANTE:
         // - Sempre fazer uma condição se não excluirar todos os valores de tal tabela
-        // - Sempre fazer uma condição se não excluirar todos os valores de tal tabela
-        // - Sempre fazer uma condição se não excluirar todos os valores de tal tabela
-        // - Sempre fazer uma condição se não excluirar todos os valores de tal tabela
-        // - Sempre fazer uma condição se não excluirar todos os valores de tal tabela
-        // - Sempre fazer uma condição se não excluirar todos os valores de tal tabela
-        // - Sempre fazer uma condição se não excluirar todos os valores de tal tabela
+
 
         await db.run(`DELETE FROM canditada WHERE id_vaga == ${req.body.id_chave}`)
 
@@ -567,9 +552,9 @@ Routes.post('/applied', (req, res) => {
 
     insertDB();
 
-}) 
-    
-   
+})
+
+
 Routes.post('/listAllEmpresaVagas', (req, res) => {
     async function getDB() {
         const { id_empresa } = req.body
@@ -582,7 +567,7 @@ Routes.post('/listAllEmpresaVagas', (req, res) => {
         db.close()
     }
 
-    getDB(); 
+    getDB();
 })
 
 

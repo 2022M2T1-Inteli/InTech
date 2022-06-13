@@ -29,6 +29,7 @@ input {
     outline-color: #A77EBF;
 }
 
+
 .inputBit{
     width: 60%;
     height: 69px;
@@ -78,7 +79,6 @@ input {
     margin-bottom: 25px;
     color: var(--cor--principal);
     text-align: center;
-
 }
 
 .btnproprio:hover {

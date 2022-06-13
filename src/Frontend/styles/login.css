@@ -25,6 +25,11 @@ input {
     border-style: none;
 }
 
+form i {
+  margin-left: -30px;
+  cursor: pointer;
+}
+
 @media only screen and (max-width: 1000px) {
 
     body {
