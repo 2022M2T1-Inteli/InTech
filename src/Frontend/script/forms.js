@@ -304,7 +304,7 @@ function sendVacancyData(SoftskillVaga, NomeVaga, DescricaoVaga, LocalVaga, Sala
 function loginUser() {
 
     let email_candidata = document.querySelector("#email").value
-    let senha_candidata = document.querySelector("#senha").value
+    let senha_candidata = document.querySelector("#password").value
 
 
     $.ajax({
