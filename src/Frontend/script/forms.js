@@ -1,10 +1,10 @@
 function validateEmail(email) {
-    var re = /\S+@\S+\.\S+/;
+    var re = /\S+@\S+\.\S+/; // função de validação de email
     return re.test(email);
 }
 
 
-function catchUserData() {
+function catchUserData() { // função que pega os dados de usuário de acordo com o que colocam no input
 
 
 
@@ -23,57 +23,59 @@ function catchUserData() {
         CidadeCandidata: document.querySelector("#cidade").value
     }
 
+    // caso o usuário não preencha um campo corretamente, ele receberá uma mensagem de alerta
+
     if (!forms1.NomeCandidata) {
         error.innerHTML = "Nome necessário"
-        window.scroll(0,0)
+        window.scroll(0, 0)
 
     } else if (!forms1.EmailCandidata) {
         error.innerHTML = "Email necessário"
-        window.scroll(0,0)
+        window.scroll(0, 0)
 
     } else if (forms1.EmailCandidata) {
         if (validateEmail(forms1.EmailCandidata) == false) {
             error.innerHTML = "Email invalido"
-            window.scroll(0,0)
+            window.scroll(0, 0)
         } else {
             if (!forms1.CelularCandidata) {
                 error.innerHTML = "Numero de celular obrigatório"
-                window.scroll(0,0)
+                window.scroll(0, 0)
             } else if (!forms1.CPFCandidata) {
                 error.innerHTML = "CPF necessário"
-                window.scroll(0,0)
+                window.scroll(0, 0)
             } else if (!forms1.PaisCandidata) {
                 error.innerHTML = "Pais necessário"
-                window.scroll(0,0)
+                window.scroll(0, 0)
             } else if (!forms1.EstadoCandidata) {
                 error.innerHTML = "Estado necessário"
-                window.scroll(0,0)
+                window.scroll(0, 0)
             } else if (!forms1.CidadeCandidata) {
                 error.innerHTML = "Campo cidade necessário"
-                window.scroll(0,0)
+                window.scroll(0, 0)
             } else if (!forms1.NascimentoCandidata) {
                 error.innerHTML = "Data necessária"
-                window.scroll(0,150)
+                window.scroll(0, 150)
             } else if (!forms1.GeneroCandidata) {
                 error.innerHTML = "Gênero necessário"
-                window.scroll(0,160)
+                window.scroll(0, 160)
             } else if (!forms1.SenhaCandidata) {
                 error.innerHTML = "Senha obrigatoria"
-                window.scroll(0,170)
+                window.scroll(0, 170)
             } else {
-                sessionStorage.setItem("User1", JSON.stringify(forms1))
+                sessionStorage.setItem("User1", JSON.stringify(forms1)) // salvando objeto na session storage
 
-                window.location.replace("/views/Users/cadastroUsuaria2.html")
+                window.location.replace("/views/Users/cadastroUsuaria2.html") // direciona para outr página
 
             }
         }
-    } 
+    }
 
 
 
 }
 
-function catchUserData2() {
+function catchUserData2() { // função que pega os dados do formulário
     let userForms1 = JSON.parse(sessionStorage.getItem("User1"))
 
     //aqui vai as infos da tela cadastro 2
@@ -91,18 +93,18 @@ function catchUserData2() {
 
     for (let i = 0; i < Softskills.length; i++) {
 
-        SoftskillsOn.push(Softskills[i].innerText)
+        SoftskillsOn.push(Softskills[i].innerText) // soft skills são adicionadas no array SoftskillsOn
 
     }
 
     for (let i = 0; i < Hardskills.length; i++) {
 
-        HardskillsOn.push(Hardskills[i].innerText)
+        HardskillsOn.push(Hardskills[i].innerText) // hard skills são adicionadas no array HardskillsOn
 
     }
 
-    let SoftskillsDB = SoftskillsOn.toString()
-    let HardskillsDB = HardskillsOn.toString()
+    let SoftskillsDB = SoftskillsOn.toString() // transforma em string
+    let HardskillsDB = HardskillsOn.toString() // transforma em string
 
 
 
@@ -115,7 +117,7 @@ function catchUserData2() {
     sessionStorage.removeItem("User1")
 }
 
-function deleteCatchDataUser() {
+function deleteCatchDataUser() { // função que remove os itens da session storage
     sessionStorage.removeItem("User1")
 
 }
@@ -129,7 +131,7 @@ function deleteCatchDataUser() {
 
 
 
-function catchRecruiterData() {
+function catchRecruiterData() { // função que pega os valores do formulário preenchido pelo recrutador
 
 
     let formsRecruit1 = {
@@ -144,7 +146,7 @@ function catchRecruiterData() {
 
     sessionStorage.setItem("Recruit1", JSON.stringify(formsRecruit1))
 
-    window.location.pathname = '/src/Frontend/views/Recruiter/cadastroRecrutadora2.html'
+    window.location.pathname = '/src/Frontend/views/Recruiter/cadastroRecrutadora2.html' // direciona para outra página
 
 
 
@@ -156,7 +158,7 @@ function catchRecruiterData() {
 
 }
 
-function catchRecruiterData2() {
+function catchRecruiterData2() { // função que pega os valores de outro formulário preenchido pelo recrutador
 
     let recuitForms1 = JSON.parse(sessionStorage.getItem("Recruit1"))
 
@@ -174,6 +176,8 @@ function catchRecruiterData2() {
     sessionStorage.removeItem("Recruit1")
 
 }
+
+// pegar do frontend infos cadastradas pela empresa para inserir no backend posteriormente
 
 function catchVacancyData() {
     let Nome_vaga = document.querySelector("#nomeVaga").value
@@ -216,7 +220,7 @@ function catchVacancyData() {
 
 
 
-
+// enviar infos do cadastro da candidata para o banco de dados
 function sendUserData(Nome_Candidata, Escolaridade_candidata, Email_candidata, CPF_canditada, Genero_canditada, Data_nascimento, Curriculo_candidata, Softskill_candidata, Senha_canditada, Cargo_canditada, Celular_candidata, Pais_candidata, Status_candidata, Hardskill_candidata, Estado_candidata, Cidade_candidata) {
     $.ajax({
         url: "http://localhost:3000/rotas/formCandidata",
@@ -247,6 +251,7 @@ function sendUserData(Nome_Candidata, Escolaridade_candidata, Email_candidata, C
     })
 }
 
+// enviar infos do cadastro da companhia para o banco de dados
 function sendRecruitData(NomeEmpresa, EmailEmpresa, RamoAtividade, Logo_Empresa, SenhaEmpresa, Cultura_Empresa, TelefoneEmpresa, SiteEmpresa, CnpjEmpresa, LocalizacaoEmpresa) {
     $.ajax({
         url: "http://localhost:3000/rotas/formEmpresa",
@@ -273,7 +278,7 @@ function sendRecruitData(NomeEmpresa, EmailEmpresa, RamoAtividade, Logo_Empresa,
 
 }
 
-
+// enviar para banco de dados uma vaga cadastrada
 function sendVacancyData(SoftskillVaga, NomeVaga, DescricaoVaga, LocalVaga, SalarioVaga, IdEmpresa, HardskillVaga, ModalidadeVaga) {
     $.ajax({
         url: "http://localhost:3000/rotas/formVagas",
@@ -295,7 +300,7 @@ function sendVacancyData(SoftskillVaga, NomeVaga, DescricaoVaga, LocalVaga, Sala
     })
 }
 
-
+// enviar e-mail e senha informados quando do login de candidata na landing page
 function loginUser() {
 
     let email_candidata = document.querySelector("#email").value
@@ -321,6 +326,7 @@ function loginUser() {
     })
 }
 
+// enviar e-mail e senha informados quando do login de empresa na landing page
 function loginRecruit() {
     let email_empresa = document.querySelector("#email").value
     let senha_empresa = document.querySelector("#senha").value
@@ -344,6 +350,7 @@ function loginRecruit() {
     })
 }
 
+// quando do login, pegar infos de candidata cadastradas no banco de dados, e display na página de perfil da candidata 
 function logadoUser() {
     let usuario = JSON.parse(sessionStorage.getItem("UsuarioDadosLogin"))
 
@@ -408,6 +415,7 @@ function logadoUser() {
 
 }
 
+// quando do login, pegar infos de empresa cadastradas no banco de dados, e display na página de perfil da empresa
 function logadoRecruit() {
     let Recruit = JSON.parse(sessionStorage.getItem("EmpresaDadosLogin"))
 
