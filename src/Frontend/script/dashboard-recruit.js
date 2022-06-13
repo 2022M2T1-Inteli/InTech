@@ -1,22 +1,28 @@
-function loadVagas() {
-    let EmpresaInfos = JSON.parse(sessionStorage.getItem("EmpresaDadosLogin")); 
+// função que carrega todas as vagas registradas de tal empresa registrada
 
-    $("#nomeEmpresa").html(EmpresaInfos.nome_empresa)
-    $("#email").html(EmpresaInfos.email_empresa)
+function loadVagas() {
+    let EmpresaInfos = JSON.parse(sessionStorage.getItem("EmpresaDadosLogin"));
+
+
+
+    $("#nomeEmpresa").html(EmpresaInfos.nome_empresa) // coloca as informações da empresa logando diretamente no frontend
+    $("#email").html(EmpresaInfos.email_empresa) // coloca as informações da empresa logando diretamente no frontend
 
     $.ajax({
-        url: 'http://localhost:3000/rotas/listAllEmpresaVagas',
-        method: 'POST', 
-        data: {
+        url: 'http://localhost:3000/rotas/listAllEmpresaVagas', // porta da rota
+        method: 'POST',
+        data: { // o que será enviado (req.body)
             id_empresa: EmpresaInfos.id_empresas
-        }, 
-        success: function(res) {
+        },
+        success: function (res) { //se retornar status:200, executa código abaixo
             console.log(res)
-            const divPai = document.querySelector('#rowBack'); 
+            const divPai = document.querySelector('#rowBack');
             for (let i = 0; i < res.length; i++) {
-                const divPai = document.querySelector('#rowBack'); 
+                const divPai = document.querySelector('#rowBack');
 
-                divPai.innerHTML += `<div class="card" style="width: 445px;">
+                //abaixo: modelo HTML que será retornado
+
+                divPai.innerHTML += `<div class="card" style="width: 445px;">  
                 <h1>${res[i].nome_vaga}</h1>
                 <p>${res[i].descricao_vaga}</p>
 
