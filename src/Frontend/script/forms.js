@@ -1,8 +1,14 @@
-
+function validateEmail(email) {
+    var re = /\S+@\S+\.\S+/;
+    return re.test(email);
+}
 
 
 function catchUserData() {
 
+
+
+    let error = document.querySelector("#error")
     //Tela de Cadastro 1
     let forms1 = {
         NomeCandidata: document.querySelector('#nomeCandidata').value,
@@ -11,16 +17,57 @@ function catchUserData() {
         CPFCandidata: document.querySelector('#cpfCandidata').value,
         GeneroCandidata: document.querySelector('#genero').value,
         SenhaCandidata: document.querySelector('#senha').value,
-        NascimentoCandidata: document.getSelection("#data-nascimento").value,
-        PaisCandidata: document.getSelection("#pais").value,
-        EstadoCandidata: document.getSelection("#estado").value,
-        CidadeCandidata: document.getSelection("#cidade").value
+        NascimentoCandidata: document.querySelector("#data-nascimento").value,
+        PaisCandidata: document.querySelector("#pais").value,
+        EstadoCandidata: document.querySelector("#estado").value,
+        CidadeCandidata: document.querySelector("#cidade").value
     }
 
-    sessionStorage.setItem("User1", JSON.stringify(forms1))
+    if (!forms1.NomeCandidata) {
+        error.innerHTML = "Nome necessário"
+        window.scroll(0,0)
 
-    window.location.replace("/views/Users/cadastroUsuaria2.html")
+    } else if (!forms1.EmailCandidata) {
+        error.innerHTML = "Email necessário"
+        window.scroll(0,0)
 
+    } else if (forms1.EmailCandidata) {
+        if (validateEmail(forms1.EmailCandidata) == false) {
+            error.innerHTML = "Email invalido"
+            window.scroll(0,0)
+        } else {
+            if (!forms1.CelularCandidata) {
+                error.innerHTML = "Numero de celular obrigatório"
+                window.scroll(0,0)
+            } else if (!forms1.CPFCandidata) {
+                error.innerHTML = "CPF necessário"
+                window.scroll(0,0)
+            } else if (!forms1.PaisCandidata) {
+                error.innerHTML = "Pais necessário"
+                window.scroll(0,0)
+            } else if (!forms1.EstadoCandidata) {
+                error.innerHTML = "Estado necessário"
+                window.scroll(0,0)
+            } else if (!forms1.CidadeCandidata) {
+                error.innerHTML = "Campo cidade necessário"
+                window.scroll(0,0)
+            } else if (!forms1.NascimentoCandidata) {
+                error.innerHTML = "Data necessária"
+                window.scroll(0,150)
+            } else if (!forms1.GeneroCandidata) {
+                error.innerHTML = "Gênero necessário"
+                window.scroll(0,160)
+            } else if (!forms1.SenhaCandidata) {
+                error.innerHTML = "Senha obrigatoria"
+                window.scroll(0,170)
+            } else {
+                sessionStorage.setItem("User1", JSON.stringify(forms1))
+
+                window.location.replace("/views/Users/cadastroUsuaria2.html")
+
+            }
+        }
+    } 
 
 
 
@@ -349,7 +396,7 @@ function logadoUser() {
                     </a>
                 </div>
             </div>`
-                
+
 
 
 
