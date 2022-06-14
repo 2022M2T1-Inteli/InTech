@@ -155,8 +155,83 @@ class User {
         
     }
 
-    //Editar
-    //Excluir perfil
+    async editUser(id_candidata,estado,cidade,cargo,grauDeInstrução,hardskill,softskill){
+        const db = await sqlite.open({ filename: "./database/banco_de_dados.db", driver: sqlite3.Database })
+
+        const rowId = await db.all(`SELECT * FROM candidatas WHERE id_candidata = ${id_candidata}`)
+
+        
+
+        //verificar se o id do usuario existe
+
+
+        let infosChangesUser = []
+
+        if(estado){
+            infosChangesUser.push(`estado_candidata = ${estado}`)
+        }if(cidade){
+            infosChangesUser.push(`cidade_candidata = ${cidade}`)
+        }if(cargo){
+            infosChangesUser.push(`cargo_candidata = ${cargo}`)
+        }if(grauDeInstrução){
+            infosChangesUser.push(`escolaridade_candidata = ${grauDeInstrução}`)
+        }if(hardskill){
+            infosChangesUser.push(`hardskill_candidata = ${hardskill}`)
+        }if(softskill){
+            infosChangesUser.push(`softskill_candidata = ${softskill}`)
+        }
+
+        // verificar se nenhuma informação foi enviada ao servidor
+
+        let infosForDbUser = infosChangesUser.join(",")
+
+        const Update = await db.run(`UPDATE candidatas SET ${infosForDbUser} WHERE id_candidata = ${id_candidata}`)
+
+        if(Update.changes === 0){
+            const error ={
+                type:"error",
+                message:"Erro no banco de dados"
+            }
+            return error
+        }
+
+        const success = {
+            type:"success",
+            message:"informações alteradas"
+        }
+
+        return success
+
+    }
+
+    async deleteUser(id_candidata){
+        const db = await sqlite.open({ filename: "./database/banco_de_dados.db", driver: sqlite3.Database })
+
+        const rowId = await db.all(`SELECT * FROM candidatas WHERE id_candidata = ${id_candidata}`)
+
+        //verificar se possui esase id no db
+
+        const DeleteUser = await db.run(`DELETE FROM candidatas WHERE id_candidata = ${id_candidata}`)
+
+        if(DeleteUser.changes === 0){
+            
+            const error = {
+                type:"error",
+                message:"Erro banco de dados"
+            }
+
+            return error
+        }
+
+        const success = {
+            type:"success",
+            message:"Usuario deletado"
+        }
+
+        return success
+
+    }
+
     //Cancela candidatura
 
 }

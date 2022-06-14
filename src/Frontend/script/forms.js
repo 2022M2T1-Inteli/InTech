@@ -287,6 +287,50 @@ function sendVacancyData(SoftskillVaga, NomeVaga, DescricaoVaga, LocalVaga, Sala
     })
 }
 
+
+function editarUser(id_candidata,estado,cidade,cargo,grauDeInstrução,hardskill,softskill){
+    
+    $.ajax({
+        url:"http://localhost:3000/user/editarUser",
+        method:"PUT",
+        data:{
+            id_candidata:id_candidata,
+            estado:estado,
+            cidade:cidade,
+            cargo:cargo,
+            grauDeInstrução:grauDeInstrução,
+            hardskill:hardskill,
+            softskill:softskill
+        },
+        success: function(){
+            //se tiver que voltar a tela usar window.replace,
+            // se for fazer na mesma tela so pede para fazer reload na pagina ou aparecer um popup e depois reload
+        },
+        error: function(){
+            // colocar algum ponto do html para aparecer a mensagem de erro
+        }
+    })
+}
+
+function deleteUser(id_candidata){
+    $.ajax({
+        url:"http://localhost:3000/user/deleteCandidata",
+        method:"DELETE",
+        data:{
+            id_candidata:id_candidata
+        },
+        success:function(){
+            //redirecionar para o index.js
+        },
+        error:function(){
+            //mostrar erro na pagina html 
+        }
+
+
+    })
+}
+
+
 // enviar e-mail e senha informados quando do login de candidata na landing page
 function loginUser() {
 

@@ -135,10 +135,52 @@ class Recruiter {
         return success
     }
 
+
+
+    async deleteRecuiter(id_empresa){
+        const db = await sqlite.open({ filename: "./database/banco_de_dados.db", driver: sqlite3.Database })
+
+        //verificar se existe esse id no db
+        const rowId = db.all(`SELECT * FROM empresas WHERE id_empresas = ${id_empresa} `)
+
+        const DeleteRecuiter = db.run(`DELETE FROM empresas WHERE id_empresas = ${id_empresa}`)
+        const DeleteJobsRecruiter = db.run(`DELETE FROM vagas WHERE id_empresas = ${id_empresa}`)
+
+        if(await DeleteRecuiter.changes === 0 || await DeleteJobsRecruiter.changes === 0){
+            const error ={
+                type:"error",
+                message:"Erro no banco de dados"
+            }
+            return error
+        }
+
+        const success = {
+            type:"success",
+            message:"Recrudator deletado com sucesso"
+        
+        }
+
+        return success
+
+    }
+
+    async editRecruiter(logo,email,senha,telefone,site,localização){
+        const db = await sqlite.open({ filename: "./database/banco_de_dados.db", driver: sqlite3.Database })
+
+
+        let infosChangesRecruiter = []
+
+        // if(logo){
+        //     infosChangesRecruiter.push(`logo_empresa`)
+        // }
+    }
+
     //Editar perfil
+
     //Editar vaga
     //Excluir vaga
-    //Excluir perfil
+   
+
     //Visualizar candidatas aplicantes 
 }
 

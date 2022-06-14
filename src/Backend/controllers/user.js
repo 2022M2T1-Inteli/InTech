@@ -42,5 +42,42 @@ const listaVagasAplicadas = (req,res)=>{
   
 }
 
+const editarUser = (req,res)=>{
+    const {id_candidata,estado,cidade,cargo,grauDeInstrução,hardskill,softskill} = req.body
 
-module.exports = {registerUser,loginUser,listaVagasAplicadas}
+    const user = new userModel.User()
+
+    user.editUser(id_candidata,estado,cidade,cargo,grauDeInstrução,hardskill,softskill).then((result)=>{
+
+        if(result.type === "error"){
+            res.status(500).json({
+                error: result.message
+            })
+        }else{
+            res.status(200).json({
+                message: result.message
+            })
+        }
+    })
+}
+
+const deleteUser = (req,res)=>{
+    const {id_candidata} = req.body
+
+    const user = new userModel.User()
+
+    user.deleteUser(id_candidata).then((result)=>{
+        if(result.type === "error"){
+            res.status(500).json({
+                error:result.message
+            })
+        }else{
+            res.status(200).json({
+                message: result.message
+            })
+        }
+    })
+}
+
+
+module.exports = {registerUser,loginUser,listaVagasAplicadas,editarUser,deleteUser}

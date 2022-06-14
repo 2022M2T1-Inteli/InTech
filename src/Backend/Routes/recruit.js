@@ -16,6 +16,7 @@ const recruiterController = require("../controllers/recruit")
 Routes.post("/formEmpresa",recruiterController.registerRecruiter)
 Routes.post("/loginRecruit",recruiterController.loginRecuiter)
 Routes.post('/listAllEmpresaVagas',recruiterController.showJobsRecruiter)
+Routes.delete("/deleteEmpresa", recruiterController.deleteRecuiter)
 
 // Edita os valores das colunas da tabela empresas que estão registradas no banco de dados
 Routes.put("/editEmpresa", (req, res) => {
@@ -47,33 +48,6 @@ Routes.put("/editEmpresa", (req, res) => {
 
 })
 
-// Deleta a linha desejada na tabela empresas
-Routes.delete("/deleteEmpresa", (req, res) => {
-
-    async function delDB() {
-
-        //abre o banco de dados
-        const db = await sqlite.open({ filename: "./database/banco_de_dados.db", driver: sqlite3.Database })
-
-        // executa comando sql
-        // 1ª escolha a tabela e alguma condição para excluir tal linha
-
-        // IMPORTANTE:
-        // - Sempre fazer uma condição se não excluirar todos os valores de tal tabela
-
-
-        await db.run(`DELETE FROM empresas WHERE id_vaga == ${req.body.id_chave} `)
-
-        //fecha banco de dados
-        db.close()
-    }
-
-    delDB()
-
-    res.send("Empresa excluida com sucesso no banco de dados")
-
-
-})
 
 
 
