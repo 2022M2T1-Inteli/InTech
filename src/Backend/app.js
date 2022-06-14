@@ -12,9 +12,20 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("../Frontend"))
 
+
+const UserRoutes = require("./Routes/user.js")
+const RecruiterRoutes = require("./Routes/recruit")
+const VagaRoutes = require("./Routes/vaga")
+
+
 // separador de rodas ( localhost:3000/rotas/X)
 app.use("/rotas", rotas)
 app.use("/match", match)
+
+app.use("/user",UserRoutes)
+app.use("/recruiter",RecruiterRoutes)
+app.use("/vaga",VagaRoutes)
+
 
 app.use("/",express.static("../Frontend/views"))
 

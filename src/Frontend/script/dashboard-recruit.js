@@ -9,7 +9,7 @@ function loadVagas() {
     $("#email").html(EmpresaInfos.email_empresa) // coloca as informações da empresa logando diretamente no frontend
 
     $.ajax({
-        url: 'http://localhost:3000/rotas/listAllEmpresaVagas', // porta da rota
+        url: 'http://localhost:3000/recruiter/listAllEmpresaVagas', // porta da rota
         method: 'POST',
         data: { // o que será enviado (req.body)
             id_empresa: EmpresaInfos.id_empresas

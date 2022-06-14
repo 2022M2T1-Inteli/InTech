@@ -112,7 +112,7 @@ function catchUserData2() { // função que pega os dados do formulário
     // Nome_Candidata,Escolaridade_candidata,Email_candidata,CPF_canditada,Genero_canditada,Data_nascimento,Curriculo_candidata,Softskill_candidata,Senha_canditada,Cargo_canditada,Celular_candidata, Pais_candidata,Status_candidata,Hardskill_candidata,Estado_candidata,Cidade_candidata
 
 
-    sendUserData(userForms1.NomeCandidata, Escolaridade_candidata, userForms1.EmailCandidata, userForms1.CPFCandidata, userForms1.GeneroCandidata, "23/09/2003", "asdada", SoftskillsDB, userForms1.SenhaCandidata, Cargo_canditada, userForms1.CelularCandidata, "Lembrar gabriel", Status_candidata, HardskillsDB, "Lembrar gabriel", "Lembrar gabriel")
+    sendUserData(userForms1.NomeCandidata, Escolaridade_candidata, userForms1.EmailCandidata, userForms1.CPFCandidata, userForms1.GeneroCandidata, userForms1.NascimentoCandidata, "asdada", SoftskillsDB, userForms1.SenhaCandidata, Cargo_canditada, userForms1.CelularCandidata, userForms1.PaisCandidata, Status_candidata, HardskillsDB, userForms1.EstadoCandidata, userForms1.CidadeCandidata)
 
     sessionStorage.removeItem("User1")
 }
@@ -122,11 +122,6 @@ function deleteCatchDataUser() { // função que remove os itens da session stor
 
 }
 
-// function putDatas(){
-//     userForms1 = JSON.parse(sessionStorage.getItem("User1"))
-
-//     document.querySelector('#nomeCandidata').value = userForms1.NomeCandidata
-// }
 
 
 
@@ -147,14 +142,6 @@ function catchRecruiterData() { // função que pega os valores do formulário p
     sessionStorage.setItem("Recruit1", JSON.stringify(formsRecruit1))
 
     window.location.pathname = '/src/Frontend/views/Recruiter/cadastroRecrutadora2.html' // direciona para outra página
-
-
-
-
-
-
-
-
 
 }
 
@@ -223,7 +210,7 @@ function catchVacancyData() {
 // enviar infos do cadastro da candidata para o banco de dados
 function sendUserData(Nome_Candidata, Escolaridade_candidata, Email_candidata, CPF_canditada, Genero_canditada, Data_nascimento, Curriculo_candidata, Softskill_candidata, Senha_canditada, Cargo_canditada, Celular_candidata, Pais_candidata, Status_candidata, Hardskill_candidata, Estado_candidata, Cidade_candidata) {
     $.ajax({
-        url: "http://localhost:3000/rotas/formCandidata",
+        url: "http://localhost:3000/user/formCandidata",
         method: "POST",
         data: {
             Nome_Candidata: Nome_Candidata,
@@ -281,7 +268,7 @@ function sendRecruitData(NomeEmpresa, EmailEmpresa, RamoAtividade, Logo_Empresa,
 // enviar para banco de dados uma vaga cadastrada
 function sendVacancyData(SoftskillVaga, NomeVaga, DescricaoVaga, LocalVaga, SalarioVaga, IdEmpresa, HardskillVaga, ModalidadeVaga) {
     $.ajax({
-        url: "http://localhost:3000/rotas/formVagas",
+        url: "http://localhost:3000/vaga/formVagas",
         method: "POST",
         data: {
             SoftskillVaga: SoftskillVaga,
@@ -308,7 +295,7 @@ function loginUser() {
 
 
     $.ajax({
-        url: "http://localhost:3000/rotas/loginUser",
+        url: "http://localhost:3000/user/loginUser",
         method: "POST",
         data: {
             email: email_candidata,
@@ -316,9 +303,11 @@ function loginUser() {
 
         },
         error: function (res) {
-            $("#error").html(res.responseJSON.message)
+            
+            $("#error").html(res.responseJSON)
         },
         success: function (res) {
+            
             sessionStorage.setItem("UsuarioDadosLogin", JSON.stringify(res))
             window.location.replace("/views/Users/usuariaCandidata1.html")
 
@@ -329,10 +318,10 @@ function loginUser() {
 // enviar e-mail e senha informados quando do login de empresa na landing page
 function loginRecruit() {
     let email_empresa = document.querySelector("#email").value
-    let senha_empresa = document.querySelector("#senha").value
+    let senha_empresa = document.querySelector("#password").value
 
     $.ajax({
-        url: "http://localhost:3000/rotas/loginRecruit",
+        url: "http://localhost:3000/recruiter/loginRecruit",
         method: "POST",
         data: {
             email: email_empresa,
@@ -340,7 +329,7 @@ function loginRecruit() {
 
         },
         error: function (res) {
-            $("#error").html(res.responseJSON.message)
+            $("#error").html(res.responseJSON)
         },
         success: function (res) {
             sessionStorage.setItem("EmpresaDadosLogin", JSON.stringify(res))
@@ -379,7 +368,7 @@ function logadoUser() {
     }
 
     $.ajax({
-        url: "http://localhost:3000/rotas/listVagaUser",
+        url: "http://localhost:3000/user/listVagaUser",
         method: "POST",
         data: {
             id_candidata: usuario.id_candidata
