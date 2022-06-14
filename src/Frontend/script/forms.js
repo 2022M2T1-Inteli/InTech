@@ -331,6 +331,46 @@ function deleteUser(id_candidata){
 }
 
 
+function editVaga(id_vaga,softskill,descricao,salario,hardskill,modalidade){
+    $.ajax({
+        url:"http://localhost:3000/vaga/editVaga",
+        method:"PUT",
+        data:{
+            id_vaga:id_vaga,
+            softskill:softskill,
+            descricao:descricao,
+            salario:salario,
+            hardskill:hardskill,
+            modalidade:modalidade
+        },
+        success:function(){
+            //redirecionar pra tal pagina ou popup e redirecionar
+        },
+        error:function(){
+            //mostrar erro na tela ou algo parecido
+        }
+    })
+
+}
+
+function delvaga(id_vaga){
+    $.ajax({
+        url:"http://localhost:3000/vaga/deleteVagas",
+        method:"DELETE",
+        data:{
+            id_vaga:id_vaga
+        },
+        success:function(){
+            //redirecionar ou popup
+        },
+        error:function(){
+            //mensagem html
+        }
+    })
+
+}
+
+
 // enviar e-mail e senha informados quando do login de candidata na landing page
 function loginUser() {
 

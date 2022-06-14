@@ -61,5 +61,20 @@ const deleteRecuiter = (req, res) => {
 
 }
 
+const editRecruiter = (req,res)=>{
+    const {id_empresa,logo,email,senha,telefone,site,localização} = req.body
 
-module.exports = { registerRecruiter, loginRecuiter, showJobsRecruiter,deleteRecuiter }
+    const recruit = new recruiterModel.Recruiter()
+
+    recruit.editRecruiter(id_empresa,logo,email,senha,telefone,site,localização).then((result)=>{
+        if(result.type === "error"){
+            res.status(500).json({
+                error:result.message
+            })
+        }else{
+            res.status(200).json(result.message)
+        }
+    })
+}
+
+module.exports = { registerRecruiter, loginRecuiter, showJobsRecruiter,deleteRecuiter,editRecruiter }

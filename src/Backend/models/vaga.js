@@ -49,6 +49,71 @@ class Vaga {
 
         return success
     }
+
+    async editVaga(id_vaga,softskill,descricao,salario,hardskill,modalidade){
+        const db = await sqlite.open({ filename: "./database/banco_de_dados.db", driver: sqlite3.Database })
+
+        let vagaInfosEdit = []
+
+        if(softskill){
+            vagaInfosEdit.push(`softskill_vaga = ${softskill}`)
+        }if(descricao){
+            vagaInfosEdit.push(`descricao_vaga = ${descricao}`)
+        }if(salario){
+            vagaInfosEdit.push(`salario_vaga = ${salario}`)
+        }if(hardskill){
+            vagaInfosEdit.push(`hardskill_vaga = ${hardskill}`)
+        }if(modalidade){
+            vagaInfosEdit.push(`modalidade_vaga = ${modalidade}`)
+        }
+
+        let vagaInfosEditDB = vagaInfosEdit.join(",")
+
+        const UpdateVaga = db.run(`UPDATE vagas SET ${vagaInfosEditDB} WHERE id_vaga = ${id_vaga}`)
+
+        if(UpdateVaga.changes === 0){
+            const error = {
+                type:"error",
+                message:"Erro no banco de dados"
+            }
+
+            return error
+        }
+
+        const success = {
+            type:"success",
+            message:"Vaga editada com sucesso"
+        }
+
+        return success
+
+
+    }
+
+    async deleteVaga(id_vaga){
+        const db = await sqlite.open({ filename: "./database/banco_de_dados.db", driver: sqlite3.Database })
+
+        const DeleteVaga = db.run(`DELETE FROM vagas WHERE id_vaga = ${id_vaga} `)
+
+        if((await DeleteVaga).changes === 0){
+            const error = {
+                type:"error",
+                message:"erro com o banco de dados"
+            }
+
+            return error
+        }
+
+        const success = {
+            type:"success",
+            message:"Vaga deletada com sucesso"
+        }
+
+        return success
+
+    }
+
+    //Visualizar candidatas aplicantes 
 }
 
 

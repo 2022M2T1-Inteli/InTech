@@ -164,24 +164,47 @@ class Recruiter {
 
     }
 
-    async editRecruiter(logo,email,senha,telefone,site,localização){
+    async editRecruiter(id_empresa,logo,email,senha,telefone,site,localização){
         const db = await sqlite.open({ filename: "./database/banco_de_dados.db", driver: sqlite3.Database })
 
 
         let infosChangesRecruiter = []
 
-        // if(logo){
-        //     infosChangesRecruiter.push(`logo_empresa`)
-        // }
+        if(logo){
+            infosChangesRecruiter.push(`logo_empresa = ${logo}`)
+        }if(email){
+            infosChangesRecruiter.push(`email_empresa = ${email}`)
+        }if(senha){
+            infosChangesRecruiter.push(`senha_empresa = ${senha}`)
+        }if(telefone){
+            infosChangesRecruiter.push(`telefone_empresa = ${telefone}`)
+        }if(site){
+            infosChangesRecruiter.push(`site_empresa = ${site}`)
+        }if(localização){
+            infosChangesRecruiter.push(`localizacao_empresa = ${localização}`)
+        }
+
+        let infosChangesRecruiterDB = infosChangesRecruiter.join(",")
+
+        const UpdateRecruiter = db.run(`UPDATE empresas SET ${infosChangesRecruiterDB} WHERE ${id_empresa}`)
+
+        if(UpdateRecruiter.changes === 0){
+            const error = {
+                type:"error",
+                message:"Erro no banco de dados"
+            }
+            return error
+        }
+
+        const success = {
+            type:"success",
+            message:"Alterado com sucesso"
+        }
+
+        return success
     }
 
-    //Editar perfil
 
-    //Editar vaga
-    //Excluir vaga
-   
-
-    //Visualizar candidatas aplicantes 
 }
 
 
