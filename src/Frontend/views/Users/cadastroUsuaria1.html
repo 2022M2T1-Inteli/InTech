@@ -29,7 +29,7 @@
         <div>
             <p id="error" style="color: yellow;" class="d-flex justify-content-center"></p>
         </div>
-        
+
         <form action="">
             <div class="caixa">
                 <div class="mb-1 mt-4">
@@ -44,10 +44,11 @@
                 <input id="emailCandidata" class="caixa2 border-0" type="email" placeholder="Digite seu melhor email"
                     name="Email_candidata" required />
                 <label for="celularCandidata">Número de telefone celular</label>
-                <input id="celularCandidata" class="caixa2 border-0" type="tel"
-                    placeholder="Digite o número do seu celular" name="Celular_candidata" />
+                <input id="celularCandidata" class="caixa2 border-0" type="text" value="(__) _____-____"
+                    data-mask="(__) _____-____" placeholder="Digite o número do seu celular" name="Celular_candidata" />
+
                 <label for="cpfCandidata">CPF</label>
-                <input id="cpfCandidata" class="caixa2 border-0" type="number" placeholder="Digite seu CPF"
+                <input id="cpfCandidata" value="___.___.___-__" data-mask="___.___.___-__" class="caixa2 border-0" type="text" placeholder="Digite seu CPF"
                     name="CPF_candidata">
 
                 <label for="pais">Selecione seu país</label>
@@ -94,22 +95,52 @@
                 href="../telaCadastro.html">Voltar</a>
         </div>
 
-     
-
-
-
-
-
     </main>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-compat/3.0.0-alpha1/jquery.min.js"></script>
 
-
     <script>
-        // Mascara CPF
+        // Mascara CPF e Telefone
+        Array.prototype.forEach.call(document.body.querySelectorAll("*[data-mask]"), applyDataMask); // coleta todos os inputs que conterem o atributo (data-mask)
+
+        function applyDataMask(field) {
+            var mask = field.dataset.mask.split('');
 
 
+            function stripMask(maskedData) {
+                function isDigit(char) {
+                    return /\d/.test(char);
+                }
+                return maskedData.split('').filter(isDigit);
+            }
 
+            function applyMask(data) {// troca o que tiver '_' pelo número digitado
+                return mask.map(function (char) {
+                    if (char != '_') return char;
+                    if (data.length == 0) return char;
+                    return data.shift();
+                }).join('')
+            }
+
+            function reapplyMask(data) {
+                return applyMask(stripMask(data));
+            }
+
+            //atualiza o campo de acordo com o que já foi digitado
+            function changed() {
+                var oldStart = field.selectionStart;
+                var oldEnd = field.selectionEnd;
+
+                field.value = reapplyMask(field.value);
+
+                field.selectionStart = oldStart;
+                field.selectionEnd = oldEnd;
+            }
+
+            //EventListners para que a função seja executada a cada mudança de tecla
+            field.addEventListener('click', changed)
+            field.addEventListener('keyup', changed)
+        }
+        
         // API de Localização 
         function montaCidade(estado, pais) {
             $.ajax({
@@ -214,18 +245,8 @@
 
         montaPais();
 
-        // Mascara Telefone
-        $(window).load(() => {
-            let phoneMask = { "mask": "(##) #####-####" };
-
-            $('#celularCandidata').inputmask({
-                mask: phoneMask,
-                greedy: false,
-                definitions: { '#': { validator: "[0-9]", cardinality: 1 } }
-            });
-        });
-
     </script>
+    <script src="../../script/cadastroUsuaria1.js"></script>
     <script src="../../script/forms.js"></script>
 </body>
 

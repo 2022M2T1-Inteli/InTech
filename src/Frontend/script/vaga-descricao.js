@@ -1,23 +1,9 @@
-// gabriel vai explicar kkkk
-var getUrlParameter = function getUrlParameter(sParam) {
-    var sPageURL = window.location.search.substring(1),
-        sURLVariables = sPageURL.split('&'),
-        sParameterName,
-        i;
-
-    for (i = 0; i < sURLVariables.length; i++) {
-        sParameterName = sURLVariables[i].split('=');
-
-        if (sParameterName[0] === sParam) {
-            return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
-        }
-    }
-    return false;
-};
+//Função que retornar o parâmetro da URL
+const getUrlParameter = new URLSearchParams(window.location.search)
 
 function loadVagaData() { //função que os dados da vaga de acordeu com o seu ID
 
-    let id_vaga = getUrlParameter('id_vaga')
+    let id_vaga = getUrlParameter.get('id_vaga')
 
     $.ajax({
         url: `http://localhost:3000/rotas/listVagas?id_vaga=${id_vaga}`,
