@@ -1,0 +1,10 @@
+body{
+    background-image: url(../../images/Background.svg);
+    
+}
+
+h1{
+    color: white;
+    font-family: 'Roboto Slab';
+    text-align: center;
+}
