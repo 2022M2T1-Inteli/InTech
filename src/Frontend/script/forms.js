@@ -241,7 +241,7 @@ function sendUserData(Nome_Candidata, Escolaridade_candidata, Email_candidata, C
 // enviar infos do cadastro da companhia para o banco de dados
 function sendRecruitData(NomeEmpresa, EmailEmpresa, RamoAtividade, Logo_Empresa, SenhaEmpresa, Cultura_Empresa, TelefoneEmpresa, SiteEmpresa, CnpjEmpresa, LocalizacaoEmpresa) {
     $.ajax({
-        url: "http://localhost:3000/rotas/formEmpresa",
+        url: "http://localhost:3000/recruiter/formEmpresa",
         method: "POST",
         data: {
             Nome_Empresa: NomeEmpresa,

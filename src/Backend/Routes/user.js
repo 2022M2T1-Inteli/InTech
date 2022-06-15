@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const userController = require("../controllers/user")
 
 
-// Registro de candidata no banco de dados 
+
 Routes.post("/formCandidata",userController.registerUser)
 Routes.post("/loginUser",userController.loginUser)
 Routes.post("/listVagaUser",userController.listaVagasAplicadas)

@@ -8,7 +8,7 @@
 }
 
 label {
-    display: none;
+   display: none;
 }
 
 nav{
@@ -91,10 +91,12 @@ a {
     color: white;
     font-family: 'Roboto Slab';
     justify-content: center;
+    text-decoration: none;
 }
 
 a:hover {
     color: #A77EBF;
+    text-decoration: underline;
 }
 
 .btn {

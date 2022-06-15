@@ -27,7 +27,6 @@ input {
 }
 
 form i {
-  margin-left: -30px;
   cursor: pointer;
 }
 
@@ -55,7 +54,7 @@ form i {
     align-items: center;
     justify-content: center;
     border-radius: 5px;
-    margin-bottom: 3em;
+    margin-bottom: 2em;
   }
   
   .wrapper .option{
@@ -122,4 +121,3 @@ form i {
     cursor: pointer;
     position: center;
   }
-
