@@ -9,7 +9,8 @@
 }
 nav{
     background-color: #FFFFFF;
-    height: 4.7em;   
+    height: 4.7em;  
+
 }
 
 .description {
@@ -23,10 +24,14 @@ nav{
     display: flex;
     align-items: center;
     letter-spacing: -0.02em;
-    
     color: #000000;
+    box-shadow: 0 0 0 0;
+    border: 0 none;
+    outline: 0;
     
 }
+
+
 
 .titles {
     margin-top: 10px;
@@ -143,6 +148,7 @@ nav{
 
 #botao{
     margin: 10px;
+
 }
 
 #voltar {
@@ -153,5 +159,37 @@ nav{
     margin-left:30px;
     margin-top: 5px;
     color: purple;
+}
+
+#logomarca {
+    margin: 12.8px 107.2px;
+}
+
+button {
+    width: 140.8px;
+    height: 38px;
+}
+
+#classelado {
+    text-align: center;
+}
+
+#inputzin {
+    margin-top: 35px;
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    text-align: center;
+    box-shadow: 0 0 0 0;
+    border: 0 none;
+    outline: 0;
+    
+}
+
+.container {
+   font-family: 'Nunito';
+   font-size: small;
+   outline-color: #280044;
 }
 
