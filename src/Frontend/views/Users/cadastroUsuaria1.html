@@ -26,9 +26,7 @@
     </header>
     <main style="animation: up 1.5s;">
         <h1 class="titulo-da-pagina mt-4">Cadastre seu perfil</h1>
-        <div>
-            <p id="error" style="color: yellow;" class="d-flex justify-content-center"></p>
-        </div>
+
 
         <form action="">
             <div class="caixa">
@@ -38,18 +36,30 @@
                 </div>
                 <br>
                 <label for="nomeCandidata">Nome</label>
-                <input id="nomeCandidata" class="caixa2 border-0" type="text" placeholder="Digite seu nome"
+
+                <p id="errorNome" style="color: yellow;" class="d-flex justify-content-center mb-1"></p>
+
+                <input id="nomeCandidata" class="caixa2 border-0 mb-0 " type="text" placeholder="Digite seu nome"
                     name="Nome_candidata" required />
                 <label for="emailCandidata">Email</label>
-                <input id="emailCandidata" class="caixa2 border-0" type="email" placeholder="Digite seu melhor email"
-                    name="Email_candidata" required />
+
+                <p id="errorEmail" style="color: yellow;" class="d-flex justify-content-center mb-2"></p>
+
+                <input id="emailCandidata" class="caixa2 border-0 mb-0" type="email"
+                    placeholder="Digite seu melhor email" name="Email_candidata" required />
                 <label for="celularCandidata">Número de telefone celular</label>
-                <input id="celularCandidata" class="caixa2 border-0" type="text" value="(__) _____-____"
+
+                <p id="errorCelular" style="color: yellow;" class="d-flex justify-content-center mb-2"></p>
+
+                <input id="celularCandidata" class="caixa2 border-0 mb-0" type="text" value="(__) _____-____"
                     data-mask="(__) _____-____" placeholder="Digite o número do seu celular" name="Celular_candidata" />
 
                 <label for="cpfCandidata">CPF</label>
-                <input id="cpfCandidata" value="___.___.___-__" data-mask="___.___.___-__" class="caixa2 border-0" type="text" placeholder="Digite seu CPF"
-                    name="CPF_candidata">
+
+                <p id="errorCPF" style="color: yellow;" class="d-flex justify-content-center mb-2"></p>
+
+                <input id="cpfCandidata" value="___.___.___-__" data-mask="___.___.___-__" class="caixa2 border-0"
+                    type="text" placeholder="Digite seu CPF" name="CPF_candidata">
 
                 <label for="pais">Selecione seu país</label>
                 <select class="caixa2" name="Pais_candidata" id="pais">
@@ -65,12 +75,18 @@
                 <div class="mb-2 boxInputs">
                     <label style="color: white; margin-left: 5px; margin-top: 10px;" class="row form-label"
                         for="data-nascimento">Data de nascimento: </label>
-                    <input id="data-nascimento" class="caixa2 border-0" type="date" placeholder="Data de nascimento"
+
+                    <p id="errorData" style="color: yellow;" class="d-flex justify-content-center"></p>
+
+                    <input id="data-nascimento" class="caixa2 border-0 mb-0" type="date" placeholder="Data de nascimento"
                         name="Data_nascimento">
 
                 </div>
                 <label for="genero">Informe seu gênero</label>
-                <select class="caixa2 border-0" name="Genero_candidata" id="genero">
+
+                <p id="errorGenero" style="color: yellow;" class="d-flex justify-content-center mb-0"></p>
+
+                <select class="caixa2 border-0 mb-0" name="Genero_candidata" id="genero">
                     <option class="opt-disabled" value="" disabled hidden selected>Informe seu gênero</option>
                     <option value="mulher-cis">Mulher-Cis</option>
                     <option value="homem-cis">Homen-Cis</option>
@@ -80,7 +96,10 @@
                     <option value="nao-resposta">Prefiro não responder</option>
                 </select>
                 <label for="senha">Crie uma senha</label>
-                <input id="senha" class="caixa2 border-0" name="Senha_candidata" type="password"
+
+                <p id="errorSenha" style="color: yellow;" class="d-flex justify-content-center mb-2"></p>
+
+                <input id="senha" class="caixa2 border-0 mb-0" name="Senha_candidata" type="password"
                     placeholder="Crie uma senha">
             </div>
 
@@ -140,7 +159,7 @@
             field.addEventListener('click', changed)
             field.addEventListener('keyup', changed)
         }
-        
+
         // API de Localização 
         function montaCidade(estado, pais) {
             $.ajax({

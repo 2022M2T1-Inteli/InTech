@@ -107,7 +107,7 @@ class User {
 
             if (!user[0]) {
                 const error = {
-                    type:"error",
+                    type: "error",
                     message: "Email não registrado"
                 }
 
@@ -118,20 +118,20 @@ class User {
 
             else if (user[0].senha_candidata == senha) {
                 const success = {
-                    type:"success",
-                    data:user[0]
+                    type: "success",
+                    data: user[0]
 
                 }
 
                 return success
-                    
-                
+
+
 
             }
 
             else if ((user[0].senha_candidata == senha) == false) {
-                const error ={
-                    type:"error",
+                const error = {
+                    type: "error",
                     message: "Email ou Senha não corresponde"
                 }
 
@@ -140,44 +140,44 @@ class User {
         }
     }
 
-    async listjobs(id_candidata){
+    async listjobs(id_candidata) {
 
         const db = await sqlite.open({ filename: "./database/banco_de_dados.db", driver: sqlite3.Database })
 
-        const result = await db.all("SELECT * FROM vagas WHERE id_candidatas = ?",[id_candidata])
+        const result = await db.all("SELECT * FROM vagas WHERE id_candidatas = ?", [id_candidata])
 
         const success = {
-            type:"success",
-            data:result
+            type: "success",
+            data: result
         }
 
         return success
-        
+
     }
 
-    async editUser(id_candidata,estado,cidade,cargo,grauDeInstrução,hardskill,softskill){
+    async editUser(id_candidata, estado, cidade, cargo, grauDeInstrução, hardskill, softskill) {
         const db = await sqlite.open({ filename: "./database/banco_de_dados.db", driver: sqlite3.Database })
 
         const rowId = await db.all(`SELECT * FROM candidatas WHERE id_candidata = ${id_candidata}`)
 
-        
+
 
         //verificar se o id do usuario existe
 
 
         let infosChangesUser = []
 
-        if(estado){
+        if (estado) {
             infosChangesUser.push(`estado_candidata = ${estado}`)
-        }if(cidade){
+        } if (cidade) {
             infosChangesUser.push(`cidade_candidata = ${cidade}`)
-        }if(cargo){
+        } if (cargo) {
             infosChangesUser.push(`cargo_candidata = ${cargo}`)
-        }if(grauDeInstrução){
+        } if (grauDeInstrução) {
             infosChangesUser.push(`escolaridade_candidata = ${grauDeInstrução}`)
-        }if(hardskill){
+        } if (hardskill) {
             infosChangesUser.push(`hardskill_candidata = ${hardskill}`)
-        }if(softskill){
+        } if (softskill) {
             infosChangesUser.push(`softskill_candidata = ${softskill}`)
         }
 
@@ -187,24 +187,24 @@ class User {
 
         const Update = await db.run(`UPDATE candidatas SET ${infosForDbUser} WHERE id_candidata = ${id_candidata}`)
 
-        if(Update.changes === 0){
-            const error ={
-                type:"error",
-                message:"Erro no banco de dados"
+        if (Update.changes === 0) {
+            const error = {
+                type: "error",
+                message: "Erro no banco de dados"
             }
             return error
         }
 
         const success = {
-            type:"success",
-            message:"informações alteradas"
+            type: "success",
+            message: "informações alteradas"
         }
 
         return success
 
     }
 
-    async deleteUser(id_candidata){
+    async deleteUser(id_candidata) {
         const db = await sqlite.open({ filename: "./database/banco_de_dados.db", driver: sqlite3.Database })
 
         const rowId = await db.all(`SELECT * FROM candidatas WHERE id_candidata = ${id_candidata}`)
@@ -213,22 +213,51 @@ class User {
 
         const DeleteUser = await db.run(`DELETE FROM candidatas WHERE id_candidata = ${id_candidata}`)
 
-        if(DeleteUser.changes === 0){
-            
+        if (DeleteUser.changes === 0) {
+
             const error = {
-                type:"error",
-                message:"Erro banco de dados"
+                type: "error",
+                message: "Erro banco de dados"
             }
 
             return error
         }
 
         const success = {
-            type:"success",
-            message:"Usuario deletado"
+            type: "success",
+            message: "Usuario deletado"
         }
 
         return success
+
+    }
+
+    async EmailVerificacion(EmailVerificacion) {
+        const db = await sqlite.open({ filename: "./database/banco_de_dados.db", driver: sqlite3.Database })
+
+        const result = await db.all(`SELECT * FROM candidatas WHERE email_candidata == "${EmailVerificacion}" `)
+
+        if (result[0]) {
+
+            const error = {
+                type: "error",
+                message: "Email ja registrado"
+            }
+
+            return error
+        }
+
+        const success = {
+            type: "success",
+            message: "Email não registrado ainda"
+        }
+
+        return success
+
+
+
+
+
 
     }
 

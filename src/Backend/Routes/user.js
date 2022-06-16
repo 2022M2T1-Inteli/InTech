@@ -20,6 +20,7 @@ Routes.post("/loginUser",userController.loginUser)
 Routes.post("/listVagaUser",userController.listaVagasAplicadas)
 Routes.put("/editarUser",userController.editarUser)
 Routes.delete("/deleteCandidata",userController.deleteUser)
+Routes.post("/verifyEmail",userController.verifyEmail)
 
 
 module.exports = Routes

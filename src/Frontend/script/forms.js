@@ -8,7 +8,14 @@ function catchUserData() { // função que pega os dados de usuário de acordo c
 
 
 
-    let error = document.querySelector("#error")
+    let errorNome = document.querySelector("#errorNome")
+    let errorEmail = document.querySelector("#errorEmail")
+    let errorCelular = document.querySelector("#errorCelular")
+    let errorCPF = document.querySelector("#errorCPF")
+    let errorDate = document.querySelector("#errorData")
+    let errorGenero = document.querySelector("#errorGenero")
+    let errorSenha = document.querySelector("#errorSenha")
+
     //Tela de Cadastro 1
     let forms1 = {
         NomeCandidata: document.querySelector('#nomeCandidata').value,
@@ -23,56 +30,127 @@ function catchUserData() { // função que pega os dados de usuário de acordo c
         CidadeCandidata: document.querySelector("#cidade").value
     }
 
+
     // caso o usuário não preencha um campo corretamente, ele receberá uma mensagem de alerta
 
     if (!forms1.NomeCandidata) {
-        error.innerHTML = "Nome necessário"
+        errorNome.innerHTML = "Nome necessário"
         window.scroll(0, 0)
+        setTimeout(function () {
+            errorNome.innerHTML = ""
+        }, 5000)
 
-    } else if (!forms1.EmailCandidata) {
-        error.innerHTML = "Email necessário"
-        window.scroll(0, 0)
 
-    } else if (forms1.EmailCandidata) {
-        if (validateEmail(forms1.EmailCandidata) == false) {
-            error.innerHTML = "Email invalido"
+
+    } else if (forms1.NomeCandidata) {
+        let transform = forms1.NomeCandidata.split("")
+        let verify
+
+        for (let i = 0; i < transform.length; i++) {
+            if (isNaN(parseInt(transform[i])) == false) {
+                verify = true
+            }
+
+        }
+
+        if (verify === true) {
+            errorNome.innerHTML = "Nome não pode conter numero"
             window.scroll(0, 0)
+            setTimeout(function () {
+                errorNome.innerHTML = ""
+            }, 5000)
         } else {
-            if (!forms1.CelularCandidata) {
-                error.innerHTML = "Numero de celular obrigatório"
-                window.scroll(0, 0)
-            } else if (!forms1.CPFCandidata) {
-                error.innerHTML = "CPF necessário"
-                window.scroll(0, 0)
-            } else if (!forms1.PaisCandidata) {
-                error.innerHTML = "Pais necessário"
-                window.scroll(0, 0)
-            } else if (!forms1.EstadoCandidata) {
-                error.innerHTML = "Estado necessário"
-                window.scroll(0, 0)
-            } else if (!forms1.CidadeCandidata) {
-                error.innerHTML = "Campo cidade necessário"
-                window.scroll(0, 0)
-            } else if (!forms1.NascimentoCandidata) {
-                error.innerHTML = "Data necessária"
-                window.scroll(0, 150)
-            } else if (!forms1.GeneroCandidata) {
-                error.innerHTML = "Gênero necessário"
-                window.scroll(0, 160)
-            } else if (!forms1.SenhaCandidata) {
-                error.innerHTML = "Senha obrigatoria"
-                window.scroll(0, 170)
-            } else {
-                sessionStorage.setItem("User1", JSON.stringify(forms1)) // salvando objeto na session storage
 
-                window.location.replace("/views/Users/cadastroUsuaria2.html") // direciona para outr página
+        } if (!forms1.EmailCandidata) {
+            errorEmail.innerHTML = "Email necessário"
+            window.scroll(0, 0)
+            setTimeout(function () {
+                errorEmail.innerHTML = ""
+            }, 5000)
 
+        } else if (forms1.EmailCandidata) {
+            if (validateEmail(forms1.EmailCandidata) == false) {
+                errorEmail.innerHTML = "Email invalido"
+                window.scroll(0, 0)
+                setTimeout(function () {
+                    errorEmail.innerHTML = ""
+                }, 5000)
+            }
+            else {
+                if (forms1.CelularCandidata == "(__) _____-____") {
+                    errorCelular.innerHTML = "Numero de celular obrigatório"
+                    window.scroll(0, 0)
+                    setTimeout(function () {
+                        errorCelular.innerHTML = ""
+                    }, 5000)
+                } else if (forms1.CPFCandidata == "___.___.___-__") {
+                    errorCPF.innerHTML = "CPF necessário"
+                    window.scroll(0, 0)
+                    setTimeout(function () {
+                        errorCPF.innerHTML = ""
+                    }, 5000)
+
+                } else if (!forms1.PaisCandidata) {
+                    error.innerHTML = "Pais necessário"
+                    window.scroll(0, 0)
+                } else if (!forms1.EstadoCandidata) {
+                    error.innerHTML = "Estado necessário"
+                    window.scroll(0, 0)
+                } else if (!forms1.CidadeCandidata) {
+                    error.innerHTML = "Campo cidade necessário"
+                    window.scroll(0, 0)
+                } else if (!forms1.NascimentoCandidata) {
+                    errorDate.innerHTML = "Data necessária"
+                    window.scroll(0, 150)
+                    setTimeout(function () {
+                        errorDate.innerHTML = ""
+                    }, 5000)
+
+                } else if (!forms1.GeneroCandidata) {
+                    errorGenero.innerHTML = "Gênero necessário"
+                    window.scroll(0, 160)
+                    setTimeout(function () {
+                        errorGenero.innerHTML = ""
+                    }, 5000)
+                } else if (!forms1.SenhaCandidata) {
+
+                    errorSenha.innerHTML = "Senha obrigatoria"
+                    window.scroll(0, 170)
+                    setTimeout(function () {
+                        errorSenha.innerHTML = ""
+                    }, 5000)
+                } else {
+
+                    $.ajax({
+                        url: "http://localhost:3000/user/verifyEmail",
+                        method: "POST",
+                        data: {
+                            Email_candidata: forms1.EmailCandidata
+                        },
+                        success: function (res) {
+
+                            sessionStorage.setItem("User1", JSON.stringify(forms1)) // salvando objeto na session storage
+
+                            window.location.replace("/views/Users/cadastroUsuaria2.html") // direciona para outr página
+
+
+                        },
+                        error: function (res) {
+                            console.log(res)
+                            errorEmail.innerHTML = res.responseJSON.error
+                            window.scroll(0, 0)
+                            setTimeout(function () {
+                                errorEmail.innerHTML = ""
+                            }, 5000)
+                        }
+                    })
+
+
+                }
             }
         }
+
     }
-
-
-
 }
 
 function catchUserData2() { // função que pega os dados do formulário
@@ -106,15 +184,64 @@ function catchUserData2() { // função que pega os dados do formulário
     let SoftskillsDB = SoftskillsOn.toString() // transforma em string
     let HardskillsDB = HardskillsOn.toString() // transforma em string
 
+    let errorStatus = document.getElementById("errorStatus");
+    let errorEscolaridade = document.getElementById("errorEscolaridade");
+    let errorTrabalho = document.getElementById("errorTrabalho");
+    let errorSoft = document.getElementById("errorSoft");
+    let errorHard = document.getElementById("errorHard");
+
+
+
+    if (!Status_candidata) {
+        errorStatus.innerHTML = "Campo obrigatório"
+        window.scroll(0, 0)
+        setTimeout(function () {
+            errorStatus.innerHTML = ""
+        }, 5000)
+
+    } else if (!Escolaridade_candidata) {
+        errorEscolaridade.innerHTML = "Campo obrigatório"
+        window.scroll(0, 0)
+        setTimeout(function () {
+            errorEscolaridade.innerHTML = ""
+        }, 5000)
+
+    } else if (!Cargo_canditada) {
+        errorTrabalho.innerHTML = "Campo obrigatório"
+        window.scroll(0, 0)
+        setTimeout(function () {
+            errorTrabalho.innerHTML = ""
+        }, 5000)
+
+    } else if (Softskills.length <= 3) {
+        errorSoft.innerHTML = "Pelo menos mais do que 3 Softskills ;)"
+        window.scroll(0, 0)
+        setTimeout(function () {
+            errorSoft.innerHTML = ""
+        }, 5000)
+
+    } else if (Hardskills.length <= 3) {
+        errorHard.innerHTML = "Pelo menos mais do que 3 Hardskills ;)"
+        window.scroll(0, 0)
+        setTimeout(function () {
+            errorHard.innerHTML = ""
+        }, 5000)
+
+    } else {
+
+        sendUserData(userForms1.NomeCandidata, Escolaridade_candidata, userForms1.EmailCandidata, userForms1.CPFCandidata, userForms1.GeneroCandidata, userForms1.NascimentoCandidata, "asdada", SoftskillsDB, userForms1.SenhaCandidata, Cargo_canditada, userForms1.CelularCandidata, userForms1.PaisCandidata, Status_candidata, HardskillsDB, userForms1.EstadoCandidata, userForms1.CidadeCandidata)
+
+        sessionStorage.removeItem("User1")
+
+    }
+
 
 
 
     // Nome_Candidata,Escolaridade_candidata,Email_candidata,CPF_canditada,Genero_canditada,Data_nascimento,Curriculo_candidata,Softskill_candidata,Senha_canditada,Cargo_canditada,Celular_candidata, Pais_candidata,Status_candidata,Hardskill_candidata,Estado_candidata,Cidade_candidata
 
 
-    sendUserData(userForms1.NomeCandidata, Escolaridade_candidata, userForms1.EmailCandidata, userForms1.CPFCandidata, userForms1.GeneroCandidata, userForms1.NascimentoCandidata, "asdada", SoftskillsDB, userForms1.SenhaCandidata, Cargo_canditada, userForms1.CelularCandidata, userForms1.PaisCandidata, Status_candidata, HardskillsDB, userForms1.EstadoCandidata, userForms1.CidadeCandidata)
 
-    sessionStorage.removeItem("User1")
 }
 
 function deleteCatchDataUser() { // função que remove os itens da session storage
@@ -232,7 +359,8 @@ function sendUserData(Nome_Candidata, Escolaridade_candidata, Email_candidata, C
 
         },
         success: function () {
-            window.location.replace("/views/index.html")
+            openPopup()
+
         }
 
     })
@@ -288,41 +416,41 @@ function sendVacancyData(SoftskillVaga, NomeVaga, DescricaoVaga, LocalVaga, Sala
 }
 
 
-function editarUser(id_candidata,estado,cidade,cargo,grauDeInstrução,hardskill,softskill){
-    
+function editarUser(id_candidata, estado, cidade, cargo, grauDeInstrução, hardskill, softskill) {
+
     $.ajax({
-        url:"http://localhost:3000/user/editarUser",
-        method:"PUT",
-        data:{
-            id_candidata:id_candidata,
-            estado:estado,
-            cidade:cidade,
-            cargo:cargo,
-            grauDeInstrução:grauDeInstrução,
-            hardskill:hardskill,
-            softskill:softskill
+        url: "http://localhost:3000/user/editarUser",
+        method: "PUT",
+        data: {
+            id_candidata: id_candidata,
+            estado: estado,
+            cidade: cidade,
+            cargo: cargo,
+            grauDeInstrução: grauDeInstrução,
+            hardskill: hardskill,
+            softskill: softskill
         },
-        success: function(){
+        success: function () {
             //se tiver que voltar a tela usar window.replace,
             // se for fazer na mesma tela so pede para fazer reload na pagina ou aparecer um popup e depois reload
         },
-        error: function(){
+        error: function () {
             // colocar algum ponto do html para aparecer a mensagem de erro
         }
     })
 }
 
-function deleteUser(id_candidata){
+function deleteUser(id_candidata) {
     $.ajax({
-        url:"http://localhost:3000/user/deleteCandidata",
-        method:"DELETE",
-        data:{
-            id_candidata:id_candidata
+        url: "http://localhost:3000/user/deleteCandidata",
+        method: "DELETE",
+        data: {
+            id_candidata: id_candidata
         },
-        success:function(){
+        success: function () {
             //redirecionar para o index.js
         },
-        error:function(){
+        error: function () {
             //mostrar erro na pagina html 
         }
 
@@ -331,39 +459,39 @@ function deleteUser(id_candidata){
 }
 
 
-function editVaga(id_vaga,softskill,descricao,salario,hardskill,modalidade){
+function editVaga(id_vaga, softskill, descricao, salario, hardskill, modalidade) {
     $.ajax({
-        url:"http://localhost:3000/vaga/editVaga",
-        method:"PUT",
-        data:{
-            id_vaga:id_vaga,
-            softskill:softskill,
-            descricao:descricao,
-            salario:salario,
-            hardskill:hardskill,
-            modalidade:modalidade
+        url: "http://localhost:3000/vaga/editVaga",
+        method: "PUT",
+        data: {
+            id_vaga: id_vaga,
+            softskill: softskill,
+            descricao: descricao,
+            salario: salario,
+            hardskill: hardskill,
+            modalidade: modalidade
         },
-        success:function(){
+        success: function () {
             //redirecionar pra tal pagina ou popup e redirecionar
         },
-        error:function(){
+        error: function () {
             //mostrar erro na tela ou algo parecido
         }
     })
 
 }
 
-function delvaga(id_vaga){
+function delvaga(id_vaga) {
     $.ajax({
-        url:"http://localhost:3000/vaga/deleteVagas",
-        method:"DELETE",
-        data:{
-            id_vaga:id_vaga
+        url: "http://localhost:3000/vaga/deleteVagas",
+        method: "DELETE",
+        data: {
+            id_vaga: id_vaga
         },
-        success:function(){
+        success: function () {
             //redirecionar ou popup
         },
-        error:function(){
+        error: function () {
             //mensagem html
         }
     })
@@ -387,11 +515,11 @@ function loginUser() {
 
         },
         error: function (res) {
-            
+
             $("#error").html(res.responseJSON)
         },
         success: function (res) {
-            
+
             sessionStorage.setItem("UsuarioDadosLogin", JSON.stringify(res))
             window.location.replace("/views/Users/usuariaCandidata1.html")
 

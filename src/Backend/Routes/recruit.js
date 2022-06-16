@@ -18,6 +18,7 @@ Routes.post("/loginRecruit",recruiterController.loginRecuiter)
 Routes.post('/listAllEmpresaVagas',recruiterController.showJobsRecruiter)
 Routes.delete("/deleteEmpresa", recruiterController.deleteRecuiter)
 Routes.put("/editEmpresa",recruiterController.editRecruiter)
+Routes.post("/verifyEmail",recruiterController.verifyEmail)
 
 
 

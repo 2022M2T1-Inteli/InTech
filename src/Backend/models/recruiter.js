@@ -204,6 +204,30 @@ class Recruiter {
         return success
     }
 
+    async verifyEmail(email_empresa){
+        const db = await sqlite.open({ filename: "./database/banco_de_dados.db", driver: sqlite3.Database })
+
+        const result = await db.get(`SELECT * FROM empresas WHERE email_empresa = ${email_empresa}`)
+
+        if(result[0]){
+            const error = {
+                type:"error",
+                message:"Email ja registrado"
+            }
+
+            return error
+        }
+
+        const success = {
+            type:"success",
+            message:"Email não registrado"
+        }
+
+        return success
+
+
+    }
+
 
 }
 

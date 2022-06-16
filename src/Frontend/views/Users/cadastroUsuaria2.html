@@ -41,6 +41,7 @@
         <div class="" style="animation: up 2s backwards;">
             <form class="col justify-content-center" action="./UsuáriaCanditada1.html">
                 <label for="statusCandidata">Você está...</label>
+                <p id="errorStatus" style="color: yellow;" class="d-flex justify-content-center mb-0"></p>
                 <select class="row form-select select" name="Status_candidata" id="statusCandidata">
                     <option value="" disabled hidden selected>Você está ...</option>
                     <option value="Estudante">Estudando</option>
@@ -50,6 +51,7 @@
                 </select>
 
                 <label for="escolaridadeCandidata">Sua escolaridade</label>
+                <p id="errorEscolaridade" style="color: yellow;" class="d-flex justify-content-center mb-0"></p>
                 <select class="row form-select select" name="Escolaridade_candidata" id="escolaridadeCandidata">
                     <option value="" disabled hidden selected>Grau de instrução</option>
                     <option value="EM">Ensino Médio</option>
@@ -64,6 +66,7 @@
                 </select>
 
                 <label for="cargoCandidata">Em que área deseja trabalhar?</label>
+                <p id="errorTrabalho" style="color: yellow;" class="d-flex justify-content-center mb-0"></p>
                 <select class="form-select row select" name="Cargo_candidata" id="cargoCandidata">
                     <option value="" selected disabled hidden>Área que deseja trabalhar</option>
                     <option id='Administrador de Sistemas'>Administrador de Sistemas</option>
@@ -93,6 +96,7 @@
                 <div class="row mt-4 softSkillsContainer">
                     <p>Soft-Skills</p>
                     <label for="Soft-Skills" class="form-label">Soft-Skills</label>
+                    <p id="errorSoft" style="color: yellow;" class="d-flex justify-content-center mb-0"></p>
                     <input placeholder="Digite a habilidade desejada e pressione ENTER" type="text" name="Soft-Skills"
                         list="softSkillsList" id="soft-skills" class="form-control">
                     <datalist id="softSkillsList">
@@ -136,6 +140,7 @@
                 <div class="row mt-4 hardSkillsContainer">
                     <p>Hard-Skills</p>
                     <label for="Hard-Skills" class="form-label">Hard-Skills</label>
+                    <p id="errorHard" style="color: yellow;" class="d-flex justify-content-center mb-0"></p>
                     <input placeholder="Digite a habilidade desejada e pressione ENTER" type="text" name="Hard-Skills"
                         list="hardskillslist" id="hard-skills" class="form-control">
                     <datalist id="hardskillslist">
@@ -186,7 +191,8 @@
 
             <!--  TEMPLATE BOTÃO VOLTAR -->
             <div class="col d-flex align-items-center justify-content-center">
-                <button onclick="openPopup()" class="btnproprio">Completar cadastro</button>
+                <button onclick="catchUserData2()" class="btnproprio">Completar cadastro</button>
+                <!---->
 
                 <a class="row" style="margin-left: 30px;" href="../Users/cadastroUsuaria1.html">Voltar</a>
             </div>
@@ -196,7 +202,7 @@
                     <img src="../../images/feliz (1).png">
                     <h2>Obrigada pelo seu registro!</h2>
 
-                    <button type="button" onclick=" catchUserData2()">Continuar</button>
+                    <button type="button" onclick="redirecionar()">Continuar</button>
                 </div>
             </div>
 
@@ -220,6 +226,10 @@
         function openPopup() {
             $('body').attr('class', 'bg-image');
             popup.classList.add("open-popup");
+        }
+
+        function redirecionar(){
+            window.location.replace("/views/index.html")
         }
     </script>
 
