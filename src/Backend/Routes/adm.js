@@ -10,10 +10,8 @@ const app = express()
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-
-
 // Aparece todas as vagas cadastradas no banco de dados
-Routes.get("/XlistAllVagas", (req, res) => {
+Routes.get("/listAllVagas", (req, res) => {
 
     //Uma função que espera as coisas dentro dela acontecem para assim efetuar o codigo
     async function getDB() {
@@ -44,7 +42,7 @@ Routes.get("/listCandidatas", (req, res) => {
         const db = await sqlite.open({ filename: "./database/banco_de_dados.db", driver: sqlite3.Database })
 
         //roda comando sql e retorna uma promise
-        await db.run("SELECT * FROM candidatas").then((result) => {
+        await db.all("SELECT * FROM candidatas").then((result) => {
             res.json(result)
         })
 
@@ -61,7 +59,7 @@ Routes.get("/listCandidatas", (req, res) => {
 })
 
 // Aparece todas as empresas cadastradas no banco de dados
-Routes.get("/listEmpresa", (req, res) => {
+Routes.get("/listEmpresasParceiras", (req, res) => {
 
     async function listEmpresa() {
 
@@ -69,9 +67,16 @@ Routes.get("/listEmpresa", (req, res) => {
         const db = await sqlite.open({ filename: "./database/banco_de_dados.db", driver: sqlite3.Database })
 
         // roda comandos sql e retorna uma promise
-        await db.all("SELECT * FROM empresas").then((result) => {
-            res.json(result)
-        })
+        let array = []
+        const empresaData = await db.all("SELECT * FROM empresas WHERE isAproved = 1")
+        for (let i = 0; i < empresaData.length; i++) {
+            const vagaQtnInfo = await db.all(`SELECT id_vaga FROM vagas WHERE id_empresas = ${empresaData[i].id_empresas}`)
+            let x = JSON.stringify(empresaData[i]) + ', "qtnVagas:"' + JSON.stringify(vagaQtnInfo)
+            array.push(x)
+        }
+
+
+        console.log(array)
 
         // fecha o banco de dados
         db.close()
@@ -81,3 +86,18 @@ Routes.get("/listEmpresa", (req, res) => {
     listEmpresa()
 })
 
+Routes.get("/listEmpresasSolicitantes", (req, res) => {
+    async function listEmpresas() {
+        const db = await sqlite.open({ filename: "./database/banco_de_dados.db", driver: sqlite3.Database })
+
+        await db.all('SELECT * FROM empresas WHERE isAproved = 0').then((result) => {
+            res.json(result)
+        })
+
+        db.close()
+    }
+
+    listEmpresas()
+})
+
+module.exports = Routes

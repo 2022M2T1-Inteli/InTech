@@ -9,6 +9,10 @@ body{
     font-family: 'Nunito', sans-serif;
 }
 
+a { 
+    text-decoration: none;
+}
+
 #menu{
     background:#ffffff;
     width:300px;
@@ -51,11 +55,11 @@ body{
 
 
 #menu .items li:hover i,
-#menu .items li a{
+#menu .items a li {
     color: #530084;
 }
 
-#menu .items li a{
+#menu .items a li {
     text-decoration:none;
     color:#530084;
     font-weight:300px;

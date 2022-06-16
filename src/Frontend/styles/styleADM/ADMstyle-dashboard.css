@@ -7,7 +7,13 @@ body{
     position: relative;
     display: flex;
     font-family: 'Nunito', sans-serif;
+    overflow-x: hidden;
 }
+
+a {
+    text-decoration: none;
+}
+
 
 #menu{
     background:#ffffff;
@@ -35,7 +41,7 @@ body{
     cursor:pointer;
 }
 
-#menu .items li:nth-child(1){
+#menu .items a:nth-child(1){
    border-left:4px solid #F3C42E;
 }
 
@@ -49,12 +55,12 @@ body{
     margin:0 10px 0;
 }
 
-#menu .items li:hover i,
-#menu .items li a{
+#menu .items a li:hover i,
+#menu .items a li{
     color: #530084;
 }
 
-#menu .items li a{
+#menu .items a li{
     text-decoration:none;
     color:#530084;
     font-weight:300px;

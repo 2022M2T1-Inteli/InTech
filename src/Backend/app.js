@@ -16,7 +16,7 @@ app.use(express.static("../Frontend"))
 const UserRoutes = require("./Routes/user.js")
 const RecruiterRoutes = require("./Routes/recruit")
 const VagaRoutes = require("./Routes/vaga")
-
+const AdmRoutes = require("./Routes/adm")
 
 // separador de rodas ( localhost:3000/rotas/X)
 app.use("/rotas", rotas)
@@ -25,10 +25,11 @@ app.use("/match", match)
 app.use("/user",UserRoutes)
 app.use("/recruiter",RecruiterRoutes)
 app.use("/vaga",VagaRoutes)
+app.use("/adm", AdmRoutes)
 
 
 app.use("/",express.static("../Frontend/views"))
-
+app.use("/adm",express.static("../Frontend/views/ADM"))
 
 
 // Iniciando o servidor localmente na porta 3000
