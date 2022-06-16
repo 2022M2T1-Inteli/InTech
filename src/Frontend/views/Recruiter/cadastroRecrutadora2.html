@@ -28,7 +28,7 @@
   <form action="./CadastroRecrutadora4.html" method="get" style="animation: up 1s;">
     <div class="cadastroBox2 container-fluid mt-4 col-sm-12 col-md-6">
 
-      <h1 class="titulo-da-pagina mt-4" >Cadastre sua empresa</h1>
+      <h1 class="titulo-da-pagina mt-4">Cadastre sua empresa</h1>
       <img src="../../images/CadastroRecrutadora2ProgressBar.svg" alt="" class="mt-2 mb-5 imagemprocess">
 
       <label for="telefoneEmpresa">Telefone</label>
@@ -55,17 +55,38 @@
     <button onclick=" catchRecruiterData2()" class="btnproprio">Completar cadastro</button>
     <a class="row" style="margin-left: 30px;" href="../Recruiter/cadastroRecrutadora1.html">Voltar</a>
 
-  <script src="../../script/forms.js"></script>
-  <script>
-    let phoneMask = { "mask": "(##) #####-####" };
-    $(window).load(() => {
-      $('#telefoneEmpresa').inputmask({
-        mask: phoneMask,
-        greedy: false,
-        definitions: { '#': { validator: "[0-9]", cardinality: 1 } }
-      });
-    })
-  </script>
+    <!-- <div class="backPopup">
+      <div class="popup" id="popup">
+        <img src="../../images/feliz (1).png">
+        <h2>Obrigada pelo seu registro!</h2>
+
+        <button type="button" onclick="redirecionar()">Continuar</button>
+      </div>
+    </div> -->
+
+    <script src="../../script/forms.js"></script>
+    <script>
+      let phoneMask = { "mask": "(##) #####-####" };
+      $(window).load(() => {
+        $('#telefoneEmpresa').inputmask({
+          mask: phoneMask,
+          greedy: false,
+          definitions: { '#': { validator: "[0-9]", cardinality: 1 } }
+        });
+      })
+
+      let popup = document.getElementById("popup");
+
+
+      function openPopup() {
+        $('body').attr('class', 'bg-image');
+        popup.classList.add("open-popup");
+      }
+
+      function redirecionar() {
+        window.location.replace("/views/index.html")
+      }
+    </script>
 </body>
 
 </html>

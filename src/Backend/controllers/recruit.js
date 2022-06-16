@@ -91,4 +91,18 @@ const verifyEmail = (req,res)=>{
     })
 }
 
-module.exports = { registerRecruiter, loginRecuiter, showJobsRecruiter,deleteRecuiter,editRecruiter,verifyEmail }
+const verifyCNPJ = (req,res)=>{
+    const {cnpj_Empresa} = req.body
+
+    const user = new UserModel.User()
+
+    user.verifyCNPJ(cnpj_Empresa).then((result)=>{
+        if(result.type === "error"){
+            res.status(400).json({message:result.message})
+        }else{
+            res.status(200).json({message: result.message})
+        }
+    })
+}
+
+module.exports = { registerRecruiter, loginRecuiter, showJobsRecruiter,deleteRecuiter,editRecruiter,verifyEmail,verifyCNPJ }

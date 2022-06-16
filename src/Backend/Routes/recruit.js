@@ -19,6 +19,7 @@ Routes.post('/listAllEmpresaVagas',recruiterController.showJobsRecruiter)
 Routes.delete("/deleteEmpresa", recruiterController.deleteRecuiter)
 Routes.put("/editEmpresa",recruiterController.editRecruiter)
 Routes.post("/verifyEmail",recruiterController.verifyEmail)
+Routes.post("/verifyCNPJ",recruiterController.verifyCNPJ)
 
 
 

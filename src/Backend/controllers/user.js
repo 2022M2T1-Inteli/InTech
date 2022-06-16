@@ -37,6 +37,7 @@ const listaVagasAplicadas = (req,res)=>{
     const user = new userModel.User()
 
     user.listjobs(id_candidata).then((result)=>{
+        console.log(result.data)
         res.status(200).json(result.data)
     })
   
@@ -98,5 +99,21 @@ const verifyEmail = (req,res)=>{
     })
 }
 
+const verifyCPF = (req,res)=>{
+    const {CPF_candidata} = req.body
 
-module.exports = {registerUser,loginUser,listaVagasAplicadas,editarUser,deleteUser,verifyEmail}
+    const user = new userModel.User()
+    
+    user.CPFVerificacion(CPF_candidata).then((result)=>{
+        if(result.type === "error"){
+            res.status(400).json({
+                error:result.message
+            })
+        }else{
+            res.status(200).json({message:result.message})
+        }
+    })
+}
+
+
+module.exports = {registerUser,loginUser,listaVagasAplicadas,editarUser,deleteUser,verifyEmail,verifyCPF}

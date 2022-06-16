@@ -228,6 +228,28 @@ class Recruiter {
 
     }
 
+    async verifyCNPJ(cnpj_empresa){
+        const db = await sqlite.open({ filename: "./database/banco_de_dados.db", driver: sqlite3.Database })
+
+        const result = await db.all(`SELECT * FROM empresas WHERE cnpj_empresa = "${cnpj_empresa}"`)
+
+        if(result[0]){
+            const error = {
+                type: "error",
+                message:"CNPJ já registrado"
+            }
+
+            return error
+        }
+
+        const success = {
+            type: "success",
+            message:"CNPJ ainda não foi registrado"
+        }
+
+        return success
+    }
+
 
 }
 

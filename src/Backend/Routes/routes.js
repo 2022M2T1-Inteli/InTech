@@ -43,13 +43,23 @@ Routes.post('/applied', (req, res) => {
     async function insertDB() {
         const db = await sqlite.open({ filename: "./database/banco_de_dados.db", driver: sqlite3.Database })
 
-        const { id_candidata, id_vaga } = req.body
+        const { id_candidata,id_vaga } = req.body
+        const id_empresa = await db.get(`SELECT id_empresas FROM vagas WHERE id_vaga = ${id_vaga} `)
 
-        await db.run(`UPDATE vagas SET id_candidatas = ${id_candidata} WHERE id_vaga = ${id_vaga}`)
+        const verifyVaga = await db.all(`SELECT id_vaga,id_candidata FROM vagasCandidatas WHERE id_vaga = ${id_vaga} AND id_candidata = ${id_candidata}`)
+        
+        if(verifyVaga[0]){
+            res.status(400).json({
+                message:"Você ja se aplicou para essa vaga"
+            })
+        }else{
+            await db.run(`INSERT INTO vagasCandidatas (id_vaga,id_candidata,id_empresa,status) VALUES (?,?,?,?)`,[id_vaga,id_candidata,JSON.stringify(id_empresa.id_empresas),"aberta"])
+            res.status(200).send()
+        }
 
-        db.close();
+        
 
-        res.status(200).send()
+    
     }
 
     insertDB();

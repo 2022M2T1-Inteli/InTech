@@ -35,7 +35,7 @@ function loadVagaData() { //função que os dados da vaga de acordeu com o seu I
 
 
 function applyVaga() { // função que é executada quando o usuário se candidata para uma vaga
-    let id_vaga = getUrlParameter('id_vaga')
+    let id_vaga = getUrlParameter.get('id_vaga')
     let { id_candidata } = JSON.parse(sessionStorage.getItem("UsuarioDadosLogin"))
 
     $.ajax({
@@ -44,9 +44,13 @@ function applyVaga() { // função que é executada quando o usuário se candida
         data: {
             id_candidata: id_candidata,
             id_vaga: id_vaga
+
         },
         success: function () {
-            window.location.replace("/views/Users/usuariaCandidata3.html")
+            window.location.replace("/views/Users/usuariaCandidata5.html")
+        },
+        error:function (res) {
+            //fecha o popup e mostrar que ja se aplicou a tal vaga
         }
     })
 }
