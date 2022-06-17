@@ -1,31 +1,26 @@
-
 // quando do login, pegar infos de candidata cadastradas no banco de dados, e display na página de perfil da candidata 
+
+let Softskills
+let Hardskills
+
 function logadoUser() {
     let usuario = JSON.parse(sessionStorage.getItem("UsuarioDadosLogin"))
 
     $("#name").html(usuario.nome_candidata)
-    $("#local").val(usuario.pais_candidata)
+    $("#cidade").val(usuario.cidade_candidata)
+    $("#pais").val(usuario.pais_candidata)
+    $("#estado").val(usuario.estado_candidata)
     $("#cargoCandidata").val(usuario.cargo_candidata)
     $("#escolaridadeCandidata").val(usuario.escolaridade_candidata)
 
-    let Hardskills = usuario.hardskill_candidata.split(",")
 
-    for (let i = 0; i < Hardskills.length; i++) {
+    Hardskills = usuario.hardskill_candidata.split(",")
 
-        let hardspace = document.querySelector("#hardskills")
+    updateHardSkills(Hardskills)
 
-        hardspace.innerHTML += `<p id="${Hardskills[i]}" class="rounded-pill skill">${Hardskills[i]} <i class="closeSoftSkill" onclick="removeHardSkill(${Hardskills[i]})" data-id="${Hardskills[i]}">✕</i></p>`
-    }
+    Softskills = usuario.softskill_candidata.split(",")
 
-    let Softskills = usuario.softskill_candidata.split(",")
-
-    for (let i = 0; i < Softskills.length; i++) {
-
-        let softspace = document.querySelector("#softskills")
-
-        softspace.innerHTML += `<p class="skill rounded-pill">${Softskills[i]} <i class="closeSoftSkill" data-id="${Softskills[i]}">✕</i></p>`
-    }
-
+    updateSoftSkills(Softskills)
 
     $.ajax({
         url: "http://localhost:3000/user/listVagaUser",
@@ -65,8 +60,39 @@ function logadoUser() {
 
 }
 
+let hardspace = document.querySelector("#hardskillsContainer")
+let softspace = document.querySelector("#softskillsContainer")
+
+function updateHardSkills(array) {
+    clearHardSkills()
+    for (let i = 0; i < array.length; i++) {
+        hardspace.innerHTML += `<span id="${array[i]}" class="rounded-pill skill">${array[i]} <i class="closeSoftSkill" onclick="removeHardSkill(${i})"></i></span>`
+    }
+}
+
+function updateSoftSkills(array) {
+    clearSoftSkills()
+    for (let i = 0; i < Softskills.length; i++) {
+        softspace.innerHTML += `<span id="${Softskills[i]}" class="skill rounded-pill">${Softskills[i]} <i class="closeSoftSkill" onclick="removeSoftSkill(${i})"></i></span>`
+    }
+}
+
+function clearHardSkills() {
+    hardspace.querySelectorAll('span').forEach(tagElement => tagElement.remove());
+}
+
+function clearSoftSkills() {
+    softspace.querySelectorAll('span').forEach(tagElement => tagElement.remove());
+}
+
 function removeHardSkill(e) {
-    console.log(e)
+    Hardskills.splice(e, 1)
+    updateHardSkills(Hardskills)
+}
+
+function removeSoftSkill(e) {
+    Softskills.splice(e, 1)
+    updateSoftSkills(Softskills)
 }
 
 function editarUser(id_candidata, estado, cidade, cargo, grauDeInstrução, hardskill, softskill) {

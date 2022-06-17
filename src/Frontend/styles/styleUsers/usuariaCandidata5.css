@@ -68,26 +68,26 @@ body {
 
 }
 
+.hardSkillTag,
 .softSkillTag {
+    border: 3px solid #f3c42e;
+    padding: 6px 17px;
+
     background: rgba(233, 184, 51, 0.31);
-    color: black;
+    font-family: 'Nunito';
+    font-weight: 600;
+
+    margin-top: 30px;
+    margin-right: 10px;
 
     border: 3px solid #F3C42E;
-    border-radius: 20px;
-
-    font-size: 0.8rem;
-    padding: 3px;
     
+
     display: flex;
     align-items: center;
     
-    margin-bottom: 1rem;
-    margin-left: 1rem;
-    margin-top: 30px;
-
     width: auto;
-    animation: up 0.7s;
-
+    border-radius: var(--bs-border-radius-pill)!important;
     cursor: default;
 }
 
@@ -237,16 +237,21 @@ h2{
     gap: 10px;
 }
 
+#softskillsContainer,
+#hardskillsContainer {
+    width: 450px;
+    border-top: 1px solid rgba(0, 0, 0, 0.123);
+    padding-top: 10px;
+}
+
+
 .skill {
-     border: 3px solid #f3c42e;
+    border: 3px solid #fcde7c;
     padding: 6px 17px;
-    margin-top: 10px;
-    background: rgba(233, 184, 51, 0.31);
+
+    background: rgba(250, 218, 129, 0.31);
     font-family: 'Nunito';
     font-weight: 600;
-
-
-    border: 3px solid #F3C42E;
     
     display: flex;
     align-items: center;
@@ -256,12 +261,20 @@ h2{
     cursor: default;
 }
 
-.skill i {
+ i {
     font-size: 0.8rem;
     font-style: normal;
     cursor: pointer;
     margin-left: .4rem;
 }
+
+.closeHardSkill::after,
+.closeSoftSkill::after {
+    content: "✕";
+    height: 24px;
+    width: 24px;
+}
+
 .descrição{
     max-width: 60ch;
     overflow: hidden;
