@@ -23,7 +23,7 @@
 
     <form action="./cadastroRecrutadora2.html" method="get" style="animation: up 1.7s; margin-top: 20px;">
         <div class="caixa">
-            <h1 class="titulo-da-pagina mt-4" >Cadastre sua empresa</h1>
+            <h1 class="titulo-da-pagina mt-4">Cadastre sua empresa</h1>
             <img src="../../images/CadastroRecrutadora1ProgressBar.svg" class="mt-2 mb-5 imagemprocess"
                 alt="Barra de progresso - Dados da empresa">
 
@@ -42,12 +42,19 @@
             <input id="localizacaoEmpresa" class="inputBit border-0" type="text" placeholder="Localização"
                 name="Localizacao">
 
-            <!--  TEMPLATE BOTÃO VOLTAR -->
-        <div class="col d-flex align-items-center justify-content-center">
-            <button type="submit" class="btnproprio" onclick="catchRecruiterData()">Próxima etapa</button>
-            <a class="row" style="margin-left: 30px;" href="../telaCadastro.html">Voltar</a>
+            <div class="mb-3 logo">
+                <img src="../../images/InsertPhoto.svg" alt="">
+                <label for="formFile" class="button_top">Carregue sua logo</label>
+                <input class="form-control" type="file" id="formFile" hidden onchange="onChange2()">
+                <p id="nameFile">*Apenas arquivos PNG/JPEG</p>
+            </div>
 
-        </div>
+            <!--  TEMPLATE BOTÃO VOLTAR -->
+            <div class="col d-flex align-items-center justify-content-center">
+                <button type="submit" class="btnproprio" onclick="catchRecruiterData()">Próxima etapa</button>
+                <a class="row" style="margin-left: 30px;" href="../telaCadastro.html">Voltar</a>
+
+            </div>
 
 
     </form>

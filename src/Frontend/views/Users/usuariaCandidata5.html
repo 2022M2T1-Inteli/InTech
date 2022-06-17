@@ -34,8 +34,10 @@
                 </div>
 
                 <h4 id="name"></h4>
-                <button type="button" onclick="edit()" id="editButton" class="botao btn btn-secondary">EDITAR PERFIL</button>
-                <button type="button" onclick="openPopup()" id="botao" class="botao btn btn-danger">EXCLUIR CONTA</button>
+                <button type="button" onclick="edit()" id="editButton" class="botao btn btn-secondary">EDITAR
+                    PERFIL</button>
+                <button type="button" onclick="openPopup()" id="botao" class="botao btn btn-danger">EXCLUIR
+                    CONTA</button>
             </div>
 
 
@@ -44,11 +46,11 @@
         <div class="col-6 col-sm-12 col-lg-7 d-flex" id="classecentro">
             <div class="container mt-5">
                 <h5 class="titles">Localização: </h5>
-<<<<<<< Updated upstream
-                <input class="description" value="São Paulo-SP" id="local" readonly>
-=======
+
+
+
                 <input class="description" id="local" disabled>
->>>>>>> Stashed changes
+
 
                 <h5 class="titles">Ocupação: </h5>
                 <select disabled class="form-select row select" name="Cargo_candidata" id="cargoCandidata">
@@ -77,7 +79,8 @@
                 </select>
 
                 <h5 class="titles">Grau de Instrução: </h5>
-                <select disabled class="row form-select select" name="Escolaridade_candidata" id="escolaridadeCandidata">
+                <select disabled class="row form-select select" name="Escolaridade_candidata"
+                    id="escolaridadeCandidata">
                     <option value="" disabled hidden selected>Grau de instrução</option>
                     <option value="EM">Ensino Médio</option>
                     <option value="SI">Superior Incompleto</option>
@@ -100,143 +103,121 @@
                 <h2>Vagas Aplicadas</h2>
                 <div class="vagasUser"></div>
             </div>
-<<<<<<< Updated upstream
-            <div class=" mt-5 container" id="classelado">
-                <h2>Vagas Aplicadas</h2>
-                <div class="vagasUser"></div>
-            </div>
-
-
-
-            <div class="backPopup" id="popupPai">
-                <div class="popup" id="popup">
-                    <img src="../../images/incomodado.png">
-                    <h2>Tem certeza que deseja excluir seu perfil?</h2>
-
-                    <button type="button" onclick="closePopup()">Não</button>
-                    <button type="button" onclick="deleteUser()" style="background-color:red ;">Sim</button>
-=======
-
-
-
-            <div class="backPopup" id="popupPai">
-                <div class="popup" id="popup">
-                    <div id="logo"></div>
-                    <img src="../../images/incomodado.png">
-                    <h2>Tem certeza que deseja excluir seu perfil?</h2>
-
-                    <button type="button" onclick="closePopup()">Não</button>
-                    <button type="button" onclick="" style="background-color:red ;">Sim</button>
->>>>>>> Stashed changes
-                </div>
-            </div>
-
-
         </div>
 
-        <script src="../../script/dashboard-user.js"></script>
 
 
-        <script>
-            let popup = document.getElementById("popup");
+        <div class="backPopup" id="popupPai">
+            <div class="popup" id="popup">
+                <img src="../../images/incomodado.png">
+                <h2>Tem certeza que deseja excluir seu perfil?</h2>
 
-            function edit() {
-<<<<<<< Updated upstream
-
-            }
+                <button type="button" onclick="closePopup()">Não</button>
+                <button type="button" onclick="deleteUser()" style="background-color:red ;">Sim</button>
 
 
-            function openPopup() {
-                $("#popupPai").attr("class", "backPopup")
-                popup.classList.add("open-popup");
-            }
 
-            function closePopup() {
 
-                $("#popupPai").attr("class", "popupclose")
-            }
+                <div class="backPopup" id="popupPai">
+                    <div class="popup" id="popup">
+                        <div id="logo"></div>
+                        <img src="../../images/incomodado.png">
+                        <h2>Tem certeza que deseja excluir seu perfil?</h2>
 
-            
-            
+                        <button type="button" onclick="closePopup()">Não</button>
+                        <button type="button" onclick="" style="background-color:red ;">Sim</button>
+                        >>>>>>> Stashed changes
+                    </div>
+                </div>
 
-            function deleteUser() {
 
-                $.ajax({
-                    url: "http://localhost:3000/user/deleteCandidata",
-                    method: "DELETE",
-                    data: {
-                        id_candidata: JSON.parse(sessionStorage.getItem("UsuarioDadosLogin")).id_candidata
-                    },
-                    success: function () {
-                        sessionStorage.removeItem("UsuarioDadosLogin");
-                        window.localtion.replace("/views/index.html")
-                    },
-                    error: function () {
+            </div>
 
-                        
+            <script src="../../script/dashboard-user.js"></script>
+
+
+            <script>
+                let popup = document.getElementById("popup");
+
+                function edit() {
+
+                    const selects = document.querySelectorAll('select')
+                    const editButton = document.querySelector('#editButton')
+
+                    const divHardSkills = document.querySelector('#hardskills')
+                    const divSoftSkills = document.querySelector('#softskills')
+
+                    const input = document.createElement('input')
+
+                    for (let i = 0; i < selects.length; i++) {
+                        selects[i].disabled = false
                     }
-=======
-                const selects = document.querySelectorAll('select')
-                const editButton = document.querySelector('#editButton')
 
-                const divHardSkills = document.querySelector('#hardskills')
-                const divSoftSkills = document.querySelector('#softskills')
-
-                const input = document.createElement('input')
-
-                for (let i = 0; i < selects.length; i++) {
-                    selects[i].disabled = false
-                }
->>>>>>> Stashed changes
-
-                divHardSkills.appendChild(input)
-
-<<<<<<< Updated upstream
-                })
-            }
-
-        </script>
-
-=======
-                editButton.classList.add("saveButton")
-                editButton.setAttribute("onclick", "save()")
-                editButton.innerHTML = 'SALVAR'
-            }
-
-            function save() {
-                const selects = document.querySelectorAll('select')
-                const editButton = document.querySelector('#editButton')
-
-                for (let i = 0; i < selects.length; i++) {
-                    selects[i].disabled = true
+                    editButton.setAttribute("class","saveButton botao")
+                    editButton.setAttribute("onclick", "save()")
+                    editButton.innerHTML = 'SALVAR'
                 }
 
-            
-                // 
-                const localizacao = document.querySelector('#local')
-                const cargoCandidata = document.querySelector('#cargoCandidata').value
-                const grauInstrucao = document.querySelector('#escolaridadeCandidata').value
-                editarUser(localizacao, cargoCandidata, grauInstrucao)
+                function save() {
+                    const selects = document.querySelectorAll('select')
+                    const editButton = document.querySelector('#editButton')
 
-                editButton.classList.remove("saveButton")
-                editButton.setAttribute("onclick", "edit()")
-                editButton.innerHTML = 'EDITAR PERFIL'
-            }
+                    for (let i = 0; i < selects.length; i++) { selects[i].disabled = true } // const
+                    const localizacao = document.querySelector('#local')
+                    const cargoCandidata = document.querySelector('#cargoCandidata').value
+                    const grauInstrucao = document.querySelector('#escolaridadeCandidata').value
 
-            function openPopup() {
-                $("#popupPai").attr("class", "backPopup")
-                popup.classList.add("open-popup");
-            }
+                    editarUser(localizacao, cargoCandidata, grauInstrucao)
 
-            function closePopup() {
+                    editButton.setAttribute("class","botao btn btn-secondary")
+                    editButton.setAttribute("onclick", "edit()")
+                    editButton.innerHTML = 'EDITAR PERFIL'
+                }
 
-                $("#popupPai").attr("class", "popupclose")
-            }
-        </script>
+                function openPopup() {
+                    $("#popupPai").attr("class", "backPopup")
+                    popup.classList.add("open-popup");
+                }
 
-        <script src="../../script/tagInputs/softSkillsTagInput.js"></script>
-        <script src="../../script/tagInputs/hardSkillsTagInput.js"></script>
->>>>>>> Stashed changes
+                function closePopup() {
+                    $("#popupPai").attr("class", "popupclose")
+                }
+
+
+                function deleteUser() {
+
+                    $.ajax({
+                        url: "http://localhost:3000/user/deleteCandidata",
+                        method: "DELETE",
+                        data: {
+                            id_candidata: JSON.parse(sessionStorage.getItem("UsuarioDadosLogin")).id_candidata
+                        },
+                        success: function () {
+                            sessionStorage.removeItem("UsuarioDadosLogin");
+                            window.localtion.replace("/views/index.html")
+                        },
+                        error: function () {
+
+
+                        }
+
+
+
+
+
+                    })
+                }
+
+            </script>
+
+
+
+
+
+
+            <script src="../../script/tagInputs/softSkillsTagInput.js"></script>
+            <script src="../../script/tagInputs/hardSkillsTagInput.js"></script>
+
 </body>
 
 </html>

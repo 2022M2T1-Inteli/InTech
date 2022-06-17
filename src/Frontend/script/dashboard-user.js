@@ -1,8 +1,4 @@
-<<<<<<< Updated upstream
-=======
 
-
->>>>>>> Stashed changes
 // quando do login, pegar infos de candidata cadastradas no banco de dados, e display na página de perfil da candidata 
 function logadoUser() {
     let usuario = JSON.parse(sessionStorage.getItem("UsuarioDadosLogin"))
@@ -20,7 +16,7 @@ function logadoUser() {
 
         hardspace.innerHTML += `<p id="${Hardskills[i]}" class="rounded-pill skill">${Hardskills[i]} <i class="closeSoftSkill" onclick="removeHardSkill(${Hardskills[i]})" data-id="${Hardskills[i]}">✕</i></p>`
     }
-    
+
     let Softskills = usuario.softskill_candidata.split(",")
 
     for (let i = 0; i < Softskills.length; i++) {
@@ -52,13 +48,13 @@ function logadoUser() {
                         <button class = "" onclick="descandidaturaUser(${res[i].id_vaga})">
                             <img src="../../images/DeleteIcon.svg"
                                 style="filter: invert(41%) sepia(53%) saturate(6570%) hue-rotate(343deg) brightness(96%) contrast(99%);"
-<<<<<<< Updated upstream
+
                                 alt="Retirar aplicação">
                         </a>
-=======
-                                alt="">
+
+                               
                         </button>
->>>>>>> Stashed changes
+
                     </div>
             </div>`
 
@@ -68,7 +64,7 @@ function logadoUser() {
     })
 
 }
-<<<<<<< Updated upstream
+
 function removeHardSkill(e) {
     console.log(e)
 }
@@ -114,16 +110,16 @@ function deleteUser(id_candidata) {
 
     })
 }
-=======
 
-function descandidaturaUser(id_vaga){
+
+function descandidaturaUser(id_vaga) {
 
     $.ajax({
         url: 'http://localhost:3000/user/descandidatura',
         method: 'POST',
-        data:{
+        data: {
             id_vaga: id_vaga,
-            id_candidata:JSON.parse(sessionStorage.getItem("UsuarioDadosLogin")).id_candidata
+            id_candidata: JSON.parse(sessionStorage.getItem("UsuarioDadosLogin")).id_candidata
         },
         success: function () {
             window.location.reload();
@@ -133,4 +129,4 @@ function descandidaturaUser(id_vaga){
         }
     })
 }
->>>>>>> Stashed changes
+

@@ -180,9 +180,11 @@
                 <div class="mb-3 curriculo">
                     <img src="../../images/DocumentsIcon.svg" alt="">
                     <label for="formFile" class="button_top">Carregue seu curriculo</label>
-                    <input class="form-control" type="file" id="formFile" hidden>
-                    <p>*Apenas arquivos PDF</p>
+                    <input class="form-control" type="file" id="formFile" hidden onchange="onChange()" >
+                    <p id="nameFile">*Apenas arquivos PDF</p>
                 </div>
+
+               
                 <!-- 
                 <div class="d-flex justify-content-center">
                     <button type="submit" class="btnproprio">Concluir cadastro</button>

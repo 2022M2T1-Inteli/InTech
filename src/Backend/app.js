@@ -7,9 +7,8 @@ const match = require('./Routes/match.js')
 const rotas = require("./Routes/routes.js") // Trazendo os codigos de outra api local
 
 const app = express()
-
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json({limit: "50mb"}));
+app.use(bodyParser.urlencoded({limit: "50mb", extended: true, parameterLimit:50000}));
 app.use(express.static("../Frontend"))
 
 

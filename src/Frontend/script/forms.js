@@ -172,6 +172,58 @@ function catchUserData() { // função que pega os dados de usuário de acordo c
 
     }
 }
+let PDFcurriculo
+let LogoEmpresa 
+
+function onChange() {
+    let file = document.querySelector('#formFile').files[0];
+    if(file.size > 2197152){
+        alert("File is too big!");
+        this.value = "";
+     }else{
+        getBase64(file).then(
+            data => 
+             PDFcurriculo = data
+        );
+
+     }
+   
+}
+
+function onChange2() {
+    let file = document.querySelector('#formFile').files[0];
+    if(file.size > 2197152){
+        alert("File is too big!");
+        this.value = "";
+     }else{
+        getBase64(file).then(
+            data => 
+              LogoEmpresa = data
+        );
+
+     }
+   
+}
+
+
+function getBase64(file) {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = error => reject(error);
+    });
+}
+
+
+
+
+
+
+// function previewText(event) {
+//     let file = event.target.value.replace(/^data:image\/[a-z]+;base64,/, "")
+//     console.log(`data:image/png;base64,${file}`)
+// }
 
 function catchUserData2() { // função que pega os dados do formulário
     let userForms1 = JSON.parse(sessionStorage.getItem("User1"))
@@ -184,10 +236,11 @@ function catchUserData2() { // função que pega os dados do formulário
     let Softskills = document.querySelectorAll("#softskills")
     let Hardskills = document.querySelectorAll("#hardskills")
 
+
     let SoftskillsOn = []
     let HardskillsOn = []
 
-    let PDFcurriculo = document.querySelector("#formFile")
+    
 
     for (let i = 0; i < Softskills.length; i++) {
 
@@ -249,7 +302,7 @@ function catchUserData2() { // função que pega os dados do formulário
 
     } else {
 
-        sendUserData(userForms1.NomeCandidata, Escolaridade_candidata, userForms1.EmailCandidata, userForms1.CPFCandidata, userForms1.GeneroCandidata, userForms1.NascimentoCandidata, "asdada", SoftskillsDB, userForms1.SenhaCandidata, Cargo_canditada, userForms1.CelularCandidata, userForms1.PaisCandidata, Status_candidata, HardskillsDB, userForms1.EstadoCandidata, userForms1.CidadeCandidata)
+        sendUserData(userForms1.NomeCandidata, Escolaridade_candidata, userForms1.EmailCandidata, userForms1.CPFCandidata, userForms1.GeneroCandidata, userForms1.NascimentoCandidata, PDFcurriculo, SoftskillsDB, userForms1.SenhaCandidata, Cargo_canditada, userForms1.CelularCandidata, userForms1.PaisCandidata, Status_candidata, HardskillsDB, userForms1.EstadoCandidata, userForms1.CidadeCandidata)
 
         sessionStorage.removeItem("User1")
 
@@ -281,7 +334,8 @@ function catchRecruiterData() { // função que pega os valores do formulário p
         NomeEmpresa: document.querySelector('#nomeEmpresa').value,
         RamoAtividade: document.querySelector('#ramoEmpresa').value,
         CnpjEmpresa: document.querySelector('#cnpjEmpresa').value,
-        LocalizacaoEmpresa: document.querySelector('#localizacaoEmpresa').value
+        LocalizacaoEmpresa: document.querySelector('#localizacaoEmpresa').value,
+        LogoEmpresa:LogoEmpresa        
 
 
     }
@@ -305,7 +359,7 @@ function catchRecruiterData2() { // função que pega os valores de outro formul
 
 
 
-    sendRecruitData(recuitForms1.NomeEmpresa, EmailEmpresa, recuitForms1.RamoAtividade, "logo", SenhaEmpresa, "cultura", TelefoneEmpresa, SiteEmpresa, recuitForms1.CnpjEmpresa, recuitForms1.LocalizacaoEmpresa)
+    sendRecruitData(recuitForms1.NomeEmpresa, EmailEmpresa, recuitForms1.RamoAtividade, recuitForms1.LogoEmpresa, SenhaEmpresa, "cultura", TelefoneEmpresa, SiteEmpresa, recuitForms1.CnpjEmpresa, recuitForms1.LocalizacaoEmpresa)
 
     sessionStorage.removeItem("Recruit1")
 
@@ -379,7 +433,7 @@ function sendUserData(Nome_Candidata, Escolaridade_candidata, Email_candidata, C
 
         },
         success: function () {
-            window.scroll(0,0)
+            window.scroll(0, 0)
             openPopup()
 
         }
@@ -436,8 +490,6 @@ function sendVacancyData(SoftskillVaga, NomeVaga, DescricaoVaga, LocalVaga, Sala
     })
 }
 
-<<<<<<< Updated upstream
-
 function editarUser(id_candidata, estado, cidade, cargo, grauDeInstrução, hardskill, softskill) {
 
     $.ajax({
@@ -462,10 +514,6 @@ function editarUser(id_candidata, estado, cidade, cargo, grauDeInstrução, hard
     })
 }
 
-
-
-=======
->>>>>>> Stashed changes
 function editVaga(id_vaga, softskill, descricao, salario, hardskill, modalidade) {
     $.ajax({
         url: "http://localhost:3000/vaga/editVaga",
