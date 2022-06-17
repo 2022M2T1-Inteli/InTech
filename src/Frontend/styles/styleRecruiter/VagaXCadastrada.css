@@ -1,0 +1,70 @@
+.botao {
+    width: 145px;
+    height: 56px;
+    border: 1px solid #000000;
+    border-radius: 21px;
+}
+
+.textoFinal {
+    font-size: 1.3em;
+    font-family: 'Roboto Slab';
+    text-decoration: underline;
+}
+
+.backgroundVaga {
+    background-image: url("../../images/Background.svg");
+    height: auto;
+}
+
+#AplicantesCards{
+    display: flex;
+    justify-content: space-between;
+}
+
+.CardCandidata {
+    margin-top: 20px;
+    padding: 14px;
+    width: 335px;
+    height: 161px;
+    background: #820EC7;
+    border-radius: 21px;
+    color: white;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.nomeCand {
+    font-family: 'Roboto Slab';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 38px;
+    margin-bottom: 2px;
+
+}
+
+#contato {
+    margin: 0%;
+    text-decoration: underline;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+#porcentagem {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 20px;
+    line-height: 27px;
+}
+
+.CV {
+    display: flex;
+    width: 300px;
+    justify-content: flex-end;
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 20px;
+    line-height: 27px;
+}
