@@ -14,28 +14,136 @@
 
 📜 Descrição curta sobre o que seu projeto faz.
 <br><br>
-Meu projeto é um exemplo de como utilizar o github.
+Tendo em vista o grande gap entre homens e mulheres no mercado de trabalho de tecnologia, nosso site visa a conexão entre vagas de trabalho com futuras profissionais desse mercado de trabalho.
 <br><br>
 <p align="center">
-<img src="https://pix4free.org/assets/library/2021-01-20/originals/game.jpg" alt="NOME DO JOGO" border="0">
-  Game by <a href="http://www.nyphotographic.com/">Nick Youngson</a> <a rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a> <a href="http://pix4free.org/">Pix4free</a>
+<img src="https://github.com/2022M2T1/Projeto5/blob/main/imagens/paginalogin1.jpeg" alt="TELA LOGIN DO SITE" border="0">
+  Login page by <a href="https://github.com/2022M2T1/Projeto5">Intech</a>
 </p>
 
-
-💡 De um a dois parágrafos sobre o que é seu projeto e o que ele faz.
 <br><br>
-Meu projeto ajuda estudantes inteli a configurarem seus githubs.
+O nosso projeto trata da inclusão de mulheres no mercado de trabalho da tecnologia. Sendo assim, trouxemos a proposição de um site em que o público-alvo sejam as mulheres e suas possíveis contratantes, eliminando algumas barreiras que travavam as devs, como a falta de confiança para aplicarem em vagas que não tinham 100% de chance de aprovação por parte dos critérios exigidos pelas contratantes.
 <br><br>
-May the force be with you!
+Por conseguinte, nosso site traz como alternativa o incentivo a participação dessas mulheres, com um layout mais amigável, uma experiência do usuário pensada nelas e por último, mas não menos importante, a aderência de um sistema que introduz as vagas àquelas candidatas com mais chances de conseguirem ser aprovadas nos processos seletivos da empresa, eliminando o problema da insegurança enfrentado por elas.
 <br><br>
 
 ## 🛠 Estrutura de pastas
 
 -Raiz<br>
 |<br>
-|-->documentos<br>
-  &emsp;|-->antigos<br>
-  &emsp;|Documentação.docx<br>
+|-->Projeto5<br>
+  &emsp;|-->.vscode<br>
+    &emsp;|settings<br>
+  &emsp;|documentos<br>
+    &emsp;|antigos<br>
+      &emsp;|Modelo GDD<br>
+      &emsp;|Modelo WAD Grupo 5 - Intech - Documento Aplicação Web.docx (1)<br>
+      &emsp;|Modelo WAD Grupo 5 - Intech - Documento Aplicação Web.docx<br>
+      &emsp;|pasta para guardar documentos antigos<br>
+      &emsp;|WAD Grupo 5 - Intech - Documento Aplicação Web.docx<br>
+    &emsp;|WAD Grupo 5 - Intech - Documento Aplicação Web.docx<br>
+  &emsp;|imagens<br>
+    &emsp;|Bootstrap_5.0_Screenshot<br>
+    &emsp;|paginalogin1<br>
+  &emsp;|src<br>
+    &emsp;|Backend<br>
+      &emsp;|controllers<br>
+        &emsp;|adm<br>
+        &emsp;|recruit<br>
+        &emsp;|user<br>
+        &emsp;|vaga<br>
+      &emsp;|database<br>
+        &emsp;|banco_de_dados<br>
+        &emsp;|banco_de_dados.sqbpro<br>
+      &emsp;|models<br>
+        &emsp;|recruiter<br>
+        &emsp;|user<br>
+        &emsp;|vaga<br>
+      &emsp;|node_modules<br>
+      &emsp;|Routes<br>
+        &emsp;|adm<br>
+        &emsp;|match<br>
+        &emsp;|recruit<br>
+        &emsp;|routes<br>
+        &emsp;|user<br>
+        &emsp;|vaga<br>
+      &emsp;|app<br>
+      &emsp;|package<br>
+      &emsp;|package-lock<br>
+    &emsp;|Frontend<br>
+      &emsp;|fonts<br>
+        &emsp;|Colocar os códigos do Frontend Aqui<br>
+      &emsp;|images<br>
+      &emsp;|script<br>
+        &emsp;|tagInputs<br>
+          &emsp;|hardSkillsTagInput<br>
+          &emsp;|softSkillsTagInput<br>
+        &emsp;|dashboard-recruit<br>
+        &emsp;|forms<br>
+        &emsp;|showhideSenhas<br>
+        &emsp;|vaga-descricao<br>
+        &emsp;|vagas<br>
+      &emsp;|styles<br>
+        &emsp;|styleADM<br>
+          &emsp;|ADMstyle-dashboar<br>
+          &emsp;|ADMstyle-empresas<br>
+          &emsp;|ADMstyle-membros<br>
+          &emsp;|ADMstyle-vagas<br>
+        &emsp;|styleRecruiter<br>
+          &emsp;|CadastroRecrutador3<br>
+          &emsp;|cadastroRecrutadora1<br>
+          &emsp;|cadastroRecrutadora2<br>
+          &emsp;|cadastroRecrutadora4<br>
+          &emsp;|cadastroRecrutadora5<br>
+          &emsp;|vagaCadastrada<br>
+        &emsp;|styleUsers<br>
+          &emsp;|cadastroUsuaria1<br>
+          &emsp;|cadastroUsuaria2<br>
+          &emsp;|hardSkillsTagInput<br>
+          &emsp;|login<br>
+          &emsp;|softSkillsTagInput<br>
+          &emsp;|usuariaCandidata1<br>
+          &emsp;|usuariaCandidata3<br>
+          &emsp;|usuariaCandidata5<br>
+          &emsp;|usuariaCandidata2<br>
+        &emsp;|.DS_Store<br>
+        &emsp;|login<br>
+        &emsp;|main<br>
+        &emsp;|recuperacaoSenha<br>
+        &emsp;|telaCadastro<br>
+      &emsp;|views<br>
+         &emsp;|ADM<br>
+          &emsp;|adm-dashboard (1)<br>
+          &emsp;|adm-dashboard (2)<br>
+          &emsp;|adm-dashboard (3)<br>
+          &emsp;|adm-dashboard (4)<br>
+         &emsp;|Recruiter<br>
+          &emsp;|cadastroRecrutadora1<br>
+          &emsp;|cadastroRecrutadora2<br>
+          &emsp;|cadastroRecrutadora3<br>
+          &emsp;|cadastroRecrutadora5<br>
+          &emsp;|toDelete(3)<br>
+          &emsp;|toDelete<br>
+          &emsp;|vagaCadastrada<br>
+         &emsp;|Users<br>
+          &emsp;|cadastroUsuaria1<br>
+          &emsp;|cadastroUsuaria2<br>
+          &emsp;|usuariaCandidata1<br>
+          &emsp;|usuariaCandidata2<br>
+          &emsp;|usuariaCandidata3<br>
+          &emsp;|usuariaCandidata5<br>
+          &emsp;|usuariaCandidataEditar<br>
+         &emsp;|index<br>
+         &emsp;|recuperacaoSenha1<br>
+         &emsp;|recuperacaoSenha2<br>
+         &emsp;|telaCadastro<br>
+         &emsp;|testelogin<br>
+      &emsp;|.DS_Store<br>
+      &emsp;|Colocar os códigos do Frontend Aqui<br>
+  &emsp;|.gitattributes<br>
+  &emsp;|.gitignore<br>
+  &emsp;|README<br>
+  &emsp;|README.md<br>
 |-->executáveis<br>
   &emsp;|-->windows<br>
   &emsp;|-->android<br>
@@ -46,50 +154,107 @@ May the force be with you!
   &emsp;|-->Frontend<br>
 |readme.md<br>
 
-A pasta raiz contem dois arquivos que devem ser alterados:
-
-<b>README.MD</b>: Arquivo que serve como guia e explicação geral sobre seu projeto. O mesmo que você está lendo agora.
-
-Há também 4 pastas que seguem da seguinte forma:
-
-<b>documentos</b>: Aqui estarão todos os documentos do projeto, mas principalmente o <b>Documentação do Sistema</b>. Há uma pasta <b>antigos</b> onde estarão todas as versões antigas da documentação.
-
-<b>executáveis</b>: Aqui estarão todos os executáveis do jogo, prontos para rodar. Há no mínimo 3 pastas, uma para binários <b>Windows</b>, uma para binários <b>android</b> e uma para a <b>Web/HTML</b>
-
-<b>imagens</b>: Algumas imagens do jogo/sistema e logos prontos para serem utilizados e visualizados.
-
-<b>src</b>: Nesta pasta irá todo o código fonte do sistema, pronto para para ser baixado e modificado. Existem duas pastas, <b>Backend</b> e <b>Frintend</b> que devem conter, respectivamente, o código do servidor e o código da página web.
 
 ## 🛠 Instalação
 
 <b>Android:</b>
 
-Faça o Download do JOGO.apk no seu celular.
-Execute o APK e siga as instruções de seu telefone.
+Encontre o github pelo browser do seu celular, entre no perfil do nosso projeto e procure o index na pasta views e execute-o como qualquer outro programa.
 
-```sh
-Coloque código do prompt de comnando se for necessário
-```
 
 <b>Windows:</b>
 
 Não há instalação! Apenas executável!
-Encontre o JOGO.exe na pasta executáveis e execute-o como qualquer outro programa.
+Encontre o index na pasta views e execute-o como qualquer outro programa.
 
-```sh
-Coloque código do prompt de comnando se for necessário
+```bash
+
+npm install sqlite3
+node app.js
 ```
+
 
 <b>HTML:</b>
 
 Não há instalação!
-Encontre o index.html na pasta executáveis e execute-o como uma página WEB (através de algum browser).
+Encontre o index.html na pasta views e execute-o como uma página WEB (através de algum browser).
 
 ## 📈 Exemplo de uso
 
-Alguns exemplos interessantes e úteis sobre como seu projeto pode ser utilizado.
+O site tem como uma das funções a apresentação de um dashboard interativo com a usuária e a recrutadora, mostrando vagas disponíveis com duas secções principais: Perfil e Vagas.
+```bash
+// função que carrega todas as vagas registradas de tal empresa registrada
+ 
+function loadVagas() {
+    let EmpresaInfos = JSON.parse(sessionStorage.getItem("EmpresaDadosLogin"));
+ 
+ 
+ 
+    $("#nomeEmpresa").html(EmpresaInfos.nome_empresa) // coloca as informações da empresa logando diretamente no frontend
+    $("#email").html(EmpresaInfos.email_empresa) // coloca as informações da empresa logando diretamente no frontend
+ 
+    $.ajax({
+        url: 'http://localhost:3000/recruiter/listAllEmpresaVagas', // porta da rota
+        method: 'POST',
+        data: { // o que será enviado (req.body)
+            id_empresa: EmpresaInfos.id_empresas
+        },
+        success: function (res) { //se retornar status:200, executa código abaixo
+            console.log(res)
+            const divPai = document.querySelector('#rowBack');
+            for (let i = 0; i < res.length; i++) {
+                const divPai = document.querySelector('#rowBack');
+ 
+                //abaixo: modelo HTML que será retornado
+ 
+                divPai.innerHTML += `<div class="card" style="width: 445px;">  
+                <h1>${res[i].nome_vaga}</h1>
+                <p>${res[i].descricao_vaga}</p>
+ 
+                <div class="icons">
+                    <a href="./vagaCadastrada.html">
+                        <img src="../../images/PeopleIcon.svg"
+                            style="filter: invert(19%) sepia(39%) saturate(6051%) hue-rotate(271deg) brightness(62%) contrast(125%);"
+                            alt="">
+                        <img src="../../images/EditIcon.svg"
+                            style="filter: invert(93%) sepia(20%) saturate(4786%) hue-rotate(336deg) brightness(106%) contrast(91%);"
+                            alt="">
+                        <img src="../../images/DeleteIcon.svg"
+                            style="filter: invert(41%) sepia(53%) saturate(6570%) hue-rotate(343deg) brightness(96%) contrast(99%);"
+                            alt="">
+                    </a>
+                </div>
+            </div>`
+            }
+ 
+            divPai.innerHTML += `<button><a href="./cadastroRecrutadora5.html" ><img src="../../images/AddBtn.svg" alt="Adicionar vaga" srcset=""></a></button>`
+ 
+        }
+    })
+}
+```
 
-Adicione blocos de códigos e, se necessário, screenshots.
+
+
+
+Além disso, nosso projeto apresenta uma função de pop-up com uma interface amigável para alguns cliques da usuária.
+```bash
+    <script>
+        let popup = document.getElementById("popup");
+ 
+ 
+        function openPopup() {
+            $("#popupPai").attr("class","backPopup")
+            popup.classList.add("open-popup");
+        }
+ 
+        function closePopup(){
+ 
+            $("#popupPai").attr("class","popupclose")
+        }
+    </script>
+```
+
 
 Este modelo pode ser copiado e utilizado à vontade.
 
@@ -101,30 +266,47 @@ Descreva como instalar todas as dependências para desenvolvimento e como rodar 
 
 Para abrir este projeto você necessita das seguintes ferramentas:
 
--<a href="https://godotengine.org/download">GODOT</a>
-
-```sh
+-<a href="https://code.visualstudio.com/download">VS Code</a><br>
+-<a href="https://sqlitebrowser.org/dl/">DB Browser for SQLite</a><br>
+-<a href="https://www.postman.com/downloads/">Postman</a><br>
+-<a href="https://nodejs.org/en/download/">Node.js</a><br>
+```bash
 make install
 npm test
-Coloque código do prompt de comnando se for necessário
+npm install sqlite3
+npm install express  --save
+node app.js
 ```
 
 ## 🗃 Histórico de lançamentos
 
 A cada atualização os detalhes devem ser lançados aqui.
 
-* 0.2.1 - 25/01/2022
-    * MUDANÇA: Atualização de docs (código do módulo permanece inalterado)
-* 0.2.0 - 15/01/2022
-    * MUDANÇA: Remove `setDefaultXYZ()`
-    * ADD: Adiciona `init()`
-* 0.1.1 - 11/01/2022
-    * CONSERTADO: Crash quando chama `baz()` (Obrigado @NomeDoContribuidorGeneroso!)
-* 0.1.0 - 10/01/2022
-    * O primeiro lançamento adequado
-    * MUDANÇA: Renomeia `foo()` para `bar()`
-* 0.0.1 - 01/01/2022
+* 0.4.0 - 17/06/2022
+    * Reparação de erros e bugs com a API e conversão de imagens para o banco de dados.
+* 0.3.1 - 10/06/2022
+    * Entrega da quarta sprint
+    * Testes de funcionamento do site
+* 0.3.0 - 03/06/2022
+    * Integração da interface do usuário com o banco de dados e as rotas da web.
+* 0.2.1 - 27/05/2022
+    * Entrega da terceira sprint
+    * Documentação da API e conclusão parcial do backend
+* 0.2.0 - 20/05/2022
+    * Início da modelagem do backend
+    * Criação do banco de dados
+* 0.1.1 - 13/05/2022
+    * Entrega da segunda sprint
+    * Conclusão de 90% das telas e início da estilização das páginas.
+* 0.1.0 - 06/05/2022
+    * Entrega das primeiras telas para o FrontEnd do site
+* 0.0.3 - 29/04/2022
+    * Entrega da primeira sprint
+    * Análise setorial e primeiros passos com o projeto (wireframes, matriz csd, etc)
+* 0.0.2 - 22/04/2022
     * Trabalho em andamento
+* 0.0.1 - 18/04/2022
+    * Início do projeto
 
 ## 📋 Licença/License
 
@@ -137,5 +319,3 @@ Aqui estão as referências usadas no projeto.
 1. <https://github.com/iuricode/readme-template>
 2. <https://github.com/gabrieldejesus/readme-model>
 3. <https://creativecommons.org/share-your-work/>
-4. <https://freesound.org/>
-5. Músicas por: <a href="https://freesound.org/people/DaveJf/sounds/616544/"> DaveJf </a> e <a href="https://freesound.org/people/DRFX/sounds/338986/"> DRFX </a> ambas com Licença CC 0.
