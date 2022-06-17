@@ -96,7 +96,6 @@ function removeSoftSkill(e) {
 }
 
 function editarUser(id_candidata, estado, cidade, cargo, grauDeInstrução, hardskill, softskill) {
-    alert('foi salvo')
     // $.ajax({
     //     url: "http://localhost:3000/user/editarUser",
     //     method: "PUT",

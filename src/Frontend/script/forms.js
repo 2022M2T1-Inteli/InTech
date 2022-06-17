@@ -3,11 +3,7 @@ function validateEmail(email) {
     return re.test(email);
 }
 
-
 function catchUserData() { // função que pega os dados de usuário de acordo com o que colocam no input
-
-
-
     let errorNome = document.querySelector("#errorNome")
     let errorEmail = document.querySelector("#errorEmail")
     let errorCelular = document.querySelector("#errorCelular")
@@ -25,23 +21,16 @@ function catchUserData() { // função que pega os dados de usuário de acordo c
         GeneroCandidata: document.querySelector('#genero').value,
         SenhaCandidata: document.querySelector('#senha').value,
         NascimentoCandidata: document.querySelector("#data-nascimento").value,
-        PaisCandidata: document.querySelector("#pais").value,
-        EstadoCandidata: document.querySelector("#estado").value,
-        CidadeCandidata: document.querySelector("#cidade").value
+        LocalizacaoCandidata: document.querySelector('#localizacao').value
     }
 
-
     // caso o usuário não preencha um campo corretamente, ele receberá uma mensagem de alerta
-
     if (!forms1.NomeCandidata) {
         errorNome.innerHTML = "Nome necessário"
         window.scroll(0, 0)
         setTimeout(function () {
             errorNome.innerHTML = ""
         }, 5000)
-
-
-
     } else if (forms1.NomeCandidata) {
         let transform = forms1.NomeCandidata.split("")
         let verify
@@ -50,7 +39,6 @@ function catchUserData() { // função que pega os dados de usuário de acordo c
             if (isNaN(parseInt(transform[i])) == false) {
                 verify = true
             }
-
         }
 
         if (verify === true) {
@@ -90,16 +78,10 @@ function catchUserData() { // função que pega os dados de usuário de acordo c
                         errorCPF.innerHTML = ""
                     }, 5000)
 
-                } else if (!forms1.PaisCandidata) {
-                    error.innerHTML = "Pais necessário"
+                } else if (!forms1.LocalizacaoCandidata) {
+                    error.innerHTML = "Localização necessária"
                     window.scroll(0, 0)
-                } else if (!forms1.EstadoCandidata) {
-                    error.innerHTML = "Estado necessário"
-                    window.scroll(0, 0)
-                } else if (!forms1.CidadeCandidata) {
-                    error.innerHTML = "Campo cidade necessário"
-                    window.scroll(0, 0)
-                } else if (!forms1.NascimentoCandidata) {
+                }   else if (!forms1.NascimentoCandidata) {
                     errorDate.innerHTML = "Data necessária"
                     window.scroll(0, 150)
                     setTimeout(function () {
@@ -205,7 +187,6 @@ function onChange2() {
    
 }
 
-
 function getBase64(file) {
     return new Promise((resolve, reject) => {
         const reader = new FileReader();
@@ -214,16 +195,6 @@ function getBase64(file) {
         reader.onerror = error => reject(error);
     });
 }
-
-
-
-
-
-
-// function previewText(event) {
-//     let file = event.target.value.replace(/^data:image\/[a-z]+;base64,/, "")
-//     console.log(`data:image/png;base64,${file}`)
-// }
 
 function catchUserData2() { // função que pega os dados do formulário
     let userForms1 = JSON.parse(sessionStorage.getItem("User1"))
@@ -302,18 +273,11 @@ function catchUserData2() { // função que pega os dados do formulário
 
     } else {
 
-        sendUserData(userForms1.NomeCandidata, Escolaridade_candidata, userForms1.EmailCandidata, userForms1.CPFCandidata, userForms1.GeneroCandidata, userForms1.NascimentoCandidata, PDFcurriculo, SoftskillsDB, userForms1.SenhaCandidata, Cargo_canditada, userForms1.CelularCandidata, userForms1.PaisCandidata, Status_candidata, HardskillsDB, userForms1.EstadoCandidata, userForms1.CidadeCandidata)
+        sendUserData(userForms1.NomeCandidata, Escolaridade_candidata, userForms1.EmailCandidata, userForms1.CPFCandidata, userForms1.GeneroCandidata, userForms1.NascimentoCandidata, PDFcurriculo, SoftskillsDB, userForms1.SenhaCandidata, Cargo_canditada, userForms1.CelularCandidata, userForms1.LocalizacaoCandidata, Status_candidata, HardskillsDB)
 
         sessionStorage.removeItem("User1")
 
     }
-
-
-
-
-    // Nome_Candidata,Escolaridade_candidata,Email_candidata,CPF_canditada,Genero_canditada,Data_nascimento,Curriculo_candidata,Softskill_candidata,Senha_canditada,Cargo_canditada,Celular_candidata, Pais_candidata,Status_candidata,Hardskill_candidata,Estado_candidata,Cidade_candidata
-
-
 
 }
 
@@ -322,13 +286,7 @@ function deleteCatchDataUser() { // função que remove os itens da session stor
 
 }
 
-
-
-
-
 function catchRecruiterData() { // função que pega os valores do formulário preenchido pelo recrutador
-
-
     let formsRecruit1 = {
         // Tela de Cadastro Recrutadora 1 
         NomeEmpresa: document.querySelector('#nomeEmpresa').value,
@@ -336,8 +294,6 @@ function catchRecruiterData() { // função que pega os valores do formulário p
         CnpjEmpresa: document.querySelector('#cnpjEmpresa').value,
         LocalizacaoEmpresa: document.querySelector('#localizacaoEmpresa').value,
         LogoEmpresa:LogoEmpresa        
-
-
     }
 
     sessionStorage.setItem("Recruit1", JSON.stringify(formsRecruit1))
@@ -356,17 +312,12 @@ function catchRecruiterData2() { // função que pega os valores de outro formul
     let EmailEmpresa = document.querySelector('#emailEmpresa').value;
     let SenhaEmpresa = document.querySelector('#senha').value;
 
-
-
-
     sendRecruitData(recuitForms1.NomeEmpresa, EmailEmpresa, recuitForms1.RamoAtividade, recuitForms1.LogoEmpresa, SenhaEmpresa, "cultura", TelefoneEmpresa, SiteEmpresa, recuitForms1.CnpjEmpresa, recuitForms1.LocalizacaoEmpresa)
-
     sessionStorage.removeItem("Recruit1")
 
 }
 
 // pegar do frontend infos cadastradas pela empresa para inserir no backend posteriormente
-
 function catchVacancyData() {
     let Nome_vaga = document.querySelector("#nomeVaga").value
     let Descricao_vaga = document.querySelector("#descricaoVaga").value
@@ -402,14 +353,10 @@ function catchVacancyData() {
 
     sendVacancyData(SoftskillsVagaDB, Nome_vaga, Descricao_vaga, Local_vaga, Salario_vaga, empresa.id_empresas, HardskillsVagaDB, ModalidadeVaga)
 
-
-
 }
 
-
-
 // enviar infos do cadastro da candidata para o banco de dados
-function sendUserData(Nome_Candidata, Escolaridade_candidata, Email_candidata, CPF_canditada, Genero_canditada, Data_nascimento, Curriculo_candidata, Softskill_candidata, Senha_canditada, Cargo_canditada, Celular_candidata, Pais_candidata, Status_candidata, Hardskill_candidata, Estado_candidata, Cidade_candidata) {
+function sendUserData(Nome_Candidata, Escolaridade_candidata, Email_candidata, CPF_canditada, Genero_canditada, Data_nascimento, Curriculo_candidata, Softskill_candidata, Senha_canditada, Cargo_canditada, Celular_candidata, Localizacao_Candidata, Status_candidata, Hardskill_candidata) {
     $.ajax({
         url: "http://localhost:3000/user/formCandidata",
         method: "POST",
@@ -425,17 +372,13 @@ function sendUserData(Nome_Candidata, Escolaridade_candidata, Email_candidata, C
             Senha_candidata: Senha_canditada,
             Cargo_candidata: Cargo_canditada,
             Celular_candidata: Celular_candidata,
-            Pais_candidata: Pais_candidata,
+            Localizacao_Candidata: Localizacao_Candidata,
             Status_candidata: Status_candidata,
             Hardskill_candidata: Hardskill_candidata,
-            Estado_candidata: Estado_candidata,
-            Cidade_candidata: Cidade_candidata
-
         },
         success: function () {
             window.scroll(0, 0)
             openPopup()
-
         }
 
     })

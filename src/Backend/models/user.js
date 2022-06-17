@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 class User {
-    constructor(nome, escolaridade, email, cpf, genero, nascimento, curriculo, softskill, senha, cargo, celular, pais, status, hardskill, estado, cidade) {
+    constructor(nome, escolaridade, email, cpf, genero, nascimento, curriculo, softskill, senha, cargo, celular, localizacao, status, hardskill) {
         this.nome = nome,
             this.escolaridade = escolaridade,
             this.email = email,
@@ -23,11 +23,9 @@ class User {
             this.senha = senha,
             this.cargo = cargo,
             this.celular = celular,
-            this.pais = pais,
+            this.localizacao = localizacao,
             this.status = status,
-            this.hardskill = hardskill,
-            this.estado = estado,
-            this.cidade = cidade
+            this.hardskill = hardskill
     }
 
 
@@ -35,16 +33,12 @@ class User {
         // abre o banco de dados
         let db = await sqlite.open({ filename: "./database/banco_de_dados.db", driver: sqlite3.Database })
 
-
-
         // executa comando sql
         // 1ª liste as colunas em ordem que querem ser preenchidas
         // 2ª Values (? x quantidade de dados que entrarao)
         // 3ª [valor1, valor2,valor3 .....]
 
-
-
-        const insi = await db.run("INSERT INTO candidatas (nome_candidata ,escolaridade_candidata ,email_candidata,cpf_candidata,genero_candidata,nascimento_candidata,curriculo_candidata,softskill_candidata,senha_candidata,cargo_candidata,celular_candidata,pais_candidata,status_candidata,hardskill_candidata,estado_candidata,cidade_candidata) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", [this.nome, this.escolaridade, this.email, this.cpf, this.genero, this.nascimento, this.curriculo, this.softskill, this.senha, this.cargo, this.celular, this.pais, this.status, this.hardskill, this.estado, this.cidade])
+        const insi = await db.run("INSERT INTO candidatas (nome_candidata ,escolaridade_candidata ,email_candidata,cpf_candidata,genero_candidata,nascimento_candidata,curriculo_candidata,softskill_candidata,senha_candidata,cargo_candidata,celular_candidata,localizacao_candidata,status_candidata,hardskill_candidata) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)", [this.nome, this.escolaridade, this.email, this.cpf, this.genero, this.nascimento, this.curriculo, this.softskill, this.senha, this.cargo, this.celular, this.localizacao, this.status, this.hardskill])
 
         if (insi.changes === 0) {
             const error = {
@@ -61,14 +55,9 @@ class User {
         }
 
         return success
-
-
     }
 
     async loginUser(email, senha) {
-
-
-
         if (!email && !senha) {
 
             const error = {
@@ -155,22 +144,15 @@ class User {
 
     }
 
-    async editUser(id_candidata, estado, cidade, cargo, grauDeInstrução, hardskill, softskill) {
+    async editUser(id_candidata, localizacao, cargo, grauDeInstrução, hardskill, softskill) {
         const db = await sqlite.open({ filename: "./database/banco_de_dados.db", driver: sqlite3.Database })
 
         const rowId = await db.all(`SELECT * FROM candidatas WHERE id_candidata = ${id_candidata}`)
 
-
-
-        //verificar se o id do usuario existe
-
-
         let infosChangesUser = []
 
-        if (estado) {
-            infosChangesUser.push(`estado_candidata = ${estado}`)
-        } if (cidade) {
-            infosChangesUser.push(`cidade_candidata = ${cidade}`)
+        if (localizacao) {
+            infosChangesUser.push(`localizacao_candidata = ${localizacao}`)
         } if (cargo) {
             infosChangesUser.push(`cargo_candidata = ${cargo}`)
         } if (grauDeInstrução) {
