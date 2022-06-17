@@ -28,7 +28,7 @@
         </div>
     </header>
     <main>
-        <form>
+        <form id="form-2">
             <div class="container cadastroRecrutadora5">
                 <div class="row text-center" style="animation: up 0.8s;">
                     <h1 class="titulo-da-pagina mb-4"> Cadastro da vaga</h1>
@@ -187,7 +187,7 @@
             <!--  TEMPLATE BOTÃO VOLTAR -->
             <div class="col d-flex align-items-center justify-content-center">
 
-                <button class="btnproprio" onclick="catchVacancyData()">Cadastrar vaga</button>
+                <button type="button" class="btnproprio" onclick="catchVacancyData()">Cadastrar vaga</button>
                 <a class="row" style="margin-left: 30px;" href="../Recruiter/cadastroRecrutadora3.html">Voltar</a>
             </div>
         </div>
@@ -203,6 +203,14 @@
                 return (code == 13) ? false : true;
             });
         });
+
+        document.querySelector('#form-2').addEventListener('submit', function (e) {
+            e.preventDefault();
+            document.body.append('Submetido')
+        })
+
+
+        
     </script>
 
     <script src="../../script/tagInputs/softSkillsTagInput.js"></script>

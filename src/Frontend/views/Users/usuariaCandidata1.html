@@ -14,7 +14,7 @@
     <title>Brazilians in Tech - Vagas</title>
 </head>
 
-<body onload="openPopup()" class="bg-image" style="background-image: url('../../images/WhiteBackground.svg');
+<body id="body" onload="openPopup()" class="bg-image" style="background-image: url('../../images/WhiteBackground.svg');
  background-repeat: no-repeat; background-size: cover; margin: 0;">
 
     <header>
@@ -33,6 +33,7 @@
                 <div class="title">
                     <h2 id="nome"></h2>
                     <h3 id="titulo"></h3>
+                    <button onclick="logout()" class="btn btn-danger">Logout</button>
                 </div>
                <a href="./usuariaCandidata5.html"> <img src="../../images/CandidataProfile.svg" alt="Seu perfil"></a>
                 
@@ -55,7 +56,7 @@
     <div class="backPopup" id="Paipopup">
         <div class="popup" id="popup">
             <img src="../../images/feliz (1).png">
-            <h2>Que bom tê-la devolta!</h2>
+            <h2>Que bom tê-la de volta!</h2>
             <p>Selecionamos as vagas que melhor se encaixam no seu perfil.</p>
             <button type="button" onclick="catchMatchedVagas()">Continuar</button>
         </div>
@@ -64,6 +65,7 @@
 
 
     <script>
+     
         const labels = document.querySelectorAll(".form-control label");
 
         labels.forEach((label) => {
@@ -76,12 +78,27 @@
                 .join("");
         });
 
-        let popup = document.getElementById("popup");
+        
+        let fistOpenPopup
+        let body = document.getElementById("body");
 
+        if(sessionStorage.getItem("openToday") == "true"){
+            body.setAttribute("onload","catchMatchedVagas()")
+        }else{
+            body.setAttribute("onload","openPopup()")
+        }
+
+        let popup = document.getElementById("popup");
 
         function openPopup() {
             $('body').attr('class','bg-image');
             popup.classList.add("open-popup");
+            sessionStorage.setItem("openToday",fistOpenPopup = true)
+        }
+
+        function logout(){
+            sessionStorage.removeItem("UsuarioDadosLogin")
+            window.location.replace("../index.html")
         }
     </script>
     <script src="../../script/vagas.js"></script>

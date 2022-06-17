@@ -50,7 +50,15 @@ function applyVaga() { // função que é executada quando o usuário se candida
             window.location.replace("/views/Users/usuariaCandidata5.html")
         },
         error:function (res) {
-            //fecha o popup e mostrar que ja se aplicou a tal vaga
+            closePopup()
+            let error = document.getElementById("error")
+            error.innerHTML = res.responseJSON.message
+            setTimeout(function(){
+                error.innerHTML = ""
+            },7000)
+            
+            
+
         }
     })
 }

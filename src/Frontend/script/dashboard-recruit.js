@@ -31,13 +31,15 @@ function loadVagas() {
                         <img src="../../images/PeopleIcon.svg"
                             style="filter: invert(19%) sepia(39%) saturate(6051%) hue-rotate(271deg) brightness(62%) contrast(125%);"
                             alt="">
+                    </a>
                         <img src="../../images/EditIcon.svg"
                             style="filter: invert(93%) sepia(20%) saturate(4786%) hue-rotate(336deg) brightness(106%) contrast(91%);"
                             alt="">
+                    <button class="btn btn-danger" onclick="openPopup(${res[i].id_vaga})">
                         <img src="../../images/DeleteIcon.svg"
                             style="filter: invert(41%) sepia(53%) saturate(6570%) hue-rotate(343deg) brightness(96%) contrast(99%);"
                             alt="">
-                    </a>
+                    </button>
                 </div>
             </div>`
             }
