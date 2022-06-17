@@ -13,6 +13,10 @@ nav{
 
 }
 
+body {
+    overflow-x: hidden;
+}
+
 .description {
     padding: 3px;
     margin-top: 10px;
@@ -193,3 +197,22 @@ button {
    outline-color: #280044;
 }
 
+h2{
+    font-family: 'Roboto Slab';
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.appliedCard a {
+    text-decoration: none;
+}
+
+
+.appliedCard a h1 {
+    font-family: 'Roboto Slab';
+    color: black;
+}
+
+.appliedCard a p {
+    color: rgb(85, 85, 85);
+}

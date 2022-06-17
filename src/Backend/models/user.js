@@ -144,7 +144,7 @@ class User {
 
         const db = await sqlite.open({ filename: "./database/banco_de_dados.db", driver: sqlite3.Database })
 
-        const result = await db.all("SELECT id_vaga FROM vagasCandidatas WHERE id_candidata = ?", [id_candidata])
+        const result = await db.all(`SELECT vagas.id_vaga, vagas.nome_vaga, vagas.descricao_vaga, vagasCandidatas.id_vaga, vagasCandidatas.id_candidata FROM vagasCandidatas JOIN vagas on vagasCandidatas.id_vaga = vagas.id_vaga WHERE vagasCandidatas.id_candidata = ${id_candidata}`)
 
         const success = {
             type: "success",
