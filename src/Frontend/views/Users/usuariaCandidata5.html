@@ -19,14 +19,16 @@
 <body onload="logadoUser()">
     <nav class="shadow mb-2 bg-body rounded">
         <span>
-            <img id="logomarca" src="../../images/logo.svg" width="100px" height="50px" alt="Logo da brazilians in tech">
+            <img id="logomarca" src="../../images/logo.svg" width="100px" height="50px"
+                alt="Logo da brazilians in tech">
         </span>
     </nav>
 
 
     <div class="row">
         <div class="col-3 background">
-            <a class="d-flex justify-content-center fs-3" id="voltar" href="./usuariaCandidata1.html"><img src="../../images/angulo-circulo-esquerda.svg" alt=""></a>
+            <a class="d-flex justify-content-center fs-3" id="voltar" href="./usuariaCandidata1.html"><img
+                    src="../../images/angulo-circulo-esquerda.svg" alt=""></a>
             <div class="firstprofile">
                 <div id="img" class="mt-5">
                     <img class="ms-4" src="../../images/CandidataProfile.svg" alt="Ícone">
@@ -43,7 +45,7 @@
         <div class="col-6 col-sm-12 col-lg-7 d-flex" id="classecentro">
             <div class="container mt-5">
                 <h5 class="titles">Localização: </h5>
-                <input class="description" value="São Paulo-SP"id="local" readonly>
+                <input class="description" value="São Paulo-SP" id="local" readonly>
 
                 <h5 class="titles">Ocupação: </h5>
                 <input class="description" value="Desenvolvedora Sênior" id="ocup" readonly>
@@ -57,48 +59,73 @@
                 <h5 class="titles">Soft Skills: </h5>
                 <input class="description" value="" id="SSK" readonly>
             </div>
-        <div class=" mt-5 container" id="classelado">
-            <h2>Vagas Aplicadas</h2>
-            <div class="vagasUser"></div>
+            <div class=" mt-5 container" id="classelado">
+                <h2>Vagas Aplicadas</h2>
+                <div class="vagasUser"></div>
+            </div>
+
+
+
+            <div class="backPopup" id="popupPai">
+                <div class="popup" id="popup">
+                    <img src="../../images/incomodado.png">
+                    <h2>Tem certeza que deseja excluir seu perfil?</h2>
+
+                    <button type="button" onclick="closePopup()">Não</button>
+                    <button type="button" onclick="deleteUser()" style="background-color:red ;">Sim</button>
+                </div>
+            </div>
+
+
         </div>
+
+        <script src="../../script/dashboard-user.js"></script>
+
+
+        <script>
+            let popup = document.getElementById("popup");
+
+            function edit() {
+
+            }
+
+
+            function openPopup() {
+                $("#popupPai").attr("class", "backPopup")
+                popup.classList.add("open-popup");
+            }
+
+            function closePopup() {
+
+                $("#popupPai").attr("class", "popupclose")
+            }
 
             
+            
 
-        <div class="backPopup" id="popupPai">
-            <div class="popup" id="popup">
-                <img src="../../images/incomodado.png">
-                <h2>Tem certeza que deseja excluir seu perfil?</h2>
+            function deleteUser() {
 
-                <button type="button" onclick="closePopup()">Não</button>
-                <button type="button" onclick="" style="background-color:red ;">Sim</button>
-            </div>
-        </div>
+                $.ajax({
+                    url: "http://localhost:3000/user/deleteCandidata",
+                    method: "DELETE",
+                    data: {
+                        id_candidata: JSON.parse(sessionStorage.getItem("UsuarioDadosLogin")).id_candidata
+                    },
+                    success: function () {
+                        sessionStorage.removeItem("UsuarioDadosLogin");
+                        window.localtion.replace("/views/index.html")
+                    },
+                    error: function () {
 
-
-    </div>
-
-    <script src="../../script/dashboard-user.js"></script>
-
-
-    <script>
-        let popup = document.getElementById("popup");
-
-        function edit(){
-        
-        }
+                        
+                    }
 
 
-        function openPopup() {
-            $("#popupPai").attr("class","backPopup")
-            popup.classList.add("open-popup");
-        }
+                })
+            }
 
-        function closePopup(){
+        </script>
 
-            $("#popupPai").attr("class","popupclose")
-        }
-    </script>
-    
 </body>
 
 </html>

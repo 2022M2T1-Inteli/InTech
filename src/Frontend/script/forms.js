@@ -129,9 +129,29 @@ function catchUserData() { // função que pega os dados de usuário de acordo c
                         },
                         success: function (res) {
 
-                            sessionStorage.setItem("User1", JSON.stringify(forms1)) // salvando objeto na session storage
+                            $.ajax({
+                                url: "http://localhost:3000/user/verifyCPF",
+                                method: "POST",
+                                data: {
+                                    CPF_candidata: forms1.CPFCandidata
+                                },
+                                success: function () {
+                                    sessionStorage.setItem("User1", JSON.stringify(forms1)) // salvando objeto na session storage
 
-                            window.location.replace("/views/Users/cadastroUsuaria2.html") // direciona para outr página
+                                    window.location.replace("/views/Users/cadastroUsuaria2.html") // direciona para outr página
+
+
+                                }, error: function (res) {
+                                    console.log(res)
+                                    errorCPF.innerHTML = res.responseJSON.error
+                                    window.scroll(0, 0)
+                                    setTimeout(function () {
+                                        errorCPF.innerHTML = ""
+                                    }, 5000)
+
+                                }
+                            })
+
 
 
                         },
@@ -359,6 +379,7 @@ function sendUserData(Nome_Candidata, Escolaridade_candidata, Email_candidata, C
 
         },
         success: function () {
+            window.scroll(0,0)
             openPopup()
 
         }
@@ -440,23 +461,6 @@ function editarUser(id_candidata, estado, cidade, cargo, grauDeInstrução, hard
     })
 }
 
-function deleteUser(id_candidata) {
-    $.ajax({
-        url: "http://localhost:3000/user/deleteCandidata",
-        method: "DELETE",
-        data: {
-            id_candidata: id_candidata
-        },
-        success: function () {
-            //redirecionar para o index.js
-        },
-        error: function () {
-            //mostrar erro na pagina html 
-        }
-
-
-    })
-}
 
 
 function editVaga(id_vaga, softskill, descricao, salario, hardskill, modalidade) {
@@ -489,10 +493,10 @@ function delvaga(id_vaga) {
             id_vaga: id_vaga
         },
         success: function () {
-           location.reload()
+            location.reload()
         },
         error: function () {
-            
+
         }
     })
 
