@@ -8,6 +8,21 @@
     margin-right: 50px;
     margin-bottom: 30px;
 }
+
+#logo {
+    margin-right: 30px;
+    margin-top: 0;
+    width: 50%;
+    height: 50%;
+}
+
+#logo img {
+    margin: 0;
+}
+
+.cardsVagas a {
+    align-items: center;
+}
 .textdescript {
     font-family: 'Nunito';
 }
@@ -93,6 +108,7 @@ a img{
 .profile {
     display: flex;
     flex-direction: row;
+    align-items: center;
 }
 
 

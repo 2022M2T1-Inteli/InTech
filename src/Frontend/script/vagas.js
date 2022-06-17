@@ -21,9 +21,8 @@ function catchMatchedVagas() {
                 // interface cards de vagas
                 divVagas.innerHTML += `<div class="cardsVagas col-sm-12 col-lg-12" style="background-color: white;">
                 <a href="./usuariaCandidata2.html?id_vaga=${res[i].id_vaga}" class="text-decoration-none d-flex " style="color: black;">
-                    <div>
-                        <img src="../../images/photoGoogle.svg" alt="">
-    
+                    <div id="logo">
+                        <img src="${res[i].logo_empresa}" alt="">
                     </div>
                     <div class="textpart">
                         <h2 id="nome-vaga">${res[i].nome_vaga}</h2>

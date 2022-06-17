@@ -15,6 +15,7 @@ nav{
 
 body {
     overflow-x: hidden;
+    background-color: #FBFBFB;
 }
 
 .description {
@@ -150,7 +151,7 @@ body {
     display: none;
 }
 
-#botao{
+.botao{
     margin: 10px;
 
 }
@@ -215,4 +216,46 @@ h2{
 
 .appliedCard a p {
     color: rgb(85, 85, 85);
+}
+
+.saveButton {
+    background-color: rgb(0, 149, 255);
+    border-radius: 5px;
+    color: white;
+    border: none;
+}  
+
+.saveButton:hover {
+    background-color: rgb(0, 106, 255);
+}
+
+.espacamento {
+    display: flex;
+    gap: 10px;
+}
+
+.skill {
+     border: 3px solid #f3c42e;
+    padding: 6px 17px;
+    margin-top: 10px;
+    background: rgba(233, 184, 51, 0.31);
+    font-family: 'Nunito';
+    font-weight: 600;
+
+
+    border: 3px solid #F3C42E;
+    
+    display: flex;
+    align-items: center;
+    
+    width: auto;
+
+    cursor: default;
+}
+
+.skill i {
+    font-size: 0.8rem;
+    font-style: normal;
+    cursor: pointer;
+    margin-left: .4rem;
 }

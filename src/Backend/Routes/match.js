@@ -18,7 +18,7 @@ Routes.post('/listMatch', (req, res) => {
     
         // pegando as habilidades da candidata e todas as vagas
         const dbCandidata = await db.get('SELECT  cargo_candidata, softskill_candidata, hardskill_candidata FROM candidatas WHERE id_candidata = ?', [id_candidata]);
-        const dbVagas = await db.all(`SELECT * FROM vagas`);
+        const dbVagas = await db.all(`SELECT vagas.id_vaga, vagas.nome_vaga, vagas.descricao_vaga, vagas.softskill_vaga, vagas.hardskill_vaga, vagas.local_vaga, vagas.modalidade_vaga, vagas.salario_vaga, empresas.id_empresas, empresas.logo_empresa FROM vagas JOIN empresas on vagas.id_empresas = empresas.id_empresas`);
        
         //transformando as habilidades da candidata em um array
         let candidataAllSkills = dbCandidata.softskill_candidata + ',' + dbCandidata.hardskill_candidata;

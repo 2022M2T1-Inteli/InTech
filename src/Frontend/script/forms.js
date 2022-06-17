@@ -436,6 +436,7 @@ function sendVacancyData(SoftskillVaga, NomeVaga, DescricaoVaga, LocalVaga, Sala
     })
 }
 
+<<<<<<< Updated upstream
 
 function editarUser(id_candidata, estado, cidade, cargo, grauDeInstrução, hardskill, softskill) {
 
@@ -463,6 +464,8 @@ function editarUser(id_candidata, estado, cidade, cargo, grauDeInstrução, hard
 
 
 
+=======
+>>>>>>> Stashed changes
 function editVaga(id_vaga, softskill, descricao, salario, hardskill, modalidade) {
     $.ajax({
         url: "http://localhost:3000/vaga/editVaga",
