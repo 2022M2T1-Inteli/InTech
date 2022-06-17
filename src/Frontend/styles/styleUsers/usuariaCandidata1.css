@@ -194,3 +194,10 @@ a img{
 .none{
     display: none;
 }
+
+.textdescript{
+    max-width: 23ch;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

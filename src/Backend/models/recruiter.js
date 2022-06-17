@@ -135,8 +135,6 @@ class Recruiter {
         return success
     }
 
-
-
     async deleteRecuiter(id_empresa){
         const db = await sqlite.open({ filename: "./database/banco_de_dados.db", driver: sqlite3.Database })
 
@@ -248,6 +246,12 @@ class Recruiter {
         }
 
         return success
+    }
+
+    async aplicantesDeTalVaga(){
+        const db = await sqlite.open({ filename: "./database/banco_de_dados.db", driver: sqlite3.Database })
+        
+
     }
 
 

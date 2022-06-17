@@ -1,3 +1,4 @@
+const { response } = require("express")
 const userModel = require("../models/user")
 
 const registerUser = (req,res)=>{
@@ -115,5 +116,19 @@ const verifyCPF = (req,res)=>{
     })
 }
 
+const descandidatturaUser = (req,res)=>{
+    const {id_candidata,id_vaga} = req.body
 
-module.exports = {registerUser,loginUser,listaVagasAplicadas,editarUser,deleteUser,verifyEmail,verifyCPF}
+    const user = new userModel.User()
+    user.cancelCandidataura(id_candidata,id_vaga).then((result)=>{
+        if(result.type ==="error"){
+            res.status(500).json({message:result.message})
+        }else{
+            res.status(200).json({message:result.message})
+        }
+
+    })
+}
+
+
+module.exports = {registerUser,loginUser,listaVagasAplicadas,editarUser,deleteUser,verifyEmail,verifyCPF,descandidatturaUser}

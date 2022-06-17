@@ -284,6 +284,28 @@ class User {
 
     }
 
+    async cancelCandidataura(id_candidata,id_vaga){
+        const db = await sqlite.open({ filename: "./database/banco_de_dados.db", driver: sqlite3.Database })
+
+        const result = await db.run(`DELETE FROM vagasCandidatas WHERE id_vaga = ${id_vaga} AND id_candidata = ${id_candidata}`)
+
+        if(result.changes === 0){
+            const error = {
+                type: 'error',
+                message: "erro de servidor"
+            }
+
+            return error
+        }
+
+        const success = {
+            type:"success",
+            message:"Candidatura cancelada :)"
+        }
+
+        return success
+    }
+
     //Cancela candidatura
 
 }

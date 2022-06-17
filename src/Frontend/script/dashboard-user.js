@@ -1,3 +1,8 @@
+<<<<<<< Updated upstream
+=======
+
+
+>>>>>>> Stashed changes
 // quando do login, pegar infos de candidata cadastradas no banco de dados, e display na página de perfil da candidata 
 function logadoUser() {
     let usuario = JSON.parse(sessionStorage.getItem("UsuarioDadosLogin"))
@@ -41,14 +46,19 @@ function logadoUser() {
                 <div class="appliedCard rounded-pill card mb-2" style="width: 445px;">
                     <a href="./usuariaCandidata2.html?id_vaga=${res[i].id_vaga}">
                         <h1 class = "d-flex justify-content-center fs-4 p-3">${res[i].nome_vaga}</h1>
-                        <p class = "d-flex justify-content-center">${res[i].descricao_vaga}</p>
+                        <p class = "d-flex justify-content-center descrição">${res[i].descricao_vaga}</p>
                     </a>
                     <div class="icons">
-                        <a href="/" class="mb-3 d-flex justify-content-center">
+                        <button class = "" onclick="descandidaturaUser(${res[i].id_vaga})">
                             <img src="../../images/DeleteIcon.svg"
                                 style="filter: invert(41%) sepia(53%) saturate(6570%) hue-rotate(343deg) brightness(96%) contrast(99%);"
+<<<<<<< Updated upstream
                                 alt="Retirar aplicação">
                         </a>
+=======
+                                alt="">
+                        </button>
+>>>>>>> Stashed changes
                     </div>
             </div>`
 
@@ -58,6 +68,7 @@ function logadoUser() {
     })
 
 }
+<<<<<<< Updated upstream
 function removeHardSkill(e) {
     console.log(e)
 }
@@ -103,3 +114,23 @@ function deleteUser(id_candidata) {
 
     })
 }
+=======
+
+function descandidaturaUser(id_vaga){
+
+    $.ajax({
+        url: 'http://localhost:3000/user/descandidatura',
+        method: 'POST',
+        data:{
+            id_vaga: id_vaga,
+            id_candidata:JSON.parse(sessionStorage.getItem("UsuarioDadosLogin")).id_candidata
+        },
+        success: function () {
+            window.location.reload();
+        },
+        error: function (err) {
+            console.log(err);
+        }
+    })
+}
+>>>>>>> Stashed changes
