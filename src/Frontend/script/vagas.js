@@ -20,13 +20,13 @@ function catchMatchedVagas() {
                 let div = document.createElement('div');
                 // interface cards de vagas
                 divVagas.innerHTML += `<div class="cardsVagas col-sm-12 col-lg-12" style="background-color: white;">
-                <a href="./usuariaCandidata2.html?id_vaga=${res[i].id_vaga}" class="text-decoration-none d-flex " style="color: black;">
+                <a href="./usuariaCandidata2.html?id_vaga=${res[i].vagaData.id_vaga}&m=${res[i].matchPercent}" class="text-decoration-none d-flex " style="color: black;">
                     <div id="logo">
-                        <img src="${res[i].logo_empresa}" alt="">
+                        <img src="${res[i].vagaData.logo_empresa}" alt="">
                     </div>
                     <div class="textpart">
-                        <h2 id="nome-vaga">${res[i].nome_vaga}</h2>
-                        <p id="descricao" class="textdescript">${res[i].descricao_vaga}</p>
+                        <h2 id="nome-vaga">${res[i].vagaData.nome_vaga}</h2>
+                        <p id="descricao" class="textdescript">${res[i].vagaData.descricao_vaga}</p>
     
                     </div>
     

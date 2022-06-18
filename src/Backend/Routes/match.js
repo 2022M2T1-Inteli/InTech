@@ -41,10 +41,13 @@ Routes.post('/listMatch', (req, res) => {
             let matchPercent = matchedSkills.length / vagaSkills.length; 
     
             if (matchPercent >= 0.5) {
-                idVagasMatched.push(dbVagas[x])
+                let jsonS = JSON.stringify(dbVagas[x])
+                let res = ` { "vagaData": ${jsonS}, "matchPercent": ${matchPercent} }`  
+                let jsonP = JSON.parse(res)
+                idVagasMatched.push(jsonP)
             }
     
-            console.log(matchPercent)
+            console.log(idVagasMatched)
         }
         res.status(200).json(idVagasMatched)
     }

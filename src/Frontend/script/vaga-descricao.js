@@ -4,9 +4,9 @@ const getUrlParameter = new URLSearchParams(window.location.search)
 function loadVagaData() { //função que os dados da vaga de acordeu com o seu ID
 
     let id_vaga = getUrlParameter.get('id_vaga')
-
+    let match_percent = getUrlParameter.get('m')
     $.ajax({
-        url: `http://localhost:3000/rotas/listVagas?id_vaga=${id_vaga}`,
+        url: `http://localhost:3000/rotas/listVagas?id_vaga=${id_vaga}&m=${match_percent}`,
         method: 'post',
         success: function (res) {
             $("#tituloVaga").html(res.vagaInfos.nome_vaga)
@@ -36,6 +36,8 @@ function loadVagaData() { //função que os dados da vaga de acordeu com o seu I
 
 function applyVaga() { // função que é executada quando o usuário se candidata para uma vaga
     let id_vaga = getUrlParameter.get('id_vaga')
+    let match_percent = getUrlParameter.get('m')
+
     let { id_candidata } = JSON.parse(sessionStorage.getItem("UsuarioDadosLogin"))
 
     $.ajax({
@@ -43,8 +45,8 @@ function applyVaga() { // função que é executada quando o usuário se candida
         method: 'POST',
         data: {
             id_candidata: id_candidata,
-            id_vaga: id_vaga
-
+            id_vaga: id_vaga,
+            match_percent: match_percent
         },
         success: function () {
             window.location.replace("/views/Users/usuariaCandidata5.html")
@@ -56,8 +58,6 @@ function applyVaga() { // função que é executada quando o usuário se candida
             setTimeout(function(){
                 error.innerHTML = ""
             },7000)
-            
-            
 
         }
     })
