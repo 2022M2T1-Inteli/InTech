@@ -81,7 +81,7 @@ function catchUserData() { // função que pega os dados de usuário de acordo c
                 } else if (!forms1.LocalizacaoCandidata) {
                     error.innerHTML = "Localização necessária"
                     window.scroll(0, 0)
-                }   else if (!forms1.NascimentoCandidata) {
+                } else if (!forms1.NascimentoCandidata) {
                     errorDate.innerHTML = "Data necessária"
                     window.scroll(0, 150)
                     setTimeout(function () {
@@ -156,36 +156,36 @@ function catchUserData() { // função que pega os dados de usuário de acordo c
 }
 
 let PDFcurriculo
-let LogoEmpresa 
+let LogoEmpresa
 
 function onChange() {
     let file = document.querySelector('#formFile').files[0];
-    if(file.size > 2197152){
+    if (file.size > 2197152) {
         alert("File is too big!");
         this.value = "";
-     }else{
+    } else {
         getBase64(file).then(
-            data => 
-             PDFcurriculo = data
+            data =>
+                PDFcurriculo = data
         );
 
-     }
-   
+    }
+
 }
 
 function onChange2() {
     let file = document.querySelector('#formFile').files[0];
-    if(file.size > 2197152){
+    if (file.size > 2197152) {
         alert("File is too big!");
         this.value = "";
-     }else{
+    } else {
         getBase64(file).then(
-            data => 
-              LogoEmpresa = data
+            data =>
+                LogoEmpresa = data
         );
 
-     }
-   
+    }
+
 }
 
 function getBase64(file) {
@@ -212,7 +212,7 @@ function catchUserData2() { // função que pega os dados do formulário
     let SoftskillsOn = []
     let HardskillsOn = []
 
-    
+
 
     for (let i = 0; i < Softskills.length; i++) {
 
@@ -294,8 +294,55 @@ function catchRecruiterData() { // função que pega os valores do formulário p
         RamoAtividade: document.querySelector('#ramoEmpresa').value,
         CnpjEmpresa: document.querySelector('#cnpjEmpresa').value,
         LocalizacaoEmpresa: document.querySelector('#localizacaoEmpresa').value,
-        LogoEmpresa:LogoEmpresa        
+        LogoEmpresa: LogoEmpresa
     }
+
+    let errorNomeEmpresa = document.querySelector("#errorNomeEmpresa")
+    let errorramoEmpresa = document.querySelector("#errorRamo")
+    let errorCNPJ = document.querySelector("#errorCNPJ")
+    let errorLocal = document.querySelector("#errorLocal")
+    let errorLogo = document.querySelector("#errorLogo")
+
+    // caso a recrutadora não preencha um campo corretamente, ela receberá uma mensagem de alerta
+
+    //validação do preenchimento dos campos da Tela de Cadastro Recrutadora 1
+
+    if (!formsRecruit1.NomeEmpresa) {
+        errorNomeEmpresa.innerHTML = "Nome necessário"
+        window.scroll(0, 0)
+        setTimeout(function () {
+            errorNomeEmpresa.innerHTML = ""
+        }, 5000)
+    }
+    if (!formsRecruit1.RamoAtividade) {
+        errorramoEmpresa.innerHTML = "Ramo de atividade necessário"
+        window.scroll(0, 0)
+        setTimeout(function () {
+            errorramoEmpresa.innerHTML = ""
+        }, 5000)
+    }
+    if (!formsRecruit1.CnpjEmpresa == "__.___.___/____-__") {
+        errorCNPJ.innerHTML = "CNPJ necessário"
+        window.scroll(0, 0)
+        setTimeout(function () {
+            errorCNPJ.innerHTML = ""
+        }, 5000)
+    }
+    if (!formsRecruit1.LocalizacaoEmpresa) {
+        errorLocal.innerHTML = "Localização necessária"
+        window.scroll(0, 0)
+        setTimeout(function () {
+            errorLocal.innerHTML = ""
+        }, 5000)
+    }
+    if (!formsRecruit1.LogoEmpresa) {
+        errorLogo.innerHTML = "Logo da empresa necessário"
+        window.scroll(0, 0)
+        setTimeout(function () {
+            errorLogo.innerHTML = ""
+        }, 5000)
+    }
+
 
     sessionStorage.setItem("Recruit1", JSON.stringify(formsRecruit1))
 
@@ -312,6 +359,41 @@ function catchRecruiterData2() { // função que pega os valores de outro formul
     let SiteEmpresa = document.querySelector('#siteEmpresa').value;
     let EmailEmpresa = document.querySelector('#emailEmpresa').value;
     let SenhaEmpresa = document.querySelector('#senha').value;
+
+    let errorTelefone = document.getElementById("errorTelefone");
+    let errorSite = document.getElementById("errorSite");
+    let errorEmail = document.getElementById("errorEmail");
+    let errorSenha = document.getElementById("errorSenha");
+
+    //validação do preenchimento dos campos da Tela de Cadastro Recrutadora 2
+    if (!TelefoneEmpresa) {
+        errorTelefone.innerHTML = "Campo obrigatório"
+        window.scroll(0, 0)
+        setTimeout(function () {
+            errorTelefone.innerHTML = ""
+        }, 5000)
+    }
+    if (!SiteEmpresa) {
+        errorSite.innerHTML = "Campo obrigatório"
+        window.scroll(0, 0)
+        setTimeout(function () {
+            errorSite.innerHTML = ""
+        }, 5000)
+    }
+    if (!EmailEmpresa) {
+        errorEmail.innerHTML = "Campo obrigatório"
+        window.scroll(0, 0)
+        setTimeout(function () {
+            errorEmail.innerHTML = ""
+        }, 5000)
+    }
+    if (!SenhaEmpresa) {
+        errorSenha.innerHTML = "Campo obrigatório"
+        window.scroll(0, 0)
+        setTimeout(function () {
+            errorSenha.innerHTML = ""
+        }, 5000)
+    }
 
     sendRecruitData(recuitForms1.NomeEmpresa, EmailEmpresa, recuitForms1.RamoAtividade, recuitForms1.LogoEmpresa, SenhaEmpresa, "cultura", TelefoneEmpresa, SiteEmpresa, recuitForms1.CnpjEmpresa, recuitForms1.LocalizacaoEmpresa)
     sessionStorage.removeItem("Recruit1")
@@ -434,7 +516,7 @@ function sendVacancyData(SoftskillVaga, NomeVaga, DescricaoVaga, LocalVaga, Sala
     })
 }
 
-function editVaga(id_vaga, softskill, descricao, salario, hardskill, modalidade,local) {
+function editVaga(id_vaga, softskill, descricao, salario, hardskill, modalidade, local) {
     $.ajax({
         url: "http://localhost:3000/vaga/editVaga",
         method: "PUT",
@@ -451,7 +533,7 @@ function editVaga(id_vaga, softskill, descricao, salario, hardskill, modalidade,
             window.location.reload()
         },
         error: function (err) {
-           alert(err)
+            alert(err)
         }
     })
 
