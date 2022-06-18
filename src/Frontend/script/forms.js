@@ -266,11 +266,14 @@ function catchRecruiterData() { // função que pega os valores do formulário p
     }
 
     let errorNomeEmpresa = document.querySelector("#errorNomeEmpresa")
-    let errorEmailEmpresa = document.querySelector("#errorEmail")
+    let errorramoEmpresa = document.querySelector("#errorRamo")
     let errorCNPJ = document.querySelector("#errorCNPJ")
     let errorLocal = document.querySelector("#errorLocal")
+    let errorLogo = document.querySelector("#errorLogo")
 
     // caso a recrutadora não preencha um campo corretamente, ela receberá uma mensagem de alerta
+
+    //validação do preenchimento dos campos da Tela de Cadastro Recrutadora 1
 
     if (!formsRecruit1.NomeEmpresa) {
         errorNomeEmpresa.innerHTML = "Nome necessário"
@@ -279,58 +282,34 @@ function catchRecruiterData() { // função que pega os valores do formulário p
             errorNomeEmpresa.innerHTML = ""
         }, 5000)
     } 
-    //Rever se é necessária essa validação, por que nome de empresa as vezes tem número
-
-    // else if (formsRecruit1.NomeEmpresa) {
-    //     let transform = formsRecruit1.NomeEmpresa.split("")
-    //     let verify
-
-    //     for (let i = 0; i < transform.length; i++) {
-    //         if (isNaN(parseInt(transform[i])) == false) {
-    //             verify = true
-    //         }
-
-    //     }
-
-    //     if (verify === true) {
-    //         errorNomeEmpresa.innerHTML = "Nome não pode conter numero"
-    //         window.scroll(0, 0)
-    //         setTimeout(function () {
-    //             errorNomeEmpresa.innerHTML = ""
-    //         }, 5000)
-    //     } 
-        if (!formsRecruit1.EmailEmpresa) {
-            errorEmailEmpresa.innerHTML = "Email necessário"
-            window.scroll(0, 0)
-            setTimeout(function () {
-                errorEmailEmpresa.innerHTML = ""
-            }, 5000)
-            } 
-            else if (formsRecruit1.EmailEmpresa) {
-            if (validateEmail(formsRecruit1.EmailEmpresa) == false) {
-                errorEmailEmpresa.innerHTML = "Email invalido"
-                window.scroll(0, 0)
-                setTimeout(function () {
-                    errorEmailEmpresa.innerHTML = ""
-                }, 5000)
-            }
-            else {
-                if (!formsRecruit1.CnpjEmpresa == "__.___.___/____-__") {
-                    errorCNPJ.innerHTML = "CNPJ obrigatório"
-                    window.scroll(0, 0)
-                    setTimeout(function () {
-                        errorCNPJ.innerHTML = ""
-                    }, 5000)
-                }
-                if (!formsRecruit1.LocalizacaoEmpresa) {
-                    errorLocal.innerHTML = "Localização obrigatória"
-                    window.scroll(0, 0)
-                    setTimeout(function () {
-                        errorLocal.innerHTML = ""
-                    }, 5000)
-                }
-            }
-
+    if (!formsRecruit1.RamoAtividade) {
+        errorramoEmpresa.innerHTML = "Ramo de atividade necessário"
+        window.scroll(0, 0)
+        setTimeout(function () {
+            errorramoEmpresa.innerHTML = ""
+        }, 5000)
+    }
+    if (!formsRecruit1.CnpjEmpresa == "__.___.___/____-__") {
+        errorCNPJ.innerHTML = "CNPJ necessário"
+        window.scroll(0, 0)
+        setTimeout(function () {
+            errorCNPJ.innerHTML = ""
+        }, 5000)
+    }
+    if (!formsRecruit1.LocalizacaoEmpresa) {
+        errorLocal.innerHTML = "Localização necessária"
+        window.scroll(0, 0)
+        setTimeout(function () {
+            errorLocal.innerHTML = ""
+        }, 5000)
+    }
+    if (!formsRecruit1.LogoEmpresa) {
+        errorLogo.innerHTML = "Logo da empresa necessário"
+        window.scroll(0, 0)
+        setTimeout(function () {
+            errorLogo.innerHTML = ""
+        }, 5000)
+    }
 
 
     sessionStorage.setItem("Recruit1", JSON.stringify(formsRecruit1))
@@ -353,10 +332,43 @@ function catchRecruiterData2() { // função que pega os valores de outro formul
     let SenhaEmpresa = document.querySelector('#senha').value;
 
 
+    let errorTelefone = document.getElementById("errorTelefone");
+    let errorSite = document.getElementById("errorSite");
+    let errorEmail = document.getElementById("errorEmail");
+    let errorSenha = document.getElementById("errorSenha");
+    
+    //validação do preenchimento dos campos da Tela de Cadastro Recrutadora 2
+    if (!TelefoneEmpresa) {
+        errorTelefone.innerHTML = "Campo obrigatório"
+        window.scroll(0, 0)
+        setTimeout(function () {
+            errorTelefone.innerHTML = ""
+        }, 5000)
+    }
+    if (!SiteEmpresa) {
+        errorSite.innerHTML = "Campo obrigatório"
+        window.scroll(0, 0)
+        setTimeout(function () {
+            errorSite.innerHTML = ""
+        }, 5000)
+    }
+    if (!EmailEmpresa) {
+        errorEmail.innerHTML = "Campo obrigatório"
+        window.scroll(0, 0)
+        setTimeout(function () {
+            errorEmail.innerHTML = ""
+        }, 5000)
+    }
+    if (!SenhaEmpresa) {
+        errorSenha.innerHTML = "Campo obrigatório"
+        window.scroll(0, 0)
+        setTimeout(function () {
+            errorSenha.innerHTML = ""
+        }, 5000)
+    }    
 
-
-    sendRecruitData(recuitForms1.NomeEmpresa, EmailEmpresa, recuitForms1.RamoAtividade, "logo", SenhaEmpresa, "cultura", TelefoneEmpresa, SiteEmpresa, recuitForms1.CnpjEmpresa, recuitForms1.LocalizacaoEmpresa)
-
+    
+    sendRecruitData(recuitForms1.NomeEmpresa, EmailEmpresa, recuitForms1.RamoAtividade, recuitForms1.LogoEmpresa, SenhaEmpresa, "cultura", TelefoneEmpresa, SiteEmpresa, recuitForms1.CnpjEmpresa, recuitForms1.LocalizacaoEmpresa)
     sessionStorage.removeItem("Recruit1")
 
 }
