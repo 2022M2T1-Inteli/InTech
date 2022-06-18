@@ -62,11 +62,11 @@ const deleteRecuiter = (req, res) => {
 }
 
 const editRecruiter = (req,res)=>{
-    const {id_empresa,logo,email,senha,telefone,site,localização} = req.body
+    const {id_empresa,logo,email,senha,telefone,site,localização,ramo,cultura} = req.body
 
     const recruit = new recruiterModel.Recruiter()
 
-    recruit.editRecruiter(id_empresa,logo,email,senha,telefone,site,localização).then((result)=>{
+    recruit.editRecruiter(id_empresa,logo,email,senha,telefone,site,localização,ramo,cultura).then((result)=>{
         if(result.type === "error"){
             res.status(500).json({
                 error:result.message
@@ -105,4 +105,17 @@ const verifyCNPJ = (req,res)=>{
     })
 }
 
-module.exports = { registerRecruiter, loginRecuiter, showJobsRecruiter,deleteRecuiter,editRecruiter,verifyEmail,verifyCNPJ }
+
+const loadVagaDataWithUsers = (req, res) => {
+
+    const {id_vaga,id_empresa} = req.body
+
+    const recruiter = new recruiterModel.Recruiter()
+    recruiter.loadVagaDataWithUsers(id_vaga,id_empresa).then((result)=>{
+        if(result.type === "success"){
+            res.status(200).json({data1:result.data1,data2:result.data2})
+        }
+    })
+}
+
+module.exports = { registerRecruiter, loginRecuiter, showJobsRecruiter,deleteRecuiter,editRecruiter,verifyEmail,verifyCNPJ,loadVagaDataWithUsers }

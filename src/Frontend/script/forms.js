@@ -434,7 +434,7 @@ function sendVacancyData(SoftskillVaga, NomeVaga, DescricaoVaga, LocalVaga, Sala
     })
 }
 
-function editVaga(id_vaga, softskill, descricao, salario, hardskill, modalidade) {
+function editVaga(id_vaga, softskill, descricao, salario, hardskill, modalidade,local) {
     $.ajax({
         url: "http://localhost:3000/vaga/editVaga",
         method: "PUT",
@@ -444,13 +444,14 @@ function editVaga(id_vaga, softskill, descricao, salario, hardskill, modalidade)
             descricao: descricao,
             salario: salario,
             hardskill: hardskill,
-            modalidade: modalidade
+            modalidade: modalidade,
+            local: local
         },
         success: function () {
-            //redirecionar pra tal pagina ou popup e redirecionar
+            window.location.reload()
         },
-        error: function () {
-            //mostrar erro na tela ou algo parecido
+        error: function (err) {
+           alert(err)
         }
     })
 

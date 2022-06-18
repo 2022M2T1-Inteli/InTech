@@ -162,24 +162,29 @@ class Recruiter {
 
     }
 
-    async editRecruiter(id_empresa,logo,email,senha,telefone,site,localização){
+    async editRecruiter(id_empresa,logo,email,senha,telefone,site,localização,ramo,cultura){
         const db = await sqlite.open({ filename: "./database/banco_de_dados.db", driver: sqlite3.Database })
 
 
         let infosChangesRecruiter = []
 
+
         if(logo){
-            infosChangesRecruiter.push(`logo_empresa = ${logo}`)
+            infosChangesRecruiter.push(`logo_empresa = "${logo}"`)
         }if(email){
-            infosChangesRecruiter.push(`email_empresa = ${email}`)
+            infosChangesRecruiter.push(`email_empresa = "${email}"`)
         }if(senha){
-            infosChangesRecruiter.push(`senha_empresa = ${senha}`)
+            infosChangesRecruiter.push(`senha_empresa = "${senha}"`)
         }if(telefone){
-            infosChangesRecruiter.push(`telefone_empresa = ${telefone}`)
+            infosChangesRecruiter.push(`telefone_empresa = "${telefone}"`)
         }if(site){
-            infosChangesRecruiter.push(`site_empresa = ${site}`)
+            infosChangesRecruiter.push(`site_empresa = "${site}"`)
         }if(localização){
-            infosChangesRecruiter.push(`localizacao_empresa = ${localização}`)
+            infosChangesRecruiter.push(`localizacao_empresa = "${localização}" `)
+        }if(ramo){
+            infosChangesRecruiter.push(`ramo_empresa = "${ramo}" `)
+        }if(cultura){
+            infosChangesRecruiter.push(`cultura_empresa = "${cultura}" `)
         }
 
         let infosChangesRecruiterDB = infosChangesRecruiter.join(",")
@@ -248,9 +253,21 @@ class Recruiter {
         return success
     }
 
-    async aplicantesDeTalVaga(){
+    async loadVagaDataWithUsers(id_vaga,id_empresas){
         const db = await sqlite.open({ filename: "./database/banco_de_dados.db", driver: sqlite3.Database })
         
+        const infoVagas = await db.all(`SELECT nome_vaga,descricao_vaga,local_vaga,salario_vaga,softskill_vaga,hardskill_vaga,modalidade_vaga FROM vagas WHERE id_vaga = ${id_vaga} AND id_empresas = ${id_empresas}`)
+
+        const infosUserApli = await db.all(`SELECT vagasCandidatas.id_vaga  ,vagasCandidatas.id_candidata,vagasCandidatas.match_percent,candidatas.nome_candidata,candidatas.email_candidata,candidatas.curriculo_candidata FROM vagasCandidatas JOIN candidatas ON candidatas.id_candidata = vagasCandidatas.id_candidata WHERE id_vaga = ${id_vaga} AND id_empresa = ${id_empresas} `)
+
+        const success =  {
+            type: "success",
+            data1: infoVagas,
+            data2: infosUserApli
+        }
+
+        return success
+
 
     }
 

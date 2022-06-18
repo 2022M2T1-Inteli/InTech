@@ -48,7 +48,7 @@ function loadVagas() {
 }
 
 // quando do login, pegar infos de empresa cadastradas no banco de dados, e display na página de perfil da empresa
-function logadoRecruit() {
+function logadoRecruit(email,senha) {
     let Recruit = JSON.parse(sessionStorage.getItem("EmpresaDadosLogin"))
     $("#name").html(Recruit.nome_empresa)
     $("#localizacao").val(Recruit.localizacao_empresa)
@@ -58,5 +58,63 @@ function logadoRecruit() {
     $("#preview").attr("src", Recruit.logo_empresa)
     $("#email").val(Recruit.email_empresa)
     $("senha").val(Recruit.senha_empresa)
+
+    $.ajax({
+        url: "http://localhost:3000/recruiter/loginRecruit",
+        method: "POST",
+        data: {
+            email: email,
+            senha: senha
+
+        },
+        error: function (res) {
+            $("#error").html(res.responseJSON)
+        },
+        success: function (res) {
+            sessionStorage.setItem("EmpresaDadosLogin", JSON.stringify(res))
+
+
+        }
+    })
+
 }
+
+
+function EditCompany(id_empresa, logo, email, senha, telefone, site, localização, ramo, cultura) {
+
+    $.ajax({
+        url: "http://localhost:3000/recruiter/editEmpresa",
+        method: "PUT",
+        data: {
+            id_empresa: id_empresa,
+            logo: logo,
+            email: email,
+            senha: senha,
+            telefone: telefone,
+            site: site,
+            localização: localização,
+            ramo: ramo,
+            cultura: cultura
+        },
+        success: function () {
+            let senhaEmpresa = senha
+            let emailEmpresa = email
+
+            sessionStorage.removeItem("EmpresaDadosLogin")
+            loginRecruit(emailEmpresa, senhaEmpresa)
+            window.location.reload()
+
+
+
+        },
+        error: function (res) {
+            alert(res)
+        }
+
+    })
+
+}
+
+
+
 

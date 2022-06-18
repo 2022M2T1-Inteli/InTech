@@ -19,11 +19,11 @@ const registroVaga = (req, res) => {
 }
 
 const editVaga = (req,res)=>{
-    const {id_vaga,softskill,descricao,salario,hardskill,modalidade} = req.body
+    const {id_vaga,softskill,descricao,salario,hardskill,modalidade,local} = req.body
 
     const vaga = new vagaModel.Vaga()
 
-    vaga.editVaga(id_vaga,softskill,descricao,salario,hardskill,modalidade).then((result)=>{
+    vaga.editVaga(id_vaga,softskill,descricao,salario,hardskill,modalidade,local).then((result)=>{
         if(result.type === "error"){
             res.status(500).json({
                 error:result.message

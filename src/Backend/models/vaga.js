@@ -50,7 +50,7 @@ class Vaga {
         return success
     }
 
-    async editVaga(id_vaga,softskill,descricao,salario,hardskill,modalidade){
+    async editVaga(id_vaga,softskill,descricao,salario,hardskill,modalidade,local){
         const db = await sqlite.open({ filename: "./database/banco_de_dados.db", driver: sqlite3.Database })
 
         let vagaInfosEdit = []
@@ -65,6 +65,8 @@ class Vaga {
             vagaInfosEdit.push(`hardskill_vaga = ${hardskill}`)
         }if(modalidade){
             vagaInfosEdit.push(`modalidade_vaga = ${modalidade}`)
+        }if(local){
+            vagaInfosEdit.push(`local_vaga = ${local}`)
         }
 
         let vagaInfosEditDB = vagaInfosEdit.join(",")
