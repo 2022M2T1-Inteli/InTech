@@ -49,10 +49,7 @@
                 <select disabled class="form-select" name="Pais_candidata" id="pais">
                 </select>
                 <div style="gap: 10px;" class="row mt-2 mb-2 boxInputs">
-                    <select disabled class="col-4 form-select w-auto" name="UF_candidata" id="estado">
-                    </select>
-                    <select disabled class="col-8 form-select w-auto" name="Cidade_candidata" id="cidade">
-                    </select>
+                   
                 </div>
 
 
@@ -242,7 +239,7 @@
                     const editButton = document.querySelector('#editButton')
 
                     for (let i = 0; i < selects.length; i++) { selects[i].disabled = true } // const
-                    const localizacao = document.querySelector('#local')
+                    const localizacao = document.querySelector('#pais').value
                     const cargoCandidata = document.querySelector('#cargoCandidata').value
                     const grauInstrucao = document.querySelector('#escolaridadeCandidata').value
                     
@@ -274,10 +271,17 @@
                     let hardSkillsDB = hardSkills.toString() 
                     console.log(hardSkills)
                     //editarUser(localizacao, cargoCandidata, grauInstrucao)
+
+                    editarUser(JSON.parse(sessionStorage.getItem("UsuarioDadosLogin")).id_candidata,localizacao,cargoCandidata,grauInstrucao,hardSkillsDB,softSkillsDB)
+
+
+
                     
                     editButton.setAttribute("class", "botao btn btn-secondary")
                     editButton.setAttribute("onclick", "edit()")
                     editButton.innerHTML = 'EDITAR PERFIL'
+
+
                 }
                 
                 function openPopup() {

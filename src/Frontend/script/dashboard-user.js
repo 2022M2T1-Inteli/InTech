@@ -8,7 +8,7 @@ function logadoUser() {
 
     $("#name").html(usuario.nome_candidata)
     $("#cidade").val(usuario.cidade_candidata)
-    $("#pais").val(usuario.pais_candidata)
+    $("#pais").val(usuario.localizacao_candidata)
     $("#estado").val(usuario.estado_candidata)
     $("#cargoCandidata").val(usuario.cargo_candidata)
     $("#escolaridadeCandidata").val(usuario.escolaridade_candidata)
@@ -95,27 +95,62 @@ function removeSoftSkill(e) {
     updateSoftSkills(Softskills)
 }
 
-function editarUser(id_candidata, estado, cidade, cargo, grauDeInstrução, hardskill, softskill) {
-    // $.ajax({
-    //     url: "http://localhost:3000/user/editarUser",
-    //     method: "PUT",
-    //     data: {
-    //         id_candidata: id_candidata,
-    //         estado: estado,
-    //         cidade: cidade,
-    //         cargo: cargo,
-    //         grauDeInstrução: grauDeInstrução,
-    //         hardskill: hardskill,
-    //         softskill: softskill
-    //     },
-    //     success: function () {
-    //         //se tiver que voltar a tela usar window.replace,
-    //         // se for fazer na mesma tela so pede para fazer reload na pagina ou aparecer um popup e depois reload
-    //     },
-    //     error: function () {
-    //         // colocar algum ponto do html para aparecer a mensagem de erro
-    //     }
-    // })
+function loginUser(email,senha) {
+
+    
+
+
+    $.ajax({
+        url: "http://localhost:3000/user/loginUser",
+        method: "POST",
+        data: {
+            email: email,
+            senha: senha
+
+        },
+        error: function (res) {
+
+            $("#error").html(res.responseJSON)
+        },
+        success: function (res) {
+
+            sessionStorage.setItem("UsuarioDadosLogin", JSON.stringify(res))
+            
+
+        }
+    })
+}
+
+function editarUser(id_candidata, localizacao, cargo, grauDeInstrução, hardskill, softskill) {
+    $.ajax({
+        url: "http://localhost:3000/user/editarUser",
+        method: "PUT",
+        data: {
+            id_candidata: id_candidata,
+            localização: localizacao,
+            cargo: cargo,
+            grauDeInstrução: grauDeInstrução,
+            hardskill: hardskill,
+            softskill: softskill
+        },
+        success: function () {
+            //se tiver que voltar a tela usar window.replace,
+            // se for fazer na mesma tela so pede para fazer reload na pagina ou aparecer um popup e depois reload
+
+            let Senha_candidata = JSON.parse(sessionStorage.getItem("UsuarioDadosLogin")).senha_candidata
+            let Email_candidata = JSON.parse(sessionStorage.getItem("UsuarioDadosLogin")).email_candidata
+
+            sessionStorage.removeItem("UsuarioDadosLogin")
+
+            loginUser(Email_candidata,Senha_candidata)
+            window.location.reload()
+
+        },
+        error: function (err) {
+            // colocar algum ponto do html para aparecer a mensagem de erro
+            console.log(err)
+        }
+    })
 }
 
 function deleteUser(id_candidata) {

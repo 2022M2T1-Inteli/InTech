@@ -45,11 +45,11 @@ const listaVagasAplicadas = (req,res)=>{
 }
 
 const editarUser = (req,res)=>{
-    const {id_candidata,estado,cidade,cargo,grauDeInstrução,hardskill,softskill} = req.body
+    const {id_candidata,localização,cargo,grauDeInstrução,hardskill,softskill} = req.body
 
     const user = new userModel.User()
 
-    user.editUser(id_candidata,estado,cidade,cargo,grauDeInstrução,hardskill,softskill).then((result)=>{
+    user.editUser(id_candidata,localização,cargo,grauDeInstrução,hardskill,softskill).then((result)=>{
 
         if(result.type === "error"){
             res.status(500).json({

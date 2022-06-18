@@ -152,15 +152,15 @@ class User {
         let infosChangesUser = []
 
         if (localizacao) {
-            infosChangesUser.push(`localizacao_candidata = ${localizacao}`)
+            infosChangesUser.push(`localizacao_candidata = "${localizacao}"`)
         } if (cargo) {
-            infosChangesUser.push(`cargo_candidata = ${cargo}`)
+            infosChangesUser.push(`cargo_candidata = "${cargo}"`)
         } if (grauDeInstrução) {
-            infosChangesUser.push(`escolaridade_candidata = ${grauDeInstrução}`)
+            infosChangesUser.push(`escolaridade_candidata = "${grauDeInstrução}"`)
         } if (hardskill) {
-            infosChangesUser.push(`hardskill_candidata = ${hardskill}`)
+            infosChangesUser.push(`hardskill_candidata = "${hardskill}"`)
         } if (softskill) {
-            infosChangesUser.push(`softskill_candidata = ${softskill}`)
+            infosChangesUser.push(`softskill_candidata = "${softskill}"`)
         }
 
         // verificar se nenhuma informação foi enviada ao servidor
