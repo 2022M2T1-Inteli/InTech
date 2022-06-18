@@ -46,8 +46,6 @@ Routes.post('/listMatch', (req, res) => {
                 let jsonP = JSON.parse(res)
                 idVagasMatched.push(jsonP)
             }
-    
-            console.log(idVagasMatched)
         }
         res.status(200).json(idVagasMatched)
     }

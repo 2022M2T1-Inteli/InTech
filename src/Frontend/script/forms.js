@@ -154,6 +154,7 @@ function catchUserData() { // função que pega os dados de usuário de acordo c
 
     }
 }
+
 let PDFcurriculo
 let LogoEmpresa 
 
@@ -522,11 +523,5 @@ function loginRecruit() {
 
         }
     })
-}
-
-// quando do login, pegar infos de empresa cadastradas no banco de dados, e display na página de perfil da empresa
-function logadoRecruit() {
-    let Recruit = JSON.parse(sessionStorage.getItem("EmpresaDadosLogin"))
-
 }
 

@@ -2,9 +2,6 @@
 
 function loadVagas() {
     let EmpresaInfos = JSON.parse(sessionStorage.getItem("EmpresaDadosLogin"));
-
-
-
     $("#nomeEmpresa").html(EmpresaInfos.nome_empresa) // coloca as informações da empresa logando diretamente no frontend
     $("#email").html(EmpresaInfos.email_empresa) // coloca as informações da empresa logando diretamente no frontend
 
@@ -49,3 +46,17 @@ function loadVagas() {
         }
     })
 }
+
+// quando do login, pegar infos de empresa cadastradas no banco de dados, e display na página de perfil da empresa
+function logadoRecruit() {
+    let Recruit = JSON.parse(sessionStorage.getItem("EmpresaDadosLogin"))
+    $("#name").html(Recruit.nome_empresa)
+    $("#localizacao").val(Recruit.localizacao_empresa)
+    $("#telefone").val(Recruit.telefone_empresa)
+    $("#site").val(Recruit.site_empresa)
+    $("#cultura").val(Recruit.cultura_empresa)
+    $("#preview").attr("src", Recruit.logo_empresa)
+    $("#email").val(Recruit.email_empresa)
+    $("senha").val(Recruit.senha_empresa)
+}
+
