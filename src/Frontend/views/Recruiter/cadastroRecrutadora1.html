@@ -36,7 +36,7 @@
                 name="Ramo_Atividade">
 
             <label for="cnpjEmpresa">CNPJ de sua empresa</label>
-            <input id="cnpjEmpresa" maxlength="18" class="inputBit border-0" type="text"  placeholder="CNPJ" name="cnpj" data-mask="__.___.___/____-__" value="__.___.___/____-__">
+            <input id="cnpjEmpresa" maxlength="18" class="inputBit border-0" type="text"  placeholder="CNPJ" name="cnpj">
 
             <label for="localizacaoEmpresa">Localização </label>
             <input id="localizacaoEmpresa" class="inputBit border-0" type="text" placeholder="Localização"
@@ -61,13 +61,19 @@
 
 
     <script src="../../script/forms.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
     <script>
-        $("#cnpjEmpresa").on("keyup", function (e) {
-            $(this).val(
-                $(this).val()
-                    .replace(/\D/g, '')
-                    .replace(/^(\d{2})(\d{3})?(\d{3})?(\d{4})?(\d{2})?/, "$1 $2 $3/$4-$5"));
+        // $("#cnpjEmpresa").on("keyup", function (e) {
+        //     $(this).val(
+        //         $(this).val()
+        //             .replace(/\D/g, '')
+        //             .replace(/^(\d{2})(\d{3})?(\d{3})?(\d{4})?(\d{2})?/, "$1 $2 $3/$4-$5"));
+        // });
+        $(document).ready(function () { 
+            var $seuCampoCNPJ = $("#cnpjEmpresa");
+            $seuCampoCNPJ.mask('00.000.000/0000-00', {reverse: true});
         });
+
     </script>
 
 </body>
