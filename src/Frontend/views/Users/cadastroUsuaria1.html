@@ -51,14 +51,13 @@
 
                 <p id="errorCelular" style="color: yellow;" class="d-flex justify-content-center mb-2"></p>
 
-                <input id="celularCandidata" class="caixa2 border-0 mb-0" type="text" value="(__) _____-____"
-                    data-mask="(__) _____-____" placeholder="Digite o número do seu celular" name="Celular_candidata" />
+                <input id="celularCandidata" class="caixa2 border-0 mb-0" type="text" placeholder="Digite o número do seu celular" name="Celular_candidata" />
 
                 <label for="cpfCandidata">CPF</label>
 
                 <p id="errorCPF" style="color: yellow;" class="d-flex justify-content-center mb-2"></p>
 
-                <input id="cpfCandidata" value="___.___.___-__" data-mask="___.___.___-__" class="caixa2 border-0"
+                <input id="cpfCandidata" maxlength="14" class="caixa2 border-0"
                     type="text" placeholder="Digite seu CPF" name="CPF_candidata">
 
                 <!-- <label for="pais">Selecione seu país</label>
@@ -91,7 +90,7 @@
                 <select class="caixa2 border-0 mb-0" name="Genero_candidata" id="genero">
                     <option class="opt-disabled" value="" disabled hidden selected>Informe seu gênero</option>
                     <option value="mulher-cis">Mulher-Cis</option>
-                    <option value="homem-cis">Homen-Cis</option>
+                    <option value="homem-cis">Homem-Cis</option>
                     <option value="mulher-cis">Mulher Trans</option>
                     <option value="homem-trans">Homem Trans</option>
                     <option value="nao-binario">Não-Binário</option>
@@ -118,10 +117,19 @@
 
     </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-compat/3.0.0-alpha1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
 
     <script>
         // Mascara CPF e Telefone
         Array.prototype.forEach.call(document.body.querySelectorAll("*[data-mask]"), applyDataMask); // coleta todos os inputs que conterem o atributo (data-mask)
+
+        $(document).ready(function () { 
+        var $seuCampoCel = $("#celularCandidata");
+        $seuCampoCel.mask('(00) 00000-0000');
+
+        var $seuCampoCPF = $("#cpfCandidata");
+        $seuCampoCPF.mask('000.000.000-00', {reverse: true});
+        });
 
         function applyDataMask(field) {
             var mask = field.dataset.mask.split('');
