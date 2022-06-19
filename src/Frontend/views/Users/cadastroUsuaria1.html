@@ -101,7 +101,9 @@
                 <p id="errorSenha" style="color: yellow;" class="d-flex justify-content-center mb-2"></p>
 
                 <input id="senha" class="caixa2 border-0 mb-0" name="Senha_candidata" type="password"
-                    placeholder="Crie uma senha">
+                    placeholder="Crie uma senha" onkeyup="senhaforca()">
+
+                <div id="impForcaSenha"></div>
             </div>
 
 
@@ -122,6 +124,49 @@
     <script>
         // Mascara CPF e Telefone
         Array.prototype.forEach.call(document.body.querySelectorAll("*[data-mask]"), applyDataMask); // coleta todos os inputs que conterem o atributo (data-mask)
+
+        //nas duas funções abaixo estará presente o mecanismo de verificação de força da senha
+        //ele pegará o valor do campo "senha", dado um "contador" inicial igual a 0 e concatenar-se-á ao longo do tamanho e complexidade da senha posta pelo usuário
+        function senhaforca(){
+            var password = document.getElementById('senha').value;
+            var forca = 0;
+            //document.getElementById("impSenha").innerHTML = "Senha " + password
+
+            if((password.length >= 4) && (password.length <= 7)){
+                forca += 10;
+            }else if(password.length > 7){
+                forca += 25;
+            }
+
+            if ((password.length >= 5) && password.match(/[a-z]+/)){
+                forca += 10;
+            }
+
+            if ((password.length >= 6) && password.match(/[A-Z]+/)){
+                forca += 20;
+            }
+
+            if ((password.length >= 7) && password.match(/[@#$%&;*.?/|!'"()^~=`><:¨]+/)){
+                forca += 25;
+            }
+
+           mostrarForca(forca)
+        }
+
+        function mostrarForca(forca){
+           
+
+            if (forca < 30){
+                document.getElementById('impForcaSenha').innerHTML = "<span style='color: #ff0000'>Senha Fraca</span>";
+            }else if((forca >= 30)&&(forca < 50)){
+                document.getElementById('impForcaSenha').innerHTML = "<span style='color: #FFD700'>Senha Média</span>";
+            }else if((forca >= 50)&&(forca < 70)){
+                document.getElementById('impForcaSenha').innerHTML = "<span style='color: #7FFF00'>Senha Forte</span>";
+            }else if((forca >= 70)&&(forca < 100)){
+                document.getElementById('impForcaSenha').innerHTML = "<span style='color: #008000'>Senha Excelente</span>";
+            }
+            
+        }
 
         $(document).ready(function () { 
         var $seuCampoCel = $("#celularCandidata");
@@ -169,6 +214,9 @@
             field.addEventListener('click', changed)
             field.addEventListener('keyup', changed)
         }
+
+
+
 
     </script>
     <script src="../../script/api-localidades.js"></script>
