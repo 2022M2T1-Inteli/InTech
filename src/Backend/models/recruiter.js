@@ -36,7 +36,7 @@ class Recruiter {
 
 
 
-        const insi = await db.run("INSERT INTO empresas (nome_empresa,email_empresa,ramo_empresa,logo_empresa,senha_empresa,cultura_empresa,telefone_empresa,site_empresa,cnpj_empresa,localizacao_empresa) VALUES (?,?,?,?,?,?,?,?,?,?)", [this.nome, this.email, this.ramo, this.logo, this.senha, this.cultura, this.telefone, this.site, this.cnpj, this.localização])
+        const insi = await db.run("INSERT INTO empresas (nome_empresa,email_empresa,ramo_empresa,logo_empresa,senha_empresa,cultura_empresa,telefone_empresa,site_empresa,cnpj_empresa,localizacao_empresa,isAproved) VALUES (?,?,?,?,?,?,?,?,?,?,?)", [this.nome, this.email, this.ramo, this.logo, this.senha, this.cultura, this.telefone, this.site, this.cnpj, this.localização,0])
 
         if (insi.changes === 0) {
             const error = {
@@ -99,6 +99,25 @@ class Recruiter {
             }
 
 
+            else if(user[0].isAproved == 0){
+                const error = {
+                    type: "error",
+                    message: "O seu acesso está sendo avaliado pela BIT"
+                }
+
+                return error
+            }
+
+           
+
+            else if ((user[0].senha_empresa == senha) == false) {
+                const error = {
+                    type: "error",
+                    message: "Email ou Senha não corresponde"
+                }
+
+                return error
+            }
 
             else if (user[0].senha_empresa == senha) {
                 const success = {
@@ -108,15 +127,6 @@ class Recruiter {
 
                 return success
 
-            }
-
-            else if ((user[0].senha_empresa == senha) == false) {
-                const error = {
-                    type: "error",
-                    message: "Email ou Senha não corresponde"
-                }
-
-                return error
             }
 
         }

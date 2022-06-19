@@ -100,3 +100,39 @@ function loadVagas() {
         }
     })
 }
+
+
+function liberarEmpresa(id_empresa){
+
+    $.ajax({
+        url:"http://localhost:3000/adm/liberarEmpresa",
+        method:"POST",
+        data:{
+            id_empresa:id_empresa
+        },
+        success:function(data){
+            // o que vai acontecer depois de que liberar a empresa
+        },
+        error:function(data){
+            alert(data)
+        }
+    })
+
+}
+
+
+function bloquearEmpresa(id_empresa){
+    $.ajax({
+        url:"http://localhost:3000/adm/bloquearEmpresa",
+        method:"POST",
+        data:{
+            id_empresa:id_empresa
+        },
+        success:function(data){ 
+            // o que vai acontecer depois de que bloquear a empresa
+        },
+        error:function(data){
+            alert(data)
+        }
+    })
+}
