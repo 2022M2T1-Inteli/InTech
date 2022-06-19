@@ -18,10 +18,20 @@ Routes.get("/listAllVagas", (req, res) => {
 
         //abre o banco de dados sqlite
         const db = await sqlite.open({ filename: "./database/banco_de_dados.db", driver: sqlite3.Database })
+       
+        let vagas = []
+
         //roda comando sql e retora uma promise
-        await db.all("SELECT * FROM vagas").then((result) => {
-            res.json(result)
-        })
+        const infos = await db.all("SELECT empresas.id_empresas, empresas.logo_empresa, empresas.nome_empresa, vagas.id_empresas, vagas.nome_vaga, vagas.modalidade_vaga, vagas.id_vaga FROM vagas  JOIN empresas  on vagas.id_empresas = empresas.id_empresas ")
+
+        for (let i = 0; i < infos.length; i++) {
+            const qtnCandidatas = await db.all('SELECT id_candidata FROM vagasCandidatas WHERE id_vaga = ?', [infos[i].id_vaga])
+            let x = ' { "vagaInfo": ' + JSON.stringify(infos[i]) + ', "qtnCandidatas": ' + JSON.stringify(qtnCandidatas) + ' }'
+            let y = JSON.parse(x)
+            vagas.push(y)
+        }
+
+        res.status(200).json(vagas)
 
         //fecha o banco de dados
         db.close()
@@ -69,15 +79,15 @@ Routes.get("/listEmpresasParceiras", (req, res) => {
         // roda comandos sql e retorna uma promise
         let array = []
         const empresaData = await db.all("SELECT * FROM empresas WHERE isAproved = 1")
+        
         for (let i = 0; i < empresaData.length; i++) {
             const vagaQtnInfo = await db.all(`SELECT id_vaga FROM vagas WHERE id_empresas = ${empresaData[i].id_empresas}`)
-            let x = JSON.stringify(empresaData[i]) + ', "qtnVagas:"' + JSON.stringify(vagaQtnInfo)
-            array.push(x)
+            let x = '{ "dataEmpresa": ' + JSON.stringify(empresaData[i]) + ', "qtnVagas": ' + JSON.stringify(vagaQtnInfo) + '}'
+            let y = JSON.parse(x)
+            array.push(y)
         }
 
-
-        console.log(array)
-
+        res.status(200).json(array)
         // fecha o banco de dados
         db.close()
 

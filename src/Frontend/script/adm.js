@@ -2,7 +2,7 @@ function loadData() {
     loadCandidatas()
     loadEmpresasParceiras()
     loadEmpresasSolicitantes()
-    loadDashVagas()
+    loadVagas()
 }
 
 //função apenas para a dashboard. retorna apenas os números de candidatas
@@ -28,13 +28,13 @@ function loadEmpresasParceiras() {
                 tbody.innerHTML += `
                 <tr>
                     <td class="opportunities">
-                        <img src="${res[i].logo_empresa}"alt="Logo da empresa ${res[i].nome_empresa}">
+                        <img src="${res[i].dataEmpresa.logo_empresa}"alt="Logo da empresa ${res[i].nome_empresa}">
                         <div class="people-de">
-                        <h5>${res[i].nome_empresa}</h5>
+                        <h5>${res[i].dataEmpresa.nome_empresa}</h5>
                     </td>
 
                     <td class="people-designation">
-                        <p id="vagas-${res[i].id_empresas}"></p>
+                        <p>${res[i].qtnVagas.length}</p>
                     </td>
 
 
@@ -61,10 +61,6 @@ function loadEmpresasSolicitantes() {
                         <h5>${res[i].nome_empresa}</h5>
                 </td>
 
-                <td class="role">
-                    <p>00/00/00</p>
-                </td>
-
                 <td class="edit"><a href="#"> Analisar solicitação </a></td>
             </tr>
                 `
@@ -74,13 +70,33 @@ function loadEmpresasSolicitantes() {
 }
 
 //função apenas para a dashboard. retorna apenas os números de vagas
-function loadDashVagas() {
+function loadVagas() {
     $.ajax({
         url: "http://localhost:3000/adm/listAllVagas",
         type: 'GET',
         success: (res) => {
             $("#qtnVagas").html(res.length)
+            let tbody = document.querySelector('#tabela-vagas')
+            for (let i = 0; i < res.length; i++) {
+                tbody.innerHTML += `
+                   <tr>
+                        <td class="opportunities">
+                            <img src="${res[i].vagaInfo.logo_empresa}" alt="Logo da empresa ${res[i].nome_empresa}">
+                            <div class="people-de">
+                                <h5>${res[i].vagaInfo.nome_empresa}</h5>
+                        </td>
 
+                        <td class="people-designation">
+                            <h5>${res[i].vagaInfo.nome_vaga}</h5>
+                            <p>${res[i].vagaInfo.modalidade_vaga}</p>
+                        </td>
+
+                        <td class="active"><p>${res[i].qtnCandidatas.length}</p></td>
+
+                        <td class="edit"><a href="#"> Promover vaga </a></td>
+                    </tr>
+                `
+            }
         }
     })
 }

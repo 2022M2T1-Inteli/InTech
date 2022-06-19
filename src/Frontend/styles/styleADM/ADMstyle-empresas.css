@@ -39,9 +39,10 @@ a {
     cursor:pointer;
 }
 
-#menu .items li:nth-child(4){
+#menu .items li:nth-child(3){
    border-left:4px solid #F3C42E;
 }
+
 
 #menu .items li i{
     color:#530084;
@@ -53,13 +54,20 @@ a {
     margin:0 10px 0;
 }
 
-
-#menu .items li:hover i,
-#menu .items a li {
+a {
     color: #530084;
 }
 
-#menu .items a li {
+a:hover {
+    color: #530084;
+}
+
+#menu .items li:hover i,
+#menu .items  li a {
+    color: #530084;
+}
+
+#menu .items li a {
     text-decoration:none;
     color:#530084;
     font-weight:300px;

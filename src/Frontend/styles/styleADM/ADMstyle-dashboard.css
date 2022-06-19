@@ -41,7 +41,7 @@ a {
     cursor:pointer;
 }
 
-#menu .items a:nth-child(1){
+#menu .items  li:nth-child(1){
    border-left:4px solid #F3C42E;
 }
 
