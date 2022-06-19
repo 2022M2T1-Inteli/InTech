@@ -288,6 +288,8 @@ function deleteCatchDataUser() { // função que remove os itens da session stor
 }
 
 function catchRecruiterData() { // função que pega os valores do formulário preenchido pelo recrutador
+    
+    
     let formsRecruit1 = {
         // Tela de Cadastro Recrutadora 1 
         NomeEmpresa: document.querySelector('#nomeEmpresa').value,
@@ -341,12 +343,16 @@ function catchRecruiterData() { // função que pega os valores do formulário p
         setTimeout(function () {
             errorLogo.innerHTML = ""
         }, 5000)
+    } else {
+        // sessionStorage.setItem("Recruit1", JSON.stringify(formsRecruit1))
+
+        console.log("a")
+        // window.location.pathname = '/src/Frontend/views/Recruiter/cadastroRecrutadora2.html' // direciona para outra página
+
     }
 
 
-    sessionStorage.setItem("Recruit1", JSON.stringify(formsRecruit1))
 
-    window.location.pathname = '/src/Frontend/views/Recruiter/cadastroRecrutadora2.html' // direciona para outra página
 
 }
 
