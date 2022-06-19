@@ -231,7 +231,7 @@ function EditCompany(id_empresa, logo, email, senha, telefone, site, localiza√ß√
             setTimeout(function(){
                 loginRecruit(email,senha)
 
-            },2000) 
+            },1000) 
             
             // 
         },
