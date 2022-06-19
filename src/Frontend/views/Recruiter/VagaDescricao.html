@@ -31,10 +31,11 @@
 
                 <div class="body">
                     <h4>Descrição da vaga</h4>
-                    <textarea disabled id="descricaoVaga" class="paragrafo" style="width: 75%; padding: 10px;"></textarea>
+                    <textarea disabled id="descricaoVaga" class="paragrafo"
+                        style="width: 75%; padding: 10px;"></textarea>
 
                     <h4>Salário:</h4>
-                    <input type="text" id="salario" disabled class="form-control" >
+                    <input type="text" id="salario" disabled class="form-control">
 
                     <h4>Localização: </h4>
                     <input type="text" id="localizacao" disabled class="form-control">
@@ -51,10 +52,11 @@
                     <div class="row mt-4 hardSkillsContainer">
                         <p id="errorHard" style="color: yellow;" class="d-flex justify-content-center mb-0"></p>
                         <input placeholder="Digite a habilidade desejada e pressione ENTER" type="text"
-                            name="Hard-Skills" list="hardskillslist" id="hard-skills" disabled class="w-75 form-control">
-                        
-                            di
-                            <datalist id="hardskillslist">
+                            name="Hard-Skills" list="hardskillslist" id="hard-skills" disabled
+                            class="w-75 form-control">
+
+
+                        <datalist id="hardskillslist">
                             <option value="JavaScript"></option>
                             <option value="HTML/CSS"></option>
                             <option value="Python"></option>
@@ -94,9 +96,10 @@
                     <div class="row mt-4 softSkillsContainer">
                         <p id="errorSoft" style="color: yellow;" class="d-flex justify-content-center mb-0"></p>
                         <input placeholder="Digite a habilidade desejada e pressione ENTER" type="text"
-                            name="Soft-Skills" list="softSkillsList" id="soft-skills" class="form-control " disabled> <br>
+                            name="Soft-Skills" list="softSkillsList" id="soft-skills" class="form-control " disabled>
+                        <br>
                         <div></div>
-                            <datalist id="softSkillsList">
+                        <datalist id="softSkillsList">
                             <option value='Boa comunicação verbal'>
                             <option value='Boa comunicação escrita'>
                             <option value='Trabalho em equipe'>
@@ -136,14 +139,15 @@
                     <div id="softskillsContainer" class="mb-3 mt-3 row espacamento"></div>
 
                     <div class="row actions">
-                        <a class="botao" href="./companyDashboard.html" style="color:black ; font-size: 26px;">Voltar</a>
+                        <a class="botao" href="./companyDashboard.html"
+                            style="color:black ; font-size: 26px;">Voltar</a>
                         <button id="editButton" class="botao btn btn-secondary" onclick="edit()">EDITAR VAGA</button>
                         <button class="botao btn btn-danger" onclick="">EXCLUIR VAGA</button>
                     </div>
 
                     <h4 class="textoFinal">Candidatas que se aplicaram</h4>
                     <div id="AplicantesCards" class="row">
-                
+
                     </div>
 
                 </div>
@@ -171,18 +175,58 @@
             editButton.innerHTML = 'SALVAR'
         }
 
+        
+       
         function save() {
+
             const selects = document.querySelectorAll('select, input')
             const editButton = document.querySelector('#editButton')
 
-            for (let i = 0; i < selects.length; i++) {
-                selects[i].disabled = true
+            for (let i = 0; i < selects.length; i++) { selects[i].disabled = true } // const
+
+            const descricao = document.querySelector('#descricaoVaga').value
+            const salario = document.querySelector('#salario').value
+            const localizacao = document.querySelector('#localizacao').value
+            const modalidade = document.querySelector('#modalidade').value
+
+            let softSkills = []
+            const oldSoftSkillsSpans = document.querySelector('#softskillsContainer').querySelectorAll('span')
+            const newSoftSkillsSpans = document.querySelectorAll('#softskills')
+
+            for (let i = 0; i < oldSoftSkillsSpans.length; i++) {
+                softSkills.push(oldSoftSkillsSpans[i].innerText)
             }
+
+            for (let i = 0; i < newSoftSkillsSpans.length; i++) {
+                softSkills.push(newSoftSkillsSpans[i].innerText)
+            }
+
+            let hardSkills = []
+            const oldHardSkillsSpans = document.querySelector('#hardskillsContainer').querySelectorAll('span')
+            const newHardSkillsSpans = document.querySelectorAll('#hardskills')
+
+            for (let i = 0; i < oldHardSkillsSpans.length; i++) {
+                hardSkills.push(oldHardSkillsSpans[i].innerText)
+            }
+
+            for (let i = 0; i < newHardSkillsSpans.length; i++) {
+                hardSkills.push(newHardSkillsSpans[i].innerText)
+            }
+
+            let softSkillsDB = softSkills.toString()
+            let hardSkillsDB = hardSkills.toString()
+
+            editVaga(softSkillsDB,descricao,salario ,hardSkillsDB,modalidade,localizacao)
 
             editButton.setAttribute("class", "botao btn btn-secondary")
             editButton.setAttribute("onclick", "edit()")
             editButton.innerHTML = 'EDITAR VAGA'
         }
+
+
+
+
+
     </script>
 
     <script src="../../script/dashboard-recruit.js"></script>

@@ -56,17 +56,17 @@ class Vaga {
         let vagaInfosEdit = []
 
         if(softskill){
-            vagaInfosEdit.push(`softskill_vaga = ${softskill}`)
+            vagaInfosEdit.push(`softskill_vaga =" ${softskill}"`)
         }if(descricao){
-            vagaInfosEdit.push(`descricao_vaga = ${descricao}`)
+            vagaInfosEdit.push(`descricao_vaga = "${descricao}"`)
         }if(salario){
-            vagaInfosEdit.push(`salario_vaga = ${salario}`)
+            vagaInfosEdit.push(`salario_vaga = "${salario}"`)
         }if(hardskill){
-            vagaInfosEdit.push(`hardskill_vaga = ${hardskill}`)
+            vagaInfosEdit.push(`hardskill_vaga = "${hardskill}"`)
         }if(modalidade){
-            vagaInfosEdit.push(`modalidade_vaga = ${modalidade}`)
+            vagaInfosEdit.push(`modalidade_vaga = "${modalidade}"`)
         }if(local){
-            vagaInfosEdit.push(`local_vaga = ${local}`)
+            vagaInfosEdit.push(`local_vaga = "${local}"`)
         }
 
         let vagaInfosEditDB = vagaInfosEdit.join(",")

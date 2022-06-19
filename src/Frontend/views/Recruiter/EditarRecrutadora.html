@@ -60,7 +60,7 @@
                     <div class="mb-3 col logo">
                         <img src="../../images/InsertPhoto.svg" alt="">
                         <label for="formFile" class="button_top">Carregue sua logo</label>
-                        <input class="form-control" type="file" id="formFile" hidden onchange="onChange2()">
+                        <input class="form-control" type="file" id="formFile" hidden onchange="onChange3()">
                         <p id="nameFile">*Apenas arquivos PNG/JPEG</p>
                     </div>
 
@@ -83,6 +83,16 @@
         </div>
     </div>
     <script>
+
+
+        function getBase64(file) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.readAsDataURL(file);
+                reader.onload = () => resolve(reader.result);
+                reader.onerror = error => reject(error);
+            });
+        }
         function edit() {
             const inputs = document.querySelectorAll('input, textarea')
             const editButton = document.querySelector('#editButton')
@@ -97,6 +107,25 @@
             editButton.innerHTML = 'SALVAR'
         }
 
+
+
+        let logo = document.querySelector("#preview").currentSrc
+
+        function onChange3() {
+            let file = document.querySelector('#formFile').files[0];
+            if (file.size > 2197152) {
+                alert("File is too big!");
+                this.value = "";
+            } else {
+                getBase64(file).then(
+                    data =>
+                        logo = data
+                );
+
+            }
+
+        }
+
         function save() {
             // pegar os dados 
             // chamar a rota de editar 
@@ -108,6 +137,20 @@
                 inputs[i].disabled = true
                 inputs[i].classList.remove('form-control')
             }
+
+            const localizacao = document.querySelector("#localizacao").value
+            const telefone = document.querySelector("#telefone").value
+            const site = document.querySelector("#site").value
+            const cultura = document.querySelector("#cultura").value
+
+            const email = document.querySelector("#email").value
+            const senha = document.querySelector("#senha").value
+
+            console.log(email)
+
+            let id = JSON.parse(sessionStorage.getItem("EmpresaDadosLogin")).id_empresas
+
+            EditCompany(id,logo,email,senha,telefone,site,localizacao,"ramo",cultura)
 
             editButton.setAttribute("class", "botao btn btn-secondary")
             editButton.setAttribute("onclick", "edit()")

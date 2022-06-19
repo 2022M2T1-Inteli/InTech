@@ -181,6 +181,31 @@ function removeSoftSkill(e) {
     updateSoftSkills(softSkills)
 }
 
+function loginRecruit(email,senha) {
+  
+
+    $.ajax({
+        url: "http://localhost:3000/recruiter/loginRecruit",
+        method: "POST",
+        data: {
+            email: email,
+            senha: senha
+
+        },
+        error: function (res) {
+            console.log(res)
+            $("#error").html(res.responseJSON)
+        },
+        success: function (res) {
+            
+            sessionStorage.setItem("EmpresaDadosLogin", JSON.stringify(res))
+            window.location.reload()
+            
+
+        }
+    })
+}
+
 function EditCompany(id_empresa, logo, email, senha, telefone, site, localização, ramo, cultura) {
 
     $.ajax({
@@ -198,12 +223,17 @@ function EditCompany(id_empresa, logo, email, senha, telefone, site, localizaç�
             cultura: cultura
         },
         success: function () {
-            let senhaEmpresa = senha
-            let emailEmpresa = email
+           
+            let email = document.querySelector("#email").value
+            let senha = JSON.parse(sessionStorage.getItem("EmpresaDadosLogin")).senha_empresa
 
             sessionStorage.removeItem("EmpresaDadosLogin")
-            loginRecruit(emailEmpresa, senhaEmpresa)
-            window.location.reload()
+            setTimeout(function(){
+                loginRecruit(email,senha)
+
+            },2000) 
+            
+            // 
         },
         error: function (res) {
             alert(res)
@@ -212,5 +242,29 @@ function EditCompany(id_empresa, logo, email, senha, telefone, site, localizaç�
     })
 
 }
+
+function editVaga(softskill, descricao, salario, hardskill, modalidade, local) {
+    $.ajax({
+        url: "http://localhost:3000/vaga/editVaga",
+        method: "PUT",
+        data: {
+            id_vaga: getUrlParameter.get("id_vaga"),
+            softskill: softskill,
+            descricao: descricao,
+            salario: salario,
+            hardskill: hardskill,
+            modalidade: modalidade,
+            local: local
+        },
+        success: function () {
+            window.location.reload()
+        },
+        error: function (err) {
+            alert(err)
+        }
+    })
+
+}
+
 
 

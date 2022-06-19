@@ -522,28 +522,6 @@ function sendVacancyData(SoftskillVaga, NomeVaga, DescricaoVaga, LocalVaga, Sala
     })
 }
 
-function editVaga(id_vaga, softskill, descricao, salario, hardskill, modalidade, local) {
-    $.ajax({
-        url: "http://localhost:3000/vaga/editVaga",
-        method: "PUT",
-        data: {
-            id_vaga: id_vaga,
-            softskill: softskill,
-            descricao: descricao,
-            salario: salario,
-            hardskill: hardskill,
-            modalidade: modalidade,
-            local: local
-        },
-        success: function () {
-            window.location.reload()
-        },
-        error: function (err) {
-            alert(err)
-        }
-    })
-
-}
 
 function delvaga(id_vaga) {
     $.ajax({
