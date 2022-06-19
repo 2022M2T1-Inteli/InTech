@@ -8,7 +8,7 @@ function logadoUser() {
 
     $("#name").html(usuario.nome_candidata)
     $("#cidade").val(usuario.cidade_candidata)
-    $("#pais").val(usuario.localizacao_candidata)
+    $("#localizacao").val(usuario.localizacao_candidata)
     $("#estado").val(usuario.estado_candidata)
     $("#cargoCandidata").val(usuario.cargo_candidata)
     $("#escolaridadeCandidata").val(usuario.escolaridade_candidata)
@@ -34,7 +34,7 @@ function logadoUser() {
                 let div = document.querySelector(".vagasUser")
 
                 div.innerHTML += `
-                <div class="appliedCard rounded-pill card mb-2" style="width: 445px;">
+                <div class="appliedCard card mb-2" style="width: 445px;">
                     <a href="./usuariaCandidata2.html?id_vaga=${res[i].id_vaga}">
                         <h1 class = "d-flex justify-content-center fs-4 p-3">${res[i].nome_vaga}</h1>
                         <p class = "d-flex justify-content-center descrição">${res[i].descricao_vaga}</p>
@@ -45,11 +45,7 @@ function logadoUser() {
                                 style="filter: invert(41%) sepia(53%) saturate(6570%) hue-rotate(343deg) brightness(96%) contrast(99%);"
 
                                 alt="Retirar aplicação">
-                        </a>
-
-                               
                         </button>
-
                     </div>
             </div>`
 

@@ -46,8 +46,7 @@
         <div class="col-6 col-sm-12 col-lg-7 d-flex" id="classecentro">
             <div class="container mt-5">
                 <h5 class="titles">Localização:</h5>
-                <select disabled class="form-select" name="Pais_candidata" id="pais">
-                </select>
+                <input disabled type="text" class="form-control" id="localizacao">
                 <div style="gap: 10px;" class="row mt-2 mb-2 boxInputs">
                    
                 </div>
@@ -239,7 +238,7 @@
                     const editButton = document.querySelector('#editButton')
 
                     for (let i = 0; i < selects.length; i++) { selects[i].disabled = true } // const
-                    const localizacao = document.querySelector('#pais').value
+                    const localizacao = document.querySelector('#localizacao').value
                     const cargoCandidata = document.querySelector('#cargoCandidata').value
                     const grauInstrucao = document.querySelector('#escolaridadeCandidata').value
                     

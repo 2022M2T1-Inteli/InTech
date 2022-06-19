@@ -153,7 +153,7 @@ body {
 
 .botao{
     margin: 10px;
-
+    height: auto;
 }
 
 #voltar {
@@ -177,6 +177,7 @@ button {
 
 #classelado {
     text-align: center;
+    margin-left: 6em;
 }
 
 #inputzin {
@@ -204,6 +205,11 @@ h2{
     margin-bottom: 12px;
 }
 
+.appliedCard { 
+    border-radius: 21px;
+    height: 165px;
+}
+
 .appliedCard a {
     text-decoration: none;
 }
@@ -218,11 +224,17 @@ h2{
     color: rgb(85, 85, 85);
 }
 
+.appliedCard button {
+    background-color: transparent;
+    border: none;
+}
+
 .saveButton, 
 .saveButton :focus {
     background-color: rgb(81, 227, 132);
     border-radius: 5px;
     color: white;
+    padding: 6px;
     border: none;
 }  
 

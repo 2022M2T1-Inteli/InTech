@@ -28,10 +28,8 @@ function loadVagas() {
                     <p>${res[i].descricao_vaga}</p>
 
                 <div class="icons">
-                    <button class="btn btn-danger" onclick="openPopup(${res[i].id_vaga})">
-                        <img src="../../images/DeleteIcon.svg"
-                            style="filter: invert(41%) sepia(53%) saturate(6570%) hue-rotate(343deg) brightness(96%) contrast(99%);"
-                            alt="">
+                    <button class="btn btn-danger" style="justify-content: center;" onclick="openPopup(${res[i].id_vaga})">
+                        <img src="../../images/DeleteIconWhite.svg" alt="">
                     </button>
                 </div>
                 </a>
