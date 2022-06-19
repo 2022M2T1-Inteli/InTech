@@ -72,8 +72,8 @@ function updateHardSkills(array) {
 
 function updateSoftSkills(array) {
     clearSoftSkills()
-    for (let i = 0; i < Softskills.length; i++) {
-        softspace.innerHTML += `<span id="${Softskills[i]}" class="skill rounded-pill">${Softskills[i]} <i class="closeSoftSkill" onclick="removeSoftSkill(${i})"></i></span>`
+    for (let i = 0; i < array.length; i++) {
+        softspace.innerHTML += `<span id="${array[i]}" class="skill rounded-pill">${array[i]} <i class="closeSoftSkill" onclick="removeSoftSkill(${i})"></i></span>`
     }
 }
 

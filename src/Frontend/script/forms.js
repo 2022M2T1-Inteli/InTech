@@ -517,7 +517,7 @@ function sendVacancyData(SoftskillVaga, NomeVaga, DescricaoVaga, LocalVaga, Sala
 
         },
         success: function () {
-            window.location.replace("/views/Recruiter/cadastroRecrutadora3.html")
+            window.location.replace("/views/Recruiter/companyDashboard.html")
         }
     })
 }
@@ -608,7 +608,7 @@ function loginRecruit() {
         },
         success: function (res) {
             sessionStorage.setItem("EmpresaDadosLogin", JSON.stringify(res))
-            window.location.replace("/views/Recruiter/cadastroRecrutadora3.html")
+            window.location.replace("/views/Recruiter/companyDashboard.html")
 
         }
     })

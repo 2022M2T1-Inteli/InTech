@@ -38,11 +38,13 @@ Routes.post('/listMatch', (req, res) => {
             }
             console.log(matchedSkills)
             
-            let matchPercent = matchedSkills.length / vagaSkills.length; 
+            var matchedSkillsN = matchedSkills.filter((este, i) => matchedSkills.indexOf(este) === i);
+
+            let matchPercent = matchedSkillsN.length / vagaSkills.length; 
     
             if (matchPercent >= 0.5) {
                 let jsonS = JSON.stringify(dbVagas[x])
-                let res = ` { "vagaData": ${jsonS}, "matchPercent": ${matchPercent} }`  
+                let res = ` { "vagaData": ${jsonS}, "matchPercent": ${parseFloat(matchPercent.toFixed(4))} }`  
                 let jsonP = JSON.parse(res)
                 idVagasMatched.push(jsonP)
             }

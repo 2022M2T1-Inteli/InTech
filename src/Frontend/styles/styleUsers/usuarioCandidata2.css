@@ -7,15 +7,6 @@ body{
     margin-left: 3em;
 }
 
-img{
-        max-width: 80em;
-        max-height: 41em;
-        width: 110px;
-        height: 100vh;
-        margin: 1em 6.5em;
-        text-align: left;
-}
-
 h1 {
     font-family: 'Roboto Slab';
     display: flex;

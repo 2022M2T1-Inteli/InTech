@@ -66,8 +66,31 @@ Routes.post('/applied', (req, res) => {
 
 })
 
+Routes.post('/listVagaInfo', (req, res) => {
+    async function loadDB(){ 
+        const db = await sqlite.open({ filename: "./database/banco_de_dados.db", driver: sqlite3.Database })
 
+        await db.get("SELECT * FROM vagas WHERE id_vaga = ?", [req.query.id_vaga]).then((result) => {
+            res.status(200).json(result)
+        })
 
+        db.close()
+    }
+    loadDB()
+})
+
+Routes.post('/listCandidatas', (req, res) => {
+    async function db() {
+        const db = await sqlite.open({ filename: "./database/banco_de_dados.db", driver: sqlite3.Database })
+        const { id_vaga }  = req.body
+        db.all('SELECT candidatas.nome_candidata, candidatas.id_candidata, candidatas.email_candidata, candidatas.curriculo_candidata, vagasCandidatas.id_candidata, vagasCandidatas.id_vaga, vagasCandidatas.match_percent FROM vagasCandidatas JOIN candidatas  ON candidatas.id_candidata = vagasCandidatas.id_candidata WHERE vagasCandidatas.id_vaga = ?', [id_vaga]).then((result) => {
+            res.status(200).json(result)
+        })
+
+        db.close()
+    }
+    db()
+})
 
 
 // exportando todos os Routes para serem utilizados em outro arquivo js
