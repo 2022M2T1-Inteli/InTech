@@ -50,7 +50,8 @@
 
       <label for="senha">Senha</label>
       <p id="errorSenha" style="color: yellow;" class="d-flex justify-content-center mb-1"></p>
-      <input class="areaInputs border-0" type="password" name="Senha" id="senha" placeholder="Senha" />
+      <input class="areaInputs border-0" onkeyup="senhaforca()" type="password" name="Senha" id="senha" placeholder="Senha"/>
+      <div id="impForcaSenha"></div>
     </div>
   </form>
 
@@ -70,6 +71,48 @@
 
     <script src="../../script/forms.js"></script>
     <script>
+
+      function senhaforca() {
+        var password = document.getElementById('senha').value;
+        var forca = 0;
+        //document.getElementById("impSenha").innerHTML = "Senha " + password
+
+        if ((password.length >= 4) && (password.length <= 7)) {
+          forca += 10;
+        } else if (password.length > 7) {
+          forca += 25;
+        }
+
+        if ((password.length >= 5) && password.match(/[a-z]+/)) {
+          forca += 10;
+        }
+
+        if ((password.length >= 6) && password.match(/[A-Z]+/)) {
+          forca += 20;
+        }
+
+        if ((password.length >= 7) && password.match(/[@#$%&;*.?/|!'"()^~=`><:¨]+/)) {
+          forca += 25;
+        }
+
+        mostrarForca(forca)
+      }
+
+      function mostrarForca(forca) {
+
+
+        if (forca < 30) {
+          document.getElementById('impForcaSenha').innerHTML = "<span style='color: #ff0000'>Senha Fraca</span>";
+        } else if ((forca >= 30) && (forca < 50)) {
+          document.getElementById('impForcaSenha').innerHTML = "<span style='color: #FFD700'>Senha Média</span>";
+        } else if ((forca >= 50) && (forca < 70)) {
+          document.getElementById('impForcaSenha').innerHTML = "<span style='color: #7FFF00'>Senha Forte</span>";
+        } else if ((forca >= 70) && (forca < 100)) {
+          document.getElementById('impForcaSenha').innerHTML = "<span style='color: #008000'>Senha Excelente</span>";
+        }
+
+      }
+
       let phoneMask = { "mask": "(##) #####-####" };
       $(window).load(() => {
         $('#telefoneEmpresa').inputmask({
