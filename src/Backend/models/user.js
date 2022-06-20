@@ -288,7 +288,7 @@ class User {
         return success
     }
 
-    //Cancela candidatura
+    
 
 }
 

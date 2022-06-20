@@ -13,6 +13,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const recruiterController = require("../controllers/recruit")
 
 
+
+
 Routes.post("/formEmpresa",recruiterController.registerRecruiter)
 Routes.post("/loginRecruit",recruiterController.loginRecuiter)
 Routes.post('/listAllEmpresaVagas',recruiterController.showJobsRecruiter)

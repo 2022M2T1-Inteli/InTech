@@ -155,6 +155,29 @@ function catchUserData() { // função que pega os dados de usuário de acordo c
     }
 }
 
+
+function loadDataForms1User() {
+
+
+
+    let userinfos =JSON.parse(sessionStorage.getItem("User1"))
+
+    let NomeCandidata = document.querySelector('#nomeCandidata').value = userinfos.NomeCandidata
+    let EmailCandidata = document.querySelector('#emailCandidata').value = userinfos.EmailCandidata
+    let CelularCandidata = document.querySelector('#celularCandidata').value = userinfos.CelularCandidata
+    let CPFCandidata = document.querySelector('#cpfCandidata').value = userinfos.CPFCandidata
+    let GeneroCandidata = document.querySelector('#genero').value = userinfos.GeneroCandidata
+    let SenhaCandidata = document.querySelector('#senha').value = userinfos.SenhaCandidata
+    let NascimentoCandidata = document.querySelector("#data-nascimento").value = userinfos.NascimentoCandidata
+    let LocalizacaoCandidata = document.querySelector('#localizacao').value = userinfos.LocalizacaoCandidata
+
+  
+
+
+
+    
+}
+
 let PDFcurriculo
 let LogoEmpresa
 
@@ -260,16 +283,9 @@ function catchUserData2() { // função que pega os dados do formulário
 
     } else if (Softskills.length <= 3) {
         errorSoft.innerHTML = "Pelo menos mais do que 3 Softskills ;)"
-        window.scroll(0, 0)
+        window.scroll(0, 525)
         setTimeout(function () {
             errorSoft.innerHTML = ""
-        }, 5000)
-
-    } else if (Hardskills.length <= 3) {
-        errorHard.innerHTML = "Pelo menos mais do que 3 Hardskills ;)"
-        window.scroll(0, 0)
-        setTimeout(function () {
-            errorHard.innerHTML = ""
         }, 5000)
 
     } else {
@@ -287,9 +303,14 @@ function deleteCatchDataUser() { // função que remove os itens da session stor
 
 }
 
+
+function deleteCatchDataRecruiter() {
+    sessionStorage.removeItem("Recruiter")
+}
+
 function catchRecruiterData() { // função que pega os valores do formulário preenchido pelo recrutador
-    
-    
+
+
     let formsRecruit1 = {
         // Tela de Cadastro Recrutadora 1 
         NomeEmpresa: document.querySelector('#nomeEmpresa').value,
@@ -323,7 +344,7 @@ function catchRecruiterData() { // função que pega os valores do formulário p
             errorramoEmpresa.innerHTML = ""
         }, 5000)
     }
-    if (!formsRecruit1.CnpjEmpresa == "__.___.___/____-__") {
+    if (!formsRecruit1.CnpjEmpresa) {
         errorCNPJ.innerHTML = "CNPJ necessário"
         window.scroll(0, 0)
         setTimeout(function () {
@@ -332,22 +353,22 @@ function catchRecruiterData() { // função que pega os valores do formulário p
     }
     if (!formsRecruit1.LocalizacaoEmpresa) {
         errorLocal.innerHTML = "Localização necessária"
-        window.scroll(0, 0)
+        window.scroll(0, 520)
         setTimeout(function () {
             errorLocal.innerHTML = ""
         }, 5000)
     }
     if (!formsRecruit1.LogoEmpresa) {
         errorLogo.innerHTML = "Logo da empresa necessário"
-        window.scroll(0, 0)
+        window.scroll(0, 530)
         setTimeout(function () {
             errorLogo.innerHTML = ""
         }, 5000)
     } else {
-        // sessionStorage.setItem("Recruit1", JSON.stringify(formsRecruit1))
+        sessionStorage.setItem("Recruit1", JSON.stringify(formsRecruit1))
 
-        console.log("a")
-        // window.location.pathname = '/src/Frontend/views/Recruiter/cadastroRecrutadora2.html' // direciona para outra página
+
+        window.location.replace("/Recruiter/cadastroRecrutadora2.html")   // direciona para outra página
 
     }
 
@@ -379,30 +400,33 @@ function catchRecruiterData2() { // função que pega os valores de outro formul
             errorTelefone.innerHTML = ""
         }, 5000)
     }
-    if (!SiteEmpresa) {
+    else if (!SiteEmpresa) {
         errorSite.innerHTML = "Campo obrigatório"
         window.scroll(0, 0)
         setTimeout(function () {
             errorSite.innerHTML = ""
         }, 5000)
     }
-    if (!EmailEmpresa) {
+    else if (!EmailEmpresa) {
         errorEmail.innerHTML = "Campo obrigatório"
         window.scroll(0, 0)
         setTimeout(function () {
             errorEmail.innerHTML = ""
         }, 5000)
     }
-    if (!SenhaEmpresa) {
+    else if (!SenhaEmpresa) {
         errorSenha.innerHTML = "Campo obrigatório"
         window.scroll(0, 0)
         setTimeout(function () {
             errorSenha.innerHTML = ""
         }, 5000)
+    } else {
+
+        sendRecruitData(recuitForms1.NomeEmpresa, EmailEmpresa, recuitForms1.RamoAtividade, recuitForms1.LogoEmpresa, SenhaEmpresa, "cultura", TelefoneEmpresa, SiteEmpresa, recuitForms1.CnpjEmpresa, recuitForms1.LocalizacaoEmpresa)
+        sessionStorage.removeItem("Recruit1")
     }
 
-    sendRecruitData(recuitForms1.NomeEmpresa, EmailEmpresa, recuitForms1.RamoAtividade, recuitForms1.LogoEmpresa, SenhaEmpresa, "cultura", TelefoneEmpresa, SiteEmpresa, recuitForms1.CnpjEmpresa, recuitForms1.LocalizacaoEmpresa)
-    sessionStorage.removeItem("Recruit1")
+
 
 }
 
@@ -593,12 +617,12 @@ function loginRecruit() {
 }
 
 
-function listAll(){
+function listAll() {
 
     $.ajax({
-        url:"http://localhost:3000/rotas/listAllVgasUser",
-        method:"GET",
-        success:function(res){
+        url: "http://localhost:3000/rotas/listAllVgasUser",
+        method: "GET",
+        success: function (res) {
             console.log(res)
 
         }

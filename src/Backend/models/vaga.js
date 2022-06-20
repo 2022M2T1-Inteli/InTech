@@ -115,7 +115,7 @@ class Vaga {
 
     }
 
-    //Visualizar candidatas aplicantes 
+    
 }
 
 
