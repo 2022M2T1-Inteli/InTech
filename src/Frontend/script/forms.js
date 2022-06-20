@@ -592,3 +592,16 @@ function loginRecruit() {
     })
 }
 
+
+function listAll(){
+
+    $.ajax({
+        url:"http://localhost:3000/rotas/listAllVgasUser",
+        method:"GET",
+        success:function(res){
+            console.log(res)
+
+        }
+    })
+}
+
