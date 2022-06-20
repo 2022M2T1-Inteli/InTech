@@ -1,12 +1,15 @@
 # Inteli - Instituto de Tecnologia e Liderança 
 
 <p align="center">
-<a href= "https://www.inteli.edu.br/"><img src="https://www.inteli.edu.br/wp-content/uploads/2021/08/20172028/marca_1-2.png" alt="Inteli - Instituto de Tecnologia e Liderança" border="0"></a>
+<a href= "https://www.inteli.edu.br/"><img src="https://www.inteli.edu.br/wp-content/uploads/2021/08/20172028/marca_1-2.png" alt="Inteli - Instituto de Tecnologia e Liderança" border="0" width="312px" height="134px"></a>
 </p>
 
 # Brazilians in Tech
+<p align="center">
+<a href= "https://braziliansintech.com/"><img src="https://media-exp1.licdn.com/dms/image/C4D0BAQE3rAsDjOjOCQ/company-logo_200_200/0/1595039907104?e=2147483647&v=beta&t=OwpKmljMbvpO3I5TaD5Zuha748o1TXKh8dOyo63t5iM" alt="Brazilians In Tech" border="0" ></a>
+</p>
 
-## InTech
+# InTech
 
 ## 🚀 Integrantes:
  - <a href="https://www.linkedin.com/in/abner-silva-barbosa-8a3542225/">Abner Silva</a>
@@ -18,23 +21,18 @@
  - <a href="https://www.linkedin.com/in/yveslevi/">Yves Levi</a>
 
 
-## Descrição
-
-📜 Descrição curta sobre o que seu projeto faz.
-<br><br>
+## 🖥️ Descrição 
 Tendo em vista o grande gap entre homens e mulheres no mercado de trabalho de tecnologia, nosso site visa a conexão entre vagas de trabalho com futuras profissionais desse mercado de trabalho.
-<br><br>
-<p align="center">
-<img src="https://github.com/2022M2T1/Projeto5/blob/main/imagens/paginalogin1.jpeg" alt="TELA LOGIN DO SITE" border="0">
-  Login page by <a href="https://github.com/2022M2T1/Projeto5">Intech</a>
-</p>
-
 <br><br>
 O nosso projeto trata da inclusão de mulheres no mercado de trabalho da tecnologia. Sendo assim, trouxemos a proposição de um site em que o público-alvo sejam as mulheres e suas possíveis contratantes, eliminando algumas barreiras que travavam as devs, como a falta de confiança para aplicarem em vagas que não tinham 100% de chance de aprovação por parte dos critérios exigidos pelas contratantes.
 <br><br>
 Por conseguinte, nosso site traz como alternativa o incentivo a participação dessas mulheres, com um layout mais amigável, uma experiência do usuário pensada nelas e por último, mas não menos importante, a aderência de um sistema que introduz as vagas àquelas candidatas com mais chances de conseguirem ser aprovadas nos processos seletivos da empresa, eliminando o problema da insegurança enfrentado por elas.
-<br><br>
-
+<br><br><br>
+<p align="center">
+<img src="https://github.com/2022M2T1/Projeto5/blob/main/imagens/paginalogin1.jpeg" alt="TELA LOGIN DO SITE" border="0">
+  Login page by <a href="https://github.com/2022M2T1/Projeto5">Intech</a>
+</p>
+<br><br><br>
 
 
 ## 🛠 Estrutura de pastas
@@ -208,11 +206,11 @@ npm install sqlite3
 npm install express  --save
 node app.js
 ```
-## Documentação
+## 🖇️ Documentação
 
-[Manual do Administrador](https://drive.google.com/file/d/1kxzf3gHnxij8L45Vf6C6D2oIj4TfQTBo/view)
-[Manual do Utilizador](https://drive.google.com/file/d/15mpBLbNcFsjLBgubgzJBTXZfXOMaKt_d/view)
-[WAD](https://drive.google.com/file/d/1OJ1Y2ScE-KS-DZKbRX0R0DZVymr9qgpN/view?usp=sharing)
+[Manual do Administrador](https://drive.google.com/file/d/1kxzf3gHnxij8L45Vf6C6D2oIj4TfQTBo/view)<br><br>
+[Manual do Utilizador](https://drive.google.com/file/d/15mpBLbNcFsjLBgubgzJBTXZfXOMaKt_d/view)<br><br>
+[WAD](https://drive.google.com/file/d/1OJ1Y2ScE-KS-DZKbRX0R0DZVymr9qgpN/view?usp=sharing)<br><br>
 
 ## 🗃 Histórico de lançamentos
 
