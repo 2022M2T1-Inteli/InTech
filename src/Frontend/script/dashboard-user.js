@@ -3,6 +3,9 @@
 let Softskills
 let Hardskills
 
+// pegar dados de login da sessão atual com as infos correspondentes
+// cadastradas no banco de dados para exibição na página de perfil do usuário
+// display cards de vagas aplicadas pelo usuário
 function logadoUser() {
     let usuario = JSON.parse(sessionStorage.getItem("UsuarioDadosLogin"))
 
@@ -56,9 +59,11 @@ function logadoUser() {
 
 }
 
+// variáveis atribuídas às tags de hard e soft skills
 let hardspace = document.querySelector("#hardskillsContainer")
 let softspace = document.querySelector("#softskillsContainer")
 
+// botão para excluir e fazer update da lista de hardskills no perfil
 function updateHardSkills(array) {
     clearHardSkills()
     for (let i = 0; i < array.length; i++) {
@@ -66,6 +71,7 @@ function updateHardSkills(array) {
     }
 }
 
+// botão para excluir e fazer update da lista de softskills no perfil
 function updateSoftSkills(array) {
     clearSoftSkills()
     for (let i = 0; i < array.length; i++) {
@@ -73,6 +79,7 @@ function updateSoftSkills(array) {
     }
 }
 
+// remover elemento "tag"
 function clearHardSkills() {
     hardspace.querySelectorAll('span').forEach(tagElement => tagElement.remove());
 }
@@ -91,6 +98,7 @@ function removeSoftSkill(e) {
     updateSoftSkills(Softskills)
 }
 
+// pegar dados de login da cantidata para display na página de perfil
 function loginUser(email,senha) {
 
     
@@ -117,6 +125,7 @@ function loginUser(email,senha) {
     })
 }
 
+// submeter ao banco de dados infos da candidata editadas no perfil 
 function editarUser(id_candidata, localizacao, cargo, grauDeInstrução, hardskill, softskill) {
     $.ajax({
         url: "http://localhost:3000/user/editarUser",
@@ -149,6 +158,7 @@ function editarUser(id_candidata, localizacao, cargo, grauDeInstrução, hardski
     })
 }
 
+// deletar conta da candidata do banco de dados
 function deleteUser(id_candidata) {
     $.ajax({
         url: "http://localhost:3000/user/deleteCandidata",
@@ -167,7 +177,7 @@ function deleteUser(id_candidata) {
     })
 }
 
-
+// remover candidatura da usuária
 function descandidaturaUser(id_vaga) {
 
     $.ajax({

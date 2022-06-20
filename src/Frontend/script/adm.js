@@ -16,7 +16,7 @@ function loadCandidatas() {
     })
 }
 
-//função apenas para a dashboard. retorna apenas os números de empresas
+// função apenas para a dashboard. retorna apenas os números de empresas
 function loadEmpresasParceiras() {
     $.ajax({
         url: "http://localhost:3000/adm/listEmpresasParceiras",
@@ -46,6 +46,7 @@ function loadEmpresasParceiras() {
     })
 }
 
+// função carrega 
 function loadEmpresasSolicitantes() {
     $.ajax({
         url: 'http://localhost:3000/adm/listEmpresasSolicitantes',
@@ -69,7 +70,7 @@ function loadEmpresasSolicitantes() {
     })
 }
 
-//função apenas para a dashboard. retorna apenas os números de vagas
+// função apenas para a dashboard. retorna apenas os números de vagas
 function loadVagas() {
     $.ajax({
         url: "http://localhost:3000/adm/listAllVagas",
