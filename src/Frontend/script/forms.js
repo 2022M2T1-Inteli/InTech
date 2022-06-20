@@ -305,7 +305,7 @@ function deleteCatchDataUser() { // função que remove os itens da session stor
 
 
 function deleteCatchDataRecruiter() {
-    sessionStorage.removeItem("Recruiter")
+    sessionStorage.removeItem("Recruit1")
 }
 
 function catchRecruiterData() { // função que pega os valores do formulário preenchido pelo recrutador
