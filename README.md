@@ -8,7 +8,15 @@
 
 ## InTech
 
-## Integrantes: <a href="https://www.linkedin.com/in/abner-silva-barbosa-8a3542225/">Abner Silva</a>, <a href="https://www.linkedin.com/in/fernando-tavares-bertholdo/">Fernando Bertholdo</a>, <a href="https://www.linkedin.com/in/gabecarneiro/">Gabriel Carneiro</a>, <a href="https://www.linkedin.com/in/izabellaalmeida/">Izabella Almeida</a>, <a href="https://www.linkedin.com/in/julia-togni/">Julia Togni</a>,<a href="https://www.linkedin.com/in/thomas-brand-b37170238/">Thomas Brand</a> e <a href="https://www.linkedin.com/in/yveslevi/">Yves Levi</a>
+## 🚀 Integrantes:
+ - <a href="https://www.linkedin.com/in/abner-silva-barbosa-8a3542225/">Abner Silva</a>
+ - <a href="https://www.linkedin.com/in/fernando-tavares-bertholdo/">Fernando Bertholdo</a>
+ - <a href="https://www.linkedin.com/in/gabecarneiro/">Gabriel Carneiro</a>
+ - <a href="https://www.linkedin.com/in/izabellaalmeida/">Izabella Almeida</a>
+ - <a href="https://www.linkedin.com/in/julia-togni/">Julia Togni</a>
+ - <a href="https://www.linkedin.com/in/thomas-brand-b37170238/">Thomas Brand</a> 
+ - <a href="https://www.linkedin.com/in/yveslevi/">Yves Levi</a>
+
 
 ## Descrição
 
@@ -27,132 +35,55 @@ O nosso projeto trata da inclusão de mulheres no mercado de trabalho da tecnolo
 Por conseguinte, nosso site traz como alternativa o incentivo a participação dessas mulheres, com um layout mais amigável, uma experiência do usuário pensada nelas e por último, mas não menos importante, a aderência de um sistema que introduz as vagas àquelas candidatas com mais chances de conseguirem ser aprovadas nos processos seletivos da empresa, eliminando o problema da insegurança enfrentado por elas.
 <br><br>
 
+
+
 ## 🛠 Estrutura de pastas
 
--Raiz<br>
-|<br>
-|-->Projeto5<br>
-  &emsp;|-->.vscode<br>
-    &emsp;|settings<br>
-  &emsp;|documentos<br>
-    &emsp;|antigos<br>
-      &emsp;|Modelo GDD<br>
-      &emsp;|Modelo WAD Grupo 5 - Intech - Documento Aplicação Web.docx (1)<br>
-      &emsp;|Modelo WAD Grupo 5 - Intech - Documento Aplicação Web.docx<br>
-      &emsp;|pasta para guardar documentos antigos<br>
-      &emsp;|WAD Grupo 5 - Intech - Documento Aplicação Web.docx<br>
-    &emsp;|WAD Grupo 5 - Intech - Documento Aplicação Web.docx<br>
-  &emsp;|imagens<br>
-    &emsp;|Bootstrap_5.0_Screenshot<br>
-    &emsp;|paginalogin1<br>
-  &emsp;|src<br>
-    &emsp;|Backend<br>
-      &emsp;|controllers<br>
-        &emsp;|adm<br>
-        &emsp;|recruit<br>
-        &emsp;|user<br>
-        &emsp;|vaga<br>
-      &emsp;|database<br>
-        &emsp;|banco_de_dados<br>
-        &emsp;|banco_de_dados.sqbpro<br>
-      &emsp;|models<br>
-        &emsp;|recruiter<br>
-        &emsp;|user<br>
-        &emsp;|vaga<br>
-      &emsp;|node_modules<br>
-      &emsp;|Routes<br>
-        &emsp;|adm<br>
-        &emsp;|match<br>
-        &emsp;|recruit<br>
-        &emsp;|routes<br>
-        &emsp;|user<br>
-        &emsp;|vaga<br>
-      &emsp;|app<br>
-      &emsp;|package<br>
-      &emsp;|package-lock<br>
-    &emsp;|Frontend<br>
-      &emsp;|fonts<br>
-        &emsp;|Colocar os códigos do Frontend Aqui<br>
-      &emsp;|images<br>
-      &emsp;|script<br>
-        &emsp;|tagInputs<br>
-          &emsp;|hardSkillsTagInput<br>
-          &emsp;|softSkillsTagInput<br>
-        &emsp;|dashboard-recruit<br>
-        &emsp;|forms<br>
-        &emsp;|showhideSenhas<br>
-        &emsp;|vaga-descricao<br>
-        &emsp;|vagas<br>
-      &emsp;|styles<br>
-        &emsp;|styleADM<br>
-          &emsp;|ADMstyle-dashboar<br>
-          &emsp;|ADMstyle-empresas<br>
-          &emsp;|ADMstyle-membros<br>
-          &emsp;|ADMstyle-vagas<br>
-        &emsp;|styleRecruiter<br>
-          &emsp;|CadastroRecrutador3<br>
-          &emsp;|cadastroRecrutadora1<br>
-          &emsp;|cadastroRecrutadora2<br>
-          &emsp;|cadastroRecrutadora4<br>
-          &emsp;|cadastroRecrutadora5<br>
-          &emsp;|vagaCadastrada<br>
-        &emsp;|styleUsers<br>
-          &emsp;|cadastroUsuaria1<br>
-          &emsp;|cadastroUsuaria2<br>
-          &emsp;|hardSkillsTagInput<br>
-          &emsp;|login<br>
-          &emsp;|softSkillsTagInput<br>
-          &emsp;|usuariaCandidata1<br>
-          &emsp;|usuariaCandidata3<br>
-          &emsp;|usuariaCandidata5<br>
-          &emsp;|usuariaCandidata2<br>
-        &emsp;|.DS_Store<br>
-        &emsp;|login<br>
-        &emsp;|main<br>
-        &emsp;|recuperacaoSenha<br>
-        &emsp;|telaCadastro<br>
-      &emsp;|views<br>
-         &emsp;|ADM<br>
-          &emsp;|adm-dashboard (1)<br>
-          &emsp;|adm-dashboard (2)<br>
-          &emsp;|adm-dashboard (3)<br>
-          &emsp;|adm-dashboard (4)<br>
-         &emsp;|Recruiter<br>
-          &emsp;|cadastroRecrutadora1<br>
-          &emsp;|cadastroRecrutadora2<br>
-          &emsp;|cadastroRecrutadora3<br>
-          &emsp;|cadastroRecrutadora5<br>
-          &emsp;|toDelete(3)<br>
-          &emsp;|toDelete<br>
-          &emsp;|vagaCadastrada<br>
-         &emsp;|Users<br>
-          &emsp;|cadastroUsuaria1<br>
-          &emsp;|cadastroUsuaria2<br>
-          &emsp;|usuariaCandidata1<br>
-          &emsp;|usuariaCandidata2<br>
-          &emsp;|usuariaCandidata3<br>
-          &emsp;|usuariaCandidata5<br>
-          &emsp;|usuariaCandidataEditar<br>
-         &emsp;|index<br>
-         &emsp;|recuperacaoSenha1<br>
-         &emsp;|recuperacaoSenha2<br>
-         &emsp;|telaCadastro<br>
-         &emsp;|testelogin<br>
-      &emsp;|.DS_Store<br>
-      &emsp;|Colocar os códigos do Frontend Aqui<br>
-  &emsp;|.gitattributes<br>
-  &emsp;|.gitignore<br>
-  &emsp;|README<br>
-  &emsp;|README.md<br>
-|-->executáveis<br>
-  &emsp;|-->windows<br>
-  &emsp;|-->android<br>
-  &emsp;|-->HTML<br>
-|-->imagens<br>
-|-->src<br>
-  &emsp;|-->Backend<br>
-  &emsp;|-->Frontend<br>
-|readme.md<br>
+- 📂 __Projeto5M2__
+   - 📄 [README.md](README.md)
+   - 📂 __[.vscode](.vscode/)__
+      - <a href="https://emoji.gg/emoji/8009-java-js"><img src="https://cdn3.emoji.gg/emojis/8009-java-js.png" width="16px" height="16px" alt="Java_Js"></a> sttings.js
+   - 📂 __[documentos](documentos/)__
+      - 📄 Manual de Administrador
+      - 📄 Manual do Utilizador
+      - 📄 WAD Grupo 5 - Intech
+   - 📁 __[imagens](imagens/)__
+   - 📂 __[src](src/)__
+      - 📂 __[Backend](src/Backend)__
+          - 📁 controllers
+          - 📁 database
+          - 📁 models
+          - 📁 Routes
+      - 📂 __[Frontend](src/Frontend)__ 
+          - 📁 fonts
+          - 📁 images (imagens utilizadas na aplicação web)
+          - 📁 script (arquivos em javascript)
+             - 📁 tagInputs
+             - <a href="https://emoji.gg/emoji/8009-java-js"><img src="https://cdn3.emoji.gg/emojis/8009-java-js.png" width="16px" height="16px" alt="Java_Js"></a> adm
+             - <a href="https://emoji.gg/emoji/8009-java-js"><img src="https://cdn3.emoji.gg/emojis/8009-java-js.png" width="16px" height="16px" alt="Java_Js"></a> api-localidades
+             - <a href="https://emoji.gg/emoji/8009-java-js"><img src="https://cdn3.emoji.gg/emojis/8009-java-js.png" width="16px" height="16px" alt="Java_Js"></a> dashboard-recruit
+             - <a href="https://emoji.gg/emoji/8009-java-js"><img src="https://cdn3.emoji.gg/emojis/8009-java-js.png" width="16px" height="16px" alt="Java_Js"></a> dashboard-user
+             - <a href="https://emoji.gg/emoji/8009-java-js"><img src="https://cdn3.emoji.gg/emojis/8009-java-js.png" width="16px" height="16px" alt="Java_Js"></a> forms
+             - <a href="https://emoji.gg/emoji/8009-java-js"><img src="https://cdn3.emoji.gg/emojis/8009-java-js.png" width="16px" height="16px" alt="Java_Js"></a> showhideSenhas
+             - <a href="https://emoji.gg/emoji/8009-java-js"><img src="https://cdn3.emoji.gg/emojis/8009-java-js.png" width="16px" height="16px" alt="Java_Js"></a> vaga-descricao
+          - 📂 styles (arquivos CSS da aplicação web)
+             - 📁 styleADM 
+             - 📁 styleRecruiter
+             - 📁 styleUsers
+             - <a href="https://emoji.gg/emoji/8517-css"><img src="https://cdn3.emoji.gg/emojis/8517-css.png" width="24px" height="24px" alt="css"></a> login
+             - <a href="https://emoji.gg/emoji/8517-css"><img src="https://cdn3.emoji.gg/emojis/8517-css.png" width="24px" height="24px" alt="css"></a> main
+             - <a href="https://emoji.gg/emoji/8517-css"><img src="https://cdn3.emoji.gg/emojis/8517-css.png" width="24px" height="24px" alt="css"></a> recuperacaoSenha
+             - <a href="https://emoji.gg/emoji/8517-css"><img src="https://cdn3.emoji.gg/emojis/8517-css.png" width="24px" height="24px" alt="css"></a> telaCadastro
+          - 📁 views (arquivos em HTML)
+             - 📁 ADM
+             - 📁 Recruiter
+             - 📁 Users
+             - <a href="https://emoji.gg/emoji/GoogleChrome"><img src="https://cdn3.emoji.gg/emojis/GoogleChrome.png" width="24px" height="24px" alt="GoogleChrome"></a> index
+             - <a href="https://emoji.gg/emoji/GoogleChrome"><img src="https://cdn3.emoji.gg/emojis/GoogleChrome.png" width="24px" height="24px" alt="GoogleChrome"></a> recuperacaoSenha1
+             - <a href="https://emoji.gg/emoji/GoogleChrome"><img src="https://cdn3.emoji.gg/emojis/GoogleChrome.png" width="24px" height="24px" alt="GoogleChrome"></a> recuperacaoSenha2
+             - <a href="https://emoji.gg/emoji/GoogleChrome"><img src="https://cdn3.emoji.gg/emojis/GoogleChrome.png" width="24px" height="24px" alt="GoogleChrome"></a> telaCadastro
+             - <a href="https://emoji.gg/emoji/GoogleChrome"><img src="https://cdn3.emoji.gg/emojis/GoogleChrome.png" width="24px" height="24px" alt="GoogleChrome"></a> testelogin
+ 
 
 
 ## 🛠 Instalação
@@ -277,6 +208,11 @@ npm install sqlite3
 npm install express  --save
 node app.js
 ```
+## Documentação
+
+[Manual do Administrador](https://drive.google.com/file/d/1kxzf3gHnxij8L45Vf6C6D2oIj4TfQTBo/view)
+[Manual do Utilizador](https://drive.google.com/file/d/15mpBLbNcFsjLBgubgzJBTXZfXOMaKt_d/view)
+[WAD](https://drive.google.com/file/d/1OJ1Y2ScE-KS-DZKbRX0R0DZVymr9qgpN/view?usp=sharing)
 
 ## 🗃 Histórico de lançamentos
 
