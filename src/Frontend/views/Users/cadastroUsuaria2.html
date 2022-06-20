@@ -50,8 +50,12 @@
                     <option value="N">Não estou trabalhando, nem estudando</option>
                 </select>
 
-                <label for="escolaridadeCandidata">Sua escolaridade</label>
+                <div class="mb-2 boxInputs">
+                    <label style="color: white; margin-left: 5px; margin-top: 10px;" class="row form-label"
+                    for="escolaridadeCandidata">Escolaridade: </label>
+
                 <p id="errorEscolaridade" style="color: yellow;" class="d-flex justify-content-center mb-0"></p>
+
                 <select class="row form-select select" name="Escolaridade_candidata" id="escolaridadeCandidata">
                     <option value="" disabled hidden selected>Grau de instrução</option>
                     <option value="EM">Ensino Médio</option>
@@ -64,33 +68,39 @@
                     <option value="DI">Doutorado Incompleto</option>
                     <option value="DC">Doutorado Completo</option>
                 </select>
+                </div>
 
-                <label for="cargoCandidata">Em que área deseja trabalhar?</label>
-                <p id="errorTrabalho" style="color: yellow;" class="d-flex justify-content-center mb-0"></p>
-                <select class="form-select row select" name="Cargo_candidata" id="cargoCandidata">
-                    <option value="" selected disabled hidden>Área que deseja trabalhar</option>
-                    <option id='Administrador de Sistemas'>Administrador de Sistemas</option>
-                    <option id='Administrador do Banco de Dados (DBA)'>Administrador do Banco de Dados (DBA)</option>
-                    <option id='Analista de Mídias Sociais'>Analista de Mídias Sociais</option>
-                    <option id='Analista de Segurança de Informação'>Analista de Segurança de Informação</option>
-                    <option id='Analista de Sistemas'>Analista de Sistemas</option>
-                    <option id='Arquiteto de redes'>Arquiteto de redes</option>
-                    <option id='Ciência de dados'>Ciência de dados</option>
-                    <option id='Desenvolvedor mobile'>Desenvolvedor mobile</option>
-                    <option id='Engenharia de computação'>Engenharia de computação</option>
-                    <option id='Engenharia de software'>Engenharia de software</option>
-                    <option id='Especialista em e-Commerce'>Especialista em e-Commerce</option>
-                    <option id='Gestão de Tecnologia da Informação'>Gestão de Tecnologia da Informação</option>
-                    <option id='Jogos Digitais'>Jogos Digitais</option>
-                    <option id='Marketing Digital'>Marketing Digital</option>
-                    <option id='Profissional Help Desk'>Profissional Help Desk</option>
-                    <option id='Programador de Computador'>Programador de Computador</option>
-                    <option id='Programador web'>Programador web</option>
-                    <option id='Robótica'>Robótica</option>
-                    <option id='Segurança da informação'>Segurança da informação</option>
-                    <option id='Segurança de sistemas'>Segurança de sistemas</option>
-                    <option id='Técnico de informática'>Técnico de informática</option>
-                </select>
+
+                <div>
+                    <label style="color: white; margin-left: 5px; margin-top: 10px;" class="row form-label"
+                    for="cargoCandidata">Em que área deseja trabalhar? </label>
+                    <p id="errorTrabalho" style="color: yellow;" class="d-flex justify-content-center mb-0"></p>
+                    <select class="form-select row select" name="Cargo_candidata" id="cargoCandidata">
+                        <option value="" selected disabled hidden>Área que deseja trabalhar</option>
+                        <option id='Administrador de Sistemas'>Administrador de Sistemas</option>
+                        <option id='Administrador do Banco de Dados (DBA)'>Administrador do Banco de Dados (DBA)</option>
+                        <option id='Analista de Mídias Sociais'>Analista de Mídias Sociais</option>
+                        <option id='Analista de Segurança de Informação'>Analista de Segurança de Informação</option>
+                        <option id='Analista de Sistemas'>Analista de Sistemas</option>
+                        <option id='Arquiteto de redes'>Arquiteto de redes</option>
+                        <option id='Ciência de dados'>Ciência de dados</option>
+                        <option id='Desenvolvedor mobile'>Desenvolvedor mobile</option>
+                        <option id='Engenharia de computação'>Engenharia de computação</option>
+                        <option id='Engenharia de software'>Engenharia de software</option>
+                        <option id='Especialista em e-Commerce'>Especialista em e-Commerce</option>
+                        <option id='Gestão de Tecnologia da Informação'>Gestão de Tecnologia da Informação</option>
+                        <option id='Jogos Digitais'>Jogos Digitais</option>
+                        <option id='Marketing Digital'>Marketing Digital</option>
+                        <option id='Profissional Help Desk'>Profissional Help Desk</option>
+                        <option id='Programador de Computador'>Programador de Computador</option>
+                        <option id='Programador web'>Programador web</option>
+                        <option id='Robótica'>Robótica</option>
+                        <option id='Segurança da informação'>Segurança da informação</option>
+                        <option id='Segurança de sistemas'>Segurança de sistemas</option>
+                        <option id='Técnico de informática'>Técnico de informática</option>
+                    </select>
+                </div>
+                
 
 
                 <div class="row mt-4 softSkillsContainer">

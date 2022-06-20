@@ -35,30 +35,48 @@
                         srcset="">
                 </div>
                 <br>
-                <label for="nomeCandidata">Nome</label>
 
-                <p id="errorNome" style="color: yellow;" class="d-flex justify-content-center mb-1"></p>
+                <div class="mb-2 boxInputs">
+                    <label style="color: white; margin-left: 5px; margin-top: 10px;" class="row form-label"
+                        for="nomeCandidata">Nome:</label>
 
-                <input id="nomeCandidata" class="caixa2 border-0 mb-0 " type="text" placeholder="Digite seu nome"
-                    name="Nome_candidata" required />
-                <label for="emailCandidata">Email</label>
+                    <p id="errorNome" style="color: yellow;" class="d-flex justify-content-center mb-2"></p>
 
-                <p id="errorEmail" style="color: yellow;" class="d-flex justify-content-center mb-2"></p>
+                    <input id="nomeCandidata" class="caixa2 border-0 mb-0 " type="text" placeholder="Digite seu nome"
+                        name="Nome_candidata" required />
+                </div>
 
-                <input id="emailCandidata" class="caixa2 border-0 mb-0" type="email"
-                    placeholder="Digite seu melhor email" name="Email_candidata" required />
-                <label for="celularCandidata">Número de telefone celular</label>
 
-                <p id="errorCelular" style="color: yellow;" class="d-flex justify-content-center mb-2"></p>
+                <div class="mb-2 boxInputs">
+                    <label style="color: white; margin-left: 5px; margin-top: 10px;" class="row form-label"
+                        for="emailCandidata">Email:</label>
 
-                <input id="celularCandidata" class="caixa2 border-0 mb-0" type="text" placeholder="Digite o número do seu celular" name="Celular_candidata" />
+                    <p id="errorEmail" style="color: yellow;" class="d-flex justify-content-center mb-2"></p>
 
-                <label for="cpfCandidata">CPF</label>
+                    <input id="emailCandidata" class="caixa2 border-0 mb-0" type="email"
+                        placeholder="Digite seu melhor email" name="Email_candidata" required />
+                </div>
 
-                <p id="errorCPF" style="color: yellow;" class="d-flex justify-content-center mb-2"></p>
+                <div class="mb-2 boxInputs">
+                    <label style="color: white; margin-left: 5px; margin-top: 10px;" class="row form-label"
+                        for="celularCandidata">Número do seu celular:</label>
 
-                <input id="cpfCandidata" maxlength="14" class="caixa2 border-0"
-                    type="text" placeholder="Digite seu CPF" name="CPF_candidata">
+                    <p id="errorCelular" style="color: yellow;" class="d-flex justify-content-center mb-2"></p>
+
+                    <input id="celularCandidata" class="caixa2 border-0 mb-0" type="text"
+                        placeholder="Digite o número do seu celular" name="Celular_candidata" />
+                </div>
+
+                <div class="mb-2 boxInputs">
+                    <label style="color: white; margin-left: 5px; margin-top: 10px;" class="row form-label"
+                        for="cpfCandidata">Cadastro de pessoa física (CPF):</label>
+
+                    <p id="errorCPF" style="color: yellow;" class="d-flex justify-content-center mb-2"></p>
+
+                    <input id="cpfCandidata" maxlength="14" class="caixa2 border-0" type="text"
+                        placeholder="Digite seu CPF" name="CPF_candidata">
+
+                </div>
 
                 <!-- <label for="pais">Selecione seu país</label>
                 <select class="caixa2" name="Pais_candidata" id="pais">
@@ -71,39 +89,61 @@
                     <select class="caixa3" name="Cidade_candidata" id="cidade">
                     </select>
                 </div> -->
-                <label for="">Localização: </label>
-                <input placeholder="Digite sua localização" class="caixa2 border-0" name="Localizacao_candidata" id="localizacao" type="text">
                 <div class="mb-2 boxInputs">
                     <label style="color: white; margin-left: 5px; margin-top: 10px;" class="row form-label"
-                        for="data-nascimento">Data de nascimento: </label>
+                        for="">Localização: </label>
 
-                    <p id="errorData" style="color: yellow;" class="d-flex justify-content-center"></p>
+                    <p id="errorLocalizacao" style="color: yellow;" class="d-flex justify-content-center mb-2"></p>
 
-                    <input id="data-nascimento" class="caixa2 border-0 mb-0" type="date" placeholder="Data de nascimento"
-                        name="Data_nascimento">
+                    <input placeholder="Digite sua localização" class="caixa2 border-0" name="Localizacao_candidata"
+                        id="localizacao" type="text">
 
                 </div>
-                <label for="genero">Informe seu gênero</label>
 
-                <p id="errorGenero" style="color: yellow;" class="d-flex justify-content-center mb-0"></p>
 
-                <select class="caixa2 border-0 mb-0" name="Genero_candidata" id="genero">
-                    <option class="opt-disabled" value="" disabled hidden selected>Informe seu gênero</option>
-                    <option value="mulher-cis">Mulher-Cis</option>
-                    <option value="homem-cis">Homem-Cis</option>
-                    <option value="mulher-cis">Mulher Trans</option>
-                    <option value="homem-trans">Homem Trans</option>
-                    <option value="nao-binario">Não-Binário</option>
-                    <option value="nao-resposta">Prefiro não responder</option>
-                </select>
-                <label for="senha">Crie uma senha</label>
+                <div class="mb-2 boxInputs">
+                    <label style="color: white; margin-left: 5px; margin-top: 10px;" class="row form-label"
+                        for="data-nascimento">Data de nascimento:</label>
 
-                <p id="errorSenha" style="color: yellow;" class="d-flex justify-content-center mb-2"></p>
+                    <p id="errorData" style="color: yellow;" class="d-flex justify-content-center mb-2"></p>
 
-                <input id="senha" class="caixa2 border-0 mb-0" name="Senha_candidata" type="password"
-                    placeholder="Crie uma senha" onkeyup="senhaforca()">
+                    <input id="data-nascimento" class="caixa2 border-0 mb-0" type="date"
+                        placeholder="Data de nascimento" name="Data_nascimento">
+
+                </div>
+
+
+                <div class="mb-2 boxInputs">
+                    <label style="color: white; margin-left: 5px; margin-top: 10px;" class="row form-label"
+                        for="genero">Informe seu gênero:</label>
+
+                    <p id="errorGenero" style="color: yellow;" class="d-flex justify-content-center mb-2"></p>
+
+                    <select class="caixa2 border-0 mb-0" name="Genero_candidata" id="genero">
+                        <option class="opt-disabled" value="" disabled hidden selected>Informe seu gênero</option>
+                        <option value="mulher-cis">Mulher-Cis</option>
+                        <option value="homem-cis">Homem-Cis</option>
+                        <option value="mulher-cis">Mulher Trans</option>
+                        <option value="homem-trans">Homem Trans</option>
+                        <option value="nao-binario">Não-Binário</option>
+                        <option value="nao-resposta">Prefiro não responder</option>
+                    </select>
+
+                    <p id="errorGenero" style="color: yellow;" class="d-flex justify-content-center mb-2"></p>
+                </div>
+
+                <div class="mb-2 boxInputs">
+                    <label style="color: white; margin-left: 5px; margin-top: 10px;" class="row form-label"
+                        for="senha">Crie uma senha:</label>
+
+                    <p id="errorSenha" style="color: yellow;" class="d-flex justify-content-center mb-2"></p>
+
+                    <input id="senha" class="caixa2 border-0 mb-0" name="Senha_candidata" type="password"
+                        placeholder="Crie uma senha" onkeyup="senhaforca()">
+                </div>
 
                 <div id="impForcaSenha"></div>
+
             </div>
 
 
@@ -119,7 +159,8 @@
 
     </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-compat/3.0.0-alpha1/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
 
     <script>
         // Mascara CPF e Telefone
@@ -127,53 +168,53 @@
 
         //nas duas funções abaixo estará presente o mecanismo de verificação de força da senha
         //ele pegará o valor do campo "senha", dado um "contador" inicial igual a 0 e concatenar-se-á ao longo do tamanho e complexidade da senha posta pelo usuário
-        function senhaforca(){
+        function senhaforca() {
             var password = document.getElementById('senha').value;
             var forca = 0;
             //document.getElementById("impSenha").innerHTML = "Senha " + password
 
-            if((password.length >= 4) && (password.length <= 7)){
+            if ((password.length >= 4) && (password.length <= 7)) {
                 forca += 10;
-            }else if(password.length > 7){
+            } else if (password.length > 7) {
                 forca += 25;
             }
 
-            if ((password.length >= 5) && password.match(/[a-z]+/)){
+            if ((password.length >= 5) && password.match(/[a-z]+/)) {
                 forca += 10;
             }
 
-            if ((password.length >= 6) && password.match(/[A-Z]+/)){
+            if ((password.length >= 6) && password.match(/[A-Z]+/)) {
                 forca += 20;
             }
 
-            if ((password.length >= 7) && password.match(/[@#$%&;*.?/|!'"()^~=`><:¨]+/)){
+            if ((password.length >= 7) && password.match(/[@#$%&;*.?/|!'"()^~=`><:¨]+/)) {
                 forca += 25;
             }
 
-           mostrarForca(forca)
+            mostrarForca(forca)
         }
 
-        function mostrarForca(forca){
-           
+        function mostrarForca(forca) {
 
-            if (forca < 30){
+
+            if (forca < 30) {
                 document.getElementById('impForcaSenha').innerHTML = "<span style='color: #ff0000'>Senha Fraca</span>";
-            }else if((forca >= 30)&&(forca < 50)){
+            } else if ((forca >= 30) && (forca < 50)) {
                 document.getElementById('impForcaSenha').innerHTML = "<span style='color: #FFD700'>Senha Média</span>";
-            }else if((forca >= 50)&&(forca < 70)){
+            } else if ((forca >= 50) && (forca < 70)) {
                 document.getElementById('impForcaSenha').innerHTML = "<span style='color: #7FFF00'>Senha Forte</span>";
-            }else if((forca >= 70)&&(forca < 100)){
+            } else if ((forca >= 70) && (forca < 100)) {
                 document.getElementById('impForcaSenha').innerHTML = "<span style='color: #008000'>Senha Excelente</span>";
             }
-            
+
         }
 
-        $(document).ready(function () { 
-        var $seuCampoCel = $("#celularCandidata");
-        $seuCampoCel.mask('(00) 00000-0000');
+        $(document).ready(function () {
+            var $seuCampoCel = $("#celularCandidata");
+            $seuCampoCel.mask('(00) 00000-0000');
 
-        var $seuCampoCPF = $("#cpfCandidata");
-        $seuCampoCPF.mask('000.000.000-00', {reverse: true});
+            var $seuCampoCPF = $("#cpfCandidata");
+            $seuCampoCPF.mask('000.000.000-00', { reverse: true });
         });
 
         function applyDataMask(field) {
