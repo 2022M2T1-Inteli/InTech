@@ -7,7 +7,7 @@
 # Brazilians in Tech
 
 <p align="center">
-<a href= "https://braziliansintech.com/"><img src="https://braziliansintech.com/static/img/logo.png" alt="Brazilians In Tech" border="0" ></a>
+<a href= "https://braziliansintech.com/"><img src="https://braziliansintech.com/static/img/logo.png" alt="Brazilians In Tech" border="0" width="312px"></a>
 </p>
 
 # InTech
