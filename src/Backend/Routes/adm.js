@@ -18,7 +18,7 @@ Routes.get("/listAllVagas", (req, res) => {
 
         //abre o banco de dados sqlite
         const db = await sqlite.open({ filename: "./database/banco_de_dados.db", driver: sqlite3.Database })
-       
+
         let vagas = []
 
         //roda comando sql e retora uma promise
@@ -79,7 +79,7 @@ Routes.get("/listEmpresasParceiras", (req, res) => {
         // roda comandos sql e retorna uma promise
         let array = []
         const empresaData = await db.all("SELECT * FROM empresas WHERE isAproved = 1")
-        
+
         for (let i = 0; i < empresaData.length; i++) {
             const vagaQtnInfo = await db.all(`SELECT id_vaga FROM vagas WHERE id_empresas = ${empresaData[i].id_empresas}`)
             let x = '{ "dataEmpresa": ' + JSON.stringify(empresaData[i]) + ', "qtnVagas": ' + JSON.stringify(vagaQtnInfo) + '}'
@@ -108,6 +108,62 @@ Routes.get("/listEmpresasSolicitantes", (req, res) => {
     }
 
     listEmpresas()
+})
+
+
+Routes.post("/liberarEmpresa", (req, res) => {
+    async function free() {
+
+        const {id_empresa} = req.body
+
+        //abre o banco de dados
+        const db = await sqlite.open({ filename: "./database/banco_de_dados.db", driver: sqlite3.Database })
+
+        const result = await db.run(`UPDATE empresas SET  isAproved = 1 WHERE id_empresas = '${id_empresa}'`)
+
+        if(result.changes === 0){
+            res.status(500).json({
+                erro:"Erro com o servidor ou banco de dados"
+            })
+        }else{
+            res.status(200).json({
+                message:"Empresa liberada com sucesso"
+            })
+        }
+
+
+
+    }
+
+    free()
+})
+
+
+Routes.post("/bloquearEmpresa",(req,res)=>{
+
+    async function block(){
+
+        const {id_empresa} = req.body
+
+        const db = await sqlite.open({ filename: "./database/banco_de_dados.db", driver: sqlite3.Database })
+
+        const result = await db.run(`UPDATE empresas SET  isAproved = 0 WHERE id_empresas = '${id_empresa}'`)
+
+        
+        if(result.changes === 0){
+            res.status(500).json({
+                erro:"Erro com o servidor ou banco de dados"
+            })
+        }else{
+            res.status(200).json({
+                message:"Empresa bloqueada com sucesso"
+            })
+        }
+
+
+    }
+
+    block()
 })
 
 module.exports = Routes
