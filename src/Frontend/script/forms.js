@@ -377,6 +377,17 @@ function catchRecruiterData() { // função que pega os valores do formulário p
 
 }
 
+function loadDataForms1Recruiter(){
+
+    let dataRecruiter =JSON.parse(sessionStorage.getItem("Recruit1"))
+
+    let NomeEmpresa= document.querySelector('#nomeEmpresa').value = dataRecruiter.NomeEmpresa
+    let RamoAtividade= document.querySelector('#ramoEmpresa').value = dataRecruiter.RamoAtividade
+    let CnpjEmpresa= document.querySelector('#cnpjEmpresa').value = dataRecruiter.CnpjEmpresa
+    let LocalizacaoEmpresa= document.querySelector('#localizacaoEmpresa').value = dataRecruiter.LocalizacaoEmpresa
+
+}
+
 function catchRecruiterData2() { // função que pega os valores de outro formulário preenchido pelo recrutador
 
     let recuitForms1 = JSON.parse(sessionStorage.getItem("Recruit1"))
