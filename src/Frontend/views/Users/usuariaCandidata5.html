@@ -48,7 +48,7 @@
                 <h5 class="titles">Localização:</h5>
                 <input disabled type="text" class="form-control" id="localizacao">
                 <div style="gap: 10px;" class="row mt-2 mb-2 boxInputs">
-                   
+
                 </div>
 
 
@@ -209,30 +209,30 @@
 
             </div>
 
-            
+
             <script>
                 let popup = document.getElementById("popup");
-                
+
                 function edit() {
-                    
+
                     const selects = document.querySelectorAll('select, input')
                     // const inputs = document.querySelectorAll('input')
                     const editButton = document.querySelector('#editButton')
 
                     const divHardSkills = document.querySelector('#hardskills')
                     const divSoftSkills = document.querySelector('#softskills')
-                    
+
                     const input = document.createElement('input')
-                    
+
                     for (let i = 0; i < selects.length; i++) {
                         selects[i].disabled = false
                     }
-                    
+
                     editButton.setAttribute("class", "saveButton botao")
                     editButton.setAttribute("onclick", "save()")
                     editButton.innerHTML = 'SALVAR'
                 }
-                
+
                 function save() {
                     const selects = document.querySelectorAll('select, input')
                     const editButton = document.querySelector('#editButton')
@@ -241,7 +241,7 @@
                     const localizacao = document.querySelector('#localizacao').value
                     const cargoCandidata = document.querySelector('#cargoCandidata').value
                     const grauInstrucao = document.querySelector('#escolaridadeCandidata').value
-                    
+
                     let softSkills = []
                     const oldSoftSkillsSpans = document.querySelector('#softskillsContainer').querySelectorAll('span')
                     const newSoftSkillsSpans = document.querySelectorAll('#softskills')
@@ -254,7 +254,7 @@
                         softSkills.push(newSoftSkillsSpans[i].innerText)
                     }
 
-                    let hardSkills = [] 
+                    let hardSkills = []
                     const oldHardSkillsSpans = document.querySelector('#hardskillsContainer').querySelectorAll('span')
                     const newHardSkillsSpans = document.querySelectorAll('#hardskills')
 
@@ -267,32 +267,32 @@
                     }
 
                     let softSkillsDB = softSkills.toString()
-                    let hardSkillsDB = hardSkills.toString() 
+                    let hardSkillsDB = hardSkills.toString()
                     console.log(hardSkills)
                     //editarUser(localizacao, cargoCandidata, grauInstrucao)
 
-                    editarUser(JSON.parse(sessionStorage.getItem("UsuarioDadosLogin")).id_candidata,localizacao,cargoCandidata,grauInstrucao,hardSkillsDB,softSkillsDB)
+                    editarUser(JSON.parse(sessionStorage.getItem("UsuarioDadosLogin")).id_candidata, localizacao, cargoCandidata, grauInstrucao, hardSkillsDB, softSkillsDB)
 
 
 
-                    
+
                     editButton.setAttribute("class", "botao btn btn-secondary")
                     editButton.setAttribute("onclick", "edit()")
                     editButton.innerHTML = 'EDITAR PERFIL'
 
 
                 }
-                
+
                 function openPopup() {
                     $("#popupPai").attr("class", "backPopup")
                     popup.classList.add("open-popup");
                 }
-                
+
                 function closePopup() {
                     $("#popupPai").attr("class", "popupclose")
                 }
-                
-                
+
+
                 function deleteUser() {
 
                     $.ajax({
@@ -309,14 +309,14 @@
                         }
                     })
                 }
-                
-                </script>
+
+            </script>
 
             <script src="../../script/api-localidades.js"></script>
             <script src="../../script/tagInputs/softSkillsTagInput.js"></script>
             <script src="../../script/tagInputs/hardSkillsTagInput.js"></script>
-            
+
             <script src="../../script/dashboard-user.js"></script>
-        </body>
-        
+</body>
+
 </html>

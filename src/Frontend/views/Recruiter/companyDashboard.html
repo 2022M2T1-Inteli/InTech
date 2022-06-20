@@ -27,9 +27,9 @@
             <button onclick="logout()" class="btn btn-danger">Logout</button>
         </div>
 
-        <a href="./EditarRecrutadora.html"><img id="logo" src="../../images/RecruiterProfile.svg"  alt="Seu perfil"></a> 
+        <a href="./EditarRecrutadora.html"><img id="logo" src="../../images/RecruiterProfile.svg" alt="Seu perfil"></a>
 
-        
+
     </div>
 
     <div class="container">
@@ -43,7 +43,7 @@
             <h2>Tem certeza que quer deletar essa vaga?</h2>
             <p id="idvaga"></p>
 
-            <button type="button" id="delete"  style="background-color:red ;">Confirmar escolha</button>
+            <button type="button" id="delete" style="background-color:red ;">Confirmar escolha</button>
             <button type="button" onclick="closePopup()" style="background-color:green ;">Volta</button>
         </div>
     </div>
@@ -56,18 +56,18 @@
 
         function openPopup(a) {
             $('body').attr('class', 'bg-image');
-            $("#popupPai").attr("class","backPopup")
+            $("#popupPai").attr("class", "backPopup")
             popup.classList.add("open-popup");
-            
 
-            $("#delete").attr("onclick",`delvaga(${a})`)
+
+            $("#delete").attr("onclick", `delvaga(${a})`)
         }
 
-        function closePopup(){
-            $("#popupPai").attr("class","popupclose")
+        function closePopup() {
+            $("#popupPai").attr("class", "popupclose")
         }
 
-        function logout(){
+        function logout() {
             sessionStorage.removeItem("EmpresaDadosLogin")
             window.location.replace("../index.html")
         }

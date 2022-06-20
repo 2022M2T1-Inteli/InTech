@@ -175,8 +175,8 @@
             editButton.innerHTML = 'SALVAR'
         }
 
-        
-       
+
+
         function save() {
 
             const selects = document.querySelectorAll('select, input')
@@ -216,7 +216,7 @@
             let softSkillsDB = softSkills.toString()
             let hardSkillsDB = hardSkills.toString()
 
-            editVaga(softSkillsDB,descricao,salario ,hardSkillsDB,modalidade,localizacao)
+            editVaga(softSkillsDB, descricao, salario, hardSkillsDB, modalidade, localizacao)
 
             editButton.setAttribute("class", "botao btn btn-secondary")
             editButton.setAttribute("onclick", "edit()")

@@ -43,49 +43,50 @@
 
                 <div class="mb-2 boxInputs">
                     <label style="color: white; margin-left: 5px; margin-top: 10px;" class="row form-label"
-                    for="statusCandidata">Situação profissional: </label>
-                <p id="errorStatus" style="color: yellow;" class="d-flex justify-content-center mb-0"></p>
-                <select class="row form-select select" name="Status_candidata" id="statusCandidata">
-                    <option value="" disabled hidden selected>Você está...</option>
-                    <option value="Estudante">Estudando</option>
-                    <option value="Profissional-Industria">Trabalhando na indústria</option>
-                    <option value="Profissional-Academica">Trabalhando no setor acadêmico</option>
-                    <option value="N">Não estou trabalhando, nem estudando</option>
-                </select>
+                        for="statusCandidata">Situação profissional: </label>
+                    <p id="errorStatus" style="color: yellow;" class="d-flex justify-content-center mb-0"></p>
+                    <select class="row form-select select" name="Status_candidata" id="statusCandidata">
+                        <option value="" disabled hidden selected>Você está...</option>
+                        <option value="Estudante">Estudando</option>
+                        <option value="Profissional-Industria">Trabalhando na indústria</option>
+                        <option value="Profissional-Academica">Trabalhando no setor acadêmico</option>
+                        <option value="N">Não estou trabalhando, nem estudando</option>
+                    </select>
                 </div>
 
 
 
                 <div class="mb-2 boxInputs">
                     <label style="color: white; margin-left: 5px; margin-top: 10px;" class="row form-label"
-                    for="escolaridadeCandidata">Escolaridade: </label>
+                        for="escolaridadeCandidata">Escolaridade: </label>
 
-                <p id="errorEscolaridade" style="color: yellow;" class="d-flex justify-content-center mb-0"></p>
+                    <p id="errorEscolaridade" style="color: yellow;" class="d-flex justify-content-center mb-0"></p>
 
-                <select class="row form-select select" name="Escolaridade_candidata" id="escolaridadeCandidata">
-                    <option value="" disabled hidden selected>Grau de instrução</option>
-                    <option value="EM">Ensino Médio</option>
-                    <option value="SI">Superior Incompleto</option>
-                    <option value="SC">Superior Completo</option>
-                    <option value="PGI">Pós-Graduação Incompleta</option>
-                    <option value="PGC">Pós-Graduação Completa</option>
-                    <option value="MI">Mestrado Incompleto</option>
-                    <option value="MC">Mestrado Completo</option>
-                    <option value="DI">Doutorado Incompleto</option>
-                    <option value="DC">Doutorado Completo</option>
-                </select>
+                    <select class="row form-select select" name="Escolaridade_candidata" id="escolaridadeCandidata">
+                        <option value="" disabled hidden selected>Grau de instrução</option>
+                        <option value="EM">Ensino Médio</option>
+                        <option value="SI">Superior Incompleto</option>
+                        <option value="SC">Superior Completo</option>
+                        <option value="PGI">Pós-Graduação Incompleta</option>
+                        <option value="PGC">Pós-Graduação Completa</option>
+                        <option value="MI">Mestrado Incompleto</option>
+                        <option value="MC">Mestrado Completo</option>
+                        <option value="DI">Doutorado Incompleto</option>
+                        <option value="DC">Doutorado Completo</option>
+                    </select>
                 </div>
 
 
 
                 <div class="mb-2 boxInputs">
                     <label style="color: white; margin-left: 5px; margin-top: 10px;" class="row form-label"
-                    for="cargoCandidata">Em que área deseja trabalhar? </label>
+                        for="cargoCandidata">Em que área deseja trabalhar? </label>
                     <p id="errorTrabalho" style="color: yellow;" class="d-flex justify-content-center mb-0"></p>
                     <select class="form-select row select" name="Cargo_candidata" id="cargoCandidata">
                         <option value="" selected disabled hidden>Área que deseja trabalhar</option>
                         <option id='Administrador de Sistemas'>Administrador de Sistemas</option>
-                        <option id='Administrador do Banco de Dados (DBA)'>Administrador do Banco de Dados (DBA)</option>
+                        <option id='Administrador do Banco de Dados (DBA)'>Administrador do Banco de Dados (DBA)
+                        </option>
                         <option id='Analista de Mídias Sociais'>Analista de Mídias Sociais</option>
                         <option id='Analista de Segurança de Informação'>Analista de Segurança de Informação</option>
                         <option id='Analista de Sistemas'>Analista de Sistemas</option>
@@ -107,11 +108,11 @@
                         <option id='Técnico de informática'>Técnico de informática</option>
                     </select>
                 </div>
-                
+
 
                 <div class="row mt-4 softSkillsContainer">
                     <label style="color: white; margin-left: 5px; margin-top: 10px;" class="row form-label"
-                    for="Soft-Skills" class="form-label">Soft-Skills: </label>
+                        for="Soft-Skills" class="form-label">Soft-Skills: </label>
                     <p id="errorSoft" style="color: yellow;" class="d-flex justify-content-center mb-0"></p>
                     <input placeholder="Digite a habilidade desejada e pressione ENTER" type="text" name="Soft-Skills"
                         list="softSkillsList" id="soft-skills" class="form-control">
@@ -155,7 +156,7 @@
 
                 <div class="row mt-4 hardSkillsContainer">
                     <label style="color: white; margin-left: 5px; margin-top: 10px;" class="row form-label"
-                    for="Hard-Skills" class="form-label">Hard-Skills: </label>
+                        for="Hard-Skills" class="form-label">Hard-Skills: </label>
                     <p id="errorHard" style="color: yellow;" class="d-flex justify-content-center mb-0"></p>
                     <input placeholder="Digite a habilidade desejada e pressione ENTER" type="text" name="Hard-Skills"
                         list="hardskillslist" id="hard-skills" class="form-control">
@@ -196,11 +197,11 @@
                 <div class="mb-3 curriculo">
                     <img src="../../images/DocumentsIcon.svg" alt="">
                     <label for="formFile" class="button_top">Carregue seu curriculo</label>
-                    <input class="form-control" type="file" id="formFile" hidden onchange="onChange()" >
+                    <input class="form-control" type="file" id="formFile" hidden onchange="onChange()">
                     <p id="nameFile">*Apenas arquivos PDF</p>
                 </div>
 
-               
+
                 <!-- 
                 <div class="d-flex justify-content-center">
                     <button type="submit" class="btnproprio">Concluir cadastro</button>
@@ -246,7 +247,7 @@
             popup.classList.add("open-popup");
         }
 
-        function redirecionar(){
+        function redirecionar() {
             window.location.replace("/views/index.html")
         }
     </script>
