@@ -30,7 +30,7 @@ O nosso projeto trata da inclusão de mulheres no mercado de trabalho da tecnolo
 Por conseguinte, nosso site traz como alternativa o incentivo a participação dessas mulheres, com um layout mais amigável, uma experiência do usuário pensada nelas e por último, mas não menos importante, a aderência de um sistema que introduz as vagas àquelas candidatas com mais chances de conseguirem ser aprovadas nos processos seletivos da empresa, eliminando o problema da insegurança enfrentado por elas.
 <br><br><br>
 <p align="center">
-<img src="https://github.com/2022M2T1/Projeto5/blob/main/imagens/paginalogin1.jpeg" alt="TELA LOGIN DO SITE" border="0">
+<img src="https://github.com/2022M2T1/Projeto5/blob/main/imagens/paginaDeLoginAtualizada.png" alt="TELA LOGIN DO SITE" border="0">
   Login page by <a href="https://github.com/2022M2T1/Projeto5">Intech</a>
 </p>
 <br><br><br>
