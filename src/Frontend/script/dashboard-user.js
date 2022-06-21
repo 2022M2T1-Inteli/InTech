@@ -33,6 +33,7 @@ function logadoUser() {
         },
         success: function (res) {
 
+            
             for (let i = 0; i < res.length; i++) {
                 let div = document.querySelector(".vagasUser")
 
