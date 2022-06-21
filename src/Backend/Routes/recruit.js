@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 const recruiterController = require("../controllers/recruit")
 
-
+// rotas de post, put e delete abaixo
 
 
 Routes.post("/formEmpresa",recruiterController.registerRecruiter)
