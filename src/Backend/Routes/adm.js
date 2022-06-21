@@ -166,4 +166,20 @@ Routes.post("/bloquearEmpresa",(req,res)=>{
     block()
 })
 
+Routes.post(('/loadDataEmpresa'), (req, res) => {
+    async function getDB() {
+        const { id_empresa } = req.body
+
+        const db = await sqlite.open({ filename: "./database/banco_de_dados.db", driver: sqlite3.Database })
+
+        await db.get(`SELECT * FROM empresas WHERE id_empresas = ${id_empresa}`).then((result) => {
+            res.json(result)
+        })
+
+        db.close()
+    }
+
+    getDB();
+})
+
 module.exports = Routes

@@ -1,3 +1,5 @@
+const getUrlParameter = new URLSearchParams(window.location.search)
+
 function loadData() {
     loadCandidatas()
     loadEmpresasParceiras()
@@ -62,7 +64,7 @@ function loadEmpresasSolicitantes() {
                         <h5>${res[i].nome_empresa}</h5>
                 </td>
 
-                <td class="edit"><a href="#"> Analisar solicitação </a></td>
+                <td class="edit"><a href="./empresaInfo.html?id_empresa=${res[i].id_empresas}"> Analisar solicitação </a></td>
             </tr>
                 `
             }
@@ -112,7 +114,7 @@ function liberarEmpresa(id_empresa){
             id_empresa:id_empresa
         },
         success:function(data){
-            // o que vai acontecer depois de que liberar a empresa
+            window.location.replace("/views/ADM/empresas.html")
         },
         error:function(data){
             alert(data)
@@ -130,10 +132,40 @@ function bloquearEmpresa(id_empresa){
             id_empresa:id_empresa
         },
         success:function(data){ 
-            // o que vai acontecer depois de que bloquear a empresa
+            window.location.replace("/views/ADM/index.html")
         },
         error:function(data){
             alert(data)
+        }
+    })
+}
+
+
+function loadDataEmpresa() {
+    const id_empresa = getUrlParameter.get("id_empresa")
+    const acceptButton = document.querySelector('#acceptBtn')
+    const rejectButton = document.querySelector('#rejectBtn')
+
+    $.ajax({
+        url: 'http://localhost:3000/adm/loadDataEmpresa', 
+        type: 'POST',
+        data: {
+            id_empresa: id_empresa
+        }, 
+        success: (res) => {
+            $('#nomeEmpresa').html(res.nome_empresa)
+            $('#ramoAtividade').html(res.ramo_empresa)
+            $('#cnpjEmpresa').html(res.cnpj_empresa)
+            $('#emailEmpresa').html(res.email_empresa)
+            $('#siteEmpresa').html(res.site_empresa)
+            $('#telEmpresa').html(res.telefone_empresa)
+            $('#culturaEmpresa').html(res.cultura_empresa)
+
+
+            acceptButton.setAttribute('onclick', `liberarEmpresa(${res.id_empresas})`)
+            rejectButton.setAttribute('onclick', `bloquearEmpresa(${res.id_empresas})`)
+
+            console.log(res)
         }
     })
 }

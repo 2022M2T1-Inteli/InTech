@@ -173,3 +173,11 @@ a:hover {
 .popupclose{
     display: none;
 }
+
+
+.sucesso {
+    font-weight: bold;
+    font-size: 22px;
+    margin-left: 0;
+    color: #F3C42E;
+}

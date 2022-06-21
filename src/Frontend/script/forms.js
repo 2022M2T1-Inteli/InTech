@@ -157,9 +157,6 @@ function catchUserData() { // função que pega os dados de usuário de acordo c
 
 
 function loadDataForms1User() {
-
-
-
     let userinfos =JSON.parse(sessionStorage.getItem("User1"))
 
     let NomeCandidata = document.querySelector('#nomeCandidata').value = userinfos.NomeCandidata
@@ -192,6 +189,8 @@ function onChange() {
                 PDFcurriculo = data
         );
 
+        $("#nameFile").html("Currículo carregado com sucesso")
+        $("#nameFile").attr("class", "sucesso")
     }
 
 }
@@ -206,6 +205,9 @@ function onChange2() {
             data =>
                 LogoEmpresa = data
         );
+
+        $("#nameFile").html("Arquivo carregado com sucesso")
+        $("#nameFile").attr("class", "sucesso")
 
     }
 
