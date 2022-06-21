@@ -18,7 +18,7 @@ Routes.post('/listMatch', (req, res) => {
     
         // pegando as habilidades da candidata e todas as vagas
         const dbCandidata = await db.get('SELECT  cargo_candidata, softskill_candidata, hardskill_candidata FROM candidatas WHERE id_candidata = ?', [id_candidata]);
-        const dbVagas = await db.all(`SELECT * FROM vagas`);
+        const dbVagas = await db.all(`SELECT vagas.id_vaga, vagas.nome_vaga, vagas.descricao_vaga, vagas.softskill_vaga, vagas.hardskill_vaga, vagas.local_vaga, vagas.modalidade_vaga, vagas.salario_vaga, empresas.id_empresas, empresas.logo_empresa FROM vagas JOIN empresas on vagas.id_empresas = empresas.id_empresas`);
        
         //transformando as habilidades da candidata em um array
         let candidataAllSkills = dbCandidata.softskill_candidata + ',' + dbCandidata.hardskill_candidata;
@@ -37,14 +37,17 @@ Routes.post('/listMatch', (req, res) => {
                 }
             }
             console.log(matchedSkills)
-    
-            let matchPercent = matchedSkills.length / vagaSkills.length; 
+            
+            var matchedSkillsN = matchedSkills.filter((este, i) => matchedSkills.indexOf(este) === i);
+
+            let matchPercent = matchedSkillsN.length / vagaSkills.length; 
     
             if (matchPercent >= 0.5) {
-                idVagasMatched.push(dbVagas[x])
+                let jsonS = JSON.stringify(dbVagas[x])
+                let res = ` { "vagaData": ${jsonS}, "matchPercent": ${parseFloat(matchPercent.toFixed(4))} }`  
+                let jsonP = JSON.parse(res)
+                idVagasMatched.push(jsonP)
             }
-    
-            console.log(matchPercent)
         }
         res.status(200).json(idVagasMatched)
     }

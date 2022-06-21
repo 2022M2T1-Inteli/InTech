@@ -12,9 +12,8 @@
     display: flex;
     align-items: center;
     
-    margin-bottom: 1rem;
     margin-left: 1rem;
-    margin-top: 30px;
+    margin-top: 20px;
 
     width: auto;
     animation: up 0.7s;

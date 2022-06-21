@@ -16,7 +16,7 @@
     <title>Brazilians in Tech</title>
 </head>
 
-<body class="bg-image" style="background-image: url('../../images/Background.svg');
+<body style="background-image: url('../../images/Background.svg');
  background-repeat: no-repeat; background-size: cover; margin: 0;">
 
 
@@ -40,59 +40,80 @@
 
         <div class="" style="animation: up 2s backwards;">
             <form class="col justify-content-center" action="./UsuáriaCanditada1.html">
-                <label for="statusCandidata">Você está...</label>
-                <select class="row form-select select" name="Status_candidata" id="statusCandidata">
-                    <option value="" disabled hidden selected>Você está ...</option>
-                    <option value="Estudante">Estudando</option>
-                    <option value="Profissional-Industria">Trabalhando na indústria</option>
-                    <option value="Profissional-Academica">Trabalhando no setor acadêmico</option>
-                    <option value="N">Não estou trabalhando, nem estudando</option>
-                </select>
 
-                <label for="escolaridadeCandidata">Sua escolaridade</label>
-                <select class="row form-select select" name="Escolaridade_candidata" id="escolaridadeCandidata">
-                    <option value="" disabled hidden selected>Grau de instrução</option>
-                    <option value="EM">Ensino Médio</option>
-                    <option value="SI">Superior Incompleto</option>
-                    <option value="SC">Superior Completo</option>
-                    <option value="PGI">Pós-Graduação Incompleta</option>
-                    <option value="PGC">Pós-Graduação Completa</option>
-                    <option value="MI">Mestrado Incompleto</option>
-                    <option value="MC">Mestrado Completo</option>
-                    <option value="DI">Doutorado Incompleto</option>
-                    <option value="DC">Doutorado Completo</option>
-                </select>
+                <div class="mb-2 boxInputs">
+                    <label style="color: white; margin-left: 5px; margin-top: 10px;" class="row form-label"
+                        for="statusCandidata">Situação profissional: </label>
+                    <p id="errorStatus" style="color: yellow;" class="d-flex justify-content-center mb-0"></p>
+                    <select class="row form-select select" name="Status_candidata" id="statusCandidata">
+                        <option value="" disabled hidden selected>Você está...</option>
+                        <option value="Estudante">Estudando</option>
+                        <option value="Profissional-Industria">Trabalhando na indústria</option>
+                        <option value="Profissional-Academica">Trabalhando no setor acadêmico</option>
+                        <option value="N">Não estou trabalhando, nem estudando</option>
+                    </select>
+                </div>
 
-                <label for="cargoCandidata">Em que área deseja trabalhar?</label>
-                <select class="form-select row select" name="Cargo_candidata" id="cargoCandidata">
-                    <option value="" selected disabled hidden>Área que deseja trabalhar</option>
-                    <option id='Administrador de Sistemas'>Administrador de Sistemas</option>
-                    <option id='Administrador do Banco de Dados (DBA)'>Administrador do Banco de Dados (DBA)</option>
-                    <option id='Analista de Mídias Sociais'>Analista de Mídias Sociais</option>
-                    <option id='Analista de Segurança de Informação'>Analista de Segurança de Informação</option>
-                    <option id='Analista de Sistemas'>Analista de Sistemas</option>
-                    <option id='Arquiteto de redes'>Arquiteto de redes</option>
-                    <option id='Ciência de dados'>Ciência de dados</option>
-                    <option id='Desenvolvedor mobile'>Desenvolvedor mobile</option>
-                    <option id='Engenharia de computação'>Engenharia de computação</option>
-                    <option id='Engenharia de software'>Engenharia de software</option>
-                    <option id='Especialista em e-Commerce'>Especialista em e-Commerce</option>
-                    <option id='Gestão de Tecnologia da Informação'>Gestão de Tecnologia da Informação</option>
-                    <option id='Jogos Digitais'>Jogos Digitais</option>
-                    <option id='Marketing Digital'>Marketing Digital</option>
-                    <option id='Profissional Help Desk'>Profissional Help Desk</option>
-                    <option id='Programador de Computador'>Programador de Computador</option>
-                    <option id='Programador web'>Programador web</option>
-                    <option id='Robótica'>Robótica</option>
-                    <option id='Segurança da informação'>Segurança da informação</option>
-                    <option id='Segurança de sistemas'>Segurança de sistemas</option>
-                    <option id='Técnico de informática'>Técnico de informática</option>
-                </select>
+
+
+                <div class="mb-2 boxInputs">
+                    <label style="color: white; margin-left: 5px; margin-top: 10px;" class="row form-label"
+                        for="escolaridadeCandidata">Escolaridade: </label>
+
+                    <p id="errorEscolaridade" style="color: yellow;" class="d-flex justify-content-center mb-0"></p>
+
+                    <select class="row form-select select" name="Escolaridade_candidata" id="escolaridadeCandidata">
+                        <option value="" disabled hidden selected>Grau de instrução</option>
+                        <option value="EM">Ensino Médio</option>
+                        <option value="SI">Superior Incompleto</option>
+                        <option value="SC">Superior Completo</option>
+                        <option value="PGI">Pós-Graduação Incompleta</option>
+                        <option value="PGC">Pós-Graduação Completa</option>
+                        <option value="MI">Mestrado Incompleto</option>
+                        <option value="MC">Mestrado Completo</option>
+                        <option value="DI">Doutorado Incompleto</option>
+                        <option value="DC">Doutorado Completo</option>
+                    </select>
+                </div>
+
+
+
+                <div class="mb-2 boxInputs">
+                    <label style="color: white; margin-left: 5px; margin-top: 10px;" class="row form-label"
+                        for="cargoCandidata">Em que área deseja trabalhar? </label>
+                    <p id="errorTrabalho" style="color: yellow;" class="d-flex justify-content-center mb-0"></p>
+                    <select class="form-select row select" name="Cargo_candidata" id="cargoCandidata">
+                        <option value="" selected disabled hidden>Área que deseja trabalhar</option>
+                        <option id='Administrador de Sistemas'>Administrador de Sistemas</option>
+                        <option id='Administrador do Banco de Dados (DBA)'>Administrador do Banco de Dados (DBA)
+                        </option>
+                        <option id='Analista de Mídias Sociais'>Analista de Mídias Sociais</option>
+                        <option id='Analista de Segurança de Informação'>Analista de Segurança de Informação</option>
+                        <option id='Analista de Sistemas'>Analista de Sistemas</option>
+                        <option id='Arquiteto de redes'>Arquiteto de redes</option>
+                        <option id='Ciência de dados'>Ciência de dados</option>
+                        <option id='Desenvolvedor mobile'>Desenvolvedor mobile</option>
+                        <option id='Engenharia de computação'>Engenharia de computação</option>
+                        <option id='Engenharia de software'>Engenharia de software</option>
+                        <option id='Especialista em e-Commerce'>Especialista em e-Commerce</option>
+                        <option id='Gestão de Tecnologia da Informação'>Gestão de Tecnologia da Informação</option>
+                        <option id='Jogos Digitais'>Jogos Digitais</option>
+                        <option id='Marketing Digital'>Marketing Digital</option>
+                        <option id='Profissional Help Desk'>Profissional Help Desk</option>
+                        <option id='Programador de Computador'>Programador de Computador</option>
+                        <option id='Programador web'>Programador web</option>
+                        <option id='Robótica'>Robótica</option>
+                        <option id='Segurança da informação'>Segurança da informação</option>
+                        <option id='Segurança de sistemas'>Segurança de sistemas</option>
+                        <option id='Técnico de informática'>Técnico de informática</option>
+                    </select>
+                </div>
 
 
                 <div class="row mt-4 softSkillsContainer">
-                    <p>Soft-Skills</p>
-                    <label for="Soft-Skills" class="form-label">Soft-Skills</label>
+                    <label style="color: white; margin-left: 5px; margin-top: 10px;" class="row form-label"
+                        for="Soft-Skills" class="form-label">Soft-Skills: </label>
+                    <p id="errorSoft" style="color: yellow;" class="d-flex justify-content-center mb-0"></p>
                     <input placeholder="Digite a habilidade desejada e pressione ENTER" type="text" name="Soft-Skills"
                         list="softSkillsList" id="soft-skills" class="form-control">
                     <datalist id="softSkillsList">
@@ -102,8 +123,8 @@
                         <option value='Solução de problemas'>
                         <option value='Gerenciamento de tempo'>
                         <option value='Pensamento crítico'>
-                        <option value='Tomadora de decisões'>
-                        <option value='Organizacional'>
+                        <option value='Boa tomada de decisões'>
+                        <option value='Organização'>
                         <option value='Gerenciamento de estresse'>
                         <option value='Adaptabilidade'>
                         <option value='Gestão e resolução de conflitos'>
@@ -112,8 +133,8 @@
                         <option value='Persuasão'>
                         <option value='Abertura a críticas'>
                         <option value='Atenção a detalhes'>
-                        <option value='Ética de trabalho'>
-                        <option value='Priorização'>
+                        <option value='Ética no trabalho'>
+                        <option value='Resiliência'>
                         <option value='Definição de metas'>
                         <option value='Otimismo'>
                         <option value='Imaginação'>
@@ -125,15 +146,18 @@
                         <option value='Diplomacia'>
                         <option value='Disciplina'>
                         <option value='Comprometimento'>
-                        <option value='Responsável'>
+                        <option value='Responsabilidade'>
                         <option value='Introspecção'>
                         <option value='Despersonalização'>
+                        <option value='Inteligência emocional'>
+                        <option value='Capacidade de lidar com a diversidade'>
                     </datalist>
                 </div>
 
                 <div class="row mt-4 hardSkillsContainer">
-                    <p>Hard-Skills</p>
-                    <label for="Hard-Skills" class="form-label">Hard-Skills</label>
+                    <label style="color: white; margin-left: 5px; margin-top: 10px;" class="row form-label"
+                        for="Hard-Skills" class="form-label">Hard-Skills: </label>
+                    <p id="errorHard" style="color: yellow;" class="d-flex justify-content-center mb-0"></p>
                     <input placeholder="Digite a habilidade desejada e pressione ENTER" type="text" name="Hard-Skills"
                         list="hardskillslist" id="hard-skills" class="form-control">
                     <datalist id="hardskillslist">
@@ -173,9 +197,11 @@
                 <div class="mb-3 curriculo">
                     <img src="../../images/DocumentsIcon.svg" alt="">
                     <label for="formFile" class="button_top">Carregue seu curriculo</label>
-                    <input class="form-control" type="file" id="formFile" hidden>
-                    <p>*Apenas arquivos PDF</p>
+                    <input class="form-control" type="file" id="formFile" hidden onchange="onChange()">
+                    <p id="nameFile">*Apenas arquivos PDF</p>
                 </div>
+
+
                 <!-- 
                 <div class="d-flex justify-content-center">
                     <button type="submit" class="btnproprio">Concluir cadastro</button>
@@ -184,8 +210,19 @@
 
             <!--  TEMPLATE BOTÃO VOLTAR -->
             <div class="col d-flex align-items-center justify-content-center">
-                <button onclick=" catchUserData2()" class="btnproprio">Completar cadastro</button>
+                <button onclick="catchUserData2()" class="btnproprio">Completar cadastro</button>
+                <!---->
+
                 <a class="row" style="margin-left: 30px;" href="../Users/cadastroUsuaria1.html">Voltar</a>
+            </div>
+
+            <div class="backPopup">
+                <div class="popup" id="popup">
+                    <img src="../../images/feliz (1).png">
+                    <h2>Obrigada pelo seu registro!</h2>
+
+                    <button type="button" onclick="redirecionar()">Continuar</button>
+                </div>
             </div>
 
         </div>
@@ -201,6 +238,18 @@
                 return (code == 13) ? false : true;
             });
         });
+
+        let popup = document.getElementById("popup");
+
+
+        function openPopup() {
+            $('body').attr('class', 'bg-image');
+            popup.classList.add("open-popup");
+        }
+
+        function redirecionar() {
+            window.location.replace("/views/index.html")
+        }
     </script>
 
 

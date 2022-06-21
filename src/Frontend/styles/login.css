@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Cabin:ital@0;1&family=Roboto+Slab:wght@800&family=Ubuntu:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap');
 
 body {
     background-image: url("../images/LoginBackground.svg");
@@ -25,6 +26,14 @@ input {
     border-style: none;
 }
 
+form i {
+  cursor: pointer;
+}
+
+.user-select-all{
+  font-family: 'Nunito';
+}
+
 @media only screen and (max-width: 1000px) {
 
     body {
@@ -45,7 +54,7 @@ input {
     align-items: center;
     justify-content: center;
     border-radius: 5px;
-    margin-bottom: 3em;
+    margin-bottom: 2em;
   }
   
   .wrapper .option{
@@ -106,4 +115,9 @@ input {
   #option-1:checked:checked ~ .option-1 span,
   #option-2:checked:checked ~ .option-2 span{
     color: #fff;
+  }
+
+  #togglePassword{
+    cursor: pointer;
+    position: center;
   }

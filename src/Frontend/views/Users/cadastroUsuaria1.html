@@ -16,7 +16,7 @@
 
 
 <body class="bg-image" style="background-image: url('../../images/Background.svg');
- background-repeat: no-repeat; background-size: cover; margin: 0;">
+ background-repeat: no-repeat; background-size: cover; margin: 0;" onload="loadDataForms1User()">
 
 
     <header>
@@ -26,6 +26,8 @@
     </header>
     <main style="animation: up 1.5s;">
         <h1 class="titulo-da-pagina mt-4">Cadastre seu perfil</h1>
+
+
         <form action="">
             <div class="caixa">
                 <div class="mb-1 mt-4">
@@ -33,20 +35,50 @@
                         srcset="">
                 </div>
                 <br>
-                <label for="nomeCandidata">Nome</label>
-                <input id="nomeCandidata" class="caixa2 border-0" type="text" placeholder="Digite seu nome"
-                    name="Nome_candidata" required />
-                <label for="emailCandidata">Email</label>
-                <input id="emailCandidata" class="caixa2 border-0" type="email" placeholder="Digite seu melhor email"
-                    name="Email_candidata" required />
-                <label for="celularCandidata">Número de telefone celular</label>
-                <input id="celularCandidata" class="caixa2 border-0" type="tel"
-                    placeholder="Digite o número do seu celular" name="Celular_candidata" />
-                <label for="cpfCandidata">CPF</label>
-                <input id="cpfCandidata" class="caixa2 border-0" type="number" placeholder="Digite seu CPF"
-                    name="CPF_candidata">
 
-                <label for="pais">Selecione seu país</label>
+                <div class="mb-2 boxInputs">
+                    <label style="color: white; margin-left: 5px; margin-top: 10px;" class="row form-label"
+                        for="nomeCandidata">Nome:</label>
+
+                    <p id="errorNome" style="color: yellow;" class="d-flex justify-content-center mb-2"></p>
+
+                    <input id="nomeCandidata" class="caixa2 border-0 mb-0 " type="text" placeholder="Digite seu nome"
+                        name="Nome_candidata" required />
+                </div>
+
+
+                <div class="mb-2 boxInputs">
+                    <label style="color: white; margin-left: 5px; margin-top: 10px;" class="row form-label"
+                        for="emailCandidata">Email:</label>
+
+                    <p id="errorEmail" style="color: yellow;" class="d-flex justify-content-center mb-2"></p>
+
+                    <input id="emailCandidata" class="caixa2 border-0 mb-0" type="email"
+                        placeholder="Digite seu melhor email" name="Email_candidata" required />
+                </div>
+
+                <div class="mb-2 boxInputs">
+                    <label style="color: white; margin-left: 5px; margin-top: 10px;" class="row form-label"
+                        for="celularCandidata">Número do seu celular:</label>
+
+                    <p id="errorCelular" style="color: yellow;" class="d-flex justify-content-center mb-2"></p>
+
+                    <input id="celularCandidata" class="caixa2 border-0 mb-0" type="text"
+                        placeholder="Digite o número do seu celular" name="Celular_candidata" />
+                </div>
+
+                <div class="mb-2 boxInputs">
+                    <label style="color: white; margin-left: 5px; margin-top: 10px;" class="row form-label"
+                        for="cpfCandidata">Cadastro de pessoa física (CPF):</label>
+
+                    <p id="errorCPF" style="color: yellow;" class="d-flex justify-content-center mb-2"></p>
+
+                    <input id="cpfCandidata" maxlength="14" class="caixa2 border-0" type="text"
+                        placeholder="Digite seu CPF" name="CPF_candidata">
+
+                </div>
+
+                <!-- <label for="pais">Selecione seu país</label>
                 <select class="caixa2" name="Pais_candidata" id="pais">
                 </select>
                 <div class="mb-2 boxInputs">
@@ -56,27 +88,62 @@
                     <label for="cidade">Selecione sua cidade</label>
                     <select class="caixa3" name="Cidade_candidata" id="cidade">
                     </select>
-                </div>
+                </div> -->
                 <div class="mb-2 boxInputs">
                     <label style="color: white; margin-left: 5px; margin-top: 10px;" class="row form-label"
-                        for="data-nascimento">Data de nascimento: </label>
-                    <input id="data-nascimento" class="caixa2 border-0" type="date" placeholder="Data de nascimento"
-                        name="Data_nascimento">
+                        for="">Localização: </label>
+
+                    <p id="errorLocalizacao" style="color: yellow;" class="d-flex justify-content-center mb-2"></p>
+
+                    <input placeholder="Digite sua localização" class="caixa2 border-0" name="Localizacao_candidata"
+                        id="localizacao" type="text">
 
                 </div>
-                <label for="genero">Informe seu gênero</label>
-                <select class="caixa2 border-0" name="Genero_candidata" id="genero">
-                    <option class="opt-disabled" value="" disabled hidden selected>Informe seu gênero</option>
-                    <option value="mulher-cis">Mulher-Cis</option>
-                    <option value="homem-cis">Homen-Cis</option>
-                    <option value="mulher-cis">Mulher Trans</option>
-                    <option value="homem-trans">Homem Trans</option>
-                    <option value="nao-binario">Não-Binário</option>
-                    <option value="nao-resposta">Prefiro não responder</option>
-                </select>
-                <label for="senha">Crie uma senha</label>
-                <input id="senha" class="caixa2 border-0" name="Senha_candidata" type="password"
-                    placeholder="Crie uma senha">
+
+
+                <div class="mb-2 boxInputs">
+                    <label style="color: white; margin-left: 5px; margin-top: 10px;" class="row form-label"
+                        for="data-nascimento">Data de nascimento:</label>
+
+                    <p id="errorData" style="color: yellow;" class="d-flex justify-content-center mb-2"></p>
+
+                    <input id="data-nascimento" class="caixa2 border-0 mb-0" type="date"
+                        placeholder="Data de nascimento" name="Data_nascimento">
+
+                </div>
+
+
+                <div class="mb-2 boxInputs">
+                    <label style="color: white; margin-left: 5px; margin-top: 10px;" class="row form-label"
+                        for="genero">Informe seu gênero:</label>
+
+                    <p id="errorGenero" style="color: yellow;" class="d-flex justify-content-center mb-2"></p>
+
+                    <select class="caixa2 border-0 mb-0" name="Genero_candidata" id="genero">
+                        <option class="opt-disabled" value="" disabled hidden selected>Informe seu gênero</option>
+                        <option value="mulher-cis">Mulher-Cis</option>
+                        <option value="homem-cis">Homem-Cis</option>
+                        <option value="mulher-cis">Mulher Trans</option>
+                        <option value="homem-trans">Homem Trans</option>
+                        <option value="nao-binario">Não-Binário</option>
+                        <option value="nao-resposta">Prefiro não responder</option>
+                    </select>
+
+                    <p id="errorGenero" style="color: yellow;" class="d-flex justify-content-center mb-2"></p>
+                </div>
+
+                <div class="mb-2 boxInputs">
+                    <label style="color: white; margin-left: 5px; margin-top: 10px;" class="row form-label"
+                        for="senha">Crie uma senha:</label>
+
+                    <p id="errorSenha" style="color: yellow;" class="d-flex justify-content-center mb-2"></p>
+
+                    <input id="senha" class="caixa2 border-0 mb-0" name="Senha_candidata" type="password"
+                        placeholder="Crie uma senha" onkeyup="senhaforca()">
+                </div>
+
+                <div id="impForcaSenha"></div>
+
             </div>
 
 
@@ -90,136 +157,111 @@
                 href="../telaCadastro.html">Voltar</a>
         </div>
 
-
-
-
-
     </main>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-compat/3.0.0-alpha1/jquery.min.js"></script>
-
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
 
     <script>
-        // Mascara CPF
+        // Mascara CPF e Telefone
+        Array.prototype.forEach.call(document.body.querySelectorAll("*[data-mask]"), applyDataMask); // coleta todos os inputs que conterem o atributo (data-mask)
 
+        //nas duas funções abaixo estará presente o mecanismo de verificação de força da senha
+        //ele pegará o valor do campo "senha", dado um "contador" inicial igual a 0 e concatenar-se-á ao longo do tamanho e complexidade da senha posta pelo usuário
+        function senhaforca() {
+            var password = document.getElementById('senha').value;
+            var forca = 0;
+            //document.getElementById("impSenha").innerHTML = "Senha " + password
 
+            if ((password.length >= 4) && (password.length <= 7)) {
+                forca += 10;
+            } else if (password.length > 7) {
+                forca += 25;
+            }
 
-        // API de Localização 
-        function montaCidade(estado, pais) {
-            $.ajax({
-                type: 'GET',
-                url: 'http://api.londrinaweb.com.br/PUC/Cidades/' + estado + '/' + pais + '/0/10000',
-                contentType: "application/json; charset=utf-8",
-                dataType: "jsonp",
-                async: false
-            }).done(function (response) {
-                cidades = '';
+            if ((password.length >= 5) && password.match(/[a-z]+/)) {
+                forca += 10;
+            }
 
-                $.each(response, function (c, cidade) {
+            if ((password.length >= 6) && password.match(/[A-Z]+/)) {
+                forca += 20;
+            }
 
-                    cidades += '<option value="' + cidade + '">' + cidade + '</option>';
+            if ((password.length >= 7) && password.match(/[@#$%&;*.?/|!'"()^~=`><:¨]+/)) {
+                forca += 25;
+            }
 
-                });
-
-                // PREENCHE AS CIDADES DE ACORDO COM O ESTADO
-                $('#cidade').html(cidades);
-
-            });
+            mostrarForca(forca)
         }
 
-        function montaUF(pais) {
-            $.ajax({
-                type: 'GET',
-                url: 'http://api.londrinaweb.com.br/PUC/Estados/' + pais + '/0/10000',
-                contentType: "application/json; charset=utf-8",
-                dataType: "jsonp",
-                async: false
-            }).done(function (response) {
-                estados = '';
-                $.each(response, function (e, estado) {
+        function mostrarForca(forca) {
 
-                    estados += '<option value="' + estado.UF + '">' + estado.UF + '</option>';
 
-                });
+            if (forca < 30) {
+                document.getElementById('impForcaSenha').innerHTML = "<span style='color: #ff0000'>Senha Fraca</span>";
+            } else if ((forca >= 30) && (forca < 50)) {
+                document.getElementById('impForcaSenha').innerHTML = "<span style='color: #FFD700'>Senha Média</span>";
+            } else if ((forca >= 50) && (forca < 70)) {
+                document.getElementById('impForcaSenha').innerHTML = "<span style='color: #7FFF00'>Senha Forte</span>";
+            } else if ((forca >= 70) && (forca < 100)) {
+                document.getElementById('impForcaSenha').innerHTML = "<span style='color: #008000'>Senha Excelente</span>";
+            }
 
-                // PREENCHE OS ESTADOS BRASILEIROS
-                $('#estado').html(estados);
-
-                // CHAMA A FUNÇÃO QUE PREENCHE AS CIDADES DE ACORDO COM O ESTADO
-                montaCidade($('#estado').val(), pais);
-
-                // VERIFICA A MUDANÇA NO VALOR DO CAMPO ESTADO E ATUALIZA AS CIDADES
-                $('#estado').change(function () {
-                    montaCidade($(this).val(), pais);
-                });
-
-            });
         }
 
-        function montaPais() {
-            $.ajax({
-                type: 'GET',
-                url: 'http://api.londrinaweb.com.br/PUC/Paisesv2/0/1000',
-                contentType: "application/json; charset=utf-8",
-                dataType: "jsonp",
-                async: false
-            }).done(function (response) {
+        $(document).ready(function () {
+            var $seuCampoCel = $("#celularCandidata");
+            $seuCampoCel.mask('(00) 00000-0000');
 
-                paises = '';
-
-                $.each(response, function (p, pais) {
-
-                    if (pais.Pais == 'Brasil') {
-                        paises += '<option value="' + pais.Sigla + '" selected>' + pais.Pais + '</option>';
-                    } else {
-                        paises += '<option value="' + pais.Sigla + '">' + pais.Pais + '</option>';
-                    }
-
-                });
-
-                // PREENCHE O SELECT DE PAÍSES
-                $('#pais').html(paises);
-
-                // PREENCHE O SELECT DE ACORDO COM O VALOR DO PAÍS
-                montaUF($('#pais').val());
-
-                // VERIFICA A MUDANÇA DO VALOR DO SELECT DE PAÍS
-                $('#pais').change(function () {
-                    if ($('#pais').val() == 'BR') {
-                        // SE O VALOR FOR BR E CONFIRMA OS SELECTS
-                        $('#estado').remove();
-                        $('#cidade').remove();
-                        $('#campo_estado').append('<select id="estado"></select>');
-                        $('#campo_cidade').append('<select id="cidade"></select>');
-
-                        // CHAMA A FUNÇÃO QUE MONTA OS ESTADOS
-                        montaUF('BR');
-                    } else {
-                        // SE NÃO FOR, TROCA OS SELECTS POR INPUTS DE TEXTO
-                        $('#estado').remove();
-                        $('#cidade').remove();
-                        $('#campo_estado').append('<input type="text" id="estado">');
-                        $('#campo_cidade').append('<input type="text" id="cidade">');
-                    }
-                })
-
-            });
-        }
-
-        montaPais();
-
-        // Mascara Telefone
-        $(window).load(() => {
-            let phoneMask = { "mask": "(##) #####-####" };
-
-            $('#celularCandidata').inputmask({
-                mask: phoneMask,
-                greedy: false,
-                definitions: { '#': { validator: "[0-9]", cardinality: 1 } }
-            });
+            var $seuCampoCPF = $("#cpfCandidata");
+            $seuCampoCPF.mask('000.000.000-00', { reverse: true });
         });
 
+        function applyDataMask(field) {
+            var mask = field.dataset.mask.split('');
+
+
+            function stripMask(maskedData) {
+                function isDigit(char) {
+                    return /\d/.test(char);
+                }
+                return maskedData.split('').filter(isDigit);
+            }
+
+            function applyMask(data) {// troca o que tiver '_' pelo número digitado
+                return mask.map(function (char) {
+                    if (char != '_') return char;
+                    if (data.length == 0) return char;
+                    return data.shift();
+                }).join('')
+            }
+
+            function reapplyMask(data) {
+                return applyMask(stripMask(data));
+            }
+
+            //atualiza o campo de acordo com o que já foi digitado
+            function changed() {
+                var oldStart = field.selectionStart;
+                var oldEnd = field.selectionEnd;
+
+                field.value = reapplyMask(field.value);
+
+                field.selectionStart = oldStart;
+                field.selectionEnd = oldEnd;
+            }
+
+            //EventListners para que a função seja executada a cada mudança de tecla
+            field.addEventListener('click', changed)
+            field.addEventListener('keyup', changed)
+        }
+
+
+
+
     </script>
+    <script src="../../script/api-localidades.js"></script>
+    <script src="../../script/cadastroUsuaria1.js"></script>
     <script src="../../script/forms.js"></script>
 </body>
 

@@ -15,46 +15,68 @@
 
 <body onload="loadVagaData()">
 
-    <nav class="shadow mb-2 bg-body rounded"> <img src="../../images/logo.svg" alt="Logo da brazilians in tech"></nav>
+    <nav> <img src="../../images/logo.svg" alt="Logo da brazilians in tech"></nav>
     <div class="row">
         <div class="col-3 background">
 
         </div>
-
-
-        <div class="col col-sm-12 col-lg-7">
-            <div class="container text-center">
-
-
-                <h1 id="tituloVaga"></h1>
-                <p class="subtitulo"><span id="nomeEmpresa"></span> <span id="salarioVaga"></span></p>
-
-                <h2>Descrição da vaga</h2>
-                <p id="descricaoVaga" class="textinho">
-                </p>
-                <h2>Cultura da Empresa</h2>
-                <p id="culturaEmpresa" class="textinho">
-                </p>
-
-                <div class="boxamarela text-start mt-5">
-                    <h4 class="" style="color:black ;">Soft Skills</h4>
-                    <div id="soft-skills" class="espacamento">
-
-                    </div>
-
-                    <h4 class="mt-5" style="color:black ;">Hard Skills</h4>
-                    <div id="hard-skills" class="espacamento">
-
-                    </div>
+        <!-- 
+        col-sm-12 col-lg-7 -->
+        <div class="col ">
+            <div class="container">
+                <div class="header">
+                    <h1 id="tituloVaga"></h1>
+                    <p class="subtitulo"><span id="nomeEmpresa"></span> <span id="salarioVaga"></span></p>
+                    <p id="error" style="color:red ;" class="d-flex justify-content-center"></p>
                 </div>
-                <a class="voltarbut rounded-pill but text-decoration-none" href="./usuariaCandidata1.html"
-                    style="color:black ;">Voltar</a>
-                <button class="aplicarbut rounded-pill but" onclick="applyVaga()">Aplicar</button>
+
+                <div class="body">
+                    <h4>Descrição da vaga</h2>
+                        <p id="descricaoVaga" class="paragrafo">
+                        </p>
+                        <h4>Cultura da Empresa</h2>
+                            <p id="culturaEmpresa" class="paragrafo">
+                            </p>
+
+                            <div>
+                                <h4>Soft Skills</h4>
+                                <div id="soft-skills" class="mb-3 mt-1 espacamento">
+
+                                </div>
+
+                                <h4>Hard Skills</h4>
+                                <div id="hard-skills" class="espacamento">
+
+                                </div>
+                            </div>
+                            <div class="row actions">
+                                <a class="col voltarbut text-decoration-none" href="./usuariaCandidata1.html"
+                                    style="color:black ;">Voltar</a>
+                                <button class="col aplicarbut" onclick="openPopup()">Aplicar</button>
+                            </div>
+                </div>
+
+
+
             </div>
 
         </div>
 
+
+
+
     </div>
+
+    <div class="backPopup" id="popupPai">
+        <div class="popup" id="popup">
+            <img src="../../images/animado.png">
+            <h2>Gostaria de se candidatar a essa vaga?</h2>
+
+            <button type="button" onclick="applyVaga()" style="background-color:green ;">Confirmar candidatura</button>
+            <button type="button" onclick="closePopup()" style="background-color:grey ;">Volta</button>
+        </div>
+    </div>
+
 
 
 
@@ -65,6 +87,20 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
         integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
         crossorigin="anonymous"></script>
+
+    <script>
+        let popup = document.getElementById("popup");
+
+
+        function openPopup() {
+            $('#popupPai').attr('class', '');
+            popup.classList.add("open-popup");
+        }
+
+        function closePopup() {
+            $("#popupPai").attr("class", "popupclose")
+        }
+    </script>
 </body>
 
 </html>

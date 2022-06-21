@@ -9,6 +9,10 @@ body{
     font-family: 'Nunito', sans-serif;
 }
 
+a { 
+    text-decoration: none;
+}
+
 #menu{
     background:#ffffff;
     width:300px;
@@ -35,9 +39,10 @@ body{
     cursor:pointer;
 }
 
-#menu .items li:nth-child(4){
+#menu .items li:nth-child(3){
    border-left:4px solid #F3C42E;
 }
+
 
 #menu .items li i{
     color:#530084;
@@ -49,13 +54,20 @@ body{
     margin:0 10px 0;
 }
 
-
-#menu .items li:hover i,
-#menu .items li a{
+a {
     color: #530084;
 }
 
-#menu .items li a{
+a:hover {
+    color: #530084;
+}
+
+#menu .items li:hover i,
+#menu .items  li a {
+    color: #530084;
+}
+
+#menu .items li a {
     text-decoration:none;
     color:#530084;
     font-weight:300px;

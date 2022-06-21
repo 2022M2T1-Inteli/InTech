@@ -7,7 +7,13 @@ body{
     position: relative;
     display: flex;
     font-family: 'Nunito', sans-serif;
+    overflow-x: hidden;
 }
+
+a {
+    text-decoration: none;
+}
+
 
 #menu{
     background:#ffffff;
@@ -35,7 +41,7 @@ body{
     cursor:pointer;
 }
 
-#menu .items li:nth-child(1){
+#menu .items  li:nth-child(1){
    border-left:4px solid #F3C42E;
 }
 
@@ -49,12 +55,12 @@ body{
     margin:0 10px 0;
 }
 
-#menu .items li:hover i,
-#menu .items li a{
+#menu .items a li:hover i,
+#menu .items a li{
     color: #530084;
 }
 
-#menu .items li a{
+#menu .items a li{
     text-decoration:none;
     color:#530084;
     font-weight:300px;
@@ -292,3 +298,50 @@ tbody tr td{
         margin:30px 15px 30px 15px;
     } 
  }
+
+ /* Analisar solicitação */
+ .nomeEmpresa{
+    color:#444a53;
+    padding:30px 30px 0 30px;
+    font-size:32px;
+    font-weight:700;
+    font-family: 'Roboto Slab', serif;
+    margin-top: 70px;
+}
+
+#content {
+    padding: 0px 30px 0 30px;
+}
+
+#content h3 {
+    text-decoration: underline;
+    font-family: 'Roboto Slab', serif;
+    color: #444a53;
+    margin-bottom: 0;
+}
+
+.aceitar {
+    padding: 12px;
+    color: #530084;
+    font-size: 17px;
+    margin-left: 30px;
+    border: 2px solid #530084;
+
+}
+.aceitar:hover {
+    background-color: #cc88f38b;
+    cursor: pointer;
+}
+
+.rejeitar {
+    padding: 12px;
+    color: red;
+    font-size: 17px;
+    margin-left: 30px;
+    border: 2px solid red;  
+}
+
+.rejeitar:hover {
+    background-color: rgba(253, 121, 121, 0.491);
+    cursor: pointer;
+}

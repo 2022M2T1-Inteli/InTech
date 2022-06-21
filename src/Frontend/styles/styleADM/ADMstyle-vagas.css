@@ -35,8 +35,17 @@ body{
     cursor:pointer;
 }
 
-#menu .items li:nth-child(3){
+#menu .items li:nth-child(2){
    border-left:4px solid #F3C42E;
+}
+
+a {
+    color: #530084;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #530084;
 }
 
 #menu .items li i{
