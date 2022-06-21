@@ -157,7 +157,7 @@
     <script>
         function edit() {
 
-            const selects = document.querySelectorAll('select, input')
+            const selects = document.querySelectorAll('select, input, textarea')
             // const inputs = document.querySelectorAll('input')
             const editButton = document.querySelector('#editButton')
 
@@ -179,7 +179,7 @@
 
         function save() {
 
-            const selects = document.querySelectorAll('select, input')
+            const selects = document.querySelectorAll('select, input, textarea')
             const editButton = document.querySelector('#editButton')
 
             for (let i = 0; i < selects.length; i++) { selects[i].disabled = true } // const
