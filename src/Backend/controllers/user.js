@@ -1,7 +1,7 @@
 const { response } = require("express")
 const userModel = require("../models/user")
 
-const registerUser = (req,res)=>{
+const registerUser = (req,res)=>{ // CADASTRO DO USUÁRIO
 
 
     const { Nome_Candidata, Escolaridade_candidata, Email_candidata, CPF_candidata, Genero_candidata, Data_nascimento, Curriculo_candidata, Softskill_candidata, Senha_candidata, Cargo_candidata, Celular_candidata, Pais_candidata, Status_candidata, Hardskill_candidata, Estado_candidata, Cidade_candidata } = req.body
@@ -18,7 +18,7 @@ const registerUser = (req,res)=>{
     })
 }
 
-const loginUser = (req,res)=>{
+const loginUser = (req,res)=>{ // LOGIN DO USUÁRIO
     const { email, senha } = req.body
 
     const user = new userModel.User()
@@ -32,7 +32,7 @@ const loginUser = (req,res)=>{
     })
 }
 
-const listaVagasAplicadas = (req,res)=>{
+const listaVagasAplicadas = (req,res)=>{ // mostra as vagas aplicadas do usuário
     const {id_candidata} = req.body
 
     const user = new userModel.User()
@@ -44,7 +44,7 @@ const listaVagasAplicadas = (req,res)=>{
   
 }
 
-const editarUser = (req,res)=>{
+const editarUser = (req,res)=>{ // editar as informações do usuário
     const {id_candidata,localização,cargo,grauDeInstrução,hardskill,softskill} = req.body
 
     const user = new userModel.User()
@@ -63,7 +63,7 @@ const editarUser = (req,res)=>{
     })
 }
 
-const deleteUser = (req,res)=>{
+const deleteUser = (req,res)=>{ // apagar o usuário do sistema ACHO
     const {id_candidata} = req.body
 
     const user = new userModel.User()
@@ -81,7 +81,7 @@ const deleteUser = (req,res)=>{
     })
 }
 
-const verifyEmail = (req,res)=>{
+const verifyEmail = (req,res)=>{ // código de verificação do email do usuário
     const {Email_candidata} = req.body
 
     const user = new userModel.User()
@@ -100,7 +100,7 @@ const verifyEmail = (req,res)=>{
     })
 }
 
-const verifyCPF = (req,res)=>{
+const verifyCPF = (req,res)=>{ // código de verificação de CPF do usuário
     const {CPF_candidata} = req.body
 
     const user = new userModel.User()
@@ -116,7 +116,7 @@ const verifyCPF = (req,res)=>{
     })
 }
 
-const descandidatturaUser = (req,res)=>{
+const descandidatturaUser = (req,res)=>{ // código para a descandidatura do usuário em tal vaga
     const {id_candidata,id_vaga} = req.body
 
     const user = new userModel.User()

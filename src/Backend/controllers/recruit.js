@@ -1,11 +1,11 @@
 const recruiterModel = require("../models/recruiter")
 
-const registerRecruiter = (req, res) => {
+const registerRecruiter = (req, res) => { // constante que sinaliza o registro do recrutador
     const { Nome_Empresa, Email_Empresa, Ramo_de_Atividade, Logo_Empresa, Senha_Empresa, Cultura_Empresa, Telefone_Empresa, Site_Empresa, cnpj_Empresa, Localizacao_Empresa } = req.body
 
     const recruiter = new recruiterModel.Recruiter(Nome_Empresa, Email_Empresa, Ramo_de_Atividade, Logo_Empresa, Senha_Empresa, Cultura_Empresa, Telefone_Empresa, Site_Empresa, cnpj_Empresa, Localizacao_Empresa)
 
-    recruiter.genereteRecruiter().then((result) => {
+    recruiter.genereteRecruiter().then((result) => { // código para gerar o json do recrutador após registro
         if (result.type === "error") {
             res.status(500).json(result.message)
         } else {
@@ -17,12 +17,12 @@ const registerRecruiter = (req, res) => {
 
 }
 
-const loginRecuiter = (req, res) => {
+const loginRecuiter = (req, res) => { // código do login (conta já criada) pelo recrutador 
     const { email, senha } = req.body
 
     const recruiter = new recruiterModel.Recruiter()
 
-    recruiter.loginRecruiter(email, senha).then((result) => {
+    recruiter.loginRecruiter(email, senha).then((result) => { // código para gerar o json do recrutador após login
         if (result.type === "error") {
             res.status(400).json(result.message)
         } else {
@@ -31,7 +31,7 @@ const loginRecuiter = (req, res) => {
     })
 }
 
-const showJobsRecruiter = (req, res) => {
+const showJobsRecruiter = (req, res) => { //  SEGUIR A PARTIR DAQUI
     const { id_empresa } = req.body
 
     const recruit = new recruiterModel.Recruiter()

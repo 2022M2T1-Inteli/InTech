@@ -1,7 +1,7 @@
 const vagaModel = require("../models/vaga.js")
 
 
-const registroVaga = (req, res) => {
+const registroVaga = (req, res) => { // código para a criação de vagas por parte das empresas
 
     const { SoftskillVaga, NomeVaga, DescricaoVaga, LocalVaga, SalarioVaga, IdEmpresa, HardskillVaga, ModalidadeVaga } = req.body
 
@@ -18,7 +18,7 @@ const registroVaga = (req, res) => {
 
 }
 
-const editVaga = (req,res)=>{
+const editVaga = (req,res)=>{ // código para a edição de vagas já criadas por parte das empresas
     const {id_vaga,softskill,descricao,salario,hardskill,modalidade,local} = req.body
 
     const vaga = new vagaModel.Vaga()
@@ -34,7 +34,7 @@ const editVaga = (req,res)=>{
     })
 }
 
-const delVaga = (req,res)=>{
+const delVaga = (req,res)=>{ // código para a exclusão de vagas por parte das empresas
     const {id_vaga} = req.body
 
     const vaga = new vagaModel.Vaga()
