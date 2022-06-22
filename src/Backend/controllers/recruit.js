@@ -84,7 +84,7 @@ const verifyEmail = (req,res)=>{
 
     recruit.verifyEmail(email).then((result)=>{
         if(result.type === "error"){
-            res.status(400).json({message:result.message})
+            res.status(400).json(result.message)
         }else{
             res.status(200).json({message: result.message})
         }

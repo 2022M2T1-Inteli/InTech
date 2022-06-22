@@ -10,7 +10,6 @@ function logadoUser() {
     let usuario = JSON.parse(sessionStorage.getItem("UsuarioDadosLogin"))
 
     $("#name").html(usuario.nome_candidata)
-    $("#cidade").val(usuario.cidade_candidata)
     $("#localizacao").val(usuario.localizacao_candidata)
     $("#estado").val(usuario.estado_candidata)
     $("#cargoCandidata").val(usuario.cargo_candidata)
@@ -164,24 +163,6 @@ function editarUser(id_candidata, localizacao, cargo, grauDeInstrução, hardski
     })
 }
 
-// deletar conta da candidata do banco de dados
-function deleteUser(id_candidata) {
-    $.ajax({
-        url: "http://localhost:3000/user/deleteCandidata",
-        method: "DELETE",
-        data: {
-            id_candidata: id_candidata
-        },
-        success: function () {
-            //redirecionar para o index.js
-        },
-        error: function () {
-            //mostrar erro na pagina html 
-        }
-
-
-    })
-}
 
 // remover candidatura da usuária
 function descandidaturaUser(id_vaga) {

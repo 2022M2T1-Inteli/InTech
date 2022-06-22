@@ -65,13 +65,13 @@ function catchUserData() { // função que pega os dados de usuário de acordo c
                 }, 5000)
             }
             else {
-                if (forms1.CelularCandidata == "(__) _____-____") {
+                if (forms1.CelularCandidata == "") {
                     errorCelular.innerHTML = "Numero de celular obrigatório"
                     window.scroll(0, 0)
                     setTimeout(function () {
                         errorCelular.innerHTML = ""
                     }, 5000)
-                } else if (forms1.CPFCandidata == "___.___.___-__") {
+                } else if (forms1.CPFCandidata == "") {
                     errorCPF.innerHTML = "CPF necessário"
                     window.scroll(0, 0)
                     setTimeout(function () {
@@ -81,9 +81,12 @@ function catchUserData() { // função que pega os dados de usuário de acordo c
                 } else if (!forms1.LocalizacaoCandidata) {
                     errorDate.innerHTML = "Localização necessária"
                     window.scroll(0, 0)
+                    setTimeout(function () {
+                        errorDate.innerHTML = ""
+                    })
                 } else if (!forms1.NascimentoCandidata) {
                     errorDate.innerHTML = "Data necessária"
-                    window.scroll(0, 150)
+                    window.scroll(0, 350)
                     setTimeout(function () {
                         errorDate.innerHTML = ""
                     }, 5000)
@@ -157,7 +160,7 @@ function catchUserData() { // função que pega os dados de usuário de acordo c
 
 
 function loadDataForms1User() {
-    let userinfos =JSON.parse(sessionStorage.getItem("User1"))
+    let userinfos = JSON.parse(sessionStorage.getItem("User1"))
 
     let NomeCandidata = document.querySelector('#nomeCandidata').value = userinfos.NomeCandidata
     let EmailCandidata = document.querySelector('#emailCandidata').value = userinfos.EmailCandidata
@@ -168,11 +171,11 @@ function loadDataForms1User() {
     let NascimentoCandidata = document.querySelector("#data-nascimento").value = userinfos.NascimentoCandidata
     let LocalizacaoCandidata = document.querySelector('#localizacao').value = userinfos.LocalizacaoCandidata
 
-  
 
 
 
-    
+
+
 }
 
 let PDFcurriculo
@@ -294,6 +297,7 @@ function catchUserData2() { // função que pega os dados do formulário
 
         sendUserData(userForms1.NomeCandidata, Escolaridade_candidata, userForms1.EmailCandidata, userForms1.CPFCandidata, userForms1.GeneroCandidata, userForms1.NascimentoCandidata, PDFcurriculo, SoftskillsDB, userForms1.SenhaCandidata, Cargo_canditada, userForms1.CelularCandidata, userForms1.LocalizacaoCandidata, Status_candidata, HardskillsDB)
 
+
         sessionStorage.removeItem("User1")
 
     }
@@ -379,14 +383,14 @@ function catchRecruiterData() { // função que pega os valores do formulário p
 
 }
 
-function loadDataForms1Recruiter(){
+function loadDataForms1Recruiter() {
 
-    let dataRecruiter =JSON.parse(sessionStorage.getItem("Recruit1"))
+    let dataRecruiter = JSON.parse(sessionStorage.getItem("Recruit1"))
 
-    let NomeEmpresa= document.querySelector('#nomeEmpresa').value = dataRecruiter.NomeEmpresa
-    let RamoAtividade= document.querySelector('#ramoEmpresa').value = dataRecruiter.RamoAtividade
-    let CnpjEmpresa= document.querySelector('#cnpjEmpresa').value = dataRecruiter.CnpjEmpresa
-    let LocalizacaoEmpresa= document.querySelector('#localizacaoEmpresa').value = dataRecruiter.LocalizacaoEmpresa
+    let NomeEmpresa = document.querySelector('#nomeEmpresa').value = dataRecruiter.NomeEmpresa
+    let RamoAtividade = document.querySelector('#ramoEmpresa').value = dataRecruiter.RamoAtividade
+    let CnpjEmpresa = document.querySelector('#cnpjEmpresa').value = dataRecruiter.CnpjEmpresa
+    let LocalizacaoEmpresa = document.querySelector('#localizacaoEmpresa').value = dataRecruiter.LocalizacaoEmpresa
 
 }
 
@@ -426,19 +430,41 @@ function catchRecruiterData2() { // função que pega os valores de outro formul
         setTimeout(function () {
             errorEmail.innerHTML = ""
         }, 5000)
-    }
-    else if (!SenhaEmpresa) {
-        errorSenha.innerHTML = "Campo obrigatório"
-        window.scroll(0, 0)
-        setTimeout(function () {
-            errorSenha.innerHTML = ""
-        }, 5000)
-    } else {
+    } else{
+        $.ajax({
+            url: "http://localhost:3000/recruiter/verifyEmail",
+            method: "POST",
+            data: {
+                email: EmailEmpresa
+            }, 
+            success: function () {
 
-        sendRecruitData(recuitForms1.NomeEmpresa, EmailEmpresa, recuitForms1.RamoAtividade, recuitForms1.LogoEmpresa, SenhaEmpresa, "cultura", TelefoneEmpresa, SiteEmpresa, recuitForms1.CnpjEmpresa, recuitForms1.LocalizacaoEmpresa)
-        sessionStorage.removeItem("Recruit1")
-    }
+                if (!SenhaEmpresa) {
+                    errorSenha.innerHTML = "Campo obrigatório"
+                    window.scroll(0, 0)
+                    setTimeout(function () {
+                        errorSenha.innerHTML = ""
+                    }, 5000)
+                } else {
+            
+                    sendRecruitData(recuitForms1.NomeEmpresa, EmailEmpresa, recuitForms1.RamoAtividade, recuitForms1.LogoEmpresa, SenhaEmpresa, "cultura", TelefoneEmpresa, SiteEmpresa, recuitForms1.CnpjEmpresa, recuitForms1.LocalizacaoEmpresa)
+                    sessionStorage.removeItem("Recruit1")
+                }            
 
+            },
+            error: function (res){
+                console.log(res)
+                errorEmail.innerHTML = res.responseText
+                setTimeout(function () {
+                    errorEmail.innerHTML = ""
+                }, 5000)
+
+            }
+        })
+
+
+
+    } 
 
 
 }
@@ -498,7 +524,7 @@ function sendUserData(Nome_Candidata, Escolaridade_candidata, Email_candidata, C
             Senha_candidata: Senha_canditada,
             Cargo_candidata: Cargo_canditada,
             Celular_candidata: Celular_candidata,
-            Localizacao_Candidata: Localizacao_Candidata,
+            Localização_candidata: Localizacao_Candidata,
             Status_candidata: Status_candidata,
             Hardskill_candidata: Hardskill_candidata,
         },

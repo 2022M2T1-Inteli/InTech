@@ -202,7 +202,7 @@
                         <h2>Tem certeza que deseja excluir seu perfil?</h2>
 
                         <button type="button" onclick="closePopup()">Não</button>
-                        <button type="button" onclick="" style="background-color:red ;">Sim</button>
+                        <button type="button" onclick="deleteUser()" style="background-color:red ;">Sim</button>
                     </div>
                 </div>
 
@@ -303,7 +303,7 @@
                         },
                         success: function () {
                             sessionStorage.removeItem("UsuarioDadosLogin");
-                            window.localtion.replace("/views/index.html")
+                            window.location.replace("/views/index.html")
                         },
                         error: function () {
                         }

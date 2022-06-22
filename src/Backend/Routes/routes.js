@@ -107,7 +107,6 @@ Routes.get("/listAllVagasUser",(req,res)=>{
    
 })
 
-
 // exportando todos os Routes para serem utilizados em outro arquivo js
 module.exports = Routes
 
