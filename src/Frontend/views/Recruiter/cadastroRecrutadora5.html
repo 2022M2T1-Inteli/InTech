@@ -37,6 +37,7 @@
                 <div class="caixa" style="animation: up 2s backwards;">
                     <div>
                         <label for="nomeVaga">Em que área sua vaga se encaixa?</label>
+                        <p id="errorNome" style="color: yellow;" class="d-flex justify-content-center mb-2"></p>
                         <select class="caixa2 border-0" name="Nome_vaga" id="nomeVaga">
                             <option value="" selected disabled hidden>Área que está procurando?</option>
                             <option value='Administrador de Sistemas'>Administrador de Sistemas</option>
@@ -68,11 +69,13 @@
                     <div>
                         <label for="descricaoVaga">Descrição da vaga</label>
                         <!-- INSERIR CONTADORES DE CARACTERES-->
+                        <p id="errorDescricao" style="color: yellow;" class="d-flex justify-content-center mb-2"></p>
                         <TEXTarea id="descricaoVaga" maxlength="600" class="textarea border-0"
                             placeholder="Descrição da vaga"></TEXTarea>
                     </div>
                     <div>
                         <label for="modalidade">Modalidade</label>
+                        <p id="errorModalidade" style="color: yellow;" class="d-flex justify-content-center mb-2"></p>
                         <select class="caixa2 border-0" id="modalidade">
                             <option value="" selected disabled hidden>Modalidade</option>
                             <option value='Presencial'>Presencial</option>
@@ -83,6 +86,7 @@
                     </div>
                     <div>
                         <label for="localizacao">Localização</label>
+                        <p id="errorLocal" style="color: yellow;" class="d-flex justify-content-center mb-2"></p>
                         <input id="localizacao" class="input input2 border-0" type="text"
                             placeholder="Localização da vaga" />
                     </div>
@@ -91,6 +95,7 @@
                     </div>
                     <div class="row mt-4 softSkillsContainer">
                         <label for="soft-skills">Digite as soft-skills necessárias</label>
+                        <p id="errorSoft" style="color: yellow;" class="d-flex justify-content-center mb-2"></p>
                         <input placeholder="Digite a habilidade desejada e pressione ENTER" type="text"
                             name="Soft-Skills" list="softskillslist" id="soft-skills" class="input form-control">
                         <datalist id="softskillslist">
@@ -135,6 +140,7 @@
                     </div>
                     <div class="row mt-4 hardSkillsContainer">
                         <label for="hard-skills">Digite as Hard-Skills necessárias</label>
+                        <p id="errorHard" style="color: yellow;" class="d-flex justify-content-center mb-2"></p>
                         <input placeholder="Digite a habilidade desejada e pressione ENTER" type="text"
                             name="Hard-Skills" list="hardskillslist" id="hard-skills" class="form-control">
                         <datalist id="hardskillslist">

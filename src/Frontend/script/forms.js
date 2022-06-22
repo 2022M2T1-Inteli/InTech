@@ -430,13 +430,13 @@ function catchRecruiterData2() { // função que pega os valores de outro formul
         setTimeout(function () {
             errorEmail.innerHTML = ""
         }, 5000)
-    } else{
+    } else {
         $.ajax({
             url: "http://localhost:3000/recruiter/verifyEmail",
             method: "POST",
             data: {
                 email: EmailEmpresa
-            }, 
+            },
             success: function () {
 
                 if (!SenhaEmpresa) {
@@ -446,13 +446,13 @@ function catchRecruiterData2() { // função que pega os valores de outro formul
                         errorSenha.innerHTML = ""
                     }, 5000)
                 } else {
-            
+
                     sendRecruitData(recuitForms1.NomeEmpresa, EmailEmpresa, recuitForms1.RamoAtividade, recuitForms1.LogoEmpresa, SenhaEmpresa, "cultura", TelefoneEmpresa, SiteEmpresa, recuitForms1.CnpjEmpresa, recuitForms1.LocalizacaoEmpresa)
                     sessionStorage.removeItem("Recruit1")
-                }            
+                }
 
             },
-            error: function (res){
+            error: function (res) {
                 console.log(res)
                 errorEmail.innerHTML = res.responseText
                 setTimeout(function () {
@@ -464,7 +464,7 @@ function catchRecruiterData2() { // função que pega os valores de outro formul
 
 
 
-    } 
+    }
 
 
 }
@@ -495,6 +495,12 @@ function catchVacancyData() {
 
     }
 
+    let errorNome = document.getElementById("errorNome")
+    let errorDescricao = document.getElementById("errorDescricao")
+    let errorModalidade = document.getElementById("errorModalidade")
+    let errorLocal = document.getElementById("errorLocal")
+    let errorSoft = document.getElementById("errorSoft")
+    let errorHard = document.getElementById("errorHard")
 
 
     let SoftskillsVagaDB = SoftskillsVagaOn.toString()
@@ -503,7 +509,48 @@ function catchVacancyData() {
 
     let empresa = JSON.parse(sessionStorage.getItem("EmpresaDadosLogin"))
 
-    sendVacancyData(SoftskillsVagaDB, Nome_vaga, Descricao_vaga, Local_vaga, Salario_vaga, empresa.id_empresas, HardskillsVagaDB, ModalidadeVaga)
+    if (!Nome_vaga) {
+        errorNome.innerHTML = "Nome da vaga necessário"
+        window.scroll(0,0)
+        setInterval(function() { 
+            errorNome.innerHTML = ""
+        },3000)
+    } else if (!Descricao_vaga) {
+        window.scroll(0,0)
+        errorDescricao.innerHTML = "Descrição da vaga necessário"
+        setInterval(function() { 
+            errorDescricao.innerHTML = ""
+        },3000)
+    } else if (!ModalidadeVaga) {
+        window.scroll(0,120)
+        errorModalidade.innerHTML = "Modalidade da vaga necessária"
+        setInterval(function() { 
+            errorModalidade.innerHTML = ""
+        },3000)
+    } else if (!Local_vaga) {
+        window.scroll(0,120)
+        errorLocal.innerHTML = "Local da vaga necessário"
+        setInterval(function() { 
+            errorLocal.innerHTML = ""
+        },3000)
+    } else if (SoftskillsVaga.length <= 0) {
+        window.scroll(0,350)
+        errorSoft.innerHTML = "Pelo menos 1 ou mais softskills para a vaga"
+        setInterval(function() { 
+            errorSoft.innerHTML = ""
+        },3000)
+    } else if (HardskillsVaga.length <= 0) {
+        window.scroll(0,350)
+        errorHard.innerHTML = "Pelo menos 1 ou mais hardskills para a vaga"
+        setInterval(function() { 
+            errorHard.innerHTML = ""
+        },3000)
+    } else {
+
+        sendVacancyData(SoftskillsVagaDB, Nome_vaga, Descricao_vaga, Local_vaga, Salario_vaga, empresa.id_empresas, HardskillsVagaDB, ModalidadeVaga)
+    }
+
+
 
 }
 

@@ -57,6 +57,7 @@
         function openPopup(a) {
             $('body').attr('class', 'bg-image');
             $("#popupPai").attr("class", "backPopup")
+            // document.getElementById("delete").setAttribute("onclick",delvaga(a))
             popup.classList.add("open-popup");
 
 
@@ -70,6 +71,23 @@
         function logout() {
             sessionStorage.removeItem("EmpresaDadosLogin")
             window.location.replace("../index.html")
+        }
+
+        function delvaga(id_vaga) {
+            $.ajax({
+                url: "http://localhost:3000/vaga/deleteVagas",
+                method: "DELETE",
+                data: {
+                    id_vaga: id_vaga
+                },
+                success: function () {
+                    location.reload()
+                },
+                error: function () {
+
+                }
+            })
+
         }
 
     </script>
