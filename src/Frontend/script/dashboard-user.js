@@ -120,6 +120,7 @@ function loginUser(email,senha) {
         success: function (res) {
 
             sessionStorage.setItem("UsuarioDadosLogin", JSON.stringify(res))
+            window.location.reload()
             
 
         }
@@ -148,8 +149,12 @@ function editarUser(id_candidata, localizacao, cargo, grauDeInstrução, hardski
 
             sessionStorage.removeItem("UsuarioDadosLogin")
 
-            loginUser(Email_candidata,Senha_candidata)
-            window.location.reload()
+            setTimeout(function(){
+                loginUser(Email_candidata,Senha_candidata)
+
+            },1000)
+           
+           
 
         },
         error: function (err) {
