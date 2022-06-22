@@ -47,9 +47,9 @@ Encontramos como alternativa, portanto, o incentivo à participação e aumento 
    - 📂 __[.vscode](.vscode/)__
       - <a href="https://emoji.gg/emoji/8009-java-js"><img src="https://cdn3.emoji.gg/emojis/8009-java-js.png" width="16px" height="16px" alt="Java_Js"></a> sttings.js
    - 📂 __[documentos](documentos/)__
-      - 📄 Manual de Administrador
-      - 📄 Manual do Utilizador
-      - 📄 WAD Grupo 5 - Intech
+      - <a href="https://github.com/2022M2T3/Projeto4/blob/main/documentos/WAD%20-%20Yamaha%20Planning%20System.pdf"><img src="https://user-images.githubusercontent.com/99209356/174968401-abc5cae1-7a1e-4f06-aca6-c859c993c038.svg" width="18px" height="18px"></a> Manual de Administrador
+      - <a href="https://github.com/2022M2T3/Projeto4/blob/main/documentos/WAD%20-%20Yamaha%20Planning%20System.pdf"><img src="https://user-images.githubusercontent.com/99209356/174968401-abc5cae1-7a1e-4f06-aca6-c859c993c038.svg" width="18px" height="18px"></a> Manual do Utilizador
+      - <a href="https://github.com/2022M2T3/Projeto4/blob/main/documentos/WAD%20-%20Yamaha%20Planning%20System.pdf"><img src="https://user-images.githubusercontent.com/99209356/174968401-abc5cae1-7a1e-4f06-aca6-c859c993c038.svg" width="18px" height="18px"></a> WAD Grupo 5 - Intech
    - 📁 __[imagens](imagens/)__
    - 📂 __[src](src/)__
       - 📂 __[Backend](src/Backend)__
