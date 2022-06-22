@@ -103,6 +103,9 @@ button:active .button_top {
     /* Push the button downwards when pressed */
     transform: translateY(0);
 }
+.texa{
+    height: 300px;
+}
 
 
 .logo {

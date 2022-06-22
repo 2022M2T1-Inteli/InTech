@@ -323,6 +323,7 @@ function catchRecruiterData() { // função que pega os valores do formulário p
         RamoAtividade: document.querySelector('#ramoEmpresa').value,
         CnpjEmpresa: document.querySelector('#cnpjEmpresa').value,
         LocalizacaoEmpresa: document.querySelector('#localizacaoEmpresa').value,
+        CulturaDaEmpresa: document.querySelector('#CulturaDaEmpresa').value,
         LogoEmpresa: LogoEmpresa
     }
 
@@ -330,6 +331,7 @@ function catchRecruiterData() { // função que pega os valores do formulário p
     let errorramoEmpresa = document.querySelector("#errorRamo")
     let errorCNPJ = document.querySelector("#errorCNPJ")
     let errorLocal = document.querySelector("#errorLocal")
+    let errorCultura = document.querySelector("#errorCultura")
     let errorLogo = document.querySelector("#errorLogo")
 
     // caso a recrutadora não preencha um campo corretamente, ela receberá uma mensagem de alerta
@@ -370,6 +372,13 @@ function catchRecruiterData() { // função que pega os valores do formulário p
         setTimeout(function () {
             errorLogo.innerHTML = ""
         }, 5000)
+    }if(!formsRecruit1.CulturaDaEmpresa){
+        errorCultura.innerHTML = "Campo de cultura da empresa"
+        window.scroll(0,530)
+        setTimeout(function () {
+            errorCultura.innerHTML = ""
+        },3000)
+
     } else {
         sessionStorage.setItem("Recruit1", JSON.stringify(formsRecruit1))
 
@@ -391,6 +400,8 @@ function loadDataForms1Recruiter() {
     let RamoAtividade = document.querySelector('#ramoEmpresa').value = dataRecruiter.RamoAtividade
     let CnpjEmpresa = document.querySelector('#cnpjEmpresa').value = dataRecruiter.CnpjEmpresa
     let LocalizacaoEmpresa = document.querySelector('#localizacaoEmpresa').value = dataRecruiter.LocalizacaoEmpresa
+    let CulturaEmpresa = document.querySelector('#CulturaDaEmpresa').values = dataRecruiter.CulturaDaEmpresa
+
 
 }
 
@@ -447,7 +458,7 @@ function catchRecruiterData2() { // função que pega os valores de outro formul
                     }, 5000)
                 } else {
 
-                    sendRecruitData(recuitForms1.NomeEmpresa, EmailEmpresa, recuitForms1.RamoAtividade, recuitForms1.LogoEmpresa, SenhaEmpresa, "cultura", TelefoneEmpresa, SiteEmpresa, recuitForms1.CnpjEmpresa, recuitForms1.LocalizacaoEmpresa)
+                    sendRecruitData(recuitForms1.NomeEmpresa, EmailEmpresa, recuitForms1.RamoAtividade, recuitForms1.LogoEmpresa, SenhaEmpresa, recuitForms1.CulturaDaEmpresa, TelefoneEmpresa, SiteEmpresa, recuitForms1.CnpjEmpresa, recuitForms1.LocalizacaoEmpresa)
                     sessionStorage.removeItem("Recruit1")
                 }
 
