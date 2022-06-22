@@ -91,7 +91,7 @@ function loadVagaInformation() { // função para carregar as informações da v
             $("#salario").val(res.salario_vaga)
             $("#localizacao").val(res.local_vaga)
             $("#modalidade").val(res.modalidade_vaga)
-            $("#delete").attr("onclick",`openPopup(${res.id_vaga})`)
+            $("#delete").attr("onclick",`openPopup(${id_vaga})`)
 
             hardSkills = res.hardskill_vaga.split(',')
             updateHardSkills(hardSkills)

@@ -142,7 +142,7 @@
                         <a class="botao" href="./companyDashboard.html"
                             style="color:black ; font-size: 26px;">Voltar</a>
                         <button id="editButton" class="botao btn btn-secondary" onclick="edit()">EDITAR VAGA</button>
-                        <button id="delete" class="botao btn btn-danger" >EXCLUIR VAGA</button>
+                        <button id="delete" class="botao btn btn-danger">EXCLUIR VAGA</button>
                     </div>
 
                     <h4 class="textoFinal">Candidatas que se aplicaram</h4>
@@ -161,21 +161,21 @@
             <h2>Tem certeza que quer deletar essa vaga?</h2>
             <p id="idvaga"></p>
 
-            <button type="button" id="delete" style="background-color:red ;">Confirmar escolha</button>
+            <button type="button" id="delete1" style="background-color:red ;">Confirmar escolha</button>
             <button type="button" onclick="closePopup()" style="background-color:green ;">Volta</button>
         </div>
     </div>
     <script>
 
         function openPopup(a) {
-            window.scroll(0,0)
+            window.scroll(0, 0)
             $('body').attr('class', 'bg-image');
             $("#popupPai").attr("class", "backPopup")
             // document.getElementById("delete").setAttribute("onclick",delvaga(a))
             popup.classList.add("open-popup");
 
 
-            $("#delete").attr("onclick", `delvaga(${a})`)
+            $("#delete1").attr("onclick", `delvaga(${a})`)
         }
 
         function closePopup() {
@@ -248,6 +248,23 @@
             editButton.setAttribute("class", "botao btn btn-secondary")
             editButton.setAttribute("onclick", "edit()")
             editButton.innerHTML = 'EDITAR VAGA'
+        }
+
+        function delvaga(id_vaga) {
+            $.ajax({
+                url: "http://localhost:3000/vaga/deleteVagas",
+                method: "DELETE",
+                data: {
+                    id_vaga: id_vaga
+                },
+                success: function () {
+                    window.location.replace("/views/Recruiter/companyDashboard.html")
+                },
+                error: function () {
+
+                }
+            })
+
         }
 
 
