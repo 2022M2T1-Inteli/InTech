@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../../styles/main.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <title>Brazilians in Tech - Vagas</title>
+    
 </head>
 
 <body id="body" onload="openPopup()" class="bg-image" style="background-image: url('../../images/WhiteBackground.svg');
@@ -27,11 +28,8 @@
                 <input onkeyup="pesquisa()" id="search" class="nosubmit" placeholder="Pesquise a vaga de seu interesse"
                     type="text" required />
                 <label>Pesquise a vaga de seu interesse <i class="fa-solid fa-magnifying-glass"></i> </label>
-                <script src="../../script/pesquisa.js"></script>
-
-
-                <ol style="display: none;">
-                    <li class='vagas'>Administrador de Sistemas</li>
+                <ol id="list">
+                    <!-- <li class='vagas'>Administrador de Sistemas</li>
                     <li class='vagas'>Administrador do Banco de Dados (DBA)</li>
                     <li class='vagas'>Analista de Mídias Sociais</li>
                     <li class='vagas'>Analista de Segurança de Informação</li>
@@ -51,11 +49,22 @@
                     <li class='vagas'>Robótica</li>
                     <li class='vagas'>Segurança da informação</li>
                     <li class='vagas'>Segurança de sistemas</li>
-                    <li class='vagas'>Técnico de informática</li>
+                    <li class='vagas'>Técnico de informática</li> -->
                 </ol>
 
-            </div>
+                
 
+
+                
+
+                
+            </div>
+            
+            <div class="filter">
+                <input type="checkbox" checked name="" id="matched">   
+                <label style="display: inline;" for="matched">Filtrar por match</label>
+            </div>
+            
             <div class="profile ">
 
                 <div class="title">
@@ -80,6 +89,7 @@
         </main>
 
 
+        <script src="../../script/pesquisa.js"></script>
     </div>
 
     <div class="backPopup" id="Paipopup">
@@ -91,6 +101,7 @@
         </div>
     </div>
 
+    <script src="../../script/vagas.js"></script>
 
 
     <script>
@@ -130,7 +141,7 @@
             window.location.replace("../index.html")
         }
     </script>
-    <script src="../../script/vagas.js"></script>
+    
 </body>
 
 </html>

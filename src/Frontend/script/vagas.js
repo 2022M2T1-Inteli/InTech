@@ -36,3 +36,52 @@ function catchMatchedVagas() {
         },
     })
 }
+
+function listar() {
+    const divVagas = document.querySelector('#vagas')
+
+    $.ajax({
+        url: 'http://localhost:3000/rotas/listAllVagasUser',
+        type: 'GET',
+        success: (res) => {
+            console.log(divVagas)
+            console.log(res)
+            for (let i = 0; i < res.length; i++) {
+                divVagas.innerHTML += `<div class="cardsVagas col-sm-12 col-lg-12" style="background-color: white;">
+                <a href="./vagaDescricao.html?id_vaga=${res[i].id_vaga}" class="text-decoration-none d-flex " style="color: black;">
+                    <div id="logo">
+                        <img src="${res[i].logo_empresa}" alt="">
+                    </div>
+                    <div class="textpart">
+                        <h2 class="nomeVaga" id="nome-vaga">${res[i].nome_vaga}</h2>
+                        <p id="descricao" class="textdescript">${res[i].descricao_vaga}</p>
+    
+                    </div>
+    
+                </a>
+            </div>`
+            }
+
+        }
+    })
+
+}
+
+const filter = document.querySelector('input[id=matched]')
+
+filter.addEventListener('change', e => {
+    if (e.target.checked == true) {
+        clean()
+        catchMatchedVagas()
+    } else {
+        clean()
+        listar()
+    }
+})
+
+function clean() {
+    const divVagas = document.querySelector('#vagas')
+    divVagas.innerHTML = ''
+}
+
+

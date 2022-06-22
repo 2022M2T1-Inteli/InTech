@@ -28,17 +28,18 @@ Routes.post('/listMatch', (req, res) => {
     
         for (let x = 0; x < dbVagas.length; x++) { //mapeando vaga por vaga
             let vagaAllSkills = dbVagas[x].softskill_vaga + ',' + dbVagas[x].hardskill_vaga;
-            let vagaSkills = vagaAllSkills.split(',') //transformando as skills da vaga mapeada em um array
+            let vagaSkillsOld = vagaAllSkills.split(',') //transformando as skills da vaga mapeada em um array
     
+            let vagaSkills =  [...new Set(vagaSkillsOld)]
+
             let matchedSkills = []
             for (let i = 0; i < candidataSkills.length; i++) { // mapeando skill por skill 
                 if (vagaSkills.indexOf(candidataSkills[i]) > -1) { // quando uma skill não da match, retorna -1 e quando da match, retorna um número >= 0
                     matchedSkills.push(candidataSkills[i]) // guarda o valor da skill que deu match 
                 }
             }
-            console.log(matchedSkills)
             
-            var matchedSkillsN = matchedSkills.filter((este, i) => matchedSkills.indexOf(este) === i);
+            var matchedSkillsN = [...new Set(matchedSkills)]
 
             let matchPercent = matchedSkillsN.length / vagaSkills.length; 
     

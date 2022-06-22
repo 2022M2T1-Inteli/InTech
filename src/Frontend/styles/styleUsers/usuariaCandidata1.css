@@ -137,6 +137,10 @@ a img{
     text-align: right;
 }
 
+.filter {
+    margin-top: 80px;
+}
+
 .popup{
     width: 400px;
     background: rgba(217, 217, 217,0);
