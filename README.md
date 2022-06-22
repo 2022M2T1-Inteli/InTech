@@ -11,6 +11,9 @@
 </p>
 
 # InTech
+<p align="center">
+<a href= "https://github.com/2022M2T1/Projeto5"><img src="https://github.com/2022M2T1/Projeto5/blob/main/imagens/Logo%20Intech.png" alt="Intech" border="0" width="312px"></a>
+</p>
 
 ## 🚀 Integrantes:
  - <a href="https://www.linkedin.com/in/abner-silva-barbosa-8a3542225/">Abner Silva</a>
@@ -22,13 +25,14 @@
  - <a href="https://www.linkedin.com/in/yveslevi/">Yves Levi</a>
 
 
-## 🖥️ Descrição 
-Tendo em vista o grande gap entre homens e mulheres no mercado de trabalho de tecnologia, nosso site visa a conexão entre vagas de trabalho com futuras profissionais desse mercado de trabalho.
+## 📝 Descrição 
+<p align="justify"> Tendo em vista a grande disparidade entre homens e mulheres no mercado de trabalho na área de tecnologia, nosso projeto busca promover, por meio da parceria com a Organização Brazilians in Tech, a conexão entre vagas de trabalho e futuras profissionais do mercado tecnológico.
 <br><br>
-O nosso projeto trata da inclusão de mulheres no mercado de trabalho da tecnologia. Sendo assim, trouxemos a proposição de um site em que o público-alvo sejam as mulheres e suas possíveis contratantes, eliminando algumas barreiras que travavam as devs, como a falta de confiança para aplicarem em vagas que não tinham 100% de chance de aprovação por parte dos critérios exigidos pelas contratantes.
+Sendo assim, trouxemos a proposição de um site em que o público-alvo sejam as mulheres e suas possíveis contratantes, eliminando algumas barreiras que travavam as candidatas, como a falta de confiança para aplicarem em vagas cuja compatibilidade não era total.
 <br><br>
-Por conseguinte, nosso site traz como alternativa o incentivo a participação dessas mulheres, com um layout mais amigável, uma experiência do usuário pensada nelas e por último, mas não menos importante, a aderência de um sistema que introduz as vagas àquelas candidatas com mais chances de conseguirem ser aprovadas nos processos seletivos da empresa, eliminando o problema da insegurança enfrentado por elas.
+Encontramos como alternativa, portanto, o incentivo à participação e aumento da confiança dessas mulheres, a partir de um layout mais amigável, uma experiência do usuário pensada nelas e, por último, mas não menos importante, a aderência de um sistema que introduz oportunidades àquelas candidatas com mais chances de conseguirem ser aprovadas nos processos seletivos da empresa, eliminando a questão da insegurança enfrentada por elas.
 <br><br><br>
+ </p>
 <p align="center">
 <img src="https://github.com/2022M2T1/Projeto5/blob/main/imagens/paginaDeLoginAtualizada.png" alt="TELA LOGIN DO SITE" border="0">
   Login page by <a href="https://github.com/2022M2T1/Projeto5">Intech</a>
@@ -83,158 +87,66 @@ Por conseguinte, nosso site traz como alternativa o incentivo a participação d
              - <a href="https://emoji.gg/emoji/GoogleChrome"><img src="https://cdn3.emoji.gg/emojis/GoogleChrome.png" width="24px" height="24px" alt="GoogleChrome"></a> telaCadastro
              - <a href="https://emoji.gg/emoji/GoogleChrome"><img src="https://cdn3.emoji.gg/emojis/GoogleChrome.png" width="24px" height="24px" alt="GoogleChrome"></a> testelogin
  
+<br>
+<p align="justify">Dentre os arquivos presentes na raiz do projeto, definem-se:
+
+<ul>
+<li>readme.md: arquivo que serve como guia e explicação geral sobre o projeto (o mesmo que você está lendo agora).</li>
+
+<li>documentos: aqui estarão todos os documentos do projeto. Há também uma pasta denominada outros onde estão presentes aqueles documentos complementares ao web application document.</li>
+
+<li>imagens: imagens relacionadas ao projeto como um todo (por exemplo imagens do sistema, do grupo, logotipos e afins).</li>
+
+<li>src: nesta pasta encontra-se todo o código fonte do sistema (existem duas subpastas backend e frontend que contêm, respectivamente, o código do servidor e o código da página web).</li>
+</ul></p>
 
 
-## 🛠 Instalação
+## 💻 Configuração para desenvolvimento
 
-<b>Android:</b>
+Aqui encontram-se todas as instruções necessárias para a instalação de todos os programas, bibliotecas e ferramentas imprescindíveis para a configuração do ambiente de desenvolvimento.
 
-Encontre o github pelo browser do seu celular, entre no perfil do nosso projeto e procure o index na pasta views e execute-o como qualquer outro programa.
+1.  Baixar e instalar o node.js:  [https://nodejs.org/pt-br/](https://nodejs.org/pt-br/) (versão 16.15.1 LTS)
+2. Clone o repositório em questão.
+3.  No modo administrador, abra o "prompt de comando" ou o "terminal" e, após,  abra a pasta "src/backend" no diretório raiz do repositório clonado e digite o segundo comando:
 
-
-<b>Windows:</b>
-
-Não há instalação! Apenas executável!
-Encontre o index na pasta views e execute-o como qualquer outro programa.
-
-```bash
-
-npm install sqlite3
-node app.js
+```sh
+npm install
 ```
 
+Isso instalará todas as dependências definidas no arquivo <b>package.json</b> que são necessárias para rodar o projeto. Agora o projeto já está pronto para ser modificado. Caso ainda deseje iniciar a aplicação, digite o comando abaixo no terminal:
 
-<b>HTML:</b>
-
-Não há instalação!
-Encontre o index.html na pasta views e execute-o como uma página WEB (através de algum browser).
-
-## 📈 Exemplo de uso
-
-O site tem como uma das funções a apresentação de um dashboard interativo com a usuária e a recrutadora, mostrando vagas disponíveis com duas secções principais: Perfil e Vagas.
-```bash
-// função que carrega todas as vagas registradas de tal empresa registrada
- 
-function loadVagas() {
-    let EmpresaInfos = JSON.parse(sessionStorage.getItem("EmpresaDadosLogin"));
- 
- 
- 
-    $("#nomeEmpresa").html(EmpresaInfos.nome_empresa) // coloca as informações da empresa logando diretamente no frontend
-    $("#email").html(EmpresaInfos.email_empresa) // coloca as informações da empresa logando diretamente no frontend
- 
-    $.ajax({
-        url: 'http://localhost:3000/recruiter/listAllEmpresaVagas', // porta da rota
-        method: 'POST',
-        data: { // o que será enviado (req.body)
-            id_empresa: EmpresaInfos.id_empresas
-        },
-        success: function (res) { //se retornar status:200, executa código abaixo
-            console.log(res)
-            const divPai = document.querySelector('#rowBack');
-            for (let i = 0; i < res.length; i++) {
-                const divPai = document.querySelector('#rowBack');
- 
-                //abaixo: modelo HTML que será retornado
- 
-                divPai.innerHTML += `<div class="card" style="width: 445px;">  
-                <h1>${res[i].nome_vaga}</h1>
-                <p>${res[i].descricao_vaga}</p>
- 
-                <div class="icons">
-                    <a href="./vagaCadastrada.html">
-                        <img src="../../images/PeopleIcon.svg"
-                            style="filter: invert(19%) sepia(39%) saturate(6051%) hue-rotate(271deg) brightness(62%) contrast(125%);"
-                            alt="">
-                        <img src="../../images/EditIcon.svg"
-                            style="filter: invert(93%) sepia(20%) saturate(4786%) hue-rotate(336deg) brightness(106%) contrast(91%);"
-                            alt="">
-                        <img src="../../images/DeleteIcon.svg"
-                            style="filter: invert(41%) sepia(53%) saturate(6570%) hue-rotate(343deg) brightness(96%) contrast(99%);"
-                            alt="">
-                    </a>
-                </div>
-            </div>`
-            }
- 
-            divPai.innerHTML += `<button><a href="./cadastroRecrutadora5.html" ><img src="../../images/AddBtn.svg" alt="Adicionar vaga" srcset=""></a></button>`
- 
-        }
-    })
-}
+```sh
+npm start
 ```
+5. Agora você pode acessar a aplicação através do link http://localhost:3000/
+6. O servidor está online.
 
-
-
-
-Além disso, nosso projeto apresenta uma função de pop-up com uma interface amigável para alguns cliques da usuária.
-```bash
-    <script>
-        let popup = document.getElementById("popup");
- 
- 
-        function openPopup() {
-            $("#popupPai").attr("class","backPopup")
-            popup.classList.add("open-popup");
-        }
- 
-        function closePopup(){
- 
-            $("#popupPai").attr("class","popupclose")
-        }
-    </script>
-```
-
-
-Este modelo pode ser copiado e utilizado à vontade.
-
-Através da cópia/clone/ download do repositório, altere os dados do readme.md e carregue os arquivos de seu projeto.
-
-## 💻 Configuração para Desenvolvimento
-
-Descreva como instalar todas as dependências para desenvolvimento e como rodar um test-suite automatizado de algum tipo. Se necessário, faça isso para múltiplas plataformas.
-
-Para abrir este projeto você necessita das seguintes ferramentas:
-
--<a href="https://code.visualstudio.com/download">VS Code</a><br>
--<a href="https://sqlitebrowser.org/dl/">DB Browser for SQLite</a><br>
--<a href="https://www.postman.com/downloads/">Postman</a><br>
--<a href="https://nodejs.org/en/download/">Node.js</a><br>
-```bash
-make install
-npm test
-npm install sqlite3
-npm install express  --save
-node app.js
-```
 ## 🖇️ Documentação
 
 [Manual do Administrador](https://drive.google.com/file/d/1kxzf3gHnxij8L45Vf6C6D2oIj4TfQTBo/view)<br><br>
 [Manual do Utilizador](https://drive.google.com/file/d/15mpBLbNcFsjLBgubgzJBTXZfXOMaKt_d/view)<br><br>
-[WAD](https://drive.google.com/file/d/1OJ1Y2ScE-KS-DZKbRX0R0DZVymr9qgpN/view?usp=sharing)<br><br>
+[WAD](https://drive.google.com/file/d/1OJ1Y2ScE-KS-DZKbRX0R0DZVymr9qgpN/view?usp=sharing)<br>
 
 ## 🗃 Histórico de lançamentos
-
-A cada atualização os detalhes devem ser lançados aqui.
 
 * 0.4.0 - 17/06/2022
     * Reparação de erros e bugs com a API e conversão de imagens para o banco de dados.
 * 0.3.1 - 10/06/2022
     * Entrega da quarta sprint
-    * Testes de funcionamento do site
+    * Testes de funcionamento do site.
 * 0.3.0 - 03/06/2022
     * Integração da interface do usuário com o banco de dados e as rotas da web.
 * 0.2.1 - 27/05/2022
-    * Entrega da terceira sprint
-    * Documentação da API e conclusão parcial do backend
+    * Entrega da terceira sprint.
+    * Documentação da API e conclusão parcial do backend.
 * 0.2.0 - 20/05/2022
-    * Início da modelagem do backend
-    * Criação do banco de dados
+    * Início da modelagem do backend.
+    * Criação do banco de dados.
 * 0.1.1 - 13/05/2022
-    * Entrega da segunda sprint
-    * Conclusão de 90% das telas e início da estilização das páginas.
+    * Entrega da segunda sprint.
+    * Conclusão da maioria das telas e início da estilização das páginas.
 * 0.1.0 - 06/05/2022
-    * Entrega das primeiras telas para o FrontEnd do site
+    * Entrega das primeiras telas do FrontEnd.
 * 0.0.3 - 29/04/2022
     * Entrega da primeira sprint
     * Análise setorial e primeiros passos com o projeto (wireframes, matriz csd, etc)
@@ -245,7 +157,16 @@ A cada atualização os detalhes devem ser lançados aqui.
 
 ## 📋 Licença/License
 
-<p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/Spidus/Teste_Final_1">MODELO GIT INTELI</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://www.yggbrasil.com.br/vr">INTELI, VICTOR BRUNO ALEXANDER ROSETTI DE QUIROZ</a> is licensed under <a href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">Attribution 4.0 International<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"></a></p>
+<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1">
+<p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
+<a property="dct:title" rel="cc:attributionURL" href="https://github.com/2022M2T1/Projeto5">
+Intech</a>
+by 
+<a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://intech-5.herokuapp.com/views/index.html">
+Inteli, Abner Silva, Fernando Bertoldo, Gabriel Carneiro, Izabella Almeida, Júlia Togni, Thomas Brand, Yves Levi</a>
+is licensed under 
+<a href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">Attribution 4.0 International</a>.
+</p>
 
 ## 🎓 Referências
 
