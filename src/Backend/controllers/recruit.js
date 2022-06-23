@@ -31,7 +31,7 @@ const loginRecuiter = (req, res) => { // código do login (conta já criada) pel
     })
 }
 
-const showJobsRecruiter = (req, res) => { //  SEGUIR A PARTIR DAQUI
+const showJobsRecruiter = (req, res) => { //  constante para mostrar as vagas dos recrutadores
     const { id_empresa } = req.body
 
     const recruit = new recruiterModel.Recruiter()
@@ -41,7 +41,7 @@ const showJobsRecruiter = (req, res) => { //  SEGUIR A PARTIR DAQUI
     })
 }
 
-const deleteRecuiter = (req, res) => {
+const deleteRecuiter = (req, res) => { //  constante para deletar as vagas dos recrutadores
 
     const { id_empresas } = req.body
 
@@ -61,7 +61,7 @@ const deleteRecuiter = (req, res) => {
 
 }
 
-const editRecruiter = (req,res)=>{
+const editRecruiter = (req,res)=>{ //  constante para editar as vagas dos recrutadores
     const {id_empresa,logo,email,senha,telefone,site,localização,ramo,cultura} = req.body
 
     const recruit = new recruiterModel.Recruiter()
@@ -77,7 +77,7 @@ const editRecruiter = (req,res)=>{
     })
 }
 
-const verifyEmail = (req,res)=>{
+const verifyEmail = (req,res)=>{ //  constante para a verificação de email
     const {email} = req.body
 
     const recruit = new recruiterModel.Recruiter()
@@ -91,7 +91,7 @@ const verifyEmail = (req,res)=>{
     })
 }
 
-const verifyCNPJ = (req,res)=>{
+const verifyCNPJ = (req,res)=>{ //  constante para a verificação de CPF
     const {cnpj_Empresa} = req.body
 
     const user = new UserModel.User()
@@ -106,7 +106,7 @@ const verifyCNPJ = (req,res)=>{
 }
 
 
-const loadVagaDataWithUsers = (req, res) => {
+const loadVagaDataWithUsers = (req, res) => { // constante que recebe o req.body, ou seja, o que vier dos valores dos inputs
 
     const {id_vaga,id_empresa} = req.body
 

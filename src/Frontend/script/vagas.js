@@ -79,7 +79,7 @@ filter.addEventListener('change', e => {
     }
 })
 
-function clean() {
+function clean() { // função para limpar
     const divVagas = document.querySelector('#vagas')
     divVagas.innerHTML = ''
 }

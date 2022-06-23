@@ -96,7 +96,7 @@ Routes.get("/listEmpresasParceiras", (req, res) => {
     listEmpresa()
 })
 
-Routes.get("/listEmpresasSolicitantes", (req, res) => {
+Routes.get("/listEmpresasSolicitantes", (req, res) => { // função que mostra a lista de empresas que querem existir no db da BiT
     async function listEmpresas() {
         const db = await sqlite.open({ filename: "./database/banco_de_dados.db", driver: sqlite3.Database })
 
@@ -111,7 +111,7 @@ Routes.get("/listEmpresasSolicitantes", (req, res) => {
 })
 
 
-Routes.post("/liberarEmpresa", (req, res) => {
+Routes.post("/liberarEmpresa", (req, res) => { // função para liberar uma empresa que está bloqueada
     async function free() {
 
         const {id_empresa} = req.body
@@ -141,7 +141,7 @@ Routes.post("/liberarEmpresa", (req, res) => {
 
 Routes.post("/bloquearEmpresa",(req,res)=>{
 
-    async function block(){
+    async function block(){ // função para bloquear empresa
 
         const {id_empresa} = req.body
 
@@ -167,7 +167,7 @@ Routes.post("/bloquearEmpresa",(req,res)=>{
 })
 
 Routes.post(('/loadDataEmpresa'), (req, res) => {
-    async function getDB() {
+    async function getDB() { // função que carrega os dados da empresa
         const { id_empresa } = req.body
 
         const db = await sqlite.open({ filename: "./database/banco_de_dados.db", driver: sqlite3.Database })

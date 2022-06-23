@@ -644,7 +644,7 @@ function sendVacancyData(SoftskillVaga, NomeVaga, DescricaoVaga, LocalVaga, Sala
 }
 
 
-function delvaga(id_vaga) {
+function delvaga(id_vaga) { // função que deleta vaga
     $.ajax({
         url: "http://localhost:3000/vaga/deleteVagas",
         method: "DELETE",

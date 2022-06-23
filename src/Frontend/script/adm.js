@@ -105,7 +105,7 @@ function loadVagas() {
 }
 
 
-function liberarEmpresa(id_empresa){
+function liberarEmpresa(id_empresa){ // função para liberar empresa
 
     $.ajax({
         url:"http://localhost:3000/adm/liberarEmpresa",
@@ -124,7 +124,7 @@ function liberarEmpresa(id_empresa){
 }
 
 
-function bloquearEmpresa(id_empresa){
+function bloquearEmpresa(id_empresa){ // função para bloquear empresa
     $.ajax({
         url:"http://localhost:3000/adm/bloquearEmpresa",
         method:"POST",
@@ -141,7 +141,7 @@ function bloquearEmpresa(id_empresa){
 }
 
 
-function loadDataEmpresa() {
+function loadDataEmpresa() { // função para carregar dados da empresa
     const id_empresa = getUrlParameter.get("id_empresa")
     const acceptButton = document.querySelector('#acceptBtn')
     const rejectButton = document.querySelector('#rejectBtn')
