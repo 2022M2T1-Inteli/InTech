@@ -44,7 +44,6 @@ form i {
 
 @media only screen and (max-width: 1000px) {
 
- Fernando2
     body {
         background-image: url("../images/Background.svg");
     }
@@ -146,16 +145,17 @@ nav {
 
 footer {
 
-
   width: 100%;
-  background-color: #530084;
+  background-color: white;
+
 }
 
 
 .copyright {
+
   color: white;
   font-size: 12px;
-  margin-bottom: 0;
+  margin-bottom: .5em;
   font-family: 'nunito';
 
 }
