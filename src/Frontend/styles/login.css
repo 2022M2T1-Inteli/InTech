@@ -26,6 +26,12 @@ input {
   border-style: none;
 }
 
+.warningCaps {
+    font-family: 'Roboto Slab';
+    font-size: 16px;
+    text-align: center;
+}
+
 form i {
   cursor: pointer;
 }
