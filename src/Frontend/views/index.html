@@ -28,11 +28,11 @@
                     <p id="error" style="color: yellow; font-family:'Nunito'; font-weight: 600;"></p>
                 </div>
                 <form>
+                    
                     <label class="inputLogin" for="email">Email</label>
                     <input id="email" type="text" placeholder="E-mail" class="user-select-all"><br><br>
                     <label class="inputLogin" for="password">Senhas</label>
                     <input id="password" type="password" placeholder="Senha" class="user-select-all"><br><br>
-                    <p id="warningCaps">Atenção! Caps lock está ativado.</p>
                     <i class="bi bi-eye-slash" id="togglePassword"> Visualizar senha</i><br>
                     <br>
                     <div class="wrapper">
@@ -91,35 +91,14 @@
             btn.setAttribute("onclick", "loginUser()")
         }
     })
+
     $("#option-2").change(function () {
         if ($(this).is(":checked")) {
             btn.setAttribute("onclick", "loginRecruit()")
         }
     })
 
-</script>
 
-<script>
-    // Get the input field
-    var input = document.getElementById("password");
-
-    // Get the warning text
-    var text = document.getElementById("warningCaps");
-
-    // When the user presses any key on the keyboard, run the function
-    input.addEventListener("keyup", function(event) {
-
-    // If "caps lock" is pressed, display the warning text
-    if (event.getModifierState("CapsLock")) {
-        text.style.display = "block";
-    } else {
-        text.style.display = "none"
-    }
-    });
-</script>
-
-<!-- alternar visualização da senha -->
-<script>
 
     const togglePassword = document.querySelector("#togglePassword");
     const password = document.querySelector("#password");
@@ -131,7 +110,7 @@
         password.setAttribute("type", type);
 
         // alternar entre olho aberto e fechado
-        this.classList.toggle("bi-eye");
+        this.classList.toggle("bi-eye");    
     });
 
     // prevenir submissão do form/evento
@@ -160,7 +139,7 @@
 </script>
 </script>
 
-<script src=".././script/showhideSenhas.js"></script>
+<!-- <script src="/src/Frontend/script/showhideSenhas.js"></script> -->
 <script src="../script/forms.js"></script>
 
 </html>
