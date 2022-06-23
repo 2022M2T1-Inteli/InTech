@@ -175,3 +175,12 @@ Aqui estão as referências usadas no projeto.
 1. <https://github.com/iuricode/readme-template>
 2. <https://github.com/gabrieldejesus/readme-model>
 3. <https://creativecommons.org/share-your-work/>
+4. <https://developer.mozilla.org/en-US/>
+5. <https://www.npmjs.com/package/sqlite3>
+6. <https://www.npmjs.com/>
+7. <https://www.npmjs.com/package/express>
+8. <https://www.npmjs.com/package/sqlite>
+9. <https://www.rocketseat.com.br/>
+10. <https://stackoverflow.com/>
+11. <https://www.w3schools.com/>
+12. <https://www.youtube.com/watch?v=CITYla5utT4&ab_channel=Rocketseat>
