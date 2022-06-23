@@ -150,12 +150,20 @@ footer {
   width: 100%;
   background-color: white;
 
+
 }
+
+
+footer a {
+  color: black;
+}
+
+
 
 
 .copyright {
 
-  color: white;
+  color: black;
   font-size: 12px;
   margin-bottom: .5em;
   font-family: 'nunito';
