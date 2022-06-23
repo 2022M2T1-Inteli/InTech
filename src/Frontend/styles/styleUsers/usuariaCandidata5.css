@@ -10,6 +10,7 @@
 nav{
     background-color: #FFFFFF;
     height: 4.7em;  
+    width: 109%;
 
 }
 
@@ -292,4 +293,20 @@ h2{
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+}
+
+.appliedCard{
+    width: 440px;
+}
+
+
+@media screen and (max-width: 768px) {
+    .appliedCard{
+        width: 140px;
+    }
+
+    nav{
+        width: 120%;
+    }
+    
 }

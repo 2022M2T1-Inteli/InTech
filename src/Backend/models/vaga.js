@@ -25,7 +25,7 @@ class Vaga {
 
     }
 
-    async registerVaga() {
+    async registerVaga() { // método para a criação de uma vaga nova
         const db = await sqlite.open({ filename: "./database/banco_de_dados.db", driver: sqlite3.Database })
 
     
@@ -50,7 +50,7 @@ class Vaga {
         return success
     }
 
-    async editVaga(id_vaga,softskill,descricao,salario,hardskill,modalidade,local){
+    async editVaga(id_vaga,softskill,descricao,salario,hardskill,modalidade,local){ // método para a edição de uma vaga existente
         const db = await sqlite.open({ filename: "./database/banco_de_dados.db", driver: sqlite3.Database })
 
         let vagaInfosEdit = []
@@ -92,7 +92,7 @@ class Vaga {
 
     }
 
-    async deleteVaga(id_vaga){
+    async deleteVaga(id_vaga){ // método para a exlusão de uma vaga existente
         const db = await sqlite.open({ filename: "./database/banco_de_dados.db", driver: sqlite3.Database })
 
         const DeleteVaga = db.run(`DELETE FROM vagas WHERE id_vaga = ${id_vaga} `)

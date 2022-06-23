@@ -10,7 +10,7 @@ const app = express()
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-class Recruiter {
+class Recruiter { // criando pré definição do usuário
     constructor(nome, email, ramo, logo, senha, cultura, telefone, site, cnpj, localização) {
         this.nome = nome,
             this.email = email,
@@ -24,7 +24,8 @@ class Recruiter {
             this.localização = localização
     }
 
-    async genereteRecruiter() {
+
+    async genereteRecruiter() { // método para a criação do usuário
 
         // abre o banco de dados
         const db = await sqlite.open({ filename: "./database/banco_de_dados.db", driver: sqlite3.Database })
@@ -56,7 +57,7 @@ class Recruiter {
 
     }
 
-    async loginRecruiter(email, senha) {
+    async loginRecruiter(email, senha) { // método para o recrutador fazer login
         if (!email && !senha) {
             const error = {
                 type: "error",
@@ -132,7 +133,7 @@ class Recruiter {
         }
     }
 
-    async allJobsRecruiter(id_empresa) {
+    async allJobsRecruiter(id_empresa) { // listar todas as vagas do recrutador
         const db = await sqlite.open({ filename: "./database/banco_de_dados.db", driver: sqlite3.Database })
 
         const vagas = await db.all(`SELECT * FROM vagas WHERE id_empresas = ${id_empresa}`)
@@ -145,7 +146,7 @@ class Recruiter {
         return success
     }
 
-    async deleteRecuiter(id_empresa) {
+    async deleteRecuiter(id_empresa) { // método para o recrutador ser deletado do banco
         const db = await sqlite.open({ filename: "./database/banco_de_dados.db", driver: sqlite3.Database })
 
         //verificar se existe esse id no db
@@ -221,10 +222,10 @@ class Recruiter {
         return success
     }
 
-    async verifyEmail(email_empresa) {
+    async verifyEmail(email_empresa) { // verificação se Email já existe no banco de dados
         const db = await sqlite.open({ filename: "./database/banco_de_dados.db", driver: sqlite3.Database })
 
-        const result = await db.get(`SELECT * FROM empresas WHERE email_empresa = ${email_empresa}`)
+        const result = await db.all(`SELECT * FROM empresas WHERE email_empresa = "${email_empresa}"`)
 
         if (result[0]) {
             const error = {
@@ -245,7 +246,7 @@ class Recruiter {
 
     }
 
-    async verifyCNPJ(cnpj_empresa) {
+    async verifyCNPJ(cnpj_empresa) { // verificação se CNPJ já existe no banco de dados
         const db = await sqlite.open({ filename: "./database/banco_de_dados.db", driver: sqlite3.Database })
 
         const result = await db.all(`SELECT * FROM empresas WHERE cnpj_empresa = "${cnpj_empresa}"`)
@@ -267,7 +268,7 @@ class Recruiter {
         return success
     }
 
-    async loadVagaDataWithUsers(id_vaga, id_empresas) {
+    async loadVagaDataWithUsers(id_vaga, id_empresas) { // rota para quando entrar em vaga específica, mostrar a vaga e mostrar pessoas que se candidataram para tal vaga
         const db = await sqlite.open({ filename: "./database/banco_de_dados.db", driver: sqlite3.Database })
 
         const infoVagas = await db.all(`SELECT nome_vaga,descricao_vaga,local_vaga,salario_vaga,softskill_vaga,hardskill_vaga,modalidade_vaga FROM vagas WHERE id_vaga = ${id_vaga} AND id_empresas = ${id_empresas}`)

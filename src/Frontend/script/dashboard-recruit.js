@@ -26,13 +26,13 @@ function loadVagas() {
                     <a style="color: black; text-decoration: none;" href="./VagaDescricao.html?id_vaga=${res[i].id_vaga}">
                     <h1>${res[i].nome_vaga}</h1>
                     <p>${res[i].descricao_vaga}</p>
-
-                <div class="icons">
-                    <button class="btn btn-danger" style="justify-content: center;" onclick="openPopup(${res[i].id_vaga})">
-                        <img src="../../images/DeleteIconWhite.svg" alt="">
-                    </button>
-                </div>
                 </a>
+                <div class="icons">
+                <button class="btn btn-danger" style="justify-content: center;" onclick="openPopup(${res[i].id_vaga})">
+                    <img src="../../images/DeleteIconWhite.svg" alt="">
+                </button>
+            </div>
+            
             </div>`
             }
 
@@ -43,7 +43,7 @@ function loadVagas() {
 }
 
 // quando do login, pegar infos de empresa cadastradas no banco de dados, e display na página de perfil da empresa
-function logadoRecruit(email,senha) {
+function logadoRecruit(email, senha) {
     let Recruit = JSON.parse(sessionStorage.getItem("EmpresaDadosLogin"))
     $("#name").html(Recruit.nome_empresa)
     $("#localizacao").val(Recruit.localizacao_empresa)
@@ -83,7 +83,7 @@ function loadVagaInformation() { // função para carregar as informações da v
 
     $.ajax({
         url: `http://localhost:3000/rotas/listVagaInfo?id_vaga=${id_vaga}`,
-        method: 'POST', 
+        method: 'POST',
         success: (res) => {
             console.log(res) // abaixo as classes estão sendo linkados com os valores dos inputs inseridos
             $("#tituloVaga").html(res.nome_vaga)
@@ -91,6 +91,7 @@ function loadVagaInformation() { // função para carregar as informações da v
             $("#salario").val(res.salario_vaga)
             $("#localizacao").val(res.local_vaga)
             $("#modalidade").val(res.modalidade_vaga)
+            $("#delete").attr("onclick",`openPopup(${id_vaga})`)
 
             hardSkills = res.hardskill_vaga.split(',')
             updateHardSkills(hardSkills)
@@ -102,7 +103,7 @@ function loadVagaInformation() { // função para carregar as informações da v
                 method: 'POST',
                 data: {
                     id_vaga: id_vaga
-                }, 
+                },
                 success: (res) => {
 
                     let divC = document.querySelector('#AplicantesCards') // código para mostrar o match
@@ -121,7 +122,7 @@ function loadVagaInformation() { // função para carregar as informações da v
                         </div>
 
                         `
-                        
+
                         let div = document.getElementById(`${i}`) // mostrando para o usuário cores diferentes de acordo com a porcentagem de match.
 
                         if (match >= 80) {
@@ -179,8 +180,8 @@ function removeSoftSkill(e) { // função executada quando aperta o pequeno 'x' 
     updateSoftSkills(softSkills)
 }
 
-function loginRecruit(email,senha) { // função de login para recrutadores
-  
+function loginRecruit(email, senha) { // função de login para recrutadores
+
 
     $.ajax({
         url: "http://localhost:3000/recruiter/loginRecruit",
@@ -195,10 +196,10 @@ function loginRecruit(email,senha) { // função de login para recrutadores
             $("#error").html(res.responseJSON)
         },
         success: function (res) { // quando der certo, os dados vão ser salvos na session storage
-            
+
             sessionStorage.setItem("EmpresaDadosLogin", JSON.stringify(res))
             window.location.reload()
-            
+
 
         }
     })
@@ -221,16 +222,16 @@ function EditCompany(id_empresa, logo, email, senha, telefone, site, localizaç�
             cultura: cultura
         },
         success: function () { // manda os valores (caso dê certo) para o session storage
-           
+
             let email = document.querySelector("#email").value
             let senha = JSON.parse(sessionStorage.getItem("EmpresaDadosLogin")).senha_empresa
 
             sessionStorage.removeItem("EmpresaDadosLogin")
-            setTimeout(function(){
-                loginRecruit(email,senha)
+            setTimeout(function () {
+                loginRecruit(email, senha)
 
-            },1000) 
-            
+            }, 1000)
+
             // 
         },
         error: function (res) {

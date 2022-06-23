@@ -92,19 +92,20 @@ Routes.post('/listCandidatas', (req, res) => {
     db()
 })
 
-Routes.get("/listAllVgasUser",(req,res)=>{
+Routes.get("/listAllVagasUser",(req,res)=>{
     async function getDB(){
         const db = await sqlite.open({ filename: "./database/banco_de_dados.db", driver: sqlite3.Database })
         const infos = await db.all("SELECT empresas.id_empresas, empresas.logo_empresa, empresas.nome_empresa, vagas.id_empresas, vagas.nome_vaga, vagas.descricao_vaga, vagas.id_vaga FROM vagas  JOIN empresas  on vagas.id_empresas = empresas.id_empresas ")
 
         res.status(200).json(infos)
 
+        db.close()
+
     }
 
     getDB()
    
 })
-
 
 // exportando todos os Routes para serem utilizados em outro arquivo js
 module.exports = Routes

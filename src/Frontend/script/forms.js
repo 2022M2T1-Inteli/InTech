@@ -65,13 +65,13 @@ function catchUserData() { // função que pega os dados de usuário de acordo c
                 }, 5000)
             }
             else {
-                if (forms1.CelularCandidata == "(__) _____-____") {
+                if (forms1.CelularCandidata == "") {
                     errorCelular.innerHTML = "Numero de celular obrigatório"
                     window.scroll(0, 0)
                     setTimeout(function () {
                         errorCelular.innerHTML = ""
                     }, 5000)
-                } else if (forms1.CPFCandidata == "___.___.___-__") {
+                } else if (forms1.CPFCandidata == "") {
                     errorCPF.innerHTML = "CPF necessário"
                     window.scroll(0, 0)
                     setTimeout(function () {
@@ -79,11 +79,14 @@ function catchUserData() { // função que pega os dados de usuário de acordo c
                     }, 5000)
 
                 } else if (!forms1.LocalizacaoCandidata) {
-                    error.innerHTML = "Localização necessária"
+                    errorDate.innerHTML = "Localização necessária"
                     window.scroll(0, 0)
+                    setTimeout(function () {
+                        errorDate.innerHTML = ""
+                    })
                 } else if (!forms1.NascimentoCandidata) {
                     errorDate.innerHTML = "Data necessária"
-                    window.scroll(0, 150)
+                    window.scroll(0, 350)
                     setTimeout(function () {
                         errorDate.innerHTML = ""
                     }, 5000)
@@ -157,7 +160,7 @@ function catchUserData() { // função que pega os dados de usuário de acordo c
 
 
 function loadDataForms1User() {
-    let userinfos =JSON.parse(sessionStorage.getItem("User1"))
+    let userinfos = JSON.parse(sessionStorage.getItem("User1"))
 
     let NomeCandidata = document.querySelector('#nomeCandidata').value = userinfos.NomeCandidata
     let EmailCandidata = document.querySelector('#emailCandidata').value = userinfos.EmailCandidata
@@ -168,11 +171,11 @@ function loadDataForms1User() {
     let NascimentoCandidata = document.querySelector("#data-nascimento").value = userinfos.NascimentoCandidata
     let LocalizacaoCandidata = document.querySelector('#localizacao').value = userinfos.LocalizacaoCandidata
 
-  
 
 
 
-    
+
+
 }
 
 let PDFcurriculo
@@ -294,6 +297,7 @@ function catchUserData2() { // função que pega os dados do formulário
 
         sendUserData(userForms1.NomeCandidata, Escolaridade_candidata, userForms1.EmailCandidata, userForms1.CPFCandidata, userForms1.GeneroCandidata, userForms1.NascimentoCandidata, PDFcurriculo, SoftskillsDB, userForms1.SenhaCandidata, Cargo_canditada, userForms1.CelularCandidata, userForms1.LocalizacaoCandidata, Status_candidata, HardskillsDB)
 
+
         sessionStorage.removeItem("User1")
 
     }
@@ -319,6 +323,7 @@ function catchRecruiterData() { // função que pega os valores do formulário p
         RamoAtividade: document.querySelector('#ramoEmpresa').value,
         CnpjEmpresa: document.querySelector('#cnpjEmpresa').value,
         LocalizacaoEmpresa: document.querySelector('#localizacaoEmpresa').value,
+        CulturaDaEmpresa: document.querySelector('#CulturaDaEmpresa').value,
         LogoEmpresa: LogoEmpresa
     }
 
@@ -326,6 +331,7 @@ function catchRecruiterData() { // função que pega os valores do formulário p
     let errorramoEmpresa = document.querySelector("#errorRamo")
     let errorCNPJ = document.querySelector("#errorCNPJ")
     let errorLocal = document.querySelector("#errorLocal")
+    let errorCultura = document.querySelector("#errorCultura")
     let errorLogo = document.querySelector("#errorLogo")
 
     // caso a recrutadora não preencha um campo corretamente, ela receberá uma mensagem de alerta
@@ -366,6 +372,13 @@ function catchRecruiterData() { // função que pega os valores do formulário p
         setTimeout(function () {
             errorLogo.innerHTML = ""
         }, 5000)
+    }if(!formsRecruit1.CulturaDaEmpresa){
+        errorCultura.innerHTML = "Campo de cultura da empresa"
+        window.scroll(0,530)
+        setTimeout(function () {
+            errorCultura.innerHTML = ""
+        },3000)
+
     } else {
         sessionStorage.setItem("Recruit1", JSON.stringify(formsRecruit1))
 
@@ -379,14 +392,16 @@ function catchRecruiterData() { // função que pega os valores do formulário p
 
 }
 
-function loadDataForms1Recruiter(){
+function loadDataForms1Recruiter() {
 
-    let dataRecruiter =JSON.parse(sessionStorage.getItem("Recruit1"))
+    let dataRecruiter = JSON.parse(sessionStorage.getItem("Recruit1"))
 
-    let NomeEmpresa= document.querySelector('#nomeEmpresa').value = dataRecruiter.NomeEmpresa
-    let RamoAtividade= document.querySelector('#ramoEmpresa').value = dataRecruiter.RamoAtividade
-    let CnpjEmpresa= document.querySelector('#cnpjEmpresa').value = dataRecruiter.CnpjEmpresa
-    let LocalizacaoEmpresa= document.querySelector('#localizacaoEmpresa').value = dataRecruiter.LocalizacaoEmpresa
+    let NomeEmpresa = document.querySelector('#nomeEmpresa').value = dataRecruiter.NomeEmpresa
+    let RamoAtividade = document.querySelector('#ramoEmpresa').value = dataRecruiter.RamoAtividade
+    let CnpjEmpresa = document.querySelector('#cnpjEmpresa').value = dataRecruiter.CnpjEmpresa
+    let LocalizacaoEmpresa = document.querySelector('#localizacaoEmpresa').value = dataRecruiter.LocalizacaoEmpresa
+    let CulturaEmpresa = document.querySelector('#CulturaDaEmpresa').values = dataRecruiter.CulturaDaEmpresa
+
 
 }
 
@@ -426,19 +441,41 @@ function catchRecruiterData2() { // função que pega os valores de outro formul
         setTimeout(function () {
             errorEmail.innerHTML = ""
         }, 5000)
-    }
-    else if (!SenhaEmpresa) {
-        errorSenha.innerHTML = "Campo obrigatório"
-        window.scroll(0, 0)
-        setTimeout(function () {
-            errorSenha.innerHTML = ""
-        }, 5000)
     } else {
+        $.ajax({
+            url: "http://localhost:3000/recruiter/verifyEmail",
+            method: "POST",
+            data: {
+                email: EmailEmpresa
+            },
+            success: function () {
 
-        sendRecruitData(recuitForms1.NomeEmpresa, EmailEmpresa, recuitForms1.RamoAtividade, recuitForms1.LogoEmpresa, SenhaEmpresa, "cultura", TelefoneEmpresa, SiteEmpresa, recuitForms1.CnpjEmpresa, recuitForms1.LocalizacaoEmpresa)
-        sessionStorage.removeItem("Recruit1")
+                if (!SenhaEmpresa) {
+                    errorSenha.innerHTML = "Campo obrigatório"
+                    window.scroll(0, 0)
+                    setTimeout(function () {
+                        errorSenha.innerHTML = ""
+                    }, 5000)
+                } else {
+
+                    sendRecruitData(recuitForms1.NomeEmpresa, EmailEmpresa, recuitForms1.RamoAtividade, recuitForms1.LogoEmpresa, SenhaEmpresa, recuitForms1.CulturaDaEmpresa, TelefoneEmpresa, SiteEmpresa, recuitForms1.CnpjEmpresa, recuitForms1.LocalizacaoEmpresa)
+                    sessionStorage.removeItem("Recruit1")
+                }
+
+            },
+            error: function (res) {
+                console.log(res)
+                errorEmail.innerHTML = res.responseText
+                setTimeout(function () {
+                    errorEmail.innerHTML = ""
+                }, 5000)
+
+            }
+        })
+
+
+
     }
-
 
 
 }
@@ -469,6 +506,12 @@ function catchVacancyData() {
 
     }
 
+    let errorNome = document.getElementById("errorNome")
+    let errorDescricao = document.getElementById("errorDescricao")
+    let errorModalidade = document.getElementById("errorModalidade")
+    let errorLocal = document.getElementById("errorLocal")
+    let errorSoft = document.getElementById("errorSoft")
+    let errorHard = document.getElementById("errorHard")
 
 
     let SoftskillsVagaDB = SoftskillsVagaOn.toString()
@@ -477,7 +520,48 @@ function catchVacancyData() {
 
     let empresa = JSON.parse(sessionStorage.getItem("EmpresaDadosLogin"))
 
-    sendVacancyData(SoftskillsVagaDB, Nome_vaga, Descricao_vaga, Local_vaga, Salario_vaga, empresa.id_empresas, HardskillsVagaDB, ModalidadeVaga)
+    if (!Nome_vaga) {
+        errorNome.innerHTML = "Nome da vaga necessário"
+        window.scroll(0,0)
+        setInterval(function() { 
+            errorNome.innerHTML = ""
+        },3000)
+    } else if (!Descricao_vaga) {
+        window.scroll(0,0)
+        errorDescricao.innerHTML = "Descrição da vaga necessário"
+        setInterval(function() { 
+            errorDescricao.innerHTML = ""
+        },3000)
+    } else if (!ModalidadeVaga) {
+        window.scroll(0,120)
+        errorModalidade.innerHTML = "Modalidade da vaga necessária"
+        setInterval(function() { 
+            errorModalidade.innerHTML = ""
+        },3000)
+    } else if (!Local_vaga) {
+        window.scroll(0,120)
+        errorLocal.innerHTML = "Local da vaga necessário"
+        setInterval(function() { 
+            errorLocal.innerHTML = ""
+        },3000)
+    } else if (SoftskillsVaga.length <= 0) {
+        window.scroll(0,350)
+        errorSoft.innerHTML = "Pelo menos 1 ou mais softskills para a vaga"
+        setInterval(function() { 
+            errorSoft.innerHTML = ""
+        },3000)
+    } else if (HardskillsVaga.length <= 0) {
+        window.scroll(0,350)
+        errorHard.innerHTML = "Pelo menos 1 ou mais hardskills para a vaga"
+        setInterval(function() { 
+            errorHard.innerHTML = ""
+        },3000)
+    } else {
+
+        sendVacancyData(SoftskillsVagaDB, Nome_vaga, Descricao_vaga, Local_vaga, Salario_vaga, empresa.id_empresas, HardskillsVagaDB, ModalidadeVaga)
+    }
+
+
 
 }
 
@@ -498,7 +582,7 @@ function sendUserData(Nome_Candidata, Escolaridade_candidata, Email_candidata, C
             Senha_candidata: Senha_canditada,
             Cargo_candidata: Cargo_canditada,
             Celular_candidata: Celular_candidata,
-            Localizacao_Candidata: Localizacao_Candidata,
+            Localização_candidata: Localizacao_Candidata,
             Status_candidata: Status_candidata,
             Hardskill_candidata: Hardskill_candidata,
         },
@@ -560,7 +644,7 @@ function sendVacancyData(SoftskillVaga, NomeVaga, DescricaoVaga, LocalVaga, Sala
 }
 
 
-function delvaga(id_vaga) {
+function delvaga(id_vaga) { // função que deleta vaga
     $.ajax({
         url: "http://localhost:3000/vaga/deleteVagas",
         method: "DELETE",

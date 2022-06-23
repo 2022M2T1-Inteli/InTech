@@ -29,7 +29,7 @@ class User {
     }
 
 
-    async genereteUser() {
+    async genereteUser() { // método para a geração de um usuário
         // abre o banco de dados
         let db = await sqlite.open({ filename: "./database/banco_de_dados.db", driver: sqlite3.Database })
 
@@ -57,7 +57,7 @@ class User {
         return success
     }
 
-    async loginUser(email, senha) {
+    async loginUser(email, senha) { // método para o login de um usuário
         if (!email && !senha) {
 
             const error = {
@@ -129,7 +129,7 @@ class User {
         }
     }
 
-    async listjobs(id_candidata) {
+    async listjobs(id_candidata) { // método para listar as vagas existentes e disponíveis
 
         const db = await sqlite.open({ filename: "./database/banco_de_dados.db", driver: sqlite3.Database })
 
@@ -144,7 +144,7 @@ class User {
 
     }
 
-    async editUser(id_candidata, localizacao, cargo, grauDeInstrução, hardskill, softskill) {
+    async editUser(id_candidata, localizacao, cargo, grauDeInstrução, hardskill, softskill) { // método para a edição de um usuário existente
         const db = await sqlite.open({ filename: "./database/banco_de_dados.db", driver: sqlite3.Database })
 
         const rowId = await db.all(`SELECT * FROM candidatas WHERE id_candidata = ${id_candidata}`)
@@ -186,7 +186,7 @@ class User {
 
     }
 
-    async deleteUser(id_candidata) {
+    async deleteUser(id_candidata) { // // método para a exclusão de um usuário existente
         const db = await sqlite.open({ filename: "./database/banco_de_dados.db", driver: sqlite3.Database })
 
         const rowId = await db.all(`SELECT * FROM candidatas WHERE id_candidata = ${id_candidata}`)
@@ -214,7 +214,7 @@ class User {
 
     }
 
-    async EmailVerificacion(EmailVerificacion) {
+    async EmailVerificacion(EmailVerificacion) { // método para a verificação se o email existe no banco de dados
         const db = await sqlite.open({ filename: "./database/banco_de_dados.db", driver: sqlite3.Database })
 
         const result = await db.all(`SELECT * FROM candidatas WHERE email_candidata == "${EmailVerificacion}" `)
@@ -243,7 +243,7 @@ class User {
 
     }
 
-    async CPFVerificacion(CPFVerificacion){
+    async CPFVerificacion(CPFVerificacion){ // método para a verificação se o CPF existe no banco de dados
         const db = await sqlite.open({ filename: "./database/banco_de_dados.db", driver: sqlite3.Database })
 
         const result = await db.all(`SELECT * FROM candidatas WHERE cpf_candidata = "${CPFVerificacion}"`)
@@ -266,7 +266,7 @@ class User {
 
     }
 
-    async cancelCandidataura(id_candidata,id_vaga){
+    async cancelCandidataura(id_candidata,id_vaga){ // método para cancelar a candidatura em alguma vaga
         const db = await sqlite.open({ filename: "./database/banco_de_dados.db", driver: sqlite3.Database })
 
         const result = await db.run(`DELETE FROM vagasCandidatas WHERE id_vaga = ${id_vaga} AND id_candidata = ${id_candidata}`)
