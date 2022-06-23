@@ -90,6 +90,7 @@
             btn.setAttribute("onclick", "loginUser()")
         }
     })
+
     $("#option-2").change(function () {
         if ($(this).is(":checked")) {
             btn.setAttribute("onclick", "loginRecruit()")
@@ -108,7 +109,7 @@
         password.setAttribute("type", type);
 
         // alternar entre olho aberto e fechado
-        this.classList.toggle("bi-eye");
+        this.classList.toggle("bi-eye");    
     });
 
     // prevenir submissão do form/evento

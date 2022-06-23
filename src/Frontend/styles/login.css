@@ -12,9 +12,10 @@ div {
 }
 
 .block {
-  margin-top: 5em;
-}
 
+    margin-top: 3em;
+    margin-bottom: 5em;
+}
 
 input {
   text-align: center;
@@ -42,16 +43,18 @@ form i {
 
 @media only screen and (max-width: 1000px) {
 
-  body {
-    background-image: url("../images/Background.svg");
-  }
+ Fernando2
+    body {
+        background-image: url("../images/Background.svg");
+    }
 
-  nav {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-  }
+    nav {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+    }
 }
+
 
 
 .wrapper {
