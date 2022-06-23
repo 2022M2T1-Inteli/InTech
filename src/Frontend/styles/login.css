@@ -13,8 +13,8 @@ div {
 
 .block {
 
-    margin-top: 3em;
-    margin-bottom: 5em;
+  margin-top: 3em;
+  margin-bottom: 5em;
 }
 
 input {
@@ -28,9 +28,9 @@ input {
 }
 
 .warningCaps {
-    font-family: 'Roboto Slab';
-    font-size: 16px;
-    text-align: center;
+  font-family: 'Roboto Slab';
+  font-size: 16px;
+  text-align: center;
 }
 
 form i {
@@ -41,18 +41,18 @@ form i {
   font-family: 'Nunito';
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 400px) {
 
- Fernando2
-    body {
-        background-image: url("../images/Background.svg");
-    }
 
-    nav {
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-    }
+  body {
+    background-image: url("../images/Background.svg");
+  }
+
+  nav {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
 }
 
 
