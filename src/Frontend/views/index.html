@@ -119,6 +119,24 @@
         e.preventDefault();
     });
 
+    // especificar campo de input
+    var input = document.getElementById("password");
+
+    // pegar parágrafo com texto a ser exibido no warning
+    var text = document.getElementById("warningCaps");
+    text.style.display = "none";
+
+    // quando o usuário digita qualquer coisa no campo de input, roda a função
+    input.addEventListener("keyup", function(event) {
+
+    // se o usuário aciona/tem acionado o Capslock, exibe o warning
+    if (event.getModifierState("CapsLock")) {
+        text.style.display = "block";
+    } else {
+        text.style.display = "none"
+    }
+    });
+</script>
 </script>
 
 <!-- <script src="/src/Frontend/script/showhideSenhas.js"></script> -->
