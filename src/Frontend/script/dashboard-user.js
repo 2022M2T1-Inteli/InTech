@@ -37,7 +37,7 @@ function logadoUser() {
                 let div = document.querySelector(".vagasUser")
 
                 div.innerHTML += `
-                <div class="appliedCard card mb-2" style="width: 445px;">
+                <div class="appliedCard card mb-2">
                     <a href="./usuariaCandidata2.html?id_vaga=${res[i].id_vaga}">
                         <h1 class = "d-flex justify-content-center fs-4 p-3">${res[i].nome_vaga}</h1>
                         <p class = "d-flex justify-content-center descrição">${res[i].descricao_vaga}</p>
