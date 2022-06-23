@@ -32,6 +32,7 @@
                     <input id="email" type="text" placeholder="E-mail" class="user-select-all"><br><br>
                     <label class="inputLogin" for="password">Senhas</label>
                     <input id="password" type="password" placeholder="Senha" class="user-select-all"><br><br>
+                    <p id="warningCaps">Atenção! Caps lock está ativado.</p>
                     <i class="bi bi-eye-slash" id="togglePassword"> Visualizar senha</i><br>
                     <br>
                     <div class="wrapper">
@@ -98,6 +99,25 @@
 
 </script>
 
+<script>
+    // Get the input field
+    var input = document.getElementById("password");
+
+    // Get the warning text
+    var text = document.getElementById("warningCaps");
+
+    // When the user presses any key on the keyboard, run the function
+    input.addEventListener("keyup", function(event) {
+
+    // If "caps lock" is pressed, display the warning text
+    if (event.getModifierState("CapsLock")) {
+        text.style.display = "block";
+    } else {
+        text.style.display = "none"
+    }
+    });
+</script>
+
 <!-- alternar visualização da senha -->
 <script>
 
@@ -122,7 +142,7 @@
 
 </script>
 
-<!-- <script src="/src/Frontend/script/showhideSenhas.js"></script> -->
+<script src=".././script/showhideSenhas.js"></script>
 <script src="../script/forms.js"></script>
 
 </html>
