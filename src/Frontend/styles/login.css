@@ -12,9 +12,9 @@ div {
 }
 
 .block {
-    margin-top: 5em;
+    margin-top: 3em;
+    margin-bottom: 5em;
 }
-
 
 input {
     text-align: center;
@@ -24,6 +24,13 @@ input {
     left: 1030px;
     top: 383px;
     border-style: none;
+}
+
+.warningCaps {
+    color: #FF0000;
+    font-family: 'Roboto Slab';
+    font-size: 20px;
+    text-align: center;
 }
 
 form i {
@@ -46,7 +53,6 @@ form i {
         align-items: flex-start;
     }
 }
-
 
 .wrapper{
     display: flex;
