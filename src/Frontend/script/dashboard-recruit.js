@@ -111,9 +111,12 @@ function loadVagaInformation() { // função para carregar as informações da v
                     for (let i = 0; i < res.length; i++) {
                         let match = res[i].match_percent * 100
 
+                        let nomeCandidata = res[i].nome_candidata.split(' ')
+                        console.log(nomeCandidata)
+
                         divC.innerHTML += `
                         <div id="${i}" class="CardCandidata">
-                            <h2 id="nomeCandidata" class="nomeCand">${res[i].nome_candidata}</h2>
+                            <h2 id="nomeCandidata" class="nomeCand">${nomeCandidata[0]}</h2>
                             <a href="mailto:${res[i].email_candidata}" id="contato">Entrar em contato</a>
                             <p><span id="porcentagem">${match}% de compatibilidade</span></p>
 
