@@ -24,6 +24,9 @@
  - <a href="https://www.linkedin.com/in/thomas-brand-b37170238/">Thomas Brand</a> 
  - <a href="https://www.linkedin.com/in/yveslevi/">Yves Levi</a>
 
+##Imagem dos integrantes:
+<a href="https://github.com/2022M2T1/Projeto5/blob/main/imagens/intech.jpeg"</a>
+Thomas Brand, Abner Silva, Julia Togni, Izabella Almeida, Fernando Bertholdo, Yves Levi e Gabriel Carneiro, respectivamente. 
 
 ## 📝 Descrição 
 <p align="justify"> Tendo em vista a grande disparidade entre homens e mulheres no mercado de trabalho na área de tecnologia, nosso projeto busca promover, por meio da parceria com a Organização Brazilians in Tech, a conexão entre vagas de trabalho e futuras profissionais do mercado tecnológico.
