@@ -50,9 +50,9 @@ Encontramos como alternativa, portanto, o incentivo à participação e aumento 
    - 📂 __[.vscode](.vscode/)__
       - <a href="https://emoji.gg/emoji/8009-java-js"><img src="https://cdn3.emoji.gg/emojis/8009-java-js.png" width="16px" height="16px" alt="Java_Js"></a> sttings.js
    - 📂 __[documentos](documentos/)__
-      - <a href="https://github.com/2022M2T3/Projeto4/blob/main/documentos/WAD%20-%20Yamaha%20Planning%20System.pdf"><img src="https://user-images.githubusercontent.com/99209356/174968401-abc5cae1-7a1e-4f06-aca6-c859c993c038.svg" width="18px" height="18px"></a> Manual de Administrador
-      - <a href="https://github.com/2022M2T3/Projeto4/blob/main/documentos/WAD%20-%20Yamaha%20Planning%20System.pdf"><img src="https://user-images.githubusercontent.com/99209356/174968401-abc5cae1-7a1e-4f06-aca6-c859c993c038.svg" width="18px" height="18px"></a> Manual do Utilizador
-      - <a href="https://github.com/2022M2T3/Projeto4/blob/main/documentos/WAD%20-%20Yamaha%20Planning%20System.pdf"><img src="https://user-images.githubusercontent.com/99209356/174968401-abc5cae1-7a1e-4f06-aca6-c859c993c038.svg" width="18px" height="18px"></a> WAD Grupo 5 - Intech
+      - <a href="https://github.com/2022M2T1/Projeto5/blob/main/documentos/MANUAL%20DE%20ADMINISTRADOR.pdf"><img src="https://user-images.githubusercontent.com/99209356/174968401-abc5cae1-7a1e-4f06-aca6-c859c993c038.svg" width="18px" height="18px"> Manual de Administrador</a> 
+      - <a href="https://github.com/2022M2T1/Projeto5/blob/main/documentos/MANUAL%20DE%20UTILIZADOR.pdf"><img src="https://user-images.githubusercontent.com/99209356/174968401-abc5cae1-7a1e-4f06-aca6-c859c993c038.svg" width="18px" height="18px"> Manual do Utilizador</a> 
+      - <a href="https://github.com/2022M2T1/Projeto5/blob/main/documentos/T1_G5_V2.0_Web_application_document.docx.pdf"><img src="https://user-images.githubusercontent.com/99209356/174968401-abc5cae1-7a1e-4f06-aca6-c859c993c038.svg" width="18px" height="18px"> Web Application Document Grupo 5 - Intech</a> 
    - 📁 __[imagens](imagens/)__
    - 📂 __[src](src/)__
       - 📂 __[Backend](src/Backend)__
