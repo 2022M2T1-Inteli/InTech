@@ -7,7 +7,7 @@
 # Brazilians in Tech
 
 <p align="center">
-<a href= "https://braziliansintech.com/"><img src="https://braziliansintech.com/static/img/logo.png" alt="Brazilians In Tech" border="0" width="312px"></a>
+<a href== "https://braziliansintech.com/"><img src="https://braziliansintech.com/static/img/logo.png" alt="Brazilians In Tech" border="0" width="312px"></a>
 </p>
 
 # InTech
@@ -24,8 +24,8 @@
  - <a href="https://www.linkedin.com/in/thomas-brand-b37170238/">Thomas Brand</a> 
  - <a href="https://www.linkedin.com/in/yveslevi/">Yves Levi</a>
 
-##Imagem dos integrantes:
-<a href="https://github.com/2022M2T1/Projeto5/blob/main/imagens/intech.jpeg"</a>
+## 📷 Fotografia dos integrantes:
+<img src="https://github.com/2022M2T1/Projeto5/blob/main/imagens/intech.jpeg" alt="Integrantes" border="0"> 
 Thomas Brand, Abner Silva, Julia Togni, Izabella Almeida, Fernando Bertholdo, Yves Levi e Gabriel Carneiro, respectivamente. 
 
 ## 📝 Descrição 
